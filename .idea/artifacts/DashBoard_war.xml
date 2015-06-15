@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" build-on-make="true" name="DashBoard:war">
+    <output-path>$PROJECT_DIR$/target</output-path>
+    <root id="archive" name="DashBoard.war">
+      <element id="artifact" artifact-name="DashBoard:war exploded" />
+    </root>
+  </artifact>
+</component>
