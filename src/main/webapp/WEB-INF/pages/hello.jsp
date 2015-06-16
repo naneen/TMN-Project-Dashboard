@@ -8,6 +8,7 @@
 </head>
 <body>
 	<h1>${message}</h1>
+	<h1>${avgOffset}</h1>
     <div id="canvas-holder">
         <canvas id="chart-area"/>
     </div>
