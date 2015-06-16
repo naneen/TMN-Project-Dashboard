@@ -13,11 +13,11 @@
             <canvas id="chart-area"/>
         </div>
         <script>
-            var avg = 75;
-            var freeSpace = 100-avg;
+            // ======================================== PIE CHART
+            var freeSpace = 100-${avgOffset};
             var pieData = [
                 {
-                    value: avg,
+                    value: ${avgOffset},
                     color: "#46BFBD",
                     highlight: "#5AD3D1",
                     label: "Green"
@@ -33,6 +33,9 @@
                 var ctx = document.getElementById("chart-area").getContext("2d");
                 window.myPie = new Chart(ctx).Pie(pieData);
             };
+
+            // ======================================== AJAX
+
         </script>
     </body>
 </html>
