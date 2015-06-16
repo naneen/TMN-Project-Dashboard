@@ -24,8 +24,8 @@
                 },
                 {
                     value: freeSpace,
-                    color: "#FDB45C",
-                    highlight: "#FFC870",
+                    color: "rgba(0,0,0,0)",
+                    highlight: "rgba(255,255,255,0.3)",
                     label: "Yellow"
                 }
             ]
