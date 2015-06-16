@@ -1,5 +1,14 @@
+<!DOCTYPE html>
 <html>
 <body>
-	<h1>${message}</h1>
+
+<h1>My First JavaScript</h1>
+<h2>${message}</h2>
+<button type="button"
+onclick="document.getElementById('demo').innerHTML = Date()">
+Click me to display Date and Time.</button>
+
+<p id="demo"></p>
+
 </body>
-</html>
+</html> 
