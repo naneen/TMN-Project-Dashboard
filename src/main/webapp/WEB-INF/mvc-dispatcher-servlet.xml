@@ -12,7 +12,7 @@
         <property name="prefix" value="/WEB-INF/pages/"/>
         <property name="suffix" value=".jsp"/>
     </bean>
-    
-	<mvc:annotation-driven/>
+
+    <mvc:annotation-driven/>
     <mvc:resources mapping="/resources/**" location="/resources/" />
 </beans>
