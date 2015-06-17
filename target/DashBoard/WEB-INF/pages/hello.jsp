@@ -42,13 +42,14 @@
                     }
                 });
             }
-            setInterval(crunchifyAjax, 1000);
+            setInterval(crunchifyAjax, 5000);
         </script>
     </head>
 
     <body>
         <script type="text/javascript">
             x();
+            crunchifyAjax();
         </script>
 
 
@@ -69,6 +70,7 @@
             <div class="box${i}" ><img src="resources/img/${i}.png" width=15%/></div>
         </c:forEach>
         <div id="resultTop4"></div>
+
 
     </body>
 </html>
