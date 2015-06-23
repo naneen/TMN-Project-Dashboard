@@ -6,27 +6,27 @@ body {
   font-weight: bold;
 }
 #tx1{
-	position:absolute; 
-	left:18.5%; 
+	position:absolute;
+	left:18.5%;
    	top:25%;
-	
+
 }
 #tx2{
-	position:absolute; 
-	left:33.5%; 
+	position:absolute;
+	left:33.5%;
    	top:25%;
 }
 #tx3{
-	position:absolute; 
-	left:18.5%;  
+	position:absolute;
+	left:18.5%;
    	top:40%;
-	
+
 }
 #tx4{
-	position:absolute; 
-	left:33.5%; 
+	position:absolute;
+	left:33.5%;
    	top:40%;
-	
+
 }
 
 .board {
@@ -34,7 +34,7 @@ body {
     height:46%;
 	background:white;
      -webkit-border-radius: 3px;
-    border-radius: 3px; 
+    border-radius: 3px;
     	-moz-box-shadow:   0px 0px 5px #e4eaec;
     -webkit-box-shadow:   0px 0px 5px #e4eaec;
     box-shadow:   0px 0px 5px #e4eaec;
@@ -42,57 +42,57 @@ body {
 
 
 #diva{
-	position:absolute; 
+	position:absolute;
 	width:25%;
     height:7.5%;
-	left:10%; 
+	left:10%;
    	top:8%;
-  
-	
+
+
 }
 #div1{
-	position:absolute; 
+	position:absolute;
 	width:45%;
     height:7.5%;
-	left:3.5%; 
+	left:3.5%;
    	top:2%;
    	background:#f6f8f8;
    	-moz-box-shadow:   0px 0px 5px #e4eaec;
     -webkit-box-shadow:   0px 0px 5px #e4eaec;
     box-shadow:   0px 0px 5px #e4eaec;
-	
+
 }
-#div2{position:absolute; 
-	left:51%; 
+#div2{position:absolute;
+	left:51%;
    	top:2%;
 
 }
-#div3{position:absolute; 
-	left:3.5%; 
+#div3{position:absolute;
+	left:3.5%;
    	top:52%;
 
 }
-#div4{position:absolute; 
-	left:51%; 
+#div4{position:absolute;
+	left:51%;
    	top:52%;
-	
-	
+
+
 }
 
 
 #chart-area{
-	position:absolute; 
+	position:absolute;
     width:20% ;
     height:20% ;
-     left:-25%; 
+     left:-25%;
    	top:8%;
 }
 
 /* ***************************TOP4************************ */
 
 #head{
-		
-position:absolute; 
+
+position:absolute;
 color:ffa200;
 	font-size:35px;
 	top:-1%;
@@ -101,81 +101,81 @@ color:ffa200;
 .boxall{
 	 width:15%;
     height:13%;
-   
+
 	 /*-webkit-border-radius: 5px;
     border-radius: 5px; */
-	
+
 }
 
 #box1 {
-	
-   position:absolute; 
 
-   left:10%; 
+   position:absolute;
+
+   left:10%;
    top:21%;
       background:#F62459;
    /* background:rgba(254, 1, 89, 1);
-    ÊèÇ¹¡ÒÃáÊ´§ ¼Å radius
+    ï¿½ï¿½Ç¹ï¿½ï¿½ï¿½ï¿½Ê´ï¿½ ï¿½ï¿½ radius
     -webkit-border-radius: 5px;
     border-radius: 5px; */
-   /*Êº ÊèÇ¹¡ÒÃáÊ´§ ¼Å radius*/
+   /*Êº ï¿½ï¿½Ç¹ï¿½ï¿½ï¿½ï¿½Ê´ï¿½ ï¿½ï¿½ radius*/
 
-	
+
 }
 
 #box2{
-	
-   position:absolute; 
-   left:26%; 
+
+   position:absolute;
+   left:26%;
    top:21%;
-  
+
    background:#FFA400;
-    /* ÊèÇ¹¡ÒÃáÊ´§ ¼Å radius
+    /* ï¿½ï¿½Ç¹ï¿½ï¿½ï¿½ï¿½Ê´ï¿½ ï¿½ï¿½ radius
     -webkit-border-radius: 5px;
     border-radius: 5px; */
-   /*Êº ÊèÇ¹¡ÒÃáÊ´§ ¼Å radius*/
+   /*Êº ï¿½ï¿½Ç¹ï¿½ï¿½ï¿½ï¿½Ê´ï¿½ ï¿½ï¿½ radius*/
 
 }
 
 
 #box3{
-	
-   position:absolute; 
-   left:10%; 
+
+   position:absolute;
+   left:10%;
    top:36%;
-  
+
    background:#16A085;
-    /* ÊèÇ¹¡ÒÃáÊ´§ ¼Å radius
+    /* ï¿½ï¿½Ç¹ï¿½ï¿½ï¿½ï¿½Ê´ï¿½ ï¿½ï¿½ radius
     -webkit-border-radius: 5px;
     border-radius: 5px; */
-   /*Êº ÊèÇ¹¡ÒÃáÊ´§ ¼Å radius*/
+   /*Êº ï¿½ï¿½Ç¹ï¿½ï¿½ï¿½ï¿½Ê´ï¿½ ï¿½ï¿½ radius*/
 
 }
 
 #box4{
-	
-position:absolute; 
-   left:26%; 
+
+position:absolute;
+   left:26%;
    top:36%;
 
    background:#8E44AD;
-    /* ÊèÇ¹¡ÒÃáÊ´§ ¼Å radius
+    /* ï¿½ï¿½Ç¹ï¿½ï¿½ï¿½ï¿½Ê´ï¿½ ï¿½ï¿½ radius
     -webkit-border-radius: 5px;
     border-radius: 5px; */
-   /*Êº ÊèÇ¹¡ÒÃáÊ´§ ¼Å radius*/
+   /*Êº ï¿½ï¿½Ç¹ï¿½ï¿½ï¿½ï¿½Ê´ï¿½ ï¿½ï¿½ radius*/
 }
 
 #boxoffload {
-position:absolute; 
-   left:3.5%; 
+position:absolute;
+   left:3.5%;
    top:11.5%;
      width:25%;
     height:8%;
     background:#e4eaec;
-    /* ÊèÇ¹¡ÒÃáÊ´§ ¼Å radius*/
+    /* ï¿½ï¿½Ç¹ï¿½ï¿½ï¿½ï¿½Ê´ï¿½ ï¿½ï¿½ radius*/
     -webkit-border-radius: 4px;
-    border-radius: 4px; 
-   /*Êº ÊèÇ¹¡ÒÃáÊ´§ ¼Å radius*/
+    border-radius: 4px;
+   /*Êº ï¿½ï¿½Ç¹ï¿½ï¿½ï¿½ï¿½Ê´ï¿½ ï¿½ï¿½ radius*/
 
 
 }
@@ -189,8 +189,8 @@ position:absolute;
 	width:45%;
 	height:30%;
 	background:white;
- position:absolute; 
-	left:51%; 
+ position:absolute;
+	left:51%;
    	top:52%;
   text-align: center;
 }
@@ -205,7 +205,7 @@ position:absolute;
  	color:red;
     font-size: 2em;
    margin:3% 0 2% 0;
-	
+
   }
   #deployChart{
 
@@ -213,7 +213,7 @@ position:absolute;
     margin: 1 auto;
   }
   #donutChart {
- 
+
     position: relative;
   }
     #donutPerc {
