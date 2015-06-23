@@ -102,10 +102,10 @@ public class HelloController {
             if(Vmap.hasNext()) {
                 String key = Vmap.next();
                 Integer val = map.get(key);
-                resultTop4.append("<div id=\"box" + i + "\" class=\"boxall\"><img src=\"resources/img/" + i + ".png\" width=20%/><center>" + key + "<br>" + val + "%</center></div>");
+                resultTop4.append("<div id=\"box" + i + "\" class=\"boxall\"><div id=\"boxa"+i+"\" class=\"boxa\"><div class=\"displayed\"><center>" + key + "<br>" + val + "%</center></div></div><img src=\"resources/img/" + i + ".png\" width=70% class=\"displayed\"/></div>");
             }
             else{
-                resultTop4.append("<div id=\"box" + i + "\" class=\"boxall\"><img src=\"resources/img/" + i + ".png\" width=20%/></div>");
+                resultTop4.append("<div id=\"box" + i + "\" class=\"boxall\"><div id=\"boxa"+i+"\" class=\"boxa\"><center><br> </center></div><img src=\"resources/img/" + i + ".png\" width=70% class=\"displayed\"/></div>");
             }
         }
         map.clear();
