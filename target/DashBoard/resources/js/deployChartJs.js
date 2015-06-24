@@ -11,7 +11,7 @@
 var options = {
   scaleColor: false,
   trackColor: 'rgba(0,0,0,0.2)',
-  barColor: 'rgba(50,70,255,0.7)',
+  barColor: 'rgba(32,170,142,0.7)',
   lineWidth: 12,
   lineCap: 'butt',
   size: donutHeight
