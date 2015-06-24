@@ -67,34 +67,24 @@ public class HelloController {
         Statement state1,state2;
         state1 = connect.createStatement();
         state2 = connect.createStatement();
-        resultSet1 = state1.executeQuery("SELECT t4.PLACE,count(*) as COUNT " +
-                "FROM TR_PAY_DETAIL_MULTIBILL t1,TR_PAY_MULTIBILL t2,RE_LOCATION_KIOSK t3,DT_LOCATION t4 " +
-                "WHERE t1.trans_id IN ( " +
-                "SELECT DISTINCT(TRANS_ID) " +
-                "FROM TR_TRANS_MULTIBILL " +
-                "WHERE SVC_ID = 'PostBillConfirm' AND state=0 and TO_CHAR (SYSDATE-45,'DD-MON-YYYY') = TO_CHAR (ENDED,'DD-MON-YYYY') ) " +
-                "AND t1.TRANS_ID = t2.TRANS_ID AND t2.KIOSK_ID = t3.KIOSK_ID AND t3.LOCATION_ID = t4.LOCATION_ID " +
-                "GROUP BY t4.PLACE ");
+        resultSet1 = state1.executeQuery("select t4.PLACE,count(*) as COUNT " +
+                "from TR_PAY_DETAIL_MULTIBILL t1,TR_PAY_MULTIBILL t2,RE_LOCATION_KIOSK t3,DT_LOCATION t4 " +
+                "where t1.TRANS_ID = t2.TRANS_ID and  (t1.trans_id,t2.KIOSK_ID) in ( " +
+                "Select distinct(TRANS_ID),KIOSK_ID from TR_TRANS_MULTIBILL where SVC_ID = 'PostBillConfirm' and state=0 and TO_CHAR (SYSDATE-12,'DD-MON-YYYY') = TO_CHAR (ENDED,'DD-MON-YYYY')) " +
+                "and t2.KIOSK_ID = t3.KIOSK_ID and t3.LOCATION_ID = t4.LOCATION_ID " +
+                "group by t4.PLACE ");
 
-        resultSet2 = state2.executeQuery("select t2.PLACE,t1.TRM_AMOUNT as COUNT " +
-                "from DT_TRM t1,DT_LOCATION t2 " +
-                "where TO_CHAR (SYSDATE-45,'DD-MON-YYYY') = TO_CHAR (t1.TRM_DATE,'DD-MON-YYYY') and t1.LOCATION_ID = t2.LOCATION_ID");
-
-        while(resultSet2.next()){
-            String place = resultSet2.getString("PLACE");
-            int count = resultSet2.getInt("COUNT");
-            map.put(place,count);
-        }
-        while (resultSet1.next()){
+        resultSet2 = state2.executeQuery("select count(*) as COUNT " +
+                "from TR_PAY_DETAIL_MULTIBILL t1,TR_PAY_MULTIBILL t2 " +
+                "where t1.TRANS_ID = t2.TRANS_ID and  (t1.trans_id,t2.KIOSK_ID) in ( " +
+                "Select distinct(TRANS_ID),KIOSK_ID from TR_TRANS_MULTIBILL where SVC_ID = 'PostBillConfirm' and state=0 and TO_CHAR (SYSDATE-12,'DD-MON-YYYY') = TO_CHAR (ENDED,'DD-MON-YYYY')) ");
+        resultSet2.next();
+        int sum = resultSet2.getInt("COUNT");
+        while(resultSet1.next()){
             String place = resultSet1.getString("PLACE");
             int count = resultSet1.getInt("COUNT");
-            if(map.containsKey(place)){
-                int z = map.get(place);
-                map.put(place, (int) Math.round((double)z/(z+count)*100));
-            }
-            else{
-                map.put(place,0);
-            }
+            System.out.println(place);
+            map.put(place,(int) Math.round((double)count/sum*100));
         }
         sorted_map.putAll(map);
         Iterator<String> Vmap = sorted_map.keySet().iterator();
@@ -130,11 +120,11 @@ public class HelloController {
                 "where t1.trans_id in ( " +
                 "Select distinct(TRANS_ID) " +
                 "from TR_TRANS_MULTIBILL " +
-                "where SVC_ID = 'PostBillConfirm' and state=0 and TO_CHAR (SYSDATE-45,'DD-MON-YYYY') = TO_CHAR (ENDED,'DD-MON-YYYY')) " +
+                "where SVC_ID = 'PostBillConfirm' and state=0 and TO_CHAR (SYSDATE-12,'DD-MON-YYYY') = TO_CHAR (ENDED,'DD-MON-YYYY')) " +
                 "and t1.TRANS_ID = t2.TRANS_ID and t2.KIOSK_ID = t3.KIOSK_ID");
         resultSet2 = state2.executeQuery("select SUM(TRM_AMOUNT) as COUNT " +
                 "from DT_TRM " +
-                "where TO_CHAR (SYSDATE-45,'DD-MON-YYYY') = TO_CHAR (TRM_DATE,'DD-MON-YYYY')");
+                "where TO_CHAR (SYSDATE-12,'DD-MON-YYYY') = TO_CHAR (TRM_DATE,'DD-MON-YYYY')");
         resultSet1.next();
         resultSet2.next();
         int count1 = resultSet1.getInt("COUNT");
@@ -180,6 +170,7 @@ public class HelloController {
     public String MainCon(ModelMap model) throws SQLException, ClassNotFoundException {
         ConnectDB();
         Revenue(model);
+        model.addAttribute("AAA","สวัสดี");
         return "hello";
     }
 }

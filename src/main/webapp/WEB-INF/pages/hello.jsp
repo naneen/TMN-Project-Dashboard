@@ -1,6 +1,8 @@
+<%@ page contentType="text/html; charset=UTF-8" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
-<html lang="en">
+
+<html>
 
 <head>
     <meta charset="utf-8">
@@ -70,6 +72,7 @@
 </head>
 
 <body style="background: #f0f3f4">
+<h1>${AAA}</h1>
 <script type="text/javascript">
     PIECHART();
     TOP4();
@@ -81,7 +84,7 @@
     <div id="head">TMN Product Dashboard</div>
 </div>
 
-<div id="boxoffload">
+<div> id="boxoffload">
     <div id="diva">
         <div id="canvas-holder"><canvas id="chart-area"></canvas></div>
     </div>
