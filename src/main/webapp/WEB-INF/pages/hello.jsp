@@ -17,7 +17,7 @@
     <link href='${pageContext.request.contextPath}/resources/css/style.css' rel="stylesheet">
     <script type="text/javascript" src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
     <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&signed_in=false"  type="text/javascript"></script>
-    <script src='${pageContext.request.contextPath}/resources/js/infobubble.js'></script>
+    <script src='${pageContext.request.contextPath}/resources/temp/infobubble.js'></script>
     <script type="text/javascript">
         function PIECHART() {
             $.get("QueryPieChart",function(data){
@@ -194,7 +194,7 @@
 
 	<div id="div3">   
             <div id="map"></div></div>
-            <script src='${pageContext.request.contextPath}/resources/js/Map.js'></script>
+            <script src='${pageContext.request.contextPath}/resources/temp/Map.js'></script>
 
 
 
