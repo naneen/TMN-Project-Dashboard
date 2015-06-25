@@ -2435,7 +2435,6 @@
         },
         calculateCircumference : function(value){
             var c = (Math.PI*2)*(Math.abs(value) / this.total);
-            console.log(c);
             return c;
             //return (Math.PI*2)*(Math.abs(value) / this.total);
         },

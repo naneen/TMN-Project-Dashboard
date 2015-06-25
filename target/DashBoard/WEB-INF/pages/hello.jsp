@@ -7,14 +7,12 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        <spring:url value="/resources/css/main.css" var="mainCss" />
-        <spring:url value="/resources/css/bootstrap.min.css" var="bootstrapCss" />
-        <!--Loading bootstrap css-->
-        <link type="text/css" rel="stylesheet" href="${mainCss}">
-        <link type="text/css" rel="stylesheet" href="${bootstrapCss}">
+        <%--<link type="text/css" rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/main.css">--%>
+        <link type="text/css" rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/bootstrap.min.css">
+        <link href='${pageContext.request.contextPath}/resources/css/style.css' rel="stylesheet">
+
         <script src='${pageContext.request.contextPath}/resources/js/Chart.js'></script>
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
-        <link href='${pageContext.request.contextPath}/resources/css/style.css' rel="stylesheet">
         <script type="text/javascript" src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
         <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&signed_in=false"  type="text/javascript"></script>
         <script src='${pageContext.request.contextPath}/resources/js/infobubble.js'></script>
@@ -69,7 +67,24 @@
             }
             setInterval(TimeRE,1000);
         </script>
-    <</head>
+        <script src='${pageContext.request.contextPath}/resources/js/Map.js'></script>
+        <spring:url value="" var="jqueryMinJs" />
+        <spring:url value="" var="jqueryUiJs" />
+        <spring:url value="" var="bootstrapMinJs" />
+        <spring:url value="" var="jqueryFlotJs" />
+        <spring:url value="" var="jqueryFlotCategoriesJs" />
+        <spring:url value="" var="jqueryFlotTooltipJs" />
+        <spring:url value="" var="jqueryFlotSplineJs" />
+
+
+        <script src="${pageContext.request.contextPath}/resources/js/jquery-1.10.2.min.js"></script>
+        <script src="${pageContext.request.contextPath}/resources/js/jquery-ui.js"></script>
+        <script src="${pageContext.request.contextPath}/resources/js/bootstrap.min.js"></script>
+        <script src="${pageContext.request.contextPath}/resources/js/jquery.flot.js"></script>
+        <script src="${pageContext.request.contextPath}/resources/js/jquery.flot.categories.js"></script>
+        <script src="${pageContext.request.contextPath}/resources/js/jquery.flot.tooltip.js"></script>
+        <script src="${pageContext.request.contextPath}/resources/js/jquery.flot.spline.js"></script>
+    </head>
 
     <body>
         <script type="text/javascript">
@@ -89,10 +104,9 @@
             </div>
             <center><div id="result2" class="displayoffload"></div></center>
         </div>
+
         <div id="resultTop4"></div>
 
-
-                                                            <%--TOP4 & PIE--%>
                                                             <%--REVENUE--%>
 
 
@@ -100,9 +114,11 @@
         <div id="div2" class="col-lg-6">
             <div class="panel">
                 <div class="panel-body">
+
                     <div id="revenue" class="row">
                         <div class="col-md-12" id="target-bar">
                             <h4 class="mbm">Revenue</h4>
+
                             <span class="task-item">
                                 <span style="color: red">Actual:</span>
                                 <span style="color: #737373">${actual} </span>
@@ -119,31 +135,19 @@
                             </span>
                         </div>
                     </div>
+
                     <div class="row">
                         <div class="col-md-12">
                             <div id="area-chart-spline" style="width: 100%; height: 210px">
                             </div>
                         </div>
                     </div>
+
                 </div>
             </div>
         </div>
-        <spring:url value="/resources/js/jquery-1.10.2.min.js" var="jqueryMinJs" />
-        <spring:url value="/resources/js/jquery-ui.js" var="jqueryUiJs" />
-        <spring:url value="/resources/js/bootstrap.min.js" var="bootstrapMinJs" />
-        <spring:url value="/resources/js/jquery.flot.js" var="jqueryFlotJs" />
-        <spring:url value="/resources/js/jquery.flot.categories.js" var="jqueryFlotCategoriesJs" />
-        <spring:url value="/resources/js/jquery.flot.tooltip.js" var="jqueryFlotTooltipJs" />
-        <spring:url value="/resources/js/jquery.flot.spline.js" var="jqueryFlotSplineJs" />
 
 
-        <script src="${jqueryMinJs}"></script>
-        <script src="${jqueryUiJs}"></script>
-        <script src="${bootstrapMinJs}"></script>
-        <script src="${jqueryFlotJs}"></script>
-        <script src="${jqueryFlotCategoriesJs}"></script>
-        <script src="${jqueryFlotTooltipJs}"></script>
-        <script src="${jqueryFlotSplineJs}"></script>
         <script>
             $(function () {
                 //BEGIN AREA CHART SPLINE
@@ -199,7 +203,7 @@
         <div id="div3">
             <div id="map"></div>
         </div>
-        <script src='/resources/js/Map.js'></script>
+
 
 
                                                             <%--Verson--%>
