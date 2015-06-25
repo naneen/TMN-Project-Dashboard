@@ -1,12 +1,13 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
+
 <html lang="en">
 
 <head>
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+<!-- <link rel="stylesheet" href="fonts/thsarabunnew.css" /> -->
 <spring:url value="/resources/css/main.css" var="mainCss" />
 <spring:url value="/resources/css/bootstrap.min.css" var="bootstrapCss" />
 <!--Loading bootstrap css-->
@@ -25,11 +26,11 @@
                             var monthNames = ["January", "February", "March", "April", "May", "June",
                                 "July", "August", "September", "October", "November", "December"
                             ];
-                            myDate.setDate(myDate.getDate()-45);
+                            myDate.setDate(myDate.getDate()-1);
                             var Day = myDate.getDate();
                             var Month = monthNames[myDate.getMonth()];
                             var Year = myDate.getFullYear();
-                            $("#result2").html(data+"% OffLoad <br>"+ "As of " + Day + " " + Month + " " + Year);
+                            $("#result2").html(data + "% OffLoad <br>As of " + Day + " " + Month + " " + Year);
                             var freeSpace = 100-data;
                             var pieData = [
                                 {
@@ -121,7 +122,11 @@
 				</div>
 				<div class="row">
 					<div class="col-md-12">
+<<<<<<< HEAD
 						<div id="area-chart-spline" style="width: 100%; height: 210px">
+=======
+						<div id="area-chart-spline" style="width: 100%; height: 75%">
+>>>>>>> 553e8f3dd588447ef7c71235454cc75b8f5ed886
 						</div>
 					</div>
 				</div>
@@ -196,9 +201,14 @@
         });
     </script>
 
+<<<<<<< HEAD
 	<div id="div3">   
             <div id="map"></div></div>
             <script src='${pageContext.request.contextPath}/resources/js/Map.js'></script>
+=======
+	<div id="div3"><div id="map"></div></div>
+    <script src='${pageContext.request.contextPath}/resources/js/Map.js'></script>
+>>>>>>> 553e8f3dd588447ef7c71235454cc75b8f5ed886
 
 
 

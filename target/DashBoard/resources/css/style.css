@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 @font-face {
     font-family: 'colaboratelightregular';
     src: url('../font/ColabLig-webfont.eot');
@@ -9,12 +10,18 @@
     font-style: normal;
 }
 
+=======
+>>>>>>> 553e8f3dd588447ef7c71235454cc75b8f5ed886
 
 body {
   width: 100%;
   height: 100%;
   background-color: grey;
+<<<<<<< HEAD
   font-family: 'colaboratelightregular';
+=======
+    font-family: 'Helvetica Neue', 'Arial', serif;
+>>>>>>> 553e8f3dd588447ef7c71235454cc75b8f5ed886
   font-weight: bold;
 }
 
@@ -26,6 +33,10 @@ body {
     margin-top: 5px;
      }
  .displayoffload{
+<<<<<<< HEAD
+=======
+     font-size: 100%;
+>>>>>>> 553e8f3dd588447ef7c71235454cc75b8f5ed886
     display: block;
     margin-left:40%;
     margin-top: 5px;
@@ -40,12 +51,20 @@ body {
  
  }  
  #PercentageSize{
+<<<<<<< HEAD
  	font-size:35px;
+=======
+ 	font-size:250%;
+>>>>>>> 553e8f3dd588447ef7c71235454cc75b8f5ed886
  
  
  }  
   #textSize{
+<<<<<<< HEAD
  	font-size:10px;
+=======
+ 	font-size:80%;
+>>>>>>> 553e8f3dd588447ef7c71235454cc75b8f5ed886
  
  
  } 
@@ -106,11 +125,19 @@ height:46.5%;
 	width:57%;
 	height:63%;
 	left:-1%; 
+<<<<<<< HEAD
    	top:57%;
 
 }
 #div4{position:absolute; 
 	left:51%; 
+=======
+   	top:55%;
+
+}
+#div4{position:absolute; 
+	left:55%; 
+>>>>>>> 553e8f3dd588447ef7c71235454cc75b8f5ed886
    	top:52%;
   
 	
@@ -132,6 +159,10 @@ height:46.5%;
 		
 position:absolute; 
 color:#ffa200;
+<<<<<<< HEAD
+=======
+
+>>>>>>> 553e8f3dd588447ef7c71235454cc75b8f5ed886
 	font-size:35px;
 	top:0%;
 	left:2%;
@@ -144,6 +175,7 @@ color:#ffa200;
 	 width:100%;
     height:15%;
        top:85%;
+<<<<<<< HEAD
 }
 #boxa1{
 	
@@ -172,6 +204,36 @@ color:#ffa200;
     background:#6a3283;
 	
 }
+=======
+}
+#boxa1{
+	
+    background:#b6ea03;
+ 
+    
+
+	
+}
+#boxa2{
+
+    background:#de8f03;
+
+	
+}
+#boxa3{
+
+    background:#117965;
+
+    
+
+	
+}
+#boxa4{
+
+    background:#6a3283;
+	
+}
+>>>>>>> 553e8f3dd588447ef7c71235454cc75b8f5ed886
 
 .boxall{
 	 width:15%;
@@ -272,6 +334,7 @@ position:absolute;
 
 
 #chart4 {
+<<<<<<< HEAD
 	width:45%;
 	height:30%;
 	background:white;
@@ -284,13 +347,35 @@ position:absolute;
   top:5%;
     font-size: 1.9em;
     color:#AEF100;
+=======
+	width:20%;
+	
+	background:#F2F1EF;
+/*	border-color:#ECF0F1;
+	border-style:solid;
+	border-width:2px;*/
+ position:absolute; 
+	left:53%; 
+   	top:55%;
+  text-align: center;
+}
+  #deployTitle{
+ 
+    font-size: 1.5em;
+    color:#bdf205;
+>>>>>>> 553e8f3dd588447ef7c71235454cc75b8f5ed886
     /*padding:5% 0 1% 0;*/
     position: relative;
   }
   #deployVersion{
  	color:#F5001D;
+<<<<<<< HEAD
     font-size: 2em;
    margin:2% 0 2% 0;
+=======
+    font-size: 1.5em;
+   margin:2% 0 5% 0;
+>>>>>>> 553e8f3dd588447ef7c71235454cc75b8f5ed886
 	
   }
   #deployChart{
@@ -319,9 +404,18 @@ position:absolute;
 
      
      #map {
+<<<<<<< HEAD
     margin-left: auto;
     margin-right: auto;
     height: 60%;
+=======
+     border-color:#D2D7D3;
+	border-style:solid;
+	border-width:2px;
+    margin-left: auto;
+    margin-right: auto;
+    height: 64%;
+>>>>>>> 553e8f3dd588447ef7c71235454cc75b8f5ed886
     width: 60%;
     color: #54a0dc;
 }

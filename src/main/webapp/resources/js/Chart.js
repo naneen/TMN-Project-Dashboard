@@ -705,7 +705,7 @@
             requestAnimFrame(animationFrame);
         },
     //-- DOM methods
-        getRelativePosition = helpers.getRelativePosition = function(evt){
+      /*  getRelativePosition = helpers.getRelativePosition = function(evt){
             var mouseX, mouseY;
             var e = evt.originalEvent || evt,
                 canvas = evt.currentTarget || evt.srcElement,
@@ -726,7 +726,7 @@
                 y : mouseY
             };
 
-        },
+        },*/
         addEvent = helpers.addEvent = function(node,eventType,method){
             if (node.addEventListener){
                 node.addEventListener(eventType,method);

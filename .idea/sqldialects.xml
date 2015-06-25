@@ -1,6 +1,11 @@
+<<<<<<< HEAD
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="SqlDialectMappings">
     <file url="file://$PROJECT_DIR$/src/main/java/com/springapp/mvc/controller/HelloController.java" dialect="GenericSQL" />
   </component>
 </project>
+=======
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4" />
+>>>>>>> 553e8f3dd588447ef7c71235454cc75b8f5ed886
