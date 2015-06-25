@@ -14,8 +14,11 @@
         <script src='${pageContext.request.contextPath}/resources/js/Chart.js'></script>
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
         <script type="text/javascript" src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+
         <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&signed_in=false"  type="text/javascript"></script>
         <script src='${pageContext.request.contextPath}/resources/js/infobubble.js'></script>
+        <script src='${pageContext.request.contextPath}/resources/js/Map.js'></script>
+
         <script type="text/javascript">
             function PIECHART() {
                 $.get("QueryPieChart",function(data){
@@ -66,89 +69,7 @@
                 });
             }
             setInterval(TimeRE,1000);
-        </script>
-        <script src='${pageContext.request.contextPath}/resources/js/Map.js'></script>
-        <spring:url value="" var="jqueryMinJs" />
-        <spring:url value="" var="jqueryUiJs" />
-        <spring:url value="" var="bootstrapMinJs" />
-        <spring:url value="" var="jqueryFlotJs" />
-        <spring:url value="" var="jqueryFlotCategoriesJs" />
-        <spring:url value="" var="jqueryFlotTooltipJs" />
-        <spring:url value="" var="jqueryFlotSplineJs" />
 
-
-        <script src="${pageContext.request.contextPath}/resources/js/jquery-1.10.2.min.js"></script>
-        <script src="${pageContext.request.contextPath}/resources/js/jquery-ui.js"></script>
-        <script src="${pageContext.request.contextPath}/resources/js/bootstrap.min.js"></script>
-        <script src="${pageContext.request.contextPath}/resources/js/jquery.flot.js"></script>
-        <script src="${pageContext.request.contextPath}/resources/js/jquery.flot.categories.js"></script>
-        <script src="${pageContext.request.contextPath}/resources/js/jquery.flot.tooltip.js"></script>
-        <script src="${pageContext.request.contextPath}/resources/js/jquery.flot.spline.js"></script>
-    </head>
-
-    <body>
-        <script type="text/javascript">
-            PIECHART();
-            TOP4();
-            TimeRE();
-        </script>
-
-                                                        <%--TOP4 & PIE--%>
-        <div id="div1">
-            <div id="head">TMN Product Dashboard</div>
-        </div>
-
-        <div id="boxoffload">
-            <div id="diva">
-                <div id="canvas-holder"><canvas id="chart-area"></canvas></div>
-            </div>
-            <center><div id="result2" class="displayoffload"></div></center>
-        </div>
-
-        <div id="resultTop4"></div>
-
-                                                            <%--REVENUE--%>
-
-
-
-        <div id="div2" class="col-lg-6">
-            <div class="panel">
-                <div class="panel-body">
-
-                    <div id="revenue" class="row">
-                        <div class="col-md-12" id="target-bar">
-                            <h4 class="mbm">Revenue</h4>
-
-                            <span class="task-item">
-                                <span style="color: red">Actual:</span>
-                                <span style="color: #737373">${actual} </span>
-                                <span style="color: red">Target: </span>
-                                <span style="color: #737373">${target}</span>
-                                <small class="pull-right text-muted">${percent}%</small>
-                                <div class="progress progress-sm">
-                                    <div role="progressbar" aria-valuenow="${percent}"
-                                        aria-valuemin="0" aria-valuemax="100"
-                                        style="width: ${percent}%;" class="progress-bar progress-bar">
-                                        <span class="sr-only">${percent}% Complete (success)</span>
-                                    </div>
-                                </div>
-                            </span>
-                        </div>
-                    </div>
-
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div id="area-chart-spline" style="width: 100%; height: 210px">
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-        </div>
-
-
-        <script>
             $(function () {
                 //BEGIN AREA CHART SPLINE
                 var d6_1 = ${topup};
@@ -200,10 +121,79 @@
             });
         </script>
 
-        <div id="div3">
-            <div id="map"></div>
+        <script src="${pageContext.request.contextPath}/resources/js/jquery-1.10.2.min.js"></script>
+        <script src="${pageContext.request.contextPath}/resources/js/jquery-ui.js"></script>
+        <script src="${pageContext.request.contextPath}/resources/js/bootstrap.min.js"></script>
+        <script src="${pageContext.request.contextPath}/resources/js/jquery.flot.js"></script>
+        <script src="${pageContext.request.contextPath}/resources/js/jquery.flot.categories.js"></script>
+        <script src="${pageContext.request.contextPath}/resources/js/jquery.flot.tooltip.js"></script>
+        <script src="${pageContext.request.contextPath}/resources/js/jquery.flot.spline.js"></script>
+    </head>
+
+    <body>
+        <script type="text/javascript">
+            PIECHART();
+            TOP4();
+            TimeRE();
+        </script>
+
+                                                        <%--TOP4 & PIE--%>
+        <div id="div1">
+            <div id="head">TMN Product Dashboard</div>
         </div>
 
+        <div id="boxoffload">
+            <div id="diva">
+                <div id="canvas-holder"><canvas id="chart-area"></canvas></div>
+            </div>
+            <center><div id="result2" class="displayoffload"></div></center>
+        </div>
+
+        <div id="resultTop4"></div>
+
+                                                            <%--REVENUE--%>
+
+        <div id="div2" class="col-lg-6">
+            <div class="panel">
+                <div class="panel-body">
+
+                    <div id="revenue" class="row">
+                        <div class="col-md-12" id="target-bar">
+                            <h4 class="mbm">Revenue</h4>
+
+                            <span class="task-item">
+                                <span style="color: red">Actual:</span>
+                                <span style="color: #737373">${actual} </span>
+                                <span style="color: red">Target: </span>
+                                <span style="color: #737373">${target}</span>
+                                <small class="pull-right text-muted">${percent}%</small>
+                                <div class="progress progress-sm">
+                                    <div role="progressbar" aria-valuenow="${percent}"
+                                        aria-valuemin="0" aria-valuemax="100"
+                                        style="width: ${percent}%;" class="progress-bar progress-bar">
+                                        <span class="sr-only">${percent}% Complete (success)</span>
+                                    </div>
+                                </div>
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div id="area-chart-spline" style="width: 100%; height: 210px">
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+                                                            <%--Map--%>
+        <div id="div3">
+            <div id="map"></div>
+            <%-- js will call Google API (line18) --%>
+        </div>
 
 
                                                             <%--Verson--%>
