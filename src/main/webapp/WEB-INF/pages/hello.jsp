@@ -1,5 +1,6 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
+
 <html lang="en">
 
 <head>
@@ -25,11 +26,11 @@
                             var monthNames = ["January", "February", "March", "April", "May", "June",
                                 "July", "August", "September", "October", "November", "December"
                             ];
-                            myDate.setDate(myDate.getDate()-45);
+                            myDate.setDate(myDate.getDate()-1);
                             var Day = myDate.getDate();
                             var Month = monthNames[myDate.getMonth()];
                             var Year = myDate.getFullYear();
-                            $("#result2").html(data+"% OffLoad <br>"+ "As of " + Day + " " + Month + " " + Year);
+                            $("#result2").html(data + "% OffLoad <br>As of " + Day + " " + Month + " " + Year);
                             var freeSpace = 100-data;
                             var pieData = [
                                 {
@@ -121,7 +122,7 @@
 				</div>
 				<div class="row">
 					<div class="col-md-12">
-						<div id="area-chart-spline" style="width: 100%; height: 210px">
+						<div id="area-chart-spline" style="width: 100%; height: 75%">
 						</div>
 					</div>
 				</div>
@@ -196,9 +197,8 @@
         });
     </script>
 
-	<div id="div3">   
-            <div id="map"></div></div>
-            <script src='${pageContext.request.contextPath}/resources/js/Map.js'></script>
+	<div id="div3"><div id="map"></div></div>
+    <script src='${pageContext.request.contextPath}/resources/js/Map.js'></script>
 
 
 
