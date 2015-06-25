@@ -19,7 +19,11 @@
       <configuration />
     </facet>
   </component>
+<<<<<<< HEAD
+  <component name="NewModuleRootManager" inherit-compiler-output="false">
+=======
   <component name="NewModuleRootManager" LANGUAGE_LEVEL="JDK_1_5" inherit-compiler-output="false">
+>>>>>>> 553e8f3dd588447ef7c71235454cc75b8f5ed886
     <output url="file://$MODULE_DIR$/target/classes" />
     <output-test url="file://$MODULE_DIR$/target/test-classes" />
     <content url="file://$MODULE_DIR$">

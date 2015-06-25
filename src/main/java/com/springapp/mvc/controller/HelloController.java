@@ -44,6 +44,13 @@ public class HelloController {
         return place;
     }
 
+    public int getPercent(int count,int sum){
+        int percent = (int) Math.round((double)count/sum*100);
+        return percent;
+    }
+
+
+
     public void Revenue(ModelMap model){
         double actual = 698;
         double target = 666;
@@ -87,7 +94,8 @@ public class HelloController {
             String place = resultSet1.getString("PLACE");
             int count = resultSet1.getInt("COUNT");
             place = PlaceCut(place);
-            map.put(place,(int) Math.round((double)count/sum*100));
+            count = getPercent(count,sum);
+            map.put(place,count);
         }
         sorted_map.putAll(map);
         Iterator<String> Vmap = sorted_map.keySet().iterator();
@@ -132,12 +140,12 @@ public class HelloController {
         resultSet2.next();
         int count1 = resultSet1.getInt("COUNT");
         int count2 = resultSet2.getInt("COUNT");
-        avgOffset = (int) Math.round((double)count2/(count1+count2)*100);
+        avgOffset = getPercent(count2,count1+count2);
         resultSet1.close();
         resultSet2.close();
         state1.close();
         state2.close();
-        return avgOffset+"";
+        return Integer.toString(avgOffset);
     }
 
     @RequestMapping(value = "/TimeSet", method = RequestMethod.GET)

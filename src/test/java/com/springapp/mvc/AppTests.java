@@ -36,6 +36,4 @@ public class AppTests {
                 .andExpect(status().isOk())
                 .andExpect(view().name("hello"));
     }
-
-    
 }
