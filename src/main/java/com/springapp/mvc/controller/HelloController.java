@@ -19,12 +19,12 @@ public class HelloController {
     public static final String SetDay = "SYDATE - 47";
 
 
-    public void ConnectDB() throws ClassNotFoundException, SQLException {
+    public static void ConnectDB() throws ClassNotFoundException, SQLException {
         Class.forName("oracle.jdbc.driver.OracleDriver");
         connect = DriverManager.getConnection(url,username,pass);
     }
 
-    public String PlaceCut(String place){
+    public static String PlaceCut(String place){
         ArrayList<String> CutPlaceSave = new ArrayList<String>();
         CutPlaceSave.add("True Shop Station in True Coffee ");
         CutPlaceSave.add("True Shop Mini ");
@@ -44,14 +44,14 @@ public class HelloController {
         return place;
     }
 
-    public int getPercent(int count,int sum){
+    public static int getPercent(int count, int sum){
         int percent = (int) Math.round((double)count/sum*100);
         return percent;
     }
 
 
 
-    public void Revenue(ModelMap model){
+    public static void Revenue(ModelMap model){
         double actual = 698;
         double target = 666;
         double percent = (actual/target)*100;
