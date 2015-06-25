@@ -19,12 +19,12 @@ public class HelloController {
     public static final String SetDay = "SYDATE - 1";
 
 
-    public void ConnectDB() throws ClassNotFoundException, SQLException {
+    public void fucConnectDB() throws ClassNotFoundException, SQLException {
         Class.forName("oracle.jdbc.driver.OracleDriver");
         connect = DriverManager.getConnection(url,username,pass);
     }
 
-    public String PlaceCut(String place){
+    public String fucPlaceCut(String place){
         ArrayList<String> CutPlaceSave = new ArrayList<String>();
         CutPlaceSave.add("True Shop Station in True Coffee ");
         CutPlaceSave.add("True Shop Mini ");
@@ -68,7 +68,7 @@ public class HelloController {
 
     @RequestMapping(value = "/QueryTop4", method = RequestMethod.GET,produces = "text/plain;charset=UTF-8")
     public @ResponseBody
-    String QueryTop4() throws SQLException {
+    String queryTop4() throws SQLException {
         StringBuilder resultTop4 = new StringBuilder();
         HashMap<String,Integer> map = new HashMap<String,Integer>();
         ValueComparator bvc =  new ValueComparator(map);
@@ -93,7 +93,7 @@ public class HelloController {
         while(resultSet1.next()){
             String place = resultSet1.getString("PLACE");
             int count = resultSet1.getInt("COUNT");
-            place = PlaceCut(place);
+            place = fucPlaceCut(place);
             count = getPercent(count,sum);
             map.put(place,count);
         }
@@ -119,7 +119,7 @@ public class HelloController {
 
     @RequestMapping(value = "/QueryPieChart", method = RequestMethod.GET)
     public @ResponseBody
-    String QueryPieChart() throws SQLException {
+    String queryPieChart() throws SQLException {
         ResultSet  resultSet1,resultSet2;
         Statement state1,state2;
         state1 = connect.createStatement();
@@ -150,7 +150,7 @@ public class HelloController {
 
     @RequestMapping(value = "/TimeSet", method = RequestMethod.GET)
     public @ResponseBody
-    String TimeSet(){
+    String timeSet(){
         String time="";
         Date date = new Date();
         int curSecs = date.getSeconds();
@@ -179,7 +179,7 @@ public class HelloController {
 
     @RequestMapping(value = "/",method = RequestMethod.GET )
     public String MainCon(ModelMap model) throws SQLException, ClassNotFoundException {
-        ConnectDB();
+        fucConnectDB();
         Revenue(model);
         return "hello";
     }
