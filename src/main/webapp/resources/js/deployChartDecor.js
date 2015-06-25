@@ -3,11 +3,8 @@
 //document.getElementById('chart4').style.height = (heightOfWindow/2)+"px"; 
 
 
-<<<<<<< HEAD
 document.getElementById('chart4').style.height = 45.5+"%";
-=======
-document.getElementById('chart4').style.height = 40.5+"%";
->>>>>>> 553e8f3dd588447ef7c71235454cc75b8f5ed886
+
 
 var chart4Height = document.getElementById('chart4').offsetHeight;
 var donutHeight =  (chart4Height - document.getElementById('deployTitle').offsetHeight - document.getElementById('deployVersion').offsetHeight)*80/100;
