@@ -2,96 +2,25 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a5264e78-175e-417b-ade8-45055fadf53a" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/resources/font/BPreplay.otf" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/resources/font/DistProTh.otf" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/resources/font/Gudea-Regular.otf" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/resources/font/PrintClearly.otf" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/resources/font/Questrial-Regular.otf" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/resources/font/ostrich-regular.ttf" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/resources/img/1.png" afterPath="$PROJECT_DIR$/src/main/webapp/resources/img/1.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/DashBoard/resources/img/1.png" afterPath="$PROJECT_DIR$/target/DashBoard/resources/img/1.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/resources/img/2.png" afterPath="$PROJECT_DIR$/src/main/webapp/resources/img/2.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/DashBoard/resources/img/2.png" afterPath="$PROJECT_DIR$/target/DashBoard/resources/img/2.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/resources/img/3.png" afterPath="$PROJECT_DIR$/src/main/webapp/resources/img/3.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/DashBoard/resources/img/3.png" afterPath="$PROJECT_DIR$/target/DashBoard/resources/img/3.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/resources/img/4.png" afterPath="$PROJECT_DIR$/src/main/webapp/resources/img/4.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/DashBoard/resources/img/4.png" afterPath="$PROJECT_DIR$/target/DashBoard/resources/img/4.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/DashBoard.war" afterPath="$PROJECT_DIR$/target/DashBoard.war" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/DashBoard/WEB-INF/classes/com/springapp/mvc/controller/HelloController.class" afterPath="$PROJECT_DIR$/target/DashBoard/WEB-INF/classes/com/springapp/mvc/controller/HelloController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/springapp/mvc/controller/HelloController.class" afterPath="$PROJECT_DIR$/target/classes/com/springapp/mvc/controller/HelloController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dataSources.ids" afterPath="$PROJECT_DIR$/.idea/dataSources.ids" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/work/jsp/org/apache/jsp/WEB_002dINF/pages/hello_jsp.class" afterPath="$PROJECT_DIR$/target/work/jsp/org/apache/jsp/WEB_002dINF/pages/hello_jsp.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/DashBoard/WEB-INF/lib/ojdbc6-11.2.0.3.jar" afterPath="$PROJECT_DIR$/target/DashBoard/WEB-INF/lib/ojdbc6-11.2.0.3.jar" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.settings/.jsdtscope" afterPath="$PROJECT_DIR$/.settings/.jsdtscope" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/com/springapp/mvc/AppTests.java" afterPath="$PROJECT_DIR$/src/test/java/com/springapp/mvc/AppTests.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/runConfigurations/AppTests.xml" afterPath="$PROJECT_DIR$/.idea/runConfigurations/AppTests.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/resources/js/Chart.js" afterPath="$PROJECT_DIR$/src/main/webapp/resources/js/Chart.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/DashBoard.iml" afterPath="$PROJECT_DIR$/DashBoard.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/artifacts/DashBoard_war.xml" afterPath="$PROJECT_DIR$/.idea/artifacts/DashBoard_war.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/artifacts/DashBoard_war_exploded.xml" afterPath="$PROJECT_DIR$/.idea/artifacts/DashBoard_war_exploded.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/springapp/mvc/controller/HelloController.java" afterPath="$PROJECT_DIR$/src/main/java/com/springapp/mvc/controller/HelloController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__aopalliance_aopalliance_1_0.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__aopalliance_aopalliance_1_0.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_oracle_ojdbc6_11_2_0_3.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_oracle_ojdbc6_11_2_0_3.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__commons_logging_commons_logging_1_1_3.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__commons_logging_commons_logging_1_1_3.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__javax_servlet_jsp_jsp_api_2_1.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__javax_servlet_jsp_jsp_api_2_1.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__javax_servlet_servlet_api_2_5.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__javax_servlet_servlet_api_2_5.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__jstl_jstl_1_2.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__jstl_jstl_1_2.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__junit_junit_4_11.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__junit_junit_4_11.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_glassfish_javax_json_1_0_4.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_glassfish_javax_json_1_0_4.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_hamcrest_hamcrest_core_1_3.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_hamcrest_hamcrest_core_1_3.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_aop_4_1_1_RELEASE.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_aop_4_1_1_RELEASE.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_beans_4_1_1_RELEASE.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_beans_4_1_1_RELEASE.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_context_4_1_1_RELEASE.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_context_4_1_1_RELEASE.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_core_4_1_1_RELEASE.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_core_4_1_1_RELEASE.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_expression_4_1_1_RELEASE.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_expression_4_1_1_RELEASE.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_test_4_1_1_RELEASE.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_test_4_1_1_RELEASE.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_web_4_1_1_RELEASE.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_web_4_1_1_RELEASE.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_webmvc_4_1_1_RELEASE.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_webmvc_4_1_1_RELEASE.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/springapp/mvc/model/Offset.java" afterPath="$PROJECT_DIR$/src/main/java/com/springapp/mvc/model/Offset.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/springapp/mvc/controller/ValueComparator.java" afterPath="$PROJECT_DIR$/src/main/java/com/springapp/mvc/controller/ValueComparator.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/compiler.xml" afterPath="$PROJECT_DIR$/.idea/compiler.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/createdFiles.lst" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/createdFiles.lst" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/dashboard.sql" afterPath="$PROJECT_DIR$/src/main/dashboard.sql" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dataSources.xml" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/resources/js/deployChartDecor.js" afterPath="$PROJECT_DIR$/src/main/webapp/resources/js/deployChartDecor.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/DashBoard/resources/js/deployChartDecor.js" afterPath="$PROJECT_DIR$/target/DashBoard/resources/js/deployChartDecor.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/resources/js/deployChartJs.js" afterPath="$PROJECT_DIR$/src/main/webapp/resources/js/deployChartJs.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/DashBoard/resources/js/deployChartJs.js" afterPath="$PROJECT_DIR$/target/DashBoard/resources/js/deployChartJs.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/hello.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/hello.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/DashBoard/WEB-INF/pages/hello.jsp" afterPath="$PROJECT_DIR$/target/DashBoard/WEB-INF/pages/hello.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/resources/js/jquery-1.10.2.min.js" afterPath="$PROJECT_DIR$/src/main/webapp/resources/js/jquery-1.10.2.min.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/DashBoard/resources/js/jquery-1.10.2.min.js" afterPath="$PROJECT_DIR$/target/DashBoard/resources/js/jquery-1.10.2.min.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/resources/js/jquery-ui.js" afterPath="$PROJECT_DIR$/src/main/webapp/resources/js/jquery-ui.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/DashBoard/resources/js/jquery-ui.js" afterPath="$PROJECT_DIR$/target/DashBoard/resources/js/jquery-ui.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/resources/js/jquery.flot.categories.js" afterPath="$PROJECT_DIR$/src/main/webapp/resources/js/jquery.flot.categories.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/DashBoard/resources/js/jquery.flot.categories.js" afterPath="$PROJECT_DIR$/target/DashBoard/resources/js/jquery.flot.categories.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/resources/js/jquery.flot.js" afterPath="$PROJECT_DIR$/src/main/webapp/resources/js/jquery.flot.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/DashBoard/resources/js/jquery.flot.js" afterPath="$PROJECT_DIR$/target/DashBoard/resources/js/jquery.flot.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/resources/js/jquery.flot.spline.js" afterPath="$PROJECT_DIR$/src/main/webapp/resources/js/jquery.flot.spline.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/DashBoard/resources/js/jquery.flot.spline.js" afterPath="$PROJECT_DIR$/target/DashBoard/resources/js/jquery.flot.spline.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/resources/js/jquery.flot.tooltip.js" afterPath="$PROJECT_DIR$/src/main/webapp/resources/js/jquery.flot.tooltip.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/DashBoard/resources/js/jquery.flot.tooltip.js" afterPath="$PROJECT_DIR$/target/DashBoard/resources/js/jquery.flot.tooltip.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/modules.xml" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.settings/org.eclipse.jdt.core.prefs" afterPath="$PROJECT_DIR$/.settings/org.eclipse.jdt.core.prefs" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.settings/org.eclipse.m2e.core.prefs" afterPath="$PROJECT_DIR$/.settings/org.eclipse.m2e.core.prefs" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.settings/org.eclipse.wst.common.component" afterPath="$PROJECT_DIR$/.settings/org.eclipse.wst.common.component" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.settings/org.eclipse.wst.common.project.facet.core.xml" afterPath="$PROJECT_DIR$/.settings/org.eclipse.wst.common.project.facet.core.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.settings/org.eclipse.wst.validation.prefs" afterPath="$PROJECT_DIR$/.settings/org.eclipse.wst.validation.prefs" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/maven-archiver/pom.properties" afterPath="$PROJECT_DIR$/target/maven-archiver/pom.properties" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pom.xml" afterPath="$PROJECT_DIR$/pom.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/copyright/profiles_settings.xml" afterPath="$PROJECT_DIR$/.idea/copyright/profiles_settings.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/project-template.xml" afterPath="$PROJECT_DIR$/.idea/project-template.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/sqldialects.xml" afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/resources/css/style.css" afterPath="$PROJECT_DIR$/src/main/webapp/resources/css/style.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/DashBoard/resources/css/style.css" afterPath="$PROJECT_DIR$/target/DashBoard/resources/css/style.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/vcs.xml" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/webContexts.xml" afterPath="$PROJECT_DIR$/.idea/webContexts.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/resources/img/pin_brown.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/resources/img/pin_caution1.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/resources/img/pin_caution2.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/resources/img/pin_caution3.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/resources/img/pin_caution4.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/resources/img/pin_green.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/resources/img/pin_lightgreen.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/resources/img/pin_normal.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/resources/img/pin_orange.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/resources/img/pin_purple.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/resources/img/pin_yellow.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.classpath" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.gitignore" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.project" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/resources/js/Map.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/encodings.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/resources/js/infobubble.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/resources/css/map.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/scopes/scope_settings.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="DashBoard.iws" />
@@ -190,8 +119,8 @@
       <file leaf-file-name="hello.jsp" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/hello.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.43814433" vertical-offset="795" max-vertical-offset="3525">
-              <caret line="70" column="0" selection-start-line="70" selection-start-column="0" selection-end-line="70" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.8955224" vertical-offset="1650" max-vertical-offset="3480">
+              <caret line="126" column="70" selection-start-line="126" selection-start-column="70" selection-end-line="126" selection-end-column="70" />
               <folding />
             </state>
           </provider>
@@ -412,6 +341,10 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="resources" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="img" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -890,22 +823,22 @@
       <workItem from="1435115632194" duration="4538000" />
       <workItem from="1435123170880" duration="470000" />
       <workItem from="1435128926609" duration="4731000" />
-      <workItem from="1435202343711" duration="1928000" />
+      <workItem from="1435202343711" duration="2295000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="123110000" />
+    <option name="totallyTimeSpent" value="123477000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="824" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.13387978" sideWeight="0.5" order="14" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.56284153" sideWeight="0.5" order="14" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.13590844" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -922,7 +855,7 @@
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32956383" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.28040057" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.28040057" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3284553" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Database Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3284553" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -1409,8 +1342,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/hello.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.43814433" vertical-offset="795" max-vertical-offset="3525">
-          <caret line="70" column="0" selection-start-line="70" selection-start-column="0" selection-end-line="70" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.8955224" vertical-offset="1650" max-vertical-offset="3480">
+          <caret line="126" column="70" selection-start-line="126" selection-start-column="70" selection-end-line="126" selection-end-column="70" />
           <folding />
         </state>
       </provider>
