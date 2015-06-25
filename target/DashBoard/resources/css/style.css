@@ -1,135 +1,217 @@
+@font-face {
+    font-family: 'colaboratelightregular';
+    src: url('../font/ColabLig-webfont.eot');
+    src: url('../font/ColabLig-webfont.eot?#iefix') format('embedded-opentype'),
+    url('../font/ColabLig-webfont.woff') format('woff'),
+    url('../font/ColabLig-webfont.ttf') format('truetype'),
+    url('../font/ColabLig-webfont.svg#colaboratelightregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+
 body {
   width: 100%;
   height: 100%;
   background-color: grey;
-  font-family: 'Helvetica Neue', 'Arial';
+  font-family: 'colaboratelightregular';
   font-weight: bold;
 }
-#tx1{
-	position:absolute;
-	left:18.5%;
-   	top:25%;
 
-}
-#tx2{
+.displayed {
+	color:white;
+    display: block;
+  margin-left:50%;
+  
+    margin-top: 5px;
+     }
+ .displayoffload{
+    display: block;
+    margin-left:40%;
+    margin-top: 5px;
+    color:gray;
+     }
+ 
+ .pic{
+ position:absolute;
+ left:0%;
+ 
+ 
+ 
+ }  
+ #PercentageSize{
+ 	font-size:35px;
+ 
+ 
+ }  
+  #textSize{
+ 	font-size:10px;
+ 
+ 
+ } 
+#text{
 	position:absolute;
-	left:33.5%;
-   	top:25%;
-}
-#tx3{
-	position:absolute;
-	left:18.5%;
-   	top:40%;
+	color:white;
+	width:60%;
+	
+	left:25%;
 
+	
+	
+	
 }
-#tx4{
-	position:absolute;
-	left:33.5%;
-   	top:40%;
-
-}
-
 .board {
 	width:45%;
-    height:46%;
+    height:45.5%;
 	background:white;
-     -webkit-border-radius: 3px;
-    border-radius: 3px;
-    	-moz-box-shadow:   0px 0px 5px #e4eaec;
+
+ /*   	-moz-box-shadow:   0px 0px 5px #e4eaec;
     -webkit-box-shadow:   0px 0px 5px #e4eaec;
-    box-shadow:   0px 0px 5px #e4eaec;
+    box-shadow:   0px 0px 5px #e4eaec;*/
 }
 
 
 #diva{
-	position:absolute;
-	width:25%;
+	position:absolute; 
+	width:32%;
     height:7.5%;
-	left:10%;
-   	top:8%;
-
-
+	left:10%; 
+   	top:7%;
+  
+	
 }
 #div1{
-	position:absolute;
-	width:45%;
-    height:7.5%;
-	left:3.5%;
+	position:absolute; 
+	width:92.5%;
+    height:96%;
+	left:3.5%; 
    	top:2%;
-   	background:#f6f8f8;
-   	-moz-box-shadow:   0px 0px 5px #e4eaec;
-    -webkit-box-shadow:   0px 0px 5px #e4eaec;
-    box-shadow:   0px 0px 5px #e4eaec;
-
+   	background:white;
+   	   -webkit-border-radius: 5px;
+    border-radius: 5px;
+  	-moz-box-shadow:   5px 5px 5px #e4eaec;
+    -webkit-box-shadow:   5px 5px 5px #e4eaec;
+    box-shadow:   5px 5px 5px #e4eaec;/**/
 }
-#div2{position:absolute;
-	left:51%;
+#div2{position:absolute; 
+background:white;
+width:44%;
+height:46.5%;
+	left:51%; 
    	top:2%;
 
 }
-#div3{position:absolute;
-	left:3.5%;
-   	top:52%;
+#div3{position:absolute; 
+
+	width:57%;
+	height:63%;
+	left:-1%; 
+   	top:57%;
 
 }
-#div4{position:absolute;
-	left:51%;
+#div4{position:absolute; 
+	left:51%; 
    	top:52%;
-
-
+  
+	
+	
 }
 
 
 #chart-area{
-	position:absolute;
-    width:20% ;
+	position:absolute; 
+    width:25% ;
     height:20% ;
-     left:-25%;
+     left:-25%; 
    	top:8%;
 }
 
 /* ***************************TOP4************************ */
 
 #head{
-
-position:absolute;
-color:ffa200;
+		
+position:absolute; 
+color:#ffa200;
 	font-size:35px;
-	top:-1%;
-	left:1%;
+	top:0%;
+	left:2%;
+	
 }
+.boxa{
+	
+	 position:absolute; 
+	
+	 width:100%;
+    height:15%;
+       top:85%;
+}
+#boxa1{
+	
+    background:#b6ea03;
+ 
+    
+
+	
+}
+#boxa2{
+
+    background:#de8f03;
+
+	
+}
+#boxa3{
+
+    background:#117965;
+
+    
+
+	
+}
+#boxa4{
+
+    background:#6a3283;
+	
+}
+
 .boxall{
 	 width:15%;
     height:13%;
-
+   
 	 /*-webkit-border-radius: 5px;
     border-radius: 5px; */
-
+         border-style:solid;
+      border-width:1px;
+       -webkit-border-radius: 5px;
+    border-radius: 5px;
+	
 }
 
 #box1 {
+	
+   position:absolute; 
 
-   position:absolute;
-
-   left:10%;
+   left:12%; 
    top:21%;
-      background:#F62459;
+      background:rgba(182,234,3,0.8);
+      border-color:#aee002;
+ 
    /* background:rgba(254, 1, 89, 1);
     ��ǹ����ʴ� �� radius
     -webkit-border-radius: 5px;
     border-radius: 5px; */
    /*ʺ ��ǹ����ʴ� �� radius*/
 
-
+	
 }
 
 #box2{
-
-   position:absolute;
-   left:26%;
+	
+   position:absolute; 
+   left:28%; 
    top:21%;
-
-   background:#FFA400;
+  
+   background:rgba(255,164,0,0.8);
+    border-color:#FFA400;
     /* ��ǹ����ʴ� �� radius
     -webkit-border-radius: 5px;
     border-radius: 5px; */
@@ -139,12 +221,13 @@ color:ffa200;
 
 
 #box3{
-
-   position:absolute;
-   left:10%;
+	
+   position:absolute; 
+   left:12%; 
    top:36%;
-
-   background:#16A085;
+  
+   background:rgba(22,160,133,0.8);
+   border-color:#16A085;
     /* ��ǹ����ʴ� �� radius
     -webkit-border-radius: 5px;
     border-radius: 5px; */
@@ -153,12 +236,13 @@ color:ffa200;
 }
 
 #box4{
-
-position:absolute;
-   left:26%;
+	
+position:absolute; 
+   left:28%; 
    top:36%;
 
-   background:#8E44AD;
+   background:rgba(142,68,173,0.8);
+   border-color:#8E44AD; 
     /* ��ǹ����ʴ� �� radius
     -webkit-border-radius: 5px;
     border-radius: 5px; */
@@ -166,15 +250,17 @@ position:absolute;
 }
 
 #boxoffload {
-position:absolute;
-   left:3.5%;
-   top:11.5%;
-     width:25%;
+position:absolute; 
+   left:12%; 
+   top:11%;
+     width:20%;
     height:8%;
     background:#e4eaec;
     /* ��ǹ����ʴ� �� radius*/
+  /*  border-style:solid;
+    border-color:#F5D76E #F4D03F #FFB61E orange;*/
     -webkit-border-radius: 4px;
-    border-radius: 4px;
+    border-radius: 4px; 
    /*ʺ ��ǹ����ʴ� �� radius*/
 
 
@@ -189,23 +275,23 @@ position:absolute;
 	width:45%;
 	height:30%;
 	background:white;
- position:absolute;
-	left:51%;
+ position:absolute; 
+	left:51%; 
    	top:52%;
   text-align: center;
 }
   #deployTitle{
   top:5%;
-    font-size: 1.7em;
-    color:green;
+    font-size: 1.9em;
+    color:#AEF100;
     /*padding:5% 0 1% 0;*/
     position: relative;
   }
   #deployVersion{
- 	color:red;
+ 	color:#F5001D;
     font-size: 2em;
-   margin:3% 0 2% 0;
-
+   margin:2% 0 2% 0;
+	
   }
   #deployChart{
 
@@ -213,7 +299,7 @@ position:absolute;
     margin: 1 auto;
   }
   #donutChart {
-
+ 
     position: relative;
   }
     #donutPerc {
@@ -223,7 +309,7 @@ position:absolute;
       display: block;
       position: absolute;
       width:100%;
-      color: rgba(50,70,255,1);
+      color: rgba(32,170,142,1);
     }
     #donutChart canvas {
       position: absolute;
@@ -231,3 +317,11 @@ position:absolute;
       left: 0;
     }
 
+     
+     #map {
+    margin-left: auto;
+    margin-right: auto;
+    height: 60%;
+    width: 60%;
+    color: #54a0dc;
+}

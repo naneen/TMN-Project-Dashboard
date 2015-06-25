@@ -18,23 +18,6 @@ public class HelloController {
     String username = "kioskpx";
     String pass = "kioskdev";
 
-    public static void main(String[] args) throws ClassNotFoundException, SQLException {
-        Connection connect = null;
-        String url = "jdbc:oracle:thin:@//10.224.102.10:2992/pdev";
-        String username = "kioskpx";
-        String pass = "kioskdev";
-        Class.forName("oracle.jdbc.driver.OracleDriver");
-        connect = DriverManager.getConnection(url,username,pass);
-        ResultSet  resultSet;
-        Statement state;
-        state = connect.createStatement();
-        String avgOffset ="AAA";
-        resultSet = state.executeQuery("select * from DT_TRM");
-        resultSet.next();
-        avgOffset = resultSet.getString("TRM_AMOUNT");
-        System.out.println(avgOffset);
-    }
-
 
     public void ConnectDB() throws ClassNotFoundException, SQLException {
         Class.forName("oracle.jdbc.driver.OracleDriver");
@@ -46,8 +29,8 @@ public class HelloController {
         double target = 666;
         double percent = (actual/target)*100;
 
-        String topup = "[[\"Jan\", 67],[\"Feb\", 91],[\"Mar\", 36],[\"Apr\", 190],[\"May\", 28],[\"Jun\", 123],[\"Jul\", 38]]";
-        String bill = "[[\"Jan\", 94],[\"Feb\", 49],[\"Mar\", 45],[\"Apr\", 94],[\"May\", 76],[\"Jun\", 22],[\"Jul\", 31]]";
+        String topup = "[[\"Start\", 0],[\"Week1\", 91],[\"Week2\", 36],[\"Week3\", 100],[\"Week4\", 64]]";
+        String bill = "[[\"Start\", 0],[\"Week1\", 29],[\"Week2\", 15],[\"Week3\", 67],[\"Week4\", 40]]";
 
         model.addAttribute("actual", Double.toString(actual));
         model.addAttribute("target", Double.toString(target));
@@ -56,7 +39,7 @@ public class HelloController {
         model.addAttribute("percent",Integer.toString((int)percent));
     }
 
-    @RequestMapping(value = "/QueryTop4", method = RequestMethod.GET)
+    @RequestMapping(value = "/QueryTop4", method = RequestMethod.GET,produces = "text/plain;charset=UTF-8")
     public @ResponseBody
     String QueryTop4() throws SQLException {
         StringBuilder resultTop4 = new StringBuilder();
@@ -67,34 +50,24 @@ public class HelloController {
         Statement state1,state2;
         state1 = connect.createStatement();
         state2 = connect.createStatement();
-        resultSet1 = state1.executeQuery("SELECT t4.PLACE,count(*) as COUNT " +
-                "FROM TR_PAY_DETAIL_MULTIBILL t1,TR_PAY_MULTIBILL t2,RE_LOCATION_KIOSK t3,DT_LOCATION t4 " +
-                "WHERE t1.trans_id IN ( " +
-                "SELECT DISTINCT(TRANS_ID) " +
-                "FROM TR_TRANS_MULTIBILL " +
-                "WHERE SVC_ID = 'PostBillConfirm' AND state=0 and TO_CHAR (SYSDATE-45,'DD-MON-YYYY') = TO_CHAR (ENDED,'DD-MON-YYYY') ) " +
-                "AND t1.TRANS_ID = t2.TRANS_ID AND t2.KIOSK_ID = t3.KIOSK_ID AND t3.LOCATION_ID = t4.LOCATION_ID " +
-                "GROUP BY t4.PLACE ");
+        resultSet1 = state1.executeQuery("select t4.PLACE,count(*) as COUNT " +
+                "from TR_PAY_DETAIL_MULTIBILL t1,TR_PAY_MULTIBILL t2,RE_LOCATION_KIOSK t3,DT_LOCATION t4 " +
+                "where t1.TRANS_ID = t2.TRANS_ID and  (t1.trans_id,t2.KIOSK_ID) in ( " +
+                "Select distinct(TRANS_ID),KIOSK_ID from TR_TRANS_MULTIBILL where SVC_ID = 'PostBillConfirm' and state=0 and TO_CHAR (SYSDATE-13,'DD-MON-YYYY') = TO_CHAR (ENDED,'DD-MON-YYYY')) " +
+                "and t2.KIOSK_ID = t3.KIOSK_ID and t3.LOCATION_ID = t4.LOCATION_ID " +
+                "group by t4.PLACE ");
 
-        resultSet2 = state2.executeQuery("select t2.PLACE,t1.TRM_AMOUNT as COUNT " +
-                "from DT_TRM t1,DT_LOCATION t2 " +
-                "where TO_CHAR (SYSDATE-45,'DD-MON-YYYY') = TO_CHAR (t1.TRM_DATE,'DD-MON-YYYY') and t1.LOCATION_ID = t2.LOCATION_ID");
-
-        while(resultSet2.next()){
-            String place = resultSet2.getString("PLACE");
-            int count = resultSet2.getInt("COUNT");
-            map.put(place,count);
-        }
-        while (resultSet1.next()){
+        resultSet2 = state2.executeQuery("select count(*) as COUNT " +
+                "from TR_PAY_DETAIL_MULTIBILL t1,TR_PAY_MULTIBILL t2 " +
+                "where t1.TRANS_ID = t2.TRANS_ID and  (t1.trans_id,t2.KIOSK_ID) in ( " +
+                "Select distinct(TRANS_ID),KIOSK_ID from TR_TRANS_MULTIBILL where SVC_ID = 'PostBillConfirm' and state=0 and TO_CHAR (SYSDATE-13,'DD-MON-YYYY') = TO_CHAR (ENDED,'DD-MON-YYYY')) ");
+        resultSet2.next();
+        int sum = resultSet2.getInt("COUNT");
+        while(resultSet1.next()){
             String place = resultSet1.getString("PLACE");
             int count = resultSet1.getInt("COUNT");
-            if(map.containsKey(place)){
-                int z = map.get(place);
-                map.put(place, (int) Math.round((double)z/(z+count)*100));
-            }
-            else{
-                map.put(place,0);
-            }
+            System.out.println(place);
+            map.put(place,(int) Math.round((double)count/sum*100));
         }
         sorted_map.putAll(map);
         Iterator<String> Vmap = sorted_map.keySet().iterator();
@@ -102,7 +75,7 @@ public class HelloController {
             if(Vmap.hasNext()) {
                 String key = Vmap.next();
                 Integer val = map.get(key);
-                resultTop4.append("<div id=\"box" + i + "\" class=\"boxall\"><img src=\"resources/img/" + i + ".png\" width=20%/><center>" + key + "<br>" + val + "%</center></div>");
+                resultTop4.append("<div id=\"box" + i + "\" class=\"boxall\"><img src=\"resources/img/" + i + ".png\" width=20% class=\"pic\"/><div id=\"text\"><center><div id=\"PercentageSize\">" + val + "%</div><div id=\"textSize\">" + key + "</div></center></div></div>");
             }
             else{
                 resultTop4.append("<div id=\"box" + i + "\" class=\"boxall\"><img src=\"resources/img/" + i + ".png\" width=20%/></div>");
@@ -130,11 +103,11 @@ public class HelloController {
                 "where t1.trans_id in ( " +
                 "Select distinct(TRANS_ID) " +
                 "from TR_TRANS_MULTIBILL " +
-                "where SVC_ID = 'PostBillConfirm' and state=0 and TO_CHAR (SYSDATE-45,'DD-MON-YYYY') = TO_CHAR (ENDED,'DD-MON-YYYY')) " +
+                "where SVC_ID = 'PostBillConfirm' and state=0 and TO_CHAR (SYSDATE-13,'DD-MON-YYYY') = TO_CHAR (ENDED,'DD-MON-YYYY')) " +
                 "and t1.TRANS_ID = t2.TRANS_ID and t2.KIOSK_ID = t3.KIOSK_ID");
         resultSet2 = state2.executeQuery("select SUM(TRM_AMOUNT) as COUNT " +
                 "from DT_TRM " +
-                "where TO_CHAR (SYSDATE-45,'DD-MON-YYYY') = TO_CHAR (TRM_DATE,'DD-MON-YYYY')");
+                "where TO_CHAR (SYSDATE-13,'DD-MON-YYYY') = TO_CHAR (TRM_DATE,'DD-MON-YYYY')");
         resultSet1.next();
         resultSet2.next();
         int count1 = resultSet1.getInt("COUNT");
@@ -180,6 +153,7 @@ public class HelloController {
     public String MainCon(ModelMap model) throws SQLException, ClassNotFoundException {
         ConnectDB();
         Revenue(model);
+        model.addAttribute("AAA","สวัสดี");
         return "hello";
     }
 }

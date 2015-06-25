@@ -16,6 +16,8 @@
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
 <link href='${pageContext.request.contextPath}/resources/css/style.css' rel="stylesheet" />
 <script type="text/javascript" src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+  <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&signed_in=false"  type="text/javascript"></script>
+        <script src='${pageContext.request.contextPath}/resources/js/infobubble.js'></script>
 <script type="text/javascript">
             function PIECHART() {
                 $.get("QueryPieChart",function(data){
@@ -85,7 +87,7 @@
         <div id="diva">
 		    <div id="canvas-holder"><canvas id="chart-area"></canvas></div>
         </div>
-        <center><div id="result2"></div></center>
+        <center><div id="result2" class="displayoffload"></div></center>
     </div>
     <div id="resultTop4"></div>
 
@@ -95,7 +97,7 @@
 
 
 
-	<div id="div2" class="col-lg-6 board">
+	<div id="div2" class="col-lg-6">
 		<div class="panel">
 			<div class="panel-body">
 				<div id="revenue" class="row">
@@ -119,7 +121,7 @@
 				</div>
 				<div class="row">
 					<div class="col-md-12">
-						<div id="area-chart-spline" style="width: 100%; height: 150px">
+						<div id="area-chart-spline" style="width: 100%; height: 210px">
 						</div>
 					</div>
 				</div>
@@ -133,7 +135,7 @@
 	<spring:url value="/resources/js/jquery.flot.categories.js" var="jqueryFlotCategoriesJs" />
 	<spring:url value="/resources/js/jquery.flot.tooltip.js" var="jqueryFlotTooltipJs" />
 	<spring:url value="/resources/js/jquery.flot.spline.js" var="jqueryFlotSplineJs" />
-	<spring:url value="/resources/js/main.js" var="mainJs" />
+
 
 	<script src="${jqueryMinJs}"></script>
 	<script src="${jqueryUiJs}"></script>
@@ -182,21 +184,21 @@
                     defaultTheme: true
                 },
                 xaxis: {
-                    tickColor: "#fafafa",
+                    tickColor: "#ABB7B7",
                     mode: "categories"
                 },
                 yaxis: {
-                    tickColor: "#fafafa"
+                    tickColor: "#ABB7B7"
                 },
                 shadowSize: 0
             });
             //END AREA CHART SPLINE
         });
     </script>
-	<!--CORE JAVASCRIPT-->
-	<script src="${mainJs}"></script>
 
-	<div id="div3" class="board"></div>
+	<div id="div3">   
+            <div id="map"></div></div>
+            <script src='${pageContext.request.contextPath}/resources/js/Map.js'></script>
 
 
 
