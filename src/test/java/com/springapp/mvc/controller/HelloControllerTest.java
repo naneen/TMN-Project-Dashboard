@@ -21,4 +21,9 @@ public class HelloControllerTest {
         assertEquals("Central 7",HelloController.PlaceCut("True Move Shop Central 7"));
         assertEquals("Central 8",HelloController.PlaceCut("True Life Central 8"));
     }
+
+    @Test public void testgetPercent(){
+        HelloController HelloController= new HelloController();
+        assertEquals(26,HelloController.getPercent(50, 190));
+    }
 }
