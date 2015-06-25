@@ -10,9 +10,10 @@ import static junit.framework.TestCase.assertEquals;
  */
 public class UnitTest {
     @Test
-    public void test_get_percent(){
+    public void test_getpercent(){
         assertEquals(91, HelloController.getPercent(10,11));
         assertEquals(0, HelloController.getPercent(0,1000));
+        assertEquals(50, HelloController.getPercent(55,110));
         assertEquals(50, HelloController.getPercent(55,110));
     }
 }
