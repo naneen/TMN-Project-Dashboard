@@ -42,7 +42,7 @@ body {
 #text{
 	position:absolute;
 	color:white;
-	width:60%;
+	width:70%;
 	
 	left:25%;
 
@@ -265,7 +265,7 @@ position:absolute;
 #chart4 {
 	width:20%;
 	
-	background:#F2F1EF;
+	/*background:#F2F1EF;*/
 /*	border-color:#ECF0F1;
 	border-style:solid;
 	border-width:2px;*/
