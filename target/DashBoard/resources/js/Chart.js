@@ -2345,7 +2345,7 @@
         percentageInnerCutout : 50,
 
         //Number - Amount of animation steps
-        animationSteps : 150,
+        animationSteps : 80,
 
         //String - Animation easing effect
         animationEasing : null,

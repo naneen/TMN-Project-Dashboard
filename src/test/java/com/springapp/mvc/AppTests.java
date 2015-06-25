@@ -36,9 +36,4 @@ public class AppTests {
                 .andExpect(status().isOk())
                 .andExpect(view().name("hello"));
     }
-<<<<<<< HEAD
-=======
-
-    
->>>>>>> 553e8f3dd588447ef7c71235454cc75b8f5ed886
 }
