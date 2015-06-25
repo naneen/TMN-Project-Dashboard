@@ -16,7 +16,7 @@ public class HelloController {
     public static String url = "jdbc:oracle:thin:@//10.224.102.10:2992/pdev";
     public static String username = "kioskpx";
     public static String pass = "kioskdev";
-    public static final String SetDay = "SYDATE - 47";
+    public static final String SetDay = "SYDATE - 1";
 
 
     public void ConnectDB() throws ClassNotFoundException, SQLException {
@@ -80,14 +80,14 @@ public class HelloController {
         resultSet1 = state1.executeQuery("select t4.PLACE,count(*) as COUNT " +
                 "from TR_PAY_DETAIL_MULTIBILL t1,TR_PAY_MULTIBILL t2,RE_LOCATION_KIOSK t3,DT_LOCATION t4 " +
                 "where t1.TRANS_ID = t2.TRANS_ID and  (t1.trans_id,t2.KIOSK_ID) in ( " +
-                "Select distinct(TRANS_ID),KIOSK_ID from TR_TRANS_MULTIBILL where SVC_ID = 'PostBillConfirm' and state=0 and TO_CHAR (SYSDATE-47,'DD-MON-YYYY') = TO_CHAR (ENDED,'DD-MON-YYYY')) " +
+                "Select distinct(TRANS_ID),KIOSK_ID from TR_TRANS_MULTIBILL where SVC_ID = 'PostBillConfirm' and state=0 and TO_CHAR (SYSDATE-1,'DD-MON-YYYY') = TO_CHAR (ENDED,'DD-MON-YYYY')) " +
                 "and t2.KIOSK_ID = t3.KIOSK_ID and t3.LOCATION_ID = t4.LOCATION_ID " +
                 "group by t4.PLACE ");
 
         resultSet2 = state2.executeQuery("select count(*) as COUNT " +
                 "from TR_PAY_DETAIL_MULTIBILL t1,TR_PAY_MULTIBILL t2 " +
                 "where t1.TRANS_ID = t2.TRANS_ID and  (t1.trans_id,t2.KIOSK_ID) in ( " +
-                "Select distinct(TRANS_ID),KIOSK_ID from TR_TRANS_MULTIBILL where SVC_ID = 'PostBillConfirm' and state=0 and TO_CHAR (SYSDATE-47,'DD-MON-YYYY') = TO_CHAR (ENDED,'DD-MON-YYYY')) ");
+                "Select distinct(TRANS_ID),KIOSK_ID from TR_TRANS_MULTIBILL where SVC_ID = 'PostBillConfirm' and state=0 and TO_CHAR (SYSDATE-1,'DD-MON-YYYY') = TO_CHAR (ENDED,'DD-MON-YYYY')) ");
         resultSet2.next();
         int sum = resultSet2.getInt("COUNT");
         while(resultSet1.next()){
@@ -131,11 +131,11 @@ public class HelloController {
                 "where t1.trans_id in ( " +
                 "Select distinct(TRANS_ID) " +
                 "from TR_TRANS_MULTIBILL " +
-                "where SVC_ID = 'PostBillConfirm' and state=0 and TO_CHAR (SYSDATE-47,'DD-MON-YYYY') = TO_CHAR (ENDED,'DD-MON-YYYY')) " +
+                "where SVC_ID = 'PostBillConfirm' and state=0 and TO_CHAR (SYSDATE-1,'DD-MON-YYYY') = TO_CHAR (ENDED,'DD-MON-YYYY')) " +
                 "and t1.TRANS_ID = t2.TRANS_ID and t2.KIOSK_ID = t3.KIOSK_ID");
         resultSet2 = state2.executeQuery("select SUM(TRM_AMOUNT) as COUNT " +
                 "from DT_TRM " +
-                "where TO_CHAR (SYSDATE-47,'DD-MON-YYYY') = TO_CHAR (TRM_DATE,'DD-MON-YYYY')");
+                "where TO_CHAR (SYSDATE-1,'DD-MON-YYYY') = TO_CHAR (TRM_DATE,'DD-MON-YYYY')");
         resultSet1.next();
         resultSet2.next();
         int count1 = resultSet1.getInt("COUNT");

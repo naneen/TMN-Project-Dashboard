@@ -26,7 +26,7 @@
                         var monthNames = ["January", "February", "March", "April", "May", "June",
                             "July", "August", "September", "October", "November", "December"
                         ];
-                        myDate.setDate(myDate.getDate()-45);
+                        myDate.setDate(myDate.getDate()-1);
                         var Day = myDate.getDate();
                         var Month = monthNames[myDate.getMonth()];
                         var Year = myDate.getFullYear();
