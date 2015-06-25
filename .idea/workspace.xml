@@ -2,19 +2,19 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a5264e78-175e-417b-ade8-45055fadf53a" name="Default" comment="">
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/webapp/resources/img/pin_brown.png" afterPath="$PROJECT_DIR$/src/main/webapp/resources/temp/pin_brown.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/webapp/resources/img/pin_caution1.png" afterPath="$PROJECT_DIR$/src/main/webapp/resources/temp/pin_caution1.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/webapp/resources/img/pin_caution2.png" afterPath="$PROJECT_DIR$/src/main/webapp/resources/temp/pin_caution2.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/webapp/resources/img/pin_caution3.png" afterPath="$PROJECT_DIR$/src/main/webapp/resources/temp/pin_caution3.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/webapp/resources/img/pin_caution4.png" afterPath="$PROJECT_DIR$/src/main/webapp/resources/temp/pin_caution4.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/webapp/resources/img/pin_green.png" afterPath="$PROJECT_DIR$/src/main/webapp/resources/temp/pin_green.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/webapp/resources/img/pin_lightgreen.png" afterPath="$PROJECT_DIR$/src/main/webapp/resources/temp/pin_lightgreen.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/webapp/resources/img/pin_normal.png" afterPath="$PROJECT_DIR$/src/main/webapp/resources/temp/pin_normal.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/webapp/resources/img/pin_orange.png" afterPath="$PROJECT_DIR$/src/main/webapp/resources/temp/pin_orange.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/webapp/resources/img/pin_purple.png" afterPath="$PROJECT_DIR$/src/main/webapp/resources/temp/pin_purple.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/webapp/resources/img/pin_yellow.png" afterPath="$PROJECT_DIR$/src/main/webapp/resources/temp/pin_yellow.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/webapp/resources/js/Map.js" afterPath="$PROJECT_DIR$/src/main/webapp/resources/temp/Map.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/webapp/resources/js/infobubble.js" afterPath="$PROJECT_DIR$/src/main/webapp/resources/temp/infobubble.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/webapp/resources/temp/Map.js" afterPath="$PROJECT_DIR$/src/main/webapp/resources/js/Map.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/webapp/resources/temp/infobubble.js" afterPath="$PROJECT_DIR$/src/main/webapp/resources/js/infobubble.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/webapp/resources/temp/pin_brown.png" afterPath="$PROJECT_DIR$/src/main/webapp/resources/img/pin_brown.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/webapp/resources/temp/pin_caution1.png" afterPath="$PROJECT_DIR$/src/main/webapp/resources/img/pin_caution1.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/webapp/resources/temp/pin_caution2.png" afterPath="$PROJECT_DIR$/src/main/webapp/resources/img/pin_caution2.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/webapp/resources/temp/pin_caution3.png" afterPath="$PROJECT_DIR$/src/main/webapp/resources/img/pin_caution3.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/webapp/resources/temp/pin_caution4.png" afterPath="$PROJECT_DIR$/src/main/webapp/resources/img/pin_caution4.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/webapp/resources/temp/pin_green.png" afterPath="$PROJECT_DIR$/src/main/webapp/resources/img/pin_green.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/webapp/resources/temp/pin_lightgreen.png" afterPath="$PROJECT_DIR$/src/main/webapp/resources/img/pin_lightgreen.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/webapp/resources/temp/pin_normal.png" afterPath="$PROJECT_DIR$/src/main/webapp/resources/img/pin_normal.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/webapp/resources/temp/pin_orange.png" afterPath="$PROJECT_DIR$/src/main/webapp/resources/img/pin_orange.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/webapp/resources/temp/pin_purple.png" afterPath="$PROJECT_DIR$/src/main/webapp/resources/img/pin_purple.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/webapp/resources/temp/pin_yellow.png" afterPath="$PROJECT_DIR$/src/main/webapp/resources/img/pin_yellow.png" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/hello.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/hello.jsp" />
     </list>
     <ignored path="DashBoard.iws" />
@@ -225,210 +225,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="TMN-Project-Dashboard" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="TMN-Project-Dashboard" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="TMN-Project-Dashboard" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="TMN-Project-Dashboard" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="TMN-Project-Dashboard" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="TMN-Project-Dashboard" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="TMN-Project-Dashboard" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="webapp" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="TMN-Project-Dashboard" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="TMN-Project-Dashboard" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="webapp" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="resources" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="temp" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="TMN-Project-Dashboard" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="TMN-Project-Dashboard" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="webapp" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="resources" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="js" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="TMN-Project-Dashboard" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="TMN-Project-Dashboard" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="webapp" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="resources" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="img" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="TMN-Project-Dashboard" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="TMN-Project-Dashboard" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="webapp" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="resources" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="font" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="TMN-Project-Dashboard" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="TMN-Project-Dashboard" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="webapp" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="resources" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="css" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -848,12 +644,12 @@
       <workItem from="1435115632194" duration="4538000" />
       <workItem from="1435123170880" duration="470000" />
       <workItem from="1435128926609" duration="4731000" />
-      <workItem from="1435202343711" duration="2664000" />
+      <workItem from="1435202343711" duration="2853000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="123846000" />
+    <option name="totallyTimeSpent" value="124035000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="824" extended-state="6" />
@@ -1344,7 +1140,7 @@
         <state vertical-scroll-proportion="9.942149" vertical-offset="29190" max-vertical-offset="52275">
           <caret line="2347" column="26" selection-start-line="2347" selection-start-column="26" selection-end-line="2347" selection-end-column="26" />
           <folding>
-            <element signature="n#!!doc" expanded="true" />
+            <element signature="n#!!doc" expanded="false" />
           </folding>
         </state>
       </provider>
