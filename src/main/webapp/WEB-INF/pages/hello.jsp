@@ -61,7 +61,7 @@
             function TimeRE() {
                 $.ajax({
                     url : "TimeSet" , success : function(data) {
-                        if(data == "11:48:30"){
+                        if(data == "00:00:00"){
                             TOP4();
                             PIECHART();
                         }
