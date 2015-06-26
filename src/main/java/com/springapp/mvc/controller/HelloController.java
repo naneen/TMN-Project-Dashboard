@@ -52,7 +52,7 @@ public class HelloController {
 
 
     public void Revenue(ModelMap model){
-        double actual = 698;
+        double actual = 450;
         double target = 666;
         double percent = (actual/target)*100;
 
@@ -140,7 +140,7 @@ public class HelloController {
         resultSet2.next();
         int count1 = resultSet1.getInt("COUNT");
         int count2 = resultSet2.getInt("COUNT");
-        avgOffset = getPercent(count2,count1+count2);
+        avgOffset = getPercent(count1,count1+count2);
         resultSet1.close();
         resultSet2.close();
         state1.close();

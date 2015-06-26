@@ -30,7 +30,7 @@
                         var Day = myDate.getDate();
                         var Month = monthNames[myDate.getMonth()];
                         var Year = myDate.getFullYear();
-                        $("#result2").html(data+"% OffLoad <br>"+ "As of " + Day + " " + Month + " " + Year);
+                        $("#result2").html("<font color=\"#green\">"+data+"%</font>"+" OffLoad <br>"+ "As of " + Day + " " + Month + " " + Year);
                         var freeSpace = 100-data;
                         var pieData = [
                             {
@@ -65,7 +65,7 @@
                             TOP4();
                             PIECHART();
                         }
-                }
+                    }
                 });
             }
             setInterval(TimeRE,1000);
@@ -180,7 +180,7 @@
 
                     <div class="row">
                         <div class="col-md-12">
-                            <div id="area-chart-spline" style="width: 100%; height: 210px">
+                            <div id="area-chart-spline" style="width: 100%; height: 75%">
                             </div>
                         </div>
                     </div>
@@ -191,6 +191,9 @@
 
                                                             <%--Map--%>
         <div id="div3">
+            <div id="headMap">
+                <h3>Complaint Bangkok + Suburb</h3>
+            </div>
             <div id="map"></div>
             <%-- js will call Google API (line18) --%>
         </div>
@@ -209,6 +212,7 @@
 
         <script src="resources/js/deployChartDecor.js"></script>
         <script src="resources/js/deployChartJs.js"></script>
+    <font color=""
     </body>
 </html>
 
