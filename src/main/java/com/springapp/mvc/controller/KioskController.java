@@ -1,5 +1,8 @@
 package com.springapp.mvc.controller;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -12,11 +15,11 @@ import java.util.Date;
 
 @Controller
 public class KioskController {
+
     public static Connection connect = null;
     public static String url = "jdbc:oracle:thin:@//10.224.102.10:2992/pdev";
     public static String username = "kioskpx";
     public static String pass = "kioskdev";
-    public static final String SetDay = "SYDATE - 1";
 
 
     public void fucConnectDB() throws ClassNotFoundException, SQLException {
@@ -49,21 +52,35 @@ public class KioskController {
         return percent;
     }
 
+    @RequestMapping(value = "/revenueBar", method = RequestMethod.GET)
+    public @ResponseBody
+    String revenueBar() throws JSONException {
+        JSONObject userJSON = new JSONObject();
+        int actual = 70;
+        int target = 100;
+        int percent = getPercent(actual,target);
+        userJSON.put("actual", actual);
+        userJSON.put("target", target);
+        userJSON.put("percent", percent);
+        return userJSON.toString();
+    }
+
+//    public void revenueBar(ModelMap model){
+//        int actual = 70;
+//        int target = 100;
+//        int percent = getPercent(actual,target);
+//        model.addAttribute("actual", actual);
+//        model.addAttribute("target", target);
+//        model.addAttribute("percent",percent);
+//        model.addAttribute("check",1);
+//    }
 
 
-    public void Revenue(ModelMap model){
-        double actual = 450;
-        double target = 666;
-        double percent = (actual/target)*100;
-
+    public void revenueGraph(ModelMap model){
         String topup = "[[\"Start\", 0],[\"Week1\", 91],[\"Week2\", 36],[\"Week3\", 100],[\"Week4\", 64]]";
         String bill = "[[\"Start\", 0],[\"Week1\", 29],[\"Week2\", 15],[\"Week3\", 67],[\"Week4\", 40]]";
-
-        model.addAttribute("actual", Double.toString(actual));
-        model.addAttribute("target", Double.toString(target));
         model.addAttribute("topup", topup);
         model.addAttribute("bill", bill);
-        model.addAttribute("percent",Integer.toString((int)percent));
     }
 
     @RequestMapping(value = "/QueryTop4", method = RequestMethod.GET,produces = "text/plain;charset=UTF-8")
@@ -180,7 +197,8 @@ public class KioskController {
     @RequestMapping(value = "/kiosk",method = RequestMethod.GET )
     public String MainCon(ModelMap model) throws SQLException, ClassNotFoundException {
         fucConnectDB();
-        Revenue(model);
+//        revenueBar(model);
+        revenueGraph(model);
         return "Kiosk";
     }
 }

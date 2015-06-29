@@ -57,6 +57,20 @@
                 });
             }
 
+            function revenueBar() {
+                $.getJSON("revenueBar", function(json){
+                    if(json.percent <= 100){
+                        document.getElementById('zxc').className = "progress lessThan100 progress-sm";
+                    }
+                    else{
+                        document.getElementById('zxc').className = "progress greaterThan100 progress-sm";
+                    }
+                    $("#actual").html(json.actual);
+                    $("#target").html(json.target);
+                    $("#percent").html(json.percent + " %");
+                });
+            };
+
             function TimeRE() {
                 $.ajax({
                     url : "TimeSet" , success : function(data) {
@@ -66,8 +80,15 @@
                         }
                     }
                 });
-            }
+            };
             setInterval(TimeRE,1000);
+
+            window.onload = function () {
+                PIECHART();
+                TOP4();
+                revenueBar();
+                TimeRE();
+            };
 
             $(function () {
                 //BEGIN AREA CHART SPLINE
@@ -130,12 +151,6 @@
     </head>
 
     <body>
-        <script type="text/javascript">
-            PIECHART();
-            TOP4();
-            TimeRE();
-        </script>
-
         <div id="divBG"></div>
                                                         <%--TOP4 & PIE--%>
 
@@ -164,15 +179,14 @@
 
                             <span class="task-item">
                                 <span style="color: red">Actual:</span>
-                                <span style="color: #737373">${actual} </span>
+                                <span style="color: #737373" id="actual"></span>
                                 <span style="color: red">Target: </span>
-                                <span style="color: #737373">${target}</span>
-                                <small class="pull-right text-muted">${percent}%</small>
-                                <div class="progress progress-sm">
-                                    <div role="progressbar" aria-valuenow="${percent}"
+                                <span style="color: #737373" id="target"></span>
+                                <small class="pull-right text-muted" id="percent"></small>
+                                <div id="zxc">
+                                    <div role="progressbar" aria-valuenow="50"
                                         aria-valuemin="0" aria-valuemax="100"
-                                        style="width: ${percent}%;" class="progress-bar progress-bar">
-                                        <span class="sr-only">${percent}% Complete (success)</span>
+                                        style="width: 50%;" class="progress-bar">
                                     </div>
                                 </div>
                             </span>

@@ -17,6 +17,5 @@
 </head>
 <body>
     <a href="/DashBoard/kiosk" id="headNav">${msg}</a>
-    aaaa
 </body>
 </html>
