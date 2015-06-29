@@ -140,7 +140,7 @@
                                                         <%--TOP4 & PIE--%>
 
         <div id="div1">
-            <a id="head" href="/DashBoard">TMN Product Dashboard</a>
+            <a id="head" href="/Dashboard">TMN Product Dashboard</a>
 
             <div id="boxoffload">
                 <div id="diva">

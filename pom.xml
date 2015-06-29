@@ -2,10 +2,10 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.springapp</groupId>
-    <artifactId>DashBoard</artifactId>
+    <artifactId>Dashboard</artifactId>
     <packaging>war</packaging>
     <version>1.0-SNAPSHOT</version>
-    <name>DashBoard</name>
+    <name>Dashboard</name>
 
     <properties>
         <spring.version>4.1.1.RELEASE</spring.version>
@@ -78,7 +78,7 @@
     </dependencies>
 
     <build>
-        <finalName>DashBoard</finalName>
+        <finalName>Dashboard</finalName>
         <plugins>
             <plugin>
                 <groupId>org.mortbay.jetty</groupId>

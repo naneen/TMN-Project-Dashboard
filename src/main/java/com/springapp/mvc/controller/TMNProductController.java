@@ -11,7 +11,8 @@ public class TMNProductController {
     @RequestMapping(value = "/",method = RequestMethod.GET )
     public String product(ModelMap model) {
         model.addAttribute("msg", "TMN Product Dashboard");
-        return "TMNProduct";
+//        return "TMNProduct";
+        return "TempKiosk";
     }
 
 }
