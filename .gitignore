@@ -1,2 +1,5 @@
 .idea/
 target/
+src/main/webapp/.DS_Store
+src/main/webapp/WEB-INF/.DS_Store
+src/main/webapp/WEB-INF/pages/.DS_Store
