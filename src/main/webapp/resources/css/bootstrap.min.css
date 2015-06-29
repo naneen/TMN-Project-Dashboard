@@ -1255,7 +1255,7 @@ th {
 	margin-bottom: 20px
 }
 .table>thead>tr>th, .table>tbody>tr>th, .table>tfoot>tr>th, .table>thead>tr>td, .table>tbody>tr>td, .table>tfoot>tr>td {
-	padding: 8px;
+	padding: 1%;
 	line-height: 1.42857143;
 	vertical-align: top;
 	border-top: 1px solid #ddd

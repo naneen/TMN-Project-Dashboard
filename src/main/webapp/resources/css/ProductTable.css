@@ -1,0 +1,42 @@
+#textdiv
+{	color:#757D75;
+	padding-top:1%;
+	margin-left:1%;
+	
+}
+#divall{
+height:8%;
+background:#EEEEEE;
+
+
+
+
+}
+
+#div4{
+	position:absolute;
+	width:40%;
+	height:54.5%;
+	left:1%;
+	top:45%;
+	border-color:#EEEEEE; 
+	border-style: solid;
+	border-width: 2px;
+	
+
+
+
+
+}
+.divtable{
+	position:absolute;
+	width:99%;
+font-size:100%;
+	top:9%;
+	left:0.5%;
+	
+
+
+
+
+}
