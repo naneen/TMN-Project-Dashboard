@@ -26,11 +26,11 @@
                         var monthNames = ["January", "February", "March", "April", "May", "June",
                             "July", "August", "September", "October", "November", "December"
                         ];
-                        myDate.setDate(myDate.getDate()-45);
+                        myDate.setDate(myDate.getDate()-1);
                         var Day = myDate.getDate();
                         var Month = monthNames[myDate.getMonth()];
                         var Year = myDate.getFullYear();
-                        $("#result2").html(data+"% OffLoad <br>"+ "As of " + Day + " " + Month + " " + Year);
+                        $("#result2").html("<font color=\"#green\">"+data+"%</font>"+" OffLoad <br>"+ "As of " + Day + " " + Month + " " + Year);
                         var freeSpace = 100-data;
                         var pieData = [
                             {
@@ -61,11 +61,11 @@
             function TimeRE() {
                 $.ajax({
                     url : "TimeSet" , success : function(data) {
-                        if(data == "11:48:30"){
+                        if(data == "00:00:00"){
                             TOP4();
                             PIECHART();
                         }
-                }
+                    }
                 });
             }
             setInterval(TimeRE,1000);
@@ -182,7 +182,7 @@
 
                     <div class="row">
                         <div class="col-md-12">
-                            <div id="area-chart-spline" style="width: 100%; height: 210px">
+                            <div id="area-chart-spline" style="width: 100%; height: 75%">
                             </div>
                         </div>
                     </div>
@@ -193,6 +193,9 @@
 
                                                             <%--Map--%>
         <div id="div3">
+            <div id="headMap">
+                <h3>Complaint Bangkok + Suburb</h3>
+            </div>
             <div id="map"></div>
             <%-- Js will call Google API (line18). --%>
             <%-- Set theme in Map.js --%>
@@ -212,6 +215,7 @@
 
         <script src="resources/js/deployChartDecor.js"></script>
         <script src="resources/js/deployChartJs.js"></script>
+    <font color=""
     </body>
 </html>
 

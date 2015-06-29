@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <component name="ArtifactManager">
   <artifact type="exploded-war" name="DashBoard:war exploded">
     <output-path>$PROJECT_DIR$/target/DashBoard</output-path>
@@ -28,4 +29,36 @@
       <element id="javaee-facet-resources" facet="DashBoard/web/Web" />
     </root>
   </artifact>
+=======
+<component name="ArtifactManager">
+  <artifact type="exploded-war" name="DashBoard:war exploded">
+    <output-path>$PROJECT_DIR$/target/DashBoard</output-path>
+    <root id="root">
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="DashBoard" />
+        </element>
+        <element id="directory" name="lib">
+          <element id="library" level="project" name="Maven: org.springframework:spring-core:4.1.1.RELEASE" />
+          <element id="library" level="project" name="Maven: commons-logging:commons-logging:1.1.3" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-web:4.1.1.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-aop:4.1.1.RELEASE" />
+          <element id="library" level="project" name="Maven: aopalliance:aopalliance:1.0" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-beans:4.1.1.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-context:4.1.1.RELEASE" />
+          <element id="library" level="project" name="Maven: javax.servlet:servlet-api:2.5" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-webmvc:4.1.1.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-expression:4.1.1.RELEASE" />
+          <element id="library" level="project" name="Maven: jstl:jstl:1.2" />
+          <element id="library" level="project" name="Maven: org.glassfish:javax.json:1.0.4" />
+          <element id="library" level="project" name="Maven: com.oracle:ojdbc6:11.2.0.3" />
+        </element>
+      </element>
+      <element id="directory" name="META-INF">
+        <element id="file-copy" path="$PROJECT_DIR$/target/DashBoard/META-INF/MANIFEST.MF" />
+      </element>
+      <element id="javaee-facet-resources" facet="DashBoard/web/Web" />
+    </root>
+  </artifact>
+>>>>>>> 02fb780c7dca0d1de1cc57cc39ecf14429ec43ea
 </component>

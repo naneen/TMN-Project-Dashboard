@@ -10,14 +10,20 @@ public class ValueComparator implements Comparator<String> {
         this.base = base;
     }
 
-
-
     public int compare(String a, String b) {
-        if (base.get(a) >= base.get(b)) {
+        if (base.get(a) > base.get(b)) {
             return -1;
-        } else {
+        }
+        else if(base.get(a) == base.get(b)){
+            if(b.compareTo(a) < 0){
+                return -1;
+            }
+            else{
+                return 1;
+            }
+        }
+        else {
             return 1;
         }
     }
-
 }

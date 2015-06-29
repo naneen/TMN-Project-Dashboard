@@ -35,7 +35,7 @@ body {
     font-size: 35px;
 }
 #textSize{
-    font-size: 10px;
+    font-size: 11.3px;
 }
 #text{
     position: absolute;
@@ -83,7 +83,7 @@ body {
     width: 57%;
     height: 40%;
     left: -1%;
-    top: 57%;
+    top: 51%;
 }
 #div4{
     position: absolute;
@@ -109,24 +109,6 @@ body {
     top: 0%;
     left: 2%;
 }
-.boxa{
-    position: absolute;
-    width: 100%;
-    height: 15%;
-    top: 85%;
-}
-#boxa1{
-    background: #b6ea03;
-}
-#boxa2{
-    background: #de8f03;
-}
-#boxa3{
-    background: #117965;
-}
-#boxa4{
-    background: #6a3283;
-}
 .boxall{
     width: 15%;
     height: 13%;
@@ -139,7 +121,7 @@ body {
     position: absolute;
     left: 12%;
     top: 21%;
-    background: rgba(182,234,3,0.8);
+    background: rgba(37, 152, 255, 0.8);
     /*border-color: #aee002;*/
 }
 #box2{
@@ -154,14 +136,14 @@ body {
     left: 12%;
     top: 36%;
     background: rgba(22,160,133,0.8);
-    border-color: #16A085;
+    /*border-color: #16A085;*/
 }
 #box4{
     position: absolute;
     left: 28%;
     top: 36%;
     background: rgba(142,68,173,0.8);
-    border-color: #8E44AD;
+    /*border-color: #8E44AD;*/
 }
 #boxoffload {
     position: absolute;
@@ -318,12 +300,12 @@ body {
 #deployTitle{
     top: 5%;
     font-size: 1.9em;
-    color: #AEF100;
+    color: #1a62a7;
     /*padding:5% 0 1% 0;*/
     position: relative;
 }
 #deployVersion{
-    color: #F5001D;
+    color: #ff001e;
     font-size: 2em;
     margin: 2% 0 2% 0;
 }
@@ -357,4 +339,9 @@ body {
     height: 100%;
     width: 70%;
     color: #54a0dc;
+}
+
+#headMap{
+    text-align: center;
+    color: #ff0005;
 }

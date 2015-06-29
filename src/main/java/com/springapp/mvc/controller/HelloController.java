@@ -16,15 +16,15 @@ public class HelloController {
     public static String url = "jdbc:oracle:thin:@//10.224.102.10:2992/pdev";
     public static String username = "kioskpx";
     public static String pass = "kioskdev";
-    public static final String SetDay = "SYDATE - 47";
+    public static final String SetDay = "SYDATE - 1";
 
 
-    public void ConnectDB() throws ClassNotFoundException, SQLException {
+    public void fucConnectDB() throws ClassNotFoundException, SQLException {
         Class.forName("oracle.jdbc.driver.OracleDriver");
         connect = DriverManager.getConnection(url,username,pass);
     }
 
-    public String PlaceCut(String place){
+    public String fucPlaceCut(String place){
         ArrayList<String> CutPlaceSave = new ArrayList<String>();
         CutPlaceSave.add("True Shop Station in True Coffee ");
         CutPlaceSave.add("True Shop Mini ");
@@ -52,7 +52,7 @@ public class HelloController {
 
 
     public void Revenue(ModelMap model){
-        double actual = 698;
+        double actual = 450;
         double target = 666;
         double percent = (actual/target)*100;
 
@@ -68,7 +68,7 @@ public class HelloController {
 
     @RequestMapping(value = "/QueryTop4", method = RequestMethod.GET,produces = "text/plain;charset=UTF-8")
     public @ResponseBody
-    String QueryTop4() throws SQLException {
+    String queryTop4() throws SQLException {
         StringBuilder resultTop4 = new StringBuilder();
         HashMap<String,Integer> map = new HashMap<String,Integer>();
         ValueComparator bvc =  new ValueComparator(map);
@@ -80,20 +80,20 @@ public class HelloController {
         resultSet1 = state1.executeQuery("select t4.PLACE,count(*) as COUNT " +
                 "from TR_PAY_DETAIL_MULTIBILL t1,TR_PAY_MULTIBILL t2,RE_LOCATION_KIOSK t3,DT_LOCATION t4 " +
                 "where t1.TRANS_ID = t2.TRANS_ID and  (t1.trans_id,t2.KIOSK_ID) in ( " +
-                "Select distinct(TRANS_ID),KIOSK_ID from TR_TRANS_MULTIBILL where SVC_ID = 'PostBillConfirm' and state=0 and TO_CHAR (SYSDATE-47,'DD-MON-YYYY') = TO_CHAR (ENDED,'DD-MON-YYYY')) " +
+                "Select distinct(TRANS_ID),KIOSK_ID from TR_TRANS_MULTIBILL where SVC_ID = 'PostBillConfirm' and state=0 and TO_CHAR (SYSDATE-1,'DD-MON-YYYY') = TO_CHAR (ENDED,'DD-MON-YYYY')) " +
                 "and t2.KIOSK_ID = t3.KIOSK_ID and t3.LOCATION_ID = t4.LOCATION_ID " +
                 "group by t4.PLACE ");
 
         resultSet2 = state2.executeQuery("select count(*) as COUNT " +
                 "from TR_PAY_DETAIL_MULTIBILL t1,TR_PAY_MULTIBILL t2 " +
                 "where t1.TRANS_ID = t2.TRANS_ID and  (t1.trans_id,t2.KIOSK_ID) in ( " +
-                "Select distinct(TRANS_ID),KIOSK_ID from TR_TRANS_MULTIBILL where SVC_ID = 'PostBillConfirm' and state=0 and TO_CHAR (SYSDATE-47,'DD-MON-YYYY') = TO_CHAR (ENDED,'DD-MON-YYYY')) ");
+                "Select distinct(TRANS_ID),KIOSK_ID from TR_TRANS_MULTIBILL where SVC_ID = 'PostBillConfirm' and state=0 and TO_CHAR (SYSDATE-1,'DD-MON-YYYY') = TO_CHAR (ENDED,'DD-MON-YYYY')) ");
         resultSet2.next();
         int sum = resultSet2.getInt("COUNT");
         while(resultSet1.next()){
             String place = resultSet1.getString("PLACE");
             int count = resultSet1.getInt("COUNT");
-            place = PlaceCut(place);
+            place = fucPlaceCut(place);
             count = getPercent(count,sum);
             map.put(place,count);
         }
@@ -119,7 +119,7 @@ public class HelloController {
 
     @RequestMapping(value = "/QueryPieChart", method = RequestMethod.GET)
     public @ResponseBody
-    String QueryPieChart() throws SQLException {
+    String queryPieChart() throws SQLException {
         ResultSet  resultSet1,resultSet2;
         Statement state1,state2;
         state1 = connect.createStatement();
@@ -131,16 +131,16 @@ public class HelloController {
                 "where t1.trans_id in ( " +
                 "Select distinct(TRANS_ID) " +
                 "from TR_TRANS_MULTIBILL " +
-                "where SVC_ID = 'PostBillConfirm' and state=0 and TO_CHAR (SYSDATE-47,'DD-MON-YYYY') = TO_CHAR (ENDED,'DD-MON-YYYY')) " +
+                "where SVC_ID = 'PostBillConfirm' and state=0 and TO_CHAR (SYSDATE-1,'DD-MON-YYYY') = TO_CHAR (ENDED,'DD-MON-YYYY')) " +
                 "and t1.TRANS_ID = t2.TRANS_ID and t2.KIOSK_ID = t3.KIOSK_ID");
         resultSet2 = state2.executeQuery("select SUM(TRM_AMOUNT) as COUNT " +
                 "from DT_TRM " +
-                "where TO_CHAR (SYSDATE-47,'DD-MON-YYYY') = TO_CHAR (TRM_DATE,'DD-MON-YYYY')");
+                "where TO_CHAR (SYSDATE-1,'DD-MON-YYYY') = TO_CHAR (TRM_DATE,'DD-MON-YYYY')");
         resultSet1.next();
         resultSet2.next();
         int count1 = resultSet1.getInt("COUNT");
         int count2 = resultSet2.getInt("COUNT");
-        avgOffset = getPercent(count2,count1+count2);
+        avgOffset = getPercent(count1,count1+count2);
         resultSet1.close();
         resultSet2.close();
         state1.close();
@@ -150,7 +150,7 @@ public class HelloController {
 
     @RequestMapping(value = "/TimeSet", method = RequestMethod.GET)
     public @ResponseBody
-    String TimeSet(){
+    String timeSet(){
         String time="";
         Date date = new Date();
         int curSecs = date.getSeconds();
@@ -179,7 +179,7 @@ public class HelloController {
 
     @RequestMapping(value = "/",method = RequestMethod.GET )
     public String MainCon(ModelMap model) throws SQLException, ClassNotFoundException {
-        ConnectDB();
+        fucConnectDB();
         Revenue(model);
         return "hello";
     }
