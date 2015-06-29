@@ -4,11 +4,11 @@ $(function(){jQuery(document).ready(function () {
     //var markerArr = [];
 
     var locationArray = [
-        ['Central', 13.777699,100.476291, 4],
-        ['AIA', 13.764197002592573, 100.56806197594256, 5],
+        ['Central', 13.777699,100.476291, 4, 34],
+        ['AIA', 13.764197002592573, 100.56806197594256, 5, 2],
         ['Lotus', 13.912447,100.496309, 3],
-        ['Fashion Island',13.825877,100.678959, 2],
-        ['Future Rangsit', 13.989174,100.617912, 1]
+        ['Fashion Island',13.825877,100.678959, 2, 27],
+        ['Future Rangsit', 13.989174,100.617912, 1, 23]
     ];
 
     function initialize() {
@@ -84,8 +84,8 @@ $(function(){jQuery(document).ready(function () {
             }
             google.maps.event.addListener(marker, 'mouseover', (function(marker, i) {
                 return function() {
-                    infoBubble.setContent(locationArray[i][0]);
-                    infoBubble.open(map, marker);
+                    infoBubble.setContent(locationArray[i][0] + "<br />Ticket : " + locationArray[i][4]);
+                    infoBubble.open(map, marker);4
                 }
             })(marker, i));
 

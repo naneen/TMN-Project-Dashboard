@@ -55,13 +55,20 @@ body {
     left: 10%;
     top: 7%;
 }
-#div1{
+#divBG{
     position: absolute;
     width: 92.5%;
     height: 96%;
     left: 3.5%;
     top: 2%;
     background: white;
+}
+#div1{
+    position:absolute;
+    width:45%;
+    height:48%;
+    left:3.5%;
+    top:2%;
 }
 #div2{
     position: absolute;
@@ -74,7 +81,7 @@ body {
 #div3{
     position: absolute;
     width: 57%;
-    height: 63%;
+    height: 40%;
     left: -1%;
     top: 57%;
 }
@@ -87,7 +94,7 @@ body {
 
 #chart-area{
     position: absolute;
-    /*width: 25% ;*/
+    width: 25% ;
     height: 1000% ;
     left: -25%;
     top: 8%;
@@ -347,7 +354,7 @@ body {
 #map {
     margin-left: auto;
     margin-right: auto;
-    height: 60%;
-    width: 60%;
+    height: 100%;
+    width: 70%;
     color: #54a0dc;
 }

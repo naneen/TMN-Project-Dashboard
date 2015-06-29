@@ -137,19 +137,21 @@
             TimeRE();
         </script>
 
+        <div id="divBG"></div>
                                                         <%--TOP4 & PIE--%>
+
         <div id="div1">
             <div id="head">TMN Product Dashboard</div>
-        </div>
 
-        <div id="boxoffload">
-            <div id="diva">
-                <div id="canvas-holder"><canvas id="chart-area"></canvas></div>
+            <div id="boxoffload">
+                <div id="diva">
+                    <div id="canvas-holder"><canvas id="chart-area"></canvas></div>
+                </div>
+                <center><div id="result2" class="displayoffload"></div></center>
             </div>
-            <center><div id="result2" class="displayoffload"></div></center>
-        </div>
 
-        <div id="resultTop4"></div>
+            <div id="resultTop4"></div>
+        </div>
 
                                                             <%--REVENUE--%>
 
@@ -192,7 +194,8 @@
                                                             <%--Map--%>
         <div id="div3">
             <div id="map"></div>
-            <%-- js will call Google API (line18) --%>
+            <%-- Js will call Google API (line18). --%>
+            <%-- Set theme in Map.js --%>
         </div>
 
 
