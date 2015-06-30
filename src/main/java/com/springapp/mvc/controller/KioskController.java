@@ -51,19 +51,121 @@ public class KioskController {
 
 
 
-    public void Revenue(ModelMap model){
+    public void Revenue(ModelMap model) throws SQLException {
         double actual = 450;
         double target = 666;
         double percent = (actual/target)*100;
 
-        String topup = "[[\"Start\", 0],[\"Week1\", 91],[\"Week2\", 36],[\"Week3\", 100],[\"Week4\", 64]]";
-        String bill = "[[\"Start\", 0],[\"Week1\", 29],[\"Week2\", 15],[\"Week3\", 67],[\"Week4\", 40]]";
+        // initial month
+        String month = "4" ;
+
+        //bill of each week , b = bill
+        double week1b  ;
+        double week2b ;
+        double week3b  ;
+        double week4b  ;
+
+        //topup of each week , t = topup
+        double week1t  ;
+        double week2t  ;
+        double week3t  ;
+        double week4t ;
+
+        ResultSet  resultSet1b,resultSet2b,resultSet3b,resultSet4b,resultSet1t,resultSet2t,resultSet3t,resultSet4t;
+        Statement state1b,state2b,state3b,state4b,state1t,state2t,state3t,state4t;
+
+        state1t = connect.createStatement();
+        state2t = connect.createStatement();
+        state3t = connect.createStatement();
+        state4t = connect.createStatement();
+        state1b = connect.createStatement();
+        state2b = connect.createStatement();
+        state3b = connect.createStatement();
+        state4b = connect.createStatement();
+
+        // Query Database of topup transaction
+
+        resultSet1t = state1t.executeQuery("SELECT COUNT(DISTINCT TRANS_ID) as COUNT " +
+                "FROM TR_TRANS_MULTIBILL " +
+                "WHERE SVC_ID = 'ConfirmMobileTopupAndDebit' and STATE = 0 " +
+                "and (to_number(to_char(CREATED,'DD')) >= 1 And to_number(to_char(CREATED,'DD')) <= 7) And to_number(to_char(CREATED,'MM')) = " + month);
+
+        resultSet2t = state2t.executeQuery("SELECT COUNT(DISTINCT TRANS_ID)  as COUNT " +
+                "FROM TR_TRANS_MULTIBILL " +
+                "WHERE SVC_ID = 'ConfirmMobileTopupAndDebit' and STATE = 0 " +
+                "and (to_number(to_char(CREATED,'DD')) >= 8 And to_number(to_char(CREATED,'DD')) <= 14) And to_number(to_char(CREATED,'MM')) = " + month);
+        resultSet3t = state3t.executeQuery("SELECT COUNT(DISTINCT TRANS_ID)  as COUNT " +
+                "FROM TR_TRANS_MULTIBILL " +
+                "WHERE SVC_ID = 'ConfirmMobileTopupAndDebit' and STATE = 0 " +
+                "and (to_number(to_char(CREATED,'DD')) >= 15 And to_number(to_char(CREATED,'DD')) <= 21) And to_number(to_char(CREATED,'MM')) = " + month);
+        resultSet4t = state4t.executeQuery("SELECT COUNT(DISTINCT TRANS_ID)  as COUNT " +
+                "FROM TR_TRANS_MULTIBILL " +
+                "WHERE SVC_ID = 'ConfirmMobileTopupAndDebit' and STATE = 0 " +
+                "and (to_number(to_char(CREATED,'DD')) >= 22 And to_number(to_char(CREATED,'DD')) <= 28) And to_number(to_char(CREATED,'MM')) = " + month);
+
+        // Query Database of bill transaction
+        resultSet1b = state1b.executeQuery("SELECT COUNT(DISTINCT TRANS_ID)  as COUNT " +
+                "FROM TR_TRANS_MULTIBILL h " +
+                "WHERE SVC_ID = 'PostBillConfirm' and STATE = 0 "+
+                "and (to_number(to_char(CREATED,'DD')) >= 1 And to_number(to_char(CREATED,'DD')) <= 7) And to_number(to_char(CREATED,'MM')) = "+month);
+        resultSet2b = state2b.executeQuery("SELECT COUNT(DISTINCT TRANS_ID)  as COUNT " +
+                "FROM TR_TRANS_MULTIBILL h " +
+                "WHERE SVC_ID = 'PostBillConfirm' and STATE = 0 "+
+                "and (to_number(to_char(CREATED,'DD')) >= 8 And to_number(to_char(CREATED,'DD')) <= 14) And to_number(to_char(CREATED,'MM')) = "+month);
+        resultSet3b = state3b.executeQuery("SELECT COUNT(DISTINCT TRANS_ID)  as COUNT " +
+                "FROM TR_TRANS_MULTIBILL h " +
+                "WHERE SVC_ID = 'PostBillConfirm' and STATE = 0 "+
+                "and (to_number(to_char(CREATED,'DD')) >= 15 And to_number(to_char(CREATED,'DD')) <= 21) And to_number(to_char(CREATED,'MM')) = "+month);
+        resultSet4b = state4b.executeQuery("SELECT COUNT(DISTINCT TRANS_ID)  as COUNT " +
+                "FROM TR_TRANS_MULTIBILL h " +
+                "WHERE SVC_ID = 'PostBillConfirm' and STATE = 0 "+
+                "and (to_number(to_char(CREATED,'DD')) >= 22 And to_number(to_char(CREATED,'DD')) <= 28) And to_number(to_char(CREATED,'MM')) = "+month);
+
+        resultSet1t.next();
+        resultSet2t.next();
+        resultSet3t.next();
+        resultSet4t.next();
+        resultSet1b.next();
+        resultSet2b.next();
+        resultSet3b.next();
+        resultSet4b.next();
+
+        week1t = resultSet1t.getDouble("COUNT");
+        week2t = resultSet2t.getDouble("COUNT");
+        week3t = resultSet3t.getDouble("COUNT");
+        week4t = resultSet4t.getDouble("COUNT");
+        week1b = resultSet1b.getDouble("COUNT");
+        week2b = resultSet2b.getDouble("COUNT");
+        week3b = resultSet3b.getDouble("COUNT");
+        week4b = resultSet4b.getDouble("COUNT");
+
+
+        String bill = "[[\"Start\", 0],"+"[\"Week1\","+ Double.toString(week1b)+"],[\"Week2\","+Double.toString(week2b)+"],[\"Week3\","+Double.toString(week3b)+"],[\"Week4\","+Double.toString(week4b)+"]]";
+        String topup = "[[\"Start\", 0],"+"[\"Week1\","+ Double.toString(week1t)+"],[\"Week2\","+Double.toString(week2t)+"],[\"Week3\","+Double.toString(week3t)+"],[\"Week4\","+Double.toString(week4t)+"]]";
 
         model.addAttribute("actual", Double.toString(actual));
         model.addAttribute("target", Double.toString(target));
         model.addAttribute("topup", topup);
         model.addAttribute("bill", bill);
-        model.addAttribute("percent",Integer.toString((int)percent));
+        model.addAttribute("percent", Integer.toString((int) percent));
+
+        resultSet1t.close();
+        resultSet2t.close();
+        resultSet3t.close();
+        resultSet4t.close();
+        resultSet1b.close();
+        resultSet2b.close();
+        resultSet3b.close();
+        resultSet4b.close();
+
+        state1b.close();
+        state2b.close();
+        state3b.close();
+        state4b.close();
+        state1t.close();
+        state2t.close();
+        state3t.close();
+        state4t.close();
     }
 
     @RequestMapping(value = "/QueryTop4", method = RequestMethod.GET,produces = "text/plain;charset=UTF-8")
