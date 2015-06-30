@@ -1,15 +1,32 @@
 //<![CDATA[
+
+
+
+
+
 $(function(){jQuery(document).ready(function () {
     var map;
     //var markerArr = [];
 
-    var locationArray = [
-        ['Central', 13.777699,100.476291, 4, 34],
-        ['AIA', 13.764197002592573, 100.56806197594256, 5, 2],
-        ['Lotus', 13.912447,100.496309, 3],
-        ['Fashion Island',13.825877,100.678959, 2, 27],
-        ['Future Rangsit', 13.989174,100.617912, 1, 23]
-    ];
+    var count=0;
+    $.getJSON( "complaintTicket", function(json) {
+        initialize();
+        var lon,lat,id,ticket;
+        for(i=0;i<json.length;i+=5){
+             lon=parseFloat(json[i+1]);
+             lat=parseFloat(json[i+2]);
+             id=parseInt(json[i+3]);
+             ticket=parseInt(json[i+4]);
+
+
+            setMarkers(map,json[i], lon,lat,ticket);
+
+
+
+        }
+    });
+
+
 
     function initialize() {
         var mapOptions = {
@@ -55,10 +72,13 @@ $(function(){jQuery(document).ready(function () {
                            }
                        ]);
 
-        setMarkers(map, locationArray);
+
+
+
     }
 
-    function setMarkers(map) {
+    function setMarkers(map,json, lon,lat,ticket) {
+
         var infoBubble = new InfoBubble({
             Padding: 10,
             borderRadius: 10,
@@ -71,12 +91,12 @@ $(function(){jQuery(document).ready(function () {
             disableAutoPan: false,
             hideCloseButton: true
         }), marker, i;
-        for (i = 0; i < locationArray.length; i++) {
+            count++;
             marker = new google.maps.Marker({
-                position: new google.maps.LatLng(locationArray[i][1], locationArray[i][2]),
+                position: new google.maps.LatLng(lon, lat),
                 map: map
             });
-            if( i%2==0 ) {
+            if( count>3 ) {
                 marker.setIcon('resources/img/pin_orange.png');
             }
             else{
@@ -84,8 +104,8 @@ $(function(){jQuery(document).ready(function () {
             }
             google.maps.event.addListener(marker, 'mouseover', (function(marker, i) {
                 return function() {
-                    infoBubble.setContent(locationArray[i][0] + "<br />Ticket : " + locationArray[i][4]);
-                    infoBubble.open(map, marker);4
+                    infoBubble.setContent(json + "<br />Ticket : " + ticket);
+                    infoBubble.open(map, marker);
                 }
             })(marker, i));
 
@@ -95,9 +115,9 @@ $(function(){jQuery(document).ready(function () {
                 }
             })(marker, i));
         }
-    }
 
-    google.maps.event.addDomListener(window, 'load', initialize);
+
+    //google.maps.event.addDomListener(window, 'load', initialize);
     });
 });//]]>
 
