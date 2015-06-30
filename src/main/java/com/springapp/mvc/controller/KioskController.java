@@ -54,27 +54,28 @@ public class KioskController {
 
     @RequestMapping(value = "/revenueBar", method = RequestMethod.GET)
     public @ResponseBody
-    String revenueBar() throws JSONException {
+    String revenueBar() throws JSONException, SQLException {
         JSONObject userJSON = new JSONObject();
-        int actual = 70;
-        int target = 100;
+        ResultSet resultSet1,resultSet2;
+        Statement state1,state2;
+        state1 = connect.createStatement();
+        state2 = connect.createStatement();
+        resultSet1 = state1.executeQuery("select sum(AMOUNT) as ACTUAL " +
+                "from TR_PAY_MULTIBILL t1,TR_PAY_DETAIL_MULTIBILL t2 " +
+                "where t1.TRANS_ID = t2.TRANS_ID and TO_CHAR (SYSDATE-1,'DD-MON-YYYY') = TO_CHAR (t1.PAYMENT_DATETIME,'DD-MON-YYYY') ");
+        resultSet2 = state2.executeQuery("select TARGET_AMOUNT as TARGET " +
+                "from DT_TARGET " +
+                "where TO_CHAR (SYSDATE-1,'DD-MON-YYYY') = TO_CHAR (TARGET_DATE,'DD-MON-YYYY') ");
+        resultSet1.next();
+        resultSet2.next();
+        int actual = resultSet1.getInt("ACTUAL");
+        int target = resultSet2.getInt("TARGET");
         int percent = getPercent(actual,target);
         userJSON.put("actual", actual);
         userJSON.put("target", target);
         userJSON.put("percent", percent);
         return userJSON.toString();
     }
-
-//    public void revenueBar(ModelMap model){
-//        int actual = 70;
-//        int target = 100;
-//        int percent = getPercent(actual,target);
-//        model.addAttribute("actual", actual);
-//        model.addAttribute("target", target);
-//        model.addAttribute("percent",percent);
-//        model.addAttribute("check",1);
-//    }
-
 
     public void revenueGraph(ModelMap model){
         String topup = "[[\"Start\", 0],[\"Week1\", 91],[\"Week2\", 36],[\"Week3\", 100],[\"Week4\", 64]]";
@@ -197,7 +198,6 @@ public class KioskController {
     @RequestMapping(value = "/kiosk",method = RequestMethod.GET )
     public String MainCon(ModelMap model) throws SQLException, ClassNotFoundException {
         fucConnectDB();
-//        revenueBar(model);
         revenueGraph(model);
         return "Kiosk";
     }

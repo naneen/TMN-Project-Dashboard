@@ -59,15 +59,20 @@
 
             function revenueBar() {
                 $.getJSON("revenueBar", function(json){
+                    var actualBar;
                     if(json.percent <= 100){
                         document.getElementById('zxc').className = "progress lessThan100 progress-sm";
+                        actualBar = json.percent;
                     }
                     else{
                         document.getElementById('zxc').className = "progress greaterThan100 progress-sm";
+                        actualBar = 200 - json.percent;
                     }
                     $("#actual").html(json.actual);
                     $("#target").html(json.target);
                     $("#percent").html(json.percent + " %");
+                    $("#percent2").attr({"aria-valuenow":actualBar,style:"width: "+actualBar+"%;"});
+
                 });
             };
 
@@ -77,6 +82,7 @@
                         if(data == "00:00:00"){
                             TOP4();
                             PIECHART();
+                            revenueBar();
                         }
                     }
                 });
@@ -186,7 +192,7 @@
                                 <div id="zxc">
                                     <div role="progressbar" aria-valuenow="50"
                                         aria-valuemin="0" aria-valuemax="100"
-                                        style="width: 50%;" class="progress-bar">
+                                        style="width: 50%;" class="progress-bar" id="percent2">
                                     </div>
                                 </div>
                             </span>
