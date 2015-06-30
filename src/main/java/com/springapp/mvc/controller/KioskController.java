@@ -74,6 +74,10 @@ public class KioskController {
         userJSON.put("actual", actual);
         userJSON.put("target", target);
         userJSON.put("percent", percent);
+        resultSet1.close();
+        resultSet2.close();
+        state1.close();
+        state2.close();
         return userJSON.toString();
     }
 
