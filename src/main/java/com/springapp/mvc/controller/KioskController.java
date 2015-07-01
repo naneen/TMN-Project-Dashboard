@@ -57,7 +57,7 @@ public class KioskController {
         double percent = (actual/target)*100;
 
         // initial month
-        String month = "4" ;
+        String month = "5" ;
 
         //bill of each week , b = bill
         double week1b  ;
@@ -88,38 +88,37 @@ public class KioskController {
         resultSet1t = state1t.executeQuery("SELECT COUNT(DISTINCT TRANS_ID) as COUNT " +
                 "FROM TR_TRANS_MULTIBILL " +
                 "WHERE SVC_ID = 'ConfirmMobileTopupAndDebit' and STATE = 0 " +
-                "and (to_number(to_char(CREATED,'DD')) >= 1 And to_number(to_char(CREATED,'DD')) <= 7) And to_number(to_char(CREATED,'MM')) = " + month);
-
+                "and (created >= TO_CHAR(SYSDATE - 7, 'DD-MON-YYYY') and created <= TO_CHAR(SYSDATE, 'DD-MON-YYYY'))");
         resultSet2t = state2t.executeQuery("SELECT COUNT(DISTINCT TRANS_ID)  as COUNT " +
                 "FROM TR_TRANS_MULTIBILL " +
                 "WHERE SVC_ID = 'ConfirmMobileTopupAndDebit' and STATE = 0 " +
-                "and (to_number(to_char(CREATED,'DD')) >= 8 And to_number(to_char(CREATED,'DD')) <= 14) And to_number(to_char(CREATED,'MM')) = " + month);
+                "and (created >= TO_CHAR(SYSDATE - 14, 'DD-MON-YYYY') and created <= TO_CHAR(SYSDATE-7, 'DD-MON-YYYY'))");
         resultSet3t = state3t.executeQuery("SELECT COUNT(DISTINCT TRANS_ID)  as COUNT " +
                 "FROM TR_TRANS_MULTIBILL " +
                 "WHERE SVC_ID = 'ConfirmMobileTopupAndDebit' and STATE = 0 " +
-                "and (to_number(to_char(CREATED,'DD')) >= 15 And to_number(to_char(CREATED,'DD')) <= 21) And to_number(to_char(CREATED,'MM')) = " + month);
+                "and (created >= TO_CHAR(SYSDATE - 21, 'DD-MON-YYYY') and created <= TO_CHAR(SYSDATE-14, 'DD-MON-YYYY'))");
         resultSet4t = state4t.executeQuery("SELECT COUNT(DISTINCT TRANS_ID)  as COUNT " +
                 "FROM TR_TRANS_MULTIBILL " +
                 "WHERE SVC_ID = 'ConfirmMobileTopupAndDebit' and STATE = 0 " +
-                "and (to_number(to_char(CREATED,'DD')) >= 22 And to_number(to_char(CREATED,'DD')) <= 28) And to_number(to_char(CREATED,'MM')) = " + month);
+                "and (created >= TO_CHAR(SYSDATE - 28, 'DD-MON-YYYY') and created <= TO_CHAR(SYSDATE-21, 'DD-MON-YYYY'))");
 
         // Query Database of bill transaction
         resultSet1b = state1b.executeQuery("SELECT COUNT(DISTINCT TRANS_ID)  as COUNT " +
                 "FROM TR_TRANS_MULTIBILL h " +
-                "WHERE SVC_ID = 'PostBillConfirm' and STATE = 0 "+
-                "and (to_number(to_char(CREATED,'DD')) >= 1 And to_number(to_char(CREATED,'DD')) <= 7) And to_number(to_char(CREATED,'MM')) = "+month);
+                "WHERE SVC_ID = 'PostBillConfirm' and STATE = 0 " +
+                "and (created >= TO_CHAR(SYSDATE - 7, 'DD-MON-YYYY') and created <= TO_CHAR(SYSDATE, 'DD-MON-YYYY'))");
         resultSet2b = state2b.executeQuery("SELECT COUNT(DISTINCT TRANS_ID)  as COUNT " +
                 "FROM TR_TRANS_MULTIBILL h " +
-                "WHERE SVC_ID = 'PostBillConfirm' and STATE = 0 "+
-                "and (to_number(to_char(CREATED,'DD')) >= 8 And to_number(to_char(CREATED,'DD')) <= 14) And to_number(to_char(CREATED,'MM')) = "+month);
+                "WHERE SVC_ID = 'PostBillConfirm' and STATE = 0 " +
+                "and (created >= TO_CHAR(SYSDATE - 14, 'DD-MON-YYYY') and created <= TO_CHAR(SYSDATE-7, 'DD-MON-YYYY'))");
         resultSet3b = state3b.executeQuery("SELECT COUNT(DISTINCT TRANS_ID)  as COUNT " +
                 "FROM TR_TRANS_MULTIBILL h " +
                 "WHERE SVC_ID = 'PostBillConfirm' and STATE = 0 "+
-                "and (to_number(to_char(CREATED,'DD')) >= 15 And to_number(to_char(CREATED,'DD')) <= 21) And to_number(to_char(CREATED,'MM')) = "+month);
+                "and (created >= TO_CHAR(SYSDATE - 21, 'DD-MON-YYYY') and created <= TO_CHAR(SYSDATE-14, 'DD-MON-YYYY'))");
         resultSet4b = state4b.executeQuery("SELECT COUNT(DISTINCT TRANS_ID)  as COUNT " +
-                "FROM TR_TRANS_MULTIBILL h " +
-                "WHERE SVC_ID = 'PostBillConfirm' and STATE = 0 "+
-                "and (to_number(to_char(CREATED,'DD')) >= 22 And to_number(to_char(CREATED,'DD')) <= 28) And to_number(to_char(CREATED,'MM')) = "+month);
+                "FROM TR_TRANS_MULTIBILL h  " +
+                "WHERE h.SVC_ID = 'PostBillConfirm' and h.STATE = 0 "+
+                "and (created >= TO_CHAR(SYSDATE - 28, 'DD-MON-YYYY') and created <= TO_CHAR(SYSDATE-21, 'DD-MON-YYYY'))");
 
         resultSet1t.next();
         resultSet2t.next();
