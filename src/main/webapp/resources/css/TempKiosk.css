@@ -1,0 +1,81 @@
+.navbar{
+    margin-bottom: 0;
+    /*background-color: rgb(245, 245, 245);*/
+    background-color: rgb(60, 60, 60);
+    /*background-color: transparent;*/
+    border-bottom-color: transparent;
+    /*border-color: #080808;*/
+}
+#headerContainer{
+    margin: 0.5%;
+    margin-left: 5%;
+    /*background-color: #222222;*/
+}
+#tmnLogo{
+    float: left;
+    position: relative;
+    width: 8%;
+}
+#header{
+    float: left;
+    position: relative;
+    font-size: 25px;
+    color: #ff4220;
+    font-weight: bold;
+    text-decoration: none;
+    padding: 1%;
+}
+
+#allContents{
+    margin-top: 72.9375px;
+    height: 90.2%;
+    /*background: cadetblue;*/
+}
+
+/* *************** OFFSET ************** */
+#Q2{
+    float: left;
+    position: relative;
+    background: #e5e5e5;
+    width: 60.75%;  /* 63-1.5-0.75 */
+    height: 50%;
+    top: 3%;
+    left: 1.5%;
+    right: 0.75%;
+}
+/* ---------------- PIE ---------------- */
+#pieDiv{
+    width: 30%;
+    height: 80%;
+    position: absolute;
+    top: 8%;
+    left: 5%;
+    border: none;
+    border-radius: 0;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    /*rgb(187, 187, 187);*/
+    background-color: #f7f7f7;
+}
+#chart-area{
+    position: relative;
+    width: 60% ;
+    height: 60% ;
+    left: 20%;
+}
+#offloadResult{
+    text-align: center;
+    margin-top: 7%;
+    font-size: 18px;
+}
+/* ************ REVENUE ************ */
+#Q1{
+    float: left;
+    position: relative;
+    background: #ec5a53;
+    width: 34.75%;
+    height: 50%;
+    right: 1.5%;
+    left: 3%;
+    top: 3%;
+}
