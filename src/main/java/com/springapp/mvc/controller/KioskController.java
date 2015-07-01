@@ -196,7 +196,7 @@ public class KioskController {
         Statement state1;
         state1 = connect.createStatement();
 
-        resultSet1 = state1.executeQuery("select PLACE,LON,LAT,LOCATION_ID,TICKETS"+
+        resultSet1 = state1.executeQuery("select PLACE,LON,LAT,TICKETS"+
                 " from DT_LOCATION "+
                 "where AREA_BANGKOK = 'yes' and LON !='null'"+
                 " ORDER BY  TICKETS DESC");
@@ -207,7 +207,6 @@ public class KioskController {
             arrayJSON.put(resultSet1.getString("PLACE"));
             arrayJSON.put( resultSet1.getDouble("LON"));
             arrayJSON.put( resultSet1.getDouble("LAT"));
-            arrayJSON.put( resultSet1.getInt("LOCATION_ID"));
             arrayJSON.put( resultSet1.getInt("TICKETS"));
 
 
