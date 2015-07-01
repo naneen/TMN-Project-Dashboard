@@ -32,7 +32,7 @@ body {
     left: 0%;
 }
 #PercentageSize{
-    font-size: 35px;
+    font-size: 33px;
 }
 #textSize{
     font-size: 11.3px;
@@ -82,7 +82,7 @@ body {
     position: absolute;
     width: 57%;
     height: 40%;
-    left: -1%;
+    left: -3%;
     top: 51%;
 }
 #div4{
@@ -120,36 +120,36 @@ body {
 }
 #box1 {
     position: absolute;
-    left: 12%;
-    top: 40%;
+    left: 17%;
+    top: 41%;
     background: rgba(37, 152, 255, 0.8);
     /*border-color: #aee002;*/
 }
 #box2{
     position: absolute;
     left: 50%;
-    top: 40%;
+    top: 41%;
     background: rgba(255,164,0,0.8);
     /*border-color: #FFA400;*/
 }
 #box3{
     position: absolute;
-    left: 12%;
-    top: 70%;
+    left: 17%;
+    top: 71%;
     background: rgba(22,160,133,0.8);
     /*border-color: #16A085;*/
 }
 #box4{
     position: absolute;
     left: 50%;
-    top: 70%;
+    top: 71%;
     background: rgba(142,68,173,0.8);
     /*border-color: #8E44AD;*/
 }
 #boxoffload {
     position: absolute;
-    left: 12%;
-    top: 18%;
+    left: 17%;
+    top: 20%;
     width: 40%;
     height: 17%;
     background: #e4eaec;

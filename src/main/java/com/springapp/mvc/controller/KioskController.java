@@ -196,18 +196,20 @@ public class KioskController {
         Statement state1;
         state1 = connect.createStatement();
 
-        resultSet1 = state1.executeQuery("select PLACE,LON,LAT,TICKETS"+
+        resultSet1 = state1.executeQuery("select PLACE,LON,LAT,LOCATION_ID"+
                 " from DT_LOCATION "+
                 "where AREA_BANGKOK = 'yes' and LON !='null'"+
-                " ORDER BY  TICKETS DESC");
+                        "ORDER BY LOCATION_ID"
+        );
 
 
 
         while(resultSet1.next()) {
             arrayJSON.put(resultSet1.getString("PLACE"));
-            arrayJSON.put( resultSet1.getDouble("LON"));
-            arrayJSON.put( resultSet1.getDouble("LAT"));
-            arrayJSON.put( resultSet1.getInt("TICKETS"));
+            arrayJSON.put(resultSet1.getDouble("LON"));
+            arrayJSON.put(resultSet1.getDouble("LAT"));
+            arrayJSON.put(resultSet1.getInt("LOCATION_ID"));
+
 
 
 
@@ -218,37 +220,37 @@ public class KioskController {
     }
 
 
-public static void main(String[]args) throws ClassNotFoundException, SQLException, JSONException {
-    Connection connect = null;
-    String url = "jdbc:oracle:thin:@//10.224.102.10:2992/pdev";
-   String username = "kioskpx";
-  String pass = "kioskdev";
-
-    Class.forName("oracle.jdbc.driver.OracleDriver");
-    connect = DriverManager.getConnection(url,username,pass);
-    JSONArray arrayJSON=new JSONArray();
-   JSONObject userJSON = new JSONObject();
-    ResultSet  resultSet1;
-    Statement state1;
-    state1 = connect.createStatement();
-
-    resultSet1 = state1.executeQuery("select PLACE,LON,LAT,LOCATION_ID,TICKETS"+
-            " from DT_LOCATION "+
-            "where AREA_BANGKOK = 'yes' and LON !='null'"+
-            " ORDER BY  TICKETS DESC");
-
-    while(resultSet1.next()) {
-        arrayJSON.put(resultSet1.getString("PLACE"));
-        arrayJSON.put( resultSet1.getDouble("LON"));
-        arrayJSON.put( resultSet1.getDouble("LAT"));
-        arrayJSON.put( resultSet1.getInt("LOCATION_ID"));
-        arrayJSON.put( resultSet1.getInt("TICKETS"));
-
-
-
-    }
-    System.out.println(arrayJSON);
-
-
-}
+//public static void main(String[]args) throws ClassNotFoundException, SQLException, JSONException {
+//    Connection connect = null;
+//    String url = "jdbc:oracle:thin:@//10.224.102.10:2992/pdev";
+//   String username = "kioskpx";
+//  String pass = "kioskdev";
+//
+//    Class.forName("oracle.jdbc.driver.OracleDriver");
+//    connect = DriverManager.getConnection(url,username,pass);
+//    JSONArray arrayJSON=new JSONArray();
+//   JSONObject userJSON = new JSONObject();
+//    ResultSet  resultSet1;
+//    Statement state1;
+//    state1 = connect.createStatement();
+//
+//    resultSet1 = state1.executeQuery("select PLACE,LON,LAT,LOCATION_ID,TICKETS"+
+//            " from DT_LOCATION "+
+//            "where AREA_BANGKOK = 'yes' and LON !='null'"+
+//            " ORDER BY  TICKETS DESC");
+//
+//    while(resultSet1.next()) {
+//        arrayJSON.put(resultSet1.getString("PLACE"));
+//        arrayJSON.put( resultSet1.getDouble("LON"));
+//        arrayJSON.put( resultSet1.getDouble("LAT"));
+//        arrayJSON.put( resultSet1.getInt("LOCATION_ID"));
+//        arrayJSON.put( resultSet1.getInt("TICKETS"));
+//
+//
+//
+//    }
+//    System.out.println(arrayJSON);
+//
+//
+//}
 }

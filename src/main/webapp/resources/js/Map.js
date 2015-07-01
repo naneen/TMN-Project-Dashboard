@@ -11,14 +11,15 @@ $(function(){jQuery(document).ready(function () {
     var count=0;
     $.getJSON( "complaintTicket", function(json) {
         initialize();
-        var lon,lat,ticket;
-        for(i=0;i<json.length;i+=5){
+        var lon,lat,id,ticket;
+        for(i=0;i<json.length;i+=4){
              lon=parseFloat(json[i+1]);
              lat=parseFloat(json[i+2]);
-             ticket=parseInt(json[i+3]);
+             id=parseInt(json[i+3]);
 
 
-            setMarkers(map,json[i], lon,lat,ticket);
+
+            setMarkers(map,json[i], lon,lat);
 
 
 
@@ -76,7 +77,7 @@ $(function(){jQuery(document).ready(function () {
 
     }
 
-    function setMarkers(map,json, lon,lat,ticket) {
+    function setMarkers(map,json, lon,lat) {
 
         var infoBubble = new InfoBubble({
             Padding: 10,
@@ -95,15 +96,15 @@ $(function(){jQuery(document).ready(function () {
                 position: new google.maps.LatLng(lon, lat),
                 map: map
             });
-            if( count>3 ) {
-                marker.setIcon('resources/img/pin_orange.png');
+            if( count==28 ) {
+                marker.setIcon('resources/img/pin_orange_default.png');
             }
             else{
-                marker.setIcon('resources/img/pin_caution1.png');
+                marker.setIcon('resources/img/pin_orange_alert.png');
             }
             google.maps.event.addListener(marker, 'mouseover', (function(marker, i) {
                 return function() {
-                    infoBubble.setContent(json + "<br />Ticket : " + ticket);
+                    infoBubble.setContent(json + "<br />Ticket : " );
                     infoBubble.open(map, marker);
                 }
             })(marker, i));
