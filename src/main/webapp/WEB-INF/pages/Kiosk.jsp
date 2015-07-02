@@ -29,7 +29,7 @@
                         var Day = myDate.getDate();
                         var Month = monthNames[myDate.getMonth()];
                         var Year = myDate.getFullYear();
-                        $("#result2").html("<font color=\"#green\">"+data+"%</font>"+" OffLoad <br>"+ "As of " + Day + " " + Month + " " + Year);
+                        $("#result2").html("<font color=\"#green\" size=\"30px\">"+data+"%</font>"+" OffLoad <br>"+ "As of " + Day + " " + Month + " " + Year);
                         var freeSpace = 100-data;
                         var pieData = [
                             {

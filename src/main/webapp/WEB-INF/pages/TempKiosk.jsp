@@ -157,6 +157,21 @@
                     <canvas id="chart-area"></canvas>
                     <div id="offloadResult" class="displayoffload"></div>
                 </div>
+
+                <div id="top4div">
+                    <div id="top1" class="well top4boxes">
+                        ONE
+                    </div>
+                    <div id="top2" class="well top4boxes">
+                        TWO
+                    </div>
+                    <div id="top3" class="well top4boxes">
+                        THREE
+                    </div>
+                    <div id="top4" class="well top4boxes">
+                        FOUR
+                    </div>
+                </div>
             </div>
 
             <%-- revenue --%>
