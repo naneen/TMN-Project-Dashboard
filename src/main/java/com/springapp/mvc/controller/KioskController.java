@@ -183,4 +183,11 @@ public class KioskController {
         Revenue(model);
         return "Kiosk";
     }
+
+    @RequestMapping(value = "/",method = RequestMethod.GET )
+    public String product(ModelMap model) throws SQLException, ClassNotFoundException {
+        fucConnectDB();
+//        return "TMNProduct";
+        return "TempKiosk";
+    }
 }

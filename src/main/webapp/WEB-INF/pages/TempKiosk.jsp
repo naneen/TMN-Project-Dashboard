@@ -7,6 +7,9 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+        <link type="text/css" rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/RedBootstrap.css">
+        <link href='${pageContext.request.contextPath}/resources/css/TempKiosk.css' rel="stylesheet">
+
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
         <script type="text/javascript" src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
         <%--<script src="${pageContext.request.contextPath}/resources/js/jquery-1.10.2.min.js"></script>--%>
@@ -30,12 +33,11 @@
                             var Month = monthNames[myDate.getMonth()];
                             var Year = myDate.getFullYear();
                             $("#offloadResult").html("<font color=\"#green\">"+data+"%</font>"+" OffLoad <br>"+ "As of " + Day + " " + Month + " " + Year);
-//                            var freeSpace = 100-data;
-                            var freeSpace = 100-30;
+                            var freeSpace = 100-data;
                             var pieData = [
                                 {
-                                    value: 30,
-                                    color: "rgb(229, 65, 45)",
+                                    value: data,
+                                    color: "#ff4220",
                                     highlight: "#5AD3D1",
                                     label: "Green"
                                 },
@@ -52,23 +54,23 @@
                 );
             }
 
-//            function TOP4() {
-//                $.get("QueryTop4", function(data){
-//                    $("#resultTop4").html(data);
-//                });
-//            }
-//
-//            function TimeRE() {
-//                $.ajax({
-//                    url : "TimeSet" , success : function(data) {
-//                        if(data == "00:00:00"){
-//                            TOP4();
-//                            PIECHART();
-//                        }
-//                    }
-//                });
-//            }
-//            setInterval(TimeRE,1000);
+            function TOP4() {
+                $.get("QueryTop4", function(data){
+                    $("#resultTop4").html(data);
+                });
+            }
+
+            function TimeRE() {
+                $.ajax({
+                    url : "TimeSet" , success : function(data) {
+                        if(data == "00:00:00"){
+                            TOP4();
+                            PIECHART();
+                        }
+                    }
+                });
+            }
+            setInterval(TimeRE,1000);
 
             <%--$(function () {--%>
                 <%--//BEGIN AREA CHART SPLINE--%>
@@ -117,9 +119,10 @@
                     <%--},--%>
                     <%--shadowSize: 0--%>
                 <%--});--%>
-                <%--//END AREA CHART SPLINE--%>
-            <%--});--%>
+//                //END AREA CHART SPLINE
+//            });
         </script>
+
         <%--  --%>
         <%--<script src="${pageContext.request.contextPath}/resources/js/jquery-1.10.2.min.js"></script>--%>
         <%--<script src="${pageContext.request.contextPath}/resources/js/jquery-ui.js"></script>--%>
@@ -129,14 +132,13 @@
         <%--<script src="${pageContext.request.contextPath}/resources/js/jquery.flot.tooltip.js"></script>--%>
         <%--<script src="${pageContext.request.contextPath}/resources/js/jquery.flot.spline.js"></script>--%>
 
-        <link type="text/css" rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/RedBootstrap.css">
-        <link href='${pageContext.request.contextPath}/resources/css/TempKiosk.css' rel="stylesheet">
+
     </head>
     <body>
         <script type="text/javascript">
             PIECHART();
 //            TOP4();
-//            TimeRE();
+            TimeRE();
         </script>
 
         <%-- navigation bar --%>
