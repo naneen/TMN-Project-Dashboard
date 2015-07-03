@@ -1,7 +1,7 @@
 .navbar{
     margin-bottom: 0;
-    /*background-color: rgb(245, 245, 245);*/
-    background-color: rgb(60, 60, 60);
+    background-color: rgb(245, 245, 245);
+    /*background-color: rgb(60, 60, 60);*/
     /*background-color: transparent;*/
     border-bottom-color: transparent;
     /*border-color: #080808;*/
@@ -70,7 +70,7 @@
     margin-top: 3%;
     font-size: 18px;
 }
-/* ---------------- PIE ---------------- */
+/* ---------------- TOP4 ---------------- */
 #top4div{
     float: right;
     position: relative;
@@ -109,7 +109,7 @@
     top: 1%;
 }
 
-/* ************ REVENUE ************ */
+/* ************ DEPLOY ************ */
 #Q1{
     float: left;
     position: relative;
@@ -120,6 +120,65 @@
     left: 3%;
     top: 0.5%;
 }
+#deployTitle{
+    text-align: center;
+    top: 5%;
+    font-size: 20px;
+    position: relative;
+}
+#deployVersion{
+    color: #ff001e;
+    text-align: center;
+    font-size: 24px;
+    margin: 2% 0 2% 0;
+}
+#deployChart{
+    width: 250px;
+    margin: 1px auto;
+}
+#donutChart {
+    position: relative;
+}
+#donutPerc {
+    text-align: center;
+    font-size: 3em;
+    /*left: 5%;*/
+    top: 35%;
+    display: block;
+    position: absolute;
+    width: 100%;
+    color: #E5412D;
+}
+#donutChart canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+
+/* ************ MAP ************ */
+#Q3{
+    float: left;
+    position: relative;
+    background: rgb(244, 244, 244);
+    width: 47.75%;
+    height: 47.5%;
+    left: 1.5%;
+    right: 0.75%;
+    top: 3%;
+}
+
+/* ************ REVENUE ************ */
+#Q4{
+    float: left;
+    position: relative;
+    background: #e5e5e5;
+    width: 47.75%;
+    height: 47.5%;
+    left: 3%;
+    top: 3%;
+}
+
 #Q4 h4{
     font-size: 20px;
 }
@@ -165,27 +224,4 @@
     width: 85%;
     height: 70%;
     margin: 0 auto;
-}
-
-/* ************ MAP ************ */
-#Q3{
-    float: left;
-    position: relative;
-    background: rgb(244, 244, 244);
-    width: 47.75%;
-    height: 47.5%;
-    left: 1.5%;
-    right: 0.75%;
-    top: 3%;
-}
-
-/* ************ DEPLOYMENT ************ */
-#Q4{
-    float: left;
-    position: relative;
-    background: #e5e5e5;
-    width: 47.75%;
-    height: 47.5%;
-    left: 3%;
-    top: 3%;
 }

@@ -174,17 +174,24 @@
                 </div>
             </div>
 
-            <%-- revenue --%>
+            <%-- deployment --%>
             <div id="Q1">
-
+                <div id="deployTitle">Deployment Success by versions</div>
+                <div id="deployVersion">4.9.10</div>
+                <div id="deployChart">
+                    <div id="donutChart" data-percent="69">
+                        <span id="donutPerc">69%</span>
+                    </div>
+                </div>
             </div>
-
+            <script src="resources/js/deployChartDecor.js"></script>
+            <script src="resources/js/deployChartJs.js"></script>
             <%-- map --%>
             <div id="Q3">
 
             </div>
 
-            <%-- deployment --%>
+            <%-- revenue --%>
             <div id="Q4">
                 <div id="revenue">
                     <div class="col-md-12" id="target-bar">
