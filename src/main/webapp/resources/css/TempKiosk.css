@@ -1,13 +1,13 @@
 .navbar{
     margin-bottom: 0;
-    background-color: rgb(245, 245, 245);
-    /*background-color: rgb(60, 60, 60);*/
+    /*background-color: rgb(245, 245, 245);*/
+    background-color: rgb(60, 60, 60);
     /*background-color: transparent;*/
     border-bottom-color: transparent;
     /*border-color: #080808;*/
 }
 #headerContainer{
-    margin: 0.5%;
+    /*margin: 0.5%;*/
     margin-left: 5%;
     /*background-color: #222222;*/
 }
@@ -39,8 +39,8 @@
     position: relative;
     background: #e5e5e5;
     width: 60.75%;  /* 63-1.5-0.75 */
-    height: 50%;
-    top: 3%;
+    height: 47.5%;
+    top: 0.5%;
     left: 1.5%;
     right: 0.75%;
 }
@@ -113,24 +113,29 @@
 #Q1{
     float: left;
     position: relative;
-    background: #ec5a53;
+    background: rgb(244, 244, 244);
     width: 34.75%;
-    height: 50%;
+    height: 47.5%;
     right: 1.5%;
     left: 3%;
-    top: 3%;
+    top: 0.5%;
 }
-#Q1 h4{
+#Q4 h4{
     font-size: 20px;
 }
 #revenue{
     float: right;
     position: relative;
-    background-color: rgb(213, 213, 213);
+    background-color: #f7f7f7;
     width: 100%;
+    border-top: solid 1px #EEEEEE;
 }
 #target-bar{
-    margin-bottom: -10px;
+    margin-bottom: -13px;
+    width: 93%;
+}
+.task-item, #progressbar{
+    margin-left: 7.5%;
 }
 #billTopup{
     float: right;
@@ -155,4 +160,32 @@
 }
 .progress.progress-sm {
     height: 5%;
+}
+#area-chart-spline{
+    width: 85%;
+    height: 70%;
+    margin: 0 auto;
+}
+
+/* ************ MAP ************ */
+#Q3{
+    float: left;
+    position: relative;
+    background: rgb(244, 244, 244);
+    width: 47.75%;
+    height: 47.5%;
+    left: 1.5%;
+    right: 0.75%;
+    top: 3%;
+}
+
+/* ************ DEPLOYMENT ************ */
+#Q4{
+    float: left;
+    position: relative;
+    background: #e5e5e5;
+    width: 47.75%;
+    height: 47.5%;
+    left: 3%;
+    top: 3%;
 }

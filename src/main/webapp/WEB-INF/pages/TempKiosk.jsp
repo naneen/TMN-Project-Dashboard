@@ -79,21 +79,22 @@
                 $.plot("#area-chart-spline", [{
                     data: d6_1,
                     label: "Top-up",
-                    color: "#F7C445"
+                    color: "#E5412D"
                 },{
                     data: d6_2,
                     label: "Bill payment",
-                    color: "#7E98F7"
+                    color: "rgb(124,124,124)"
                 }], {
                     series: {
                         lines: {
                             show: !1
+
                         },
                         splines: {
                             show: !0,
                             tension: .4,
-                            lineWidth: 2,
-                            fill: .8
+                            lineWidth: 3,
+                            fill: 0.35
                         },
                         points: {
                             show: !0,
@@ -101,7 +102,8 @@
                         }
                     },
                     grid: {
-                        borderColor: "#fafafa",
+//                        borderColor: "#fafafa",
+                        borderColor: "#ABB7B7",
                         borderWidth: 1,
                         hoverable: !0
                     },
@@ -111,11 +113,11 @@
                         defaultTheme: true
                     },
                     xaxis: {
-                        tickColor: "#ABB7B7",
+                        tickColor: "#DDDDDD",
                         mode: "categories"
                     },
                     yaxis: {
-                        tickColor: "#ABB7B7"
+                        tickColor: "#DDDDDD"
                     },
                     shadowSize: 0
                 });
@@ -131,8 +133,6 @@
         <script src="${pageContext.request.contextPath}/resources/js/jquery.flot.categories.js"></script>
         <script src="${pageContext.request.contextPath}/resources/js/jquery.flot.tooltip.js"></script>
         <script src="${pageContext.request.contextPath}/resources/js/jquery.flot.spline.js"></script>
-
-
     </head>
     <body>
         <script type="text/javascript">
@@ -176,6 +176,16 @@
 
             <%-- revenue --%>
             <div id="Q1">
+
+            </div>
+
+            <%-- map --%>
+            <div id="Q3">
+
+            </div>
+
+            <%-- deployment --%>
+            <div id="Q4">
                 <div id="revenue">
                     <div class="col-md-12" id="target-bar">
                         <h4 class="mbm">Revenue</h4>
@@ -185,7 +195,7 @@
                             <span style="color: red">Target: </span>
                             <span style="color: #000000">${target}</span>
                             <small class="pull-right text-muted">${percent}%</small>
-                            <div class="progress progress-sm">
+                            <div id="progressbar" class="progress progress-sm">
                                 <div role="progressbar" aria-valuenow="${percent}"
                                      aria-valuemin="0" aria-valuemax="100"
                                      style="width: ${percent}%;" class="progress-bar progress-bar">
@@ -199,7 +209,7 @@
                     </div>
                 </div>
                 <div id="billTopup">
-                    <%--<div id="area-chart-spline" style="width: 100%; height: 75%"></div>--%>
+                    <div id="area-chart-spline"></div>
                 </div>
             </div>
 

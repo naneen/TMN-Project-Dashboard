@@ -312,7 +312,7 @@ body {
 }
 #deployChart{
     width: 250px;
-    margin: 1 auto;
+    margin: 1px auto;
 }
 #donutChart {
     position: relative;
