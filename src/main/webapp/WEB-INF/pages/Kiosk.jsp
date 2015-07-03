@@ -195,7 +195,7 @@
                 <h3>Complaint Bangkok + Suburb</h3>
             </div>
             <div id="map"></div>
-            <%-- Js will call Google API (line18). --%>
+            <%-- Js will call Google API (line19). --%>
             <%-- Set theme in Map.js --%>
         </div>
 

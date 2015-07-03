@@ -188,7 +188,12 @@
             <script src="resources/js/deployChartJs.js"></script>
             <%-- map --%>
             <div id="Q3">
-
+                <div id="headMap">
+                    <h4>Complaint Bangkok + Suburb</h4>
+                </div>
+                <div id="map"></div>
+                <%-- Js will call Google API (line18). --%>
+                <%-- Set theme in Map.js --%>
             </div>
 
             <%-- revenue --%>

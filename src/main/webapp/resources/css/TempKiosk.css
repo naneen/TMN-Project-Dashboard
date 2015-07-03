@@ -1,7 +1,7 @@
 .navbar{
     margin-bottom: 0;
-    background-color: rgb(245, 245, 245);
-    /*background-color: rgb(60, 60, 60);*/
+    /*background-color: rgb(245, 245, 245);*/
+    background-color: rgb(60, 60, 60);
     /*background-color: transparent;*/
     border-bottom-color: transparent;
     /*border-color: #080808;*/
@@ -166,6 +166,21 @@
     left: 1.5%;
     right: 0.75%;
     top: 3%;
+}
+#Q3 h4{
+    font-size: 20px;
+}
+#map {
+    margin-left: auto;
+    margin-right: auto;
+    height: 83%;
+    width: 90%;
+    color: #54a0dc;
+}
+
+#headMap{
+    text-align: center;
+    color: #ff0005;
 }
 
 /* ************ REVENUE ************ */
