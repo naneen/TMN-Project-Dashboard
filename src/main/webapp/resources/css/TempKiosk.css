@@ -44,7 +44,6 @@
     left: 1.5%;
     right: 0.75%;
 }
-
 /* ---------------- PIE ---------------- */
 #pieDiv{
     float: left;
@@ -68,10 +67,9 @@
 }
 #offloadResult{
     text-align: center;
-    margin-top: 12%;
+    margin-top: 3%;
     font-size: 18px;
 }
-
 /* ---------------- PIE ---------------- */
 #top4div{
     float: right;
@@ -98,10 +96,12 @@
 #top2{
     background-color: rgb(229, 65, 45);
     left: 5%;
+    color: #ffffff;
 }
 #top3{
     background-color: #C0392B;
     top: 1%;
+    color: #ffffff;
 }
 #top4{
     background-color: rgb(198, 198, 198);
@@ -119,4 +119,40 @@
     right: 1.5%;
     left: 3%;
     top: 3%;
+}
+#Q1 h4{
+    font-size: 20px;
+}
+#revenue{
+    float: right;
+    position: relative;
+    background-color: rgb(213, 213, 213);
+    width: 100%;
+}
+#target-bar{
+    margin-bottom: -10px;
+}
+#billTopup{
+    float: right;
+    position: relative;
+    width: 100%;
+}
+.progress {
+    position: relative;
+    /*-webkit-border-radius: 0 !important;*/
+    /*-moz-border-radius: 0 !important;*/
+    /*border-radius: 0 !important;*/
+    /*-webkit-box-shadow: none !important;*/
+    /*box-shadow: none !important;*/
+}
+.progress .progress-bar {
+    -webkit-box-shadow: none !important;
+    box-shadow: none !important;
+    background-color: rgb(56, 180, 74);
+}
+.progress .progress-bar.progress-bar-red {
+    background-color: rgb(229, 65, 45) !important;
+}
+.progress.progress-sm {
+    height: 5%;
 }

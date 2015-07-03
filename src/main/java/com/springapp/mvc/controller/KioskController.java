@@ -64,6 +64,7 @@ public class KioskController {
         model.addAttribute("topup", topup);
         model.addAttribute("bill", bill);
         model.addAttribute("percent",Integer.toString((int)percent));
+        model.addAttribute("lessPercent",Integer.toString(100-(int)percent));
     }
 
     @RequestMapping(value = "/QueryTop4", method = RequestMethod.GET,produces = "text/plain;charset=UTF-8")
@@ -187,6 +188,7 @@ public class KioskController {
     @RequestMapping(value = "/",method = RequestMethod.GET )
     public String product(ModelMap model) throws SQLException, ClassNotFoundException {
         fucConnectDB();
+        Revenue(model);
 //        return "TMNProduct";
         return "TempKiosk";
     }

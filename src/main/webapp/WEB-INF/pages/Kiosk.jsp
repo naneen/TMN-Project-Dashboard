@@ -157,7 +157,6 @@
         <div id="div2" class="col-lg-6">
             <div class="panel">
                 <div class="panel-body">
-
                     <div id="revenue" class="row">
                         <div class="col-md-12" id="target-bar">
                             <h4 class="mbm">Revenue</h4>

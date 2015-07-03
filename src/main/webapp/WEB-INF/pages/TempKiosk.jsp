@@ -32,7 +32,7 @@
                             var Day = myDate.getDate();
                             var Month = monthNames[myDate.getMonth()];
                             var Year = myDate.getFullYear();
-                            $("#offloadResult").html("<font color=\"#green\">"+data+"%</font>"+" OffLoad <br>"+ "As of " + Day + " " + Month + " " + Year);
+                            $("#offloadResult").html("<font color=\"#38b44a\" size=\"10px\">"+data+"%</font>"+" OffLoad <br>"+ "As of " + Day + " " + Month + " " + Year);
                             var freeSpace = 100-data;
                             var pieData = [
                                 {
@@ -72,72 +72,72 @@
             }
             setInterval(TimeRE,1000);
 
-            <%--$(function () {--%>
-                <%--//BEGIN AREA CHART SPLINE--%>
-                <%--var d6_1 = ${topup};--%>
-                <%--var d6_2 = ${bill};--%>
-                <%--$.plot("#area-chart-spline", [{--%>
-                    <%--data: d6_1,--%>
-                    <%--label: "Top-up",--%>
-                    <%--color: "#F7C445"--%>
-                <%--},{--%>
-                    <%--data: d6_2,--%>
-                    <%--label: "Bill payment",--%>
-                    <%--color: "#7E98F7"--%>
-                <%--}], {--%>
-                    <%--series: {--%>
-                        <%--lines: {--%>
-                            <%--show: !1--%>
-                        <%--},--%>
-                        <%--splines: {--%>
-                            <%--show: !0,--%>
-                            <%--tension: .4,--%>
-                            <%--lineWidth: 2,--%>
-                            <%--fill: .8--%>
-                        <%--},--%>
-                        <%--points: {--%>
-                            <%--show: !0,--%>
-                            <%--radius: 4--%>
-                        <%--}--%>
-                    <%--},--%>
-                    <%--grid: {--%>
-                        <%--borderColor: "#fafafa",--%>
-                        <%--borderWidth: 1,--%>
-                        <%--hoverable: !0--%>
-                    <%--},--%>
-                    <%--tooltip: !0,--%>
-                    <%--tooltipOpts: {--%>
-                        <%--content: "%x : %y",--%>
-                        <%--defaultTheme: true--%>
-                    <%--},--%>
-                    <%--xaxis: {--%>
-                        <%--tickColor: "#ABB7B7",--%>
-                        <%--mode: "categories"--%>
-                    <%--},--%>
-                    <%--yaxis: {--%>
-                        <%--tickColor: "#ABB7B7"--%>
-                    <%--},--%>
-                    <%--shadowSize: 0--%>
-                <%--});--%>
-//                //END AREA CHART SPLINE
-//            });
+            $(function () {
+                //BEGIN AREA CHART SPLINE
+                var d6_1 = ${topup};
+                var d6_2 = ${bill};
+                $.plot("#area-chart-spline", [{
+                    data: d6_1,
+                    label: "Top-up",
+                    color: "#F7C445"
+                },{
+                    data: d6_2,
+                    label: "Bill payment",
+                    color: "#7E98F7"
+                }], {
+                    series: {
+                        lines: {
+                            show: !1
+                        },
+                        splines: {
+                            show: !0,
+                            tension: .4,
+                            lineWidth: 2,
+                            fill: .8
+                        },
+                        points: {
+                            show: !0,
+                            radius: 4
+                        }
+                    },
+                    grid: {
+                        borderColor: "#fafafa",
+                        borderWidth: 1,
+                        hoverable: !0
+                    },
+                    tooltip: !0,
+                    tooltipOpts: {
+                        content: "%x : %y",
+                        defaultTheme: true
+                    },
+                    xaxis: {
+                        tickColor: "#ABB7B7",
+                        mode: "categories"
+                    },
+                    yaxis: {
+                        tickColor: "#ABB7B7"
+                    },
+                    shadowSize: 0
+                });
+                //END AREA CHART SPLINE
+            });
         </script>
 
         <%--  --%>
-        <%--<script src="${pageContext.request.contextPath}/resources/js/jquery-1.10.2.min.js"></script>--%>
-        <%--<script src="${pageContext.request.contextPath}/resources/js/jquery-ui.js"></script>--%>
-        <%--<script src="${pageContext.request.contextPath}/resources/js/bootstrap.min.js"></script>--%>
-        <%--<script src="${pageContext.request.contextPath}/resources/js/jquery.flot.js"></script>--%>
-        <%--<script src="${pageContext.request.contextPath}/resources/js/jquery.flot.categories.js"></script>--%>
-        <%--<script src="${pageContext.request.contextPath}/resources/js/jquery.flot.tooltip.js"></script>--%>
-        <%--<script src="${pageContext.request.contextPath}/resources/js/jquery.flot.spline.js"></script>--%>
+        <script src="${pageContext.request.contextPath}/resources/js/jquery-1.10.2.min.js"></script>
+        <script src="${pageContext.request.contextPath}/resources/js/jquery-ui.js"></script>
+        <script src="${pageContext.request.contextPath}/resources/js/bootstrap.min.js"></script>
+        <script src="${pageContext.request.contextPath}/resources/js/jquery.flot.js"></script>
+        <script src="${pageContext.request.contextPath}/resources/js/jquery.flot.categories.js"></script>
+        <script src="${pageContext.request.contextPath}/resources/js/jquery.flot.tooltip.js"></script>
+        <script src="${pageContext.request.contextPath}/resources/js/jquery.flot.spline.js"></script>
 
 
     </head>
     <body>
         <script type="text/javascript">
             PIECHART();
-//            TOP4();
+            TOP4();
             TimeRE();
         </script>
 
@@ -176,7 +176,31 @@
 
             <%-- revenue --%>
             <div id="Q1">
-
+                <div id="revenue">
+                    <div class="col-md-12" id="target-bar">
+                        <h4 class="mbm">Revenue</h4>
+                        <span class="task-item">
+                            <span style="color: red">Actual:</span>
+                            <span style="color: #313131">${actual} </span>
+                            <span style="color: red">Target: </span>
+                            <span style="color: #000000">${target}</span>
+                            <small class="pull-right text-muted">${percent}%</small>
+                            <div class="progress progress-sm">
+                                <div role="progressbar" aria-valuenow="${percent}"
+                                     aria-valuemin="0" aria-valuemax="100"
+                                     style="width: ${percent}%;" class="progress-bar progress-bar">
+                                </div>
+                                <div role="progressbar" aria-valuenow="${lessPercent}"
+                                     aria-valuemin="0" aria-valuemax="100"
+                                     style="width: ${lessPercent}%;" class="progress-bar progress-bar-red">
+                                </div>
+                            </div>
+                        </span>
+                    </div>
+                </div>
+                <div id="billTopup">
+                    <%--<div id="area-chart-spline" style="width: 100%; height: 75%"></div>--%>
+                </div>
             </div>
 
         </div>
