@@ -12,14 +12,15 @@ $(function(){jQuery(document).ready(function () {
     $.getJSON( "complaintTicket", function(json) {
         initialize();
         var lon,lat,id,ticket;
-        for(i=0;i<json.length;i+=4){
+        for(i=0;i<json.length;i+=5){
              lon=parseFloat(json[i+1]);
              lat=parseFloat(json[i+2]);
              id=parseInt(json[i+3]);
+            ticket=parseInt(json[i+4]);
 
 
 
-            setMarkers(map,json[i], lon,lat);
+            setMarkers(map,json[i], lon,lat,ticket);
 
 
 
@@ -30,8 +31,8 @@ $(function(){jQuery(document).ready(function () {
 
     function initialize() {
         var mapOptions = {
-            zoom: 10,
-            center: new google.maps.LatLng(13.76717, 100.523186),
+            zoom: 13,
+            center: new google.maps.LatLng(13.7557261,100.4988848),
             disableDefaultUI: true,
             boxClass: "info-windows"
         }
@@ -77,7 +78,7 @@ $(function(){jQuery(document).ready(function () {
 
     }
 
-    function setMarkers(map,json, lon,lat) {
+    function setMarkers(map,json, lon,lat,ticket) {
 
         var infoBubble = new InfoBubble({
             Padding: 10,
@@ -96,7 +97,7 @@ $(function(){jQuery(document).ready(function () {
                 position: new google.maps.LatLng(lon, lat),
                 map: map
             });
-            if( count==28 ) {
+            if( count>3 ) {
                 marker.setIcon('resources/img/pin_orange_default.png');
             }
             else{
@@ -104,7 +105,7 @@ $(function(){jQuery(document).ready(function () {
             }
             google.maps.event.addListener(marker, 'mouseover', (function(marker, i) {
                 return function() {
-                    infoBubble.setContent(json + "<br />Ticket : " );
+                    infoBubble.setContent(json + "<br />Ticket : "+ticket );
                     infoBubble.open(map, marker);
                 }
             })(marker, i));

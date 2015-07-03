@@ -15,10 +15,12 @@
 
     <script src="${pageContext.request.contextPath}/resources/js/jquery-1.10.2.min.js"></script>
     <script src="${pageContext.request.contextPath}/resources/js/bootstrap.min.js"></script>
-    
+
+
 
 </head>
 <body>
+
     <a href="/DashBoard/kiosk" id="headNav">${msg}</a>
     
    
@@ -44,7 +46,7 @@
 
       <tr>
        <td>Kiosk</td>
-        <td>100</td>
+        <td> 100</td>
          <td>100</td>
 
       </tr>

@@ -196,11 +196,12 @@ public class KioskController {
         Statement state1;
         state1 = connect.createStatement();
 
-        resultSet1 = state1.executeQuery("select PLACE,LON,LAT,LOCATION_ID"+
-                " from DT_LOCATION "+
-                "where AREA_BANGKOK = 'yes' and LON !='null'"+
-                        "ORDER BY LOCATION_ID"
-        );
+        resultSet1 = state1.executeQuery("select DT_LOCATION.PLACE,DT_LOCATION.LON,DT_LOCATION.LAT,DT_LOCATION.LOCATION_ID,COUNT(*) as COUNT"+
+                " FROM (DT_LOCATION INNER JOIN RE_LOCATION_KIOSK ON DT_LOCATION.LOCATION_ID = RE_LOCATION_KIOSK.LOCATION_ID)" +
+                "INNER JOIN DT_TICKETS"+
+                " ON RE_LOCATION_KIOSK.KIOSK_ID = DT_TICKETS.KIOSK_ID"+
+                " WHERE DT_LOCATION.AREA_BANGKOK='yes' AND DT_TICKETS.DATE_OF_ARRIVAL >= to_date('01/01/2015','DD-MM-YYYY')"+
+                " GROUP BY DT_LOCATION.PLACE,DT_LOCATION.LON,DT_LOCATION.LAT,DT_LOCATION.LOCATION_ID ORDER BY COUNT(*) DESC");
 
 
 
@@ -209,48 +210,55 @@ public class KioskController {
             arrayJSON.put(resultSet1.getDouble("LON"));
             arrayJSON.put(resultSet1.getDouble("LAT"));
             arrayJSON.put(resultSet1.getInt("LOCATION_ID"));
-
-
-
-
+            arrayJSON.put(resultSet1.getInt("COUNT")
+            );
         }
         resultSet1.close();
         state1.close();
         return arrayJSON.toString();
     }
 
+//
+//    @RequestMapping(value = "/transaction", method = RequestMethod.GET)
+//    public @ResponseBody
+//    Integer trans() throws SQLException,JSONException {
+//        ResultSet resultSet1;
+//    Statement state1;
+//    state1 = connect.createStatement();
+//
+//    resultSet1 = state1.executeQuery("select COUNT(*) from TR_PAY_MULTIBILL " +
+//            "where CREATED >= to_date('01/01/2015', 'dd/MM/yyyy') ");
+//
+//    resultSet1.next();
+//    int t = resultSet1.getInt("count(*)");
+//
+//    resultSet1.close();
+//    state1.close();
+//        return t;
+//    }
 
 //public static void main(String[]args) throws ClassNotFoundException, SQLException, JSONException {
 //    Connection connect = null;
 //    String url = "jdbc:oracle:thin:@//10.224.102.10:2992/pdev";
-//   String username = "kioskpx";
-//  String pass = "kioskdev";
+//    String username = "kioskpx";
+//    String pass = "kioskdev";
 //
 //    Class.forName("oracle.jdbc.driver.OracleDriver");
-//    connect = DriverManager.getConnection(url,username,pass);
-//    JSONArray arrayJSON=new JSONArray();
-//   JSONObject userJSON = new JSONObject();
-//    ResultSet  resultSet1;
+//    connect = DriverManager.getConnection(url, username, pass);
+//    ResultSet resultSet1;
 //    Statement state1;
 //    state1 = connect.createStatement();
 //
-//    resultSet1 = state1.executeQuery("select PLACE,LON,LAT,LOCATION_ID,TICKETS"+
-//            " from DT_LOCATION "+
-//            "where AREA_BANGKOK = 'yes' and LON !='null'"+
-//            " ORDER BY  TICKETS DESC");
+//    resultSet1 = state1.executeQuery("select COUNT(*) from TR_PAY_MULTIBILL " +
+//            "where CREATED >= to_date('01/01/2015', 'dd/MM/yyyy') ");
 //
-//    while(resultSet1.next()) {
-//        arrayJSON.put(resultSet1.getString("PLACE"));
-//        arrayJSON.put( resultSet1.getDouble("LON"));
-//        arrayJSON.put( resultSet1.getDouble("LAT"));
-//        arrayJSON.put( resultSet1.getInt("LOCATION_ID"));
-//        arrayJSON.put( resultSet1.getInt("TICKETS"));
+//    resultSet1.next();
+//    int t = resultSet1.getInt("count(*)");
 //
-//
-//
-//    }
-//    System.out.println(arrayJSON);
-//
+//    resultSet1.close();
+//    state1.close();
+//    System.out.println(t);
 //
 //}
+
 }
