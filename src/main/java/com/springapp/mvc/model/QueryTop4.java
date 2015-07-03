@@ -3,7 +3,6 @@ package com.springapp.mvc.model;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -37,11 +36,11 @@ public class QueryTop4 {
     }
 
     public int getPercent(int count,int sum){
-        return (int) Math.round(((double) count / sum) * 100);
+        return (int) Math.round((double) count / sum * 100);
     }
 
     public HashMap<String, Integer> getCountByPlace(int sum) throws SQLException {
-        HashMap<String,Integer> map = new HashMap<String,Integer>();
+        HashMap<String, Integer> map = new HashMap<String, Integer>();
         ResultSet resultSet;
         Statement state;
         state = connectKiosk.getConnect().createStatement();
@@ -58,7 +57,6 @@ public class QueryTop4 {
             count = getPercent(count,sum);
             map.put(place,count);
         }
-
         resultSet.close();
         state.close();
         return map;

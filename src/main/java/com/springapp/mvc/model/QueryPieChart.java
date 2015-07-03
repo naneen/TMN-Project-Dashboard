@@ -14,7 +14,7 @@ public class QueryPieChart {
     private ConnectDB connectKiosk;
 
 
-    public Double getCountBillKiosk() throws SQLException {
+    public int getCountBillKiosk() throws SQLException {
         ResultSet resultSet;
         Statement state;
         state = connectKiosk.getConnect().createStatement();
@@ -26,13 +26,13 @@ public class QueryPieChart {
                 "where SVC_ID = 'PostBillConfirm' and state=0 and TO_CHAR (SYSDATE-1,'DD-MON-YYYY') = TO_CHAR (ENDED,'DD-MON-YYYY')) " +
                 "and t1.TRANS_ID = t2.TRANS_ID and t2.KIOSK_ID = t3.KIOSK_ID");
         resultSet.next();
-        Double ans = resultSet.getDouble("COUNT");
+        int ans = resultSet.getInt("COUNT");
         resultSet.close();
         state.close();
         return ans;
     }
 
-    public Double getCountBillTRM() throws SQLException {
+    public int getCountBillTRM() throws SQLException {
         ResultSet resultSet;
         Statement state;
         state = connectKiosk.getConnect().createStatement();
@@ -40,7 +40,7 @@ public class QueryPieChart {
                 "from DT_TRM " +
                 "where TO_CHAR (SYSDATE-1,'DD-MON-YYYY') = TO_CHAR (TRM_DATE,'DD-MON-YYYY')");
         resultSet.next();
-        Double ans = resultSet.getDouble("COUNT");
+        int ans = resultSet.getInt("COUNT");
         resultSet.close();
         state.close();
         return ans;
