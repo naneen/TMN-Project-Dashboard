@@ -1,4 +1,4 @@
-package com.springapp.mvc.controller;
+package com.springapp.mvc.model;
 
 import java.util.Comparator;
 import java.util.HashMap;

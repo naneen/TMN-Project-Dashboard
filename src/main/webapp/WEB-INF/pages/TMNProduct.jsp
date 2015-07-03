@@ -14,8 +14,36 @@
 
     <script src="${pageContext.request.contextPath}/resources/js/jquery-1.10.2.min.js"></script>
     <script src="${pageContext.request.contextPath}/resources/js/bootstrap.min.js"></script>
+
+
+    <%--<script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>--%>
+    <link href='${pageContext.request.contextPath}/resources/css/PieTransaction.css' rel="stylesheet">
+    <script src='${pageContext.request.contextPath}/resources/js/highcharts.js'></script>
+    <script src='${pageContext.request.contextPath}/resources/js/exporting.js'></script>
+    <script src="${pageContext.request.contextPath}/resources/js/PieTransaction.js"></script>
+
+
+    <script>
+        function TimeReal() {
+            $.ajax({
+                url : "TimeReal" , success : function(data) {
+                    if(data == "00:00:00"){
+                        pieTransection();
+                    }
+                }
+            });
+        };
+        setInterval(TimeReal,1000);
+
+        window.onload = function () {
+            pieTransection();
+            TimeRE();
+        };
+    </script>
+
 </head>
 <body>
     <a href="/DashBoard/kiosk" id="headNav">${msg}</a>
+    <div id="chart" class="pie pie1"></div>
 </body>
 </html>
