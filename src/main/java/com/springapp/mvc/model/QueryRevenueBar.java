@@ -24,10 +24,7 @@ public class QueryRevenueBar {
                 "                where t1.TRANS_ID = t2.TRANS_ID " +
                 "                and t1.PAYMENT_DATETIME between to_date('01/01/2015 00:00:00', 'dd/MM/yyyy hh24:mi:ss') and to_date(SYSDATE, 'dd/MM/yyyy hh24:mi:ss')");
         resultSet.next();
-        String ans2 = resultSet.getString("ACTUAL");
-        System.out.println(ans2);
         int ans = resultSet.getInt("ACTUAL");
-        System.out.println(ans);
         resultSet.close();
         state.close();
         return ans;

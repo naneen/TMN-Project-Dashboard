@@ -43,13 +43,13 @@ public class SubController {
     public @ResponseBody
     String DateYesterDay(){
         String[] monthNames = {"January", "February", "March", "April", "May", "June","July", "August", "September", "October", "November", "December"};
-        Calendar date = Calendar.getInstance();
-        Date x = new Date();
-        x.setDate(x.getDate()-1);
-        date.setTime(x);
-        int Day = date.get(Calendar.DATE);
-        String Month = monthNames[date.get(Calendar.MONTH)];
-        int Year = date.get(Calendar.YEAR);
+        Calendar calendar = Calendar.getInstance();
+        Date date = new Date();
+        date.setDate(date.getDate()-1);
+        calendar.setTime(date);
+        int Day = calendar.get(Calendar.DATE);
+        String Month = monthNames[calendar.get(Calendar.MONTH)];
+        int Year = calendar.get(Calendar.YEAR);
         return Day + " " + Month + " " + Year;
     }
 

@@ -32,12 +32,12 @@
                     }
                 }
             });
-        };
+        }
         setInterval(TimeReal,1000);
 
         window.onload = function () {
             pieTransection();
-            TimeRE();
+            TimeReal();
         };
     </script>
 
