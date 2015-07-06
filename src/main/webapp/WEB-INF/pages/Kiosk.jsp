@@ -173,7 +173,7 @@
                 <div id="diva">
                     <div id="canvas-holder"><canvas id="chart-area"></canvas></div>
                 </div>
-                <center><div class="displayoffload"><font color="#green" id = "result2"></font> OffLoad <br>As of <font id="yesterday"></font></div></center>
+                <div class="displayoffload"><font color="#green" id = "result2"></font> OffLoad <br>As of <font id="yesterday"></font></div>
                 <%--<center><div id="result2" class="displayoffload"></div></center>--%>
             </div>
             <div id="box1" class="boxall"><img src="${pageContext.request.contextPath}/resources/img/1.png" width=20% class="pic"/><div id="text"><center><div id="PercentageSize"><div id="resultTop4-1-percent"></div></div><div id="textSize"><div id="resultTop4-1-place"></div></div></center></div></div>

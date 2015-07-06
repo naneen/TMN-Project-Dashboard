@@ -21,28 +21,30 @@
         <script src='${pageContext.request.contextPath}/resources/js/infobubble.js'></script>
         <script src='${pageContext.request.contextPath}/resources/js/Map.js'></script>
 
+        <%--<script src='${pageContext.request.contextPath}/resources/js/Kiosk.js'></script>--%>
+
         <script type="text/javascript">
             function pieCHART() {
                 $.get("PieChart",function(data){
-                            $("#result2").text(data+"%");
-                            var freeSpace = 100-data;
-                            var pieData = [
-                                {
-                                    value: data,
-                                    color: "#46BFBD",
-                                    highlight: "#5AD3D1",
-                                    label: "Green"
-                                },
-                                {
-                                    value: freeSpace,
-                                    color: "rgba(0,0,0,0)",
-                                    highlight: "rgba(255,255,255,0.3)",
-                                    label: "Yellow"
-                                }
-                            ];
-                            var ctx = document.getElementById("chart-area").getContext("2d");
-                            myPie = new Chart(ctx).Pie(pieData);
-                        }
+                        $("#result2").text(data+"%");
+                        var freeSpace = 100-data;
+                        var pieData = [
+                            {
+                                value: data,
+                                color: "#46BFBD",
+                                highlight: "#5AD3D1",
+                                label: "Green"
+                            },
+                            {
+                                value: freeSpace,
+                                color: "rgba(0,0,0,0)",
+                                highlight: "rgba(255,255,255,0.3)",
+                                label: "Yellow"
+                            }
+                        ];
+                        var ctx = document.getElementById("chart-area").getContext("2d");
+                        myPie = new Chart(ctx).Pie(pieData);
+                    }
                 );
             }
 
@@ -112,21 +114,22 @@
                 $.plot("#area-chart-spline", [{
                     data: d6_1,
                     label: "Top-up",
-                    color: "#F7C445"
+                    color: "#E5412D"
                 },{
                     data: d6_2,
                     label: "Bill payment",
-                    color: "#7E98F7"
+                    color: "rgb(124,124,124)"
                 }], {
                     series: {
                         lines: {
                             show: !1
+
                         },
                         splines: {
                             show: !0,
                             tension: .4,
-                            lineWidth: 2,
-                            fill: .8
+                            lineWidth: 3,
+                            fill: 0.35
                         },
                         points: {
                             show: !0,
@@ -134,7 +137,8 @@
                         }
                     },
                     grid: {
-                        borderColor: "#fafafa",
+//                        borderColor: "#fafafa",
+                        borderColor: "#ABB7B7",
                         borderWidth: 1,
                         hoverable: !0
                     },
@@ -144,11 +148,11 @@
                         defaultTheme: true
                     },
                     xaxis: {
-                        tickColor: "#ABB7B7",
+                        tickColor: "#DDDDDD",
                         mode: "categories"
                     },
                     yaxis: {
-                        tickColor: "#ABB7B7"
+                        tickColor: "#DDDDDD"
                     },
                     shadowSize: 0
                 });
@@ -156,7 +160,6 @@
             });
         </script>
 
-        <%--  --%>
         <script src="${pageContext.request.contextPath}/resources/js/jquery-1.10.2.min.js"></script>
         <script src="${pageContext.request.contextPath}/resources/js/jquery-ui.js"></script>
         <script src="${pageContext.request.contextPath}/resources/js/bootstrap.min.js"></script>
@@ -180,21 +183,31 @@
             <div id="Q2">
                 <div id="pieDiv" class="well well-lg">
                     <canvas id="chart-area"></canvas>
-                    <center><div class="displayoffload"><font color="#green" id = "result2"></font> OffLoad <br>As of <font id="yesterday"></font></div></center>
+                    <div class="displayoffload">
+                        <font id = "result2" style="color: green; font-size: 30px;"></font> OffLoad <br>As of <font id="yesterday"></font>
+                    </div>
                 </div>
 
                 <div id="top4div">
                     <div id="top1" class="well top4boxes">
-                        ONE
+                        <%--ONE--%>
+                        <p id="resultTop4-1-percent"></p>
+                        <p id="resultTop4-1-place"></p>
                     </div>
                     <div id="top2" class="well top4boxes">
                         TWO
+                        <p id="resultTop4-2-percent"></p>
+                        <p id="resultTop4-2-place"></p>
                     </div>
                     <div id="top3" class="well top4boxes">
                         THREE
+                        <p id="resultTop4-3-percent"></p>
+                        <p id="resultTop4-3-place"></p>
                     </div>
                     <div id="top4" class="well top4boxes">
                         FOUR
+                        <p id="resultTop4-4-percent"></p>
+                        <p id="resultTop4-4-place"></p>
                     </div>
                 </div>
             </div>
@@ -228,11 +241,11 @@
                     <div class="col-md-12" id="target-bar">
                         <h4 class="mbm">Revenue</h4>
                         <span class="task-item">
-                            <span style="color: red">Actual:</span>
-                            <span style="color: #313131">${actual} </span>
-                            <span style="color: red">Target: </span>
-                            <span style="color: #000000">${target}</span>
-                            <small class="pull-right text-muted">${percent}%</small>
+                            <%--<span style="color: red">Actual:</span>--%>
+                            <%--<span style="color: #313131">${actual} </span>--%>
+                            <%--<span style="color: red">Target: </span>--%>
+                            <%--<span style="color: #000000">${target}</span>--%>
+                            <%--<small class="pull-right text-muted">${percent}%</small>--%>
                             <div id="progressbar" class="progress progress-sm">
                                 <div role="progressbar" aria-valuenow="${percent}"
                                      aria-valuemin="0" aria-valuemax="100"
@@ -243,6 +256,18 @@
                                      style="width: ${lessPercent}%;" class="progress-bar progress-bar-red">
                                 </div>
                             </div>
+
+                            <span style="color: red">Actual:</span>
+                                <span style="color: #313131" id="actual"></span>
+                                <span style="color: red">Target: </span>
+                                <span style="color: #000000" id="target"></span>
+                                <small class="pull-right text-muted" id="percent"></small>
+                                <div id="color_revenuebar">
+                                    <div id="percent2" role="progressbar" aria-valuenow="50"
+                                         aria-valuemin="0" aria-valuemax="100"
+                                         style="width: 50%;" class="progress-bar" >
+                                    </div>
+                                </div>
                         </span>
                     </div>
                 </div>
