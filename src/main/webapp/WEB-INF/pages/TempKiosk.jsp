@@ -197,29 +197,29 @@
                     <div id="top1" class="well top4boxes">
                         <div id="first" class="order">    <p>1<sup>st</sup></p>   </div>
                         <div class="percentOffset">
-                            <p id="resultTop4-1-percent"></p>
-                            <p id="resultTop4-1-place"></p>
+                            <div id="resultTop4-1-percent" class="percent"></div>
+                            <div id="resultTop4-1-place" class="location"></div>
                         </div>
                     </div>
                     <div id="top2" class="well top4boxes">
                         <div id="second" class="order">    <p>2<sup>nd</sup></p>   </div>
                         <div class="percentOffset">
-                            <p id="resultTop4-2-percent"></p>
-                            <p id="resultTop4-2-place"></p>
+                            <div id="resultTop4-2-percent" class="percent"></div>
+                            <div id="resultTop4-2-place" class="location"></div>
                         </div>
                     </div>
                     <div id="top3" class="well top4boxes">
                         <div id="third" class="order">    <p>3<sup>rd</sup></p>   </div>
                         <div class="percentOffset">
-                            <p id="resultTop4-3-percent"></p>
-                            <p id="resultTop4-3-place"></p>
+                            <div id="resultTop4-3-percent" class="percent"></div>
+                            <div id="resultTop4-3-place" class="location"></div>
                         </div>
                     </div>
                     <div id="top4" class="well top4boxes">
                         <div id="fourth" class="order">    <p>4<sup>th</sup></p>   </div>
                         <div class="percentOffset">
-                            <p id="resultTop4-4-percent"></p>
-                            <p id="resultTop4-4-place"></p>
+                            <div id="resultTop4-4-percent" class="percent"></div>
+                            <div id="resultTop4-4-place" class="location"></div>
                         </div>
                     </div>
                 </div>
