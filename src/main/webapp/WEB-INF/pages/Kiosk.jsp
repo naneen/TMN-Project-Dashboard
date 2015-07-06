@@ -63,61 +63,65 @@
                         if(data == "00:00:00"){
                             TOP4();
                             PIECHART();
+
                         }
+
                     }
                 });
             }
             setInterval(TimeRE,1000);
-
-            $(function () {
-                //BEGIN AREA CHART SPLINE
-                var d6_1 = ${topup};
-                var d6_2 = ${bill};
-                $.plot("#area-chart-spline", [{
-                    data: d6_1,
-                    label: "Top-up",
-                    color: "#F7C445"
-                },{
-                    data: d6_2,
-                    label: "Bill payment",
-                    color: "#7E98F7"
-                }], {
-                    series: {
-                        lines: {
-                            show: !1
+            function getBillTopup() {
+                $.getJSON("bill_topup_chart", function (rootJSON) {
+                    //BEGIN AREA CHART SPLINE
+                    var d6_1 = rootJSON.bill;
+                    var d6_2 = rootJSON.topup;
+                    $.plot("#area-chart-spline", [{
+                        data: d6_1,
+                        label: "Top-up",
+                        color: "#F7C445"
+                    }, {
+                        data: d6_2,
+                        label: "Bill payment",
+                        color: "#7E98F7"
+                    }], {
+                        series: {
+                            lines: {
+                                show: !1
+                            },
+                            splines: {
+                                show: !0,
+                                tension: .4,
+                                lineWidth: 2,
+                                fill: .8
+                            },
+                            points: {
+                                show: !0,
+                                radius: 4
+                            }
                         },
-                        splines: {
-                            show: !0,
-                            tension: .4,
-                            lineWidth: 2,
-                            fill: .8
+                        grid: {
+                            borderColor: "#fafafa",
+                            borderWidth: 1,
+                            hoverable: !0
                         },
-                        points: {
-                            show: !0,
-                            radius: 4
-                        }
-                    },
-                    grid: {
-                        borderColor: "#fafafa",
-                        borderWidth: 1,
-                        hoverable: !0
-                    },
-                    tooltip: !0,
-                    tooltipOpts: {
-                        content: "%x : %y",
-                        defaultTheme: true
-                    },
-                    xaxis: {
-                        tickColor: "#ABB7B7",
-                        mode: "categories"
-                    },
-                    yaxis: {
-                        tickColor: "#ABB7B7"
-                    },
-                    shadowSize: 0
+                        tooltip: !0,
+                        tooltipOpts: {
+                            content: "%x : %y",
+                            defaultTheme: true
+                        },
+                        xaxis: {
+                            tickColor: "#ABB7B7",
+                            mode: "categories"
+                        },
+                        yaxis: {
+                            tickColor: "#ABB7B7"
+                        },
+                        shadowSize: 0
+                    });
+                    //END AREA CHART SPLINE
                 });
-                //END AREA CHART SPLINE
-            });
+            }
+
         </script>
 
         <script src="${pageContext.request.contextPath}/resources/js/jquery-1.10.2.min.js"></script>
@@ -137,6 +141,7 @@
             PIECHART();
             TOP4();
             TimeRE();
+            getBillTopup();
         </script>
 
         <div id="divBG"></div>
@@ -161,26 +166,26 @@
             <div class="panel">
                 <div class="panel-body">
 
-                    <div id="revenue" class="row">
-                        <div class="col-md-12" id="target-bar">
-                            <h4 class="mbm">Revenue</h4>
+                    <%--<div id="revenue" class="row">--%>
+                        <%--<div class="col-md-12" id="target-bar">--%>
+                            <%--<h4 class="mbm">Revenue</h4>--%>
 
-                            <span class="task-item">
-                                <span style="color: red">Actual:</span>
-                                <span style="color: #737373">${actual} </span>
-                                <span style="color: red">Target: </span>
-                                <span style="color: #737373">${target}</span>
-                                <small class="pull-right text-muted">${percent}%</small>
-                                <div class="progress progress-sm">
-                                    <div role="progressbar" aria-valuenow="${percent}"
-                                        aria-valuemin="0" aria-valuemax="100"
-                                        style="width: ${percent}%;" class="progress-bar progress-bar">
-                                        <span class="sr-only">${percent}% Complete (success)</span>
-                                    </div>
-                                </div>
-                            </span>
-                        </div>
-                    </div>
+                            <%--<span class="task-item">--%>
+                                <%--<span style="color: red">Actual:</span>--%>
+                                <%--<span style="color: #737373">${actual} </span>--%>
+                                <%--<span style="color: red">Target: </span>--%>
+                                <%--<span style="color: #737373">${target}</span>--%>
+                                <%--<small class="pull-right text-muted">${percent}%</small>--%>
+                                <%--<div class="progress progress-sm">--%>
+                                    <%--<div role="progressbar" aria-valuenow="${percent}"--%>
+                                        <%--aria-valuemin="0" aria-valuemax="100"--%>
+                                        <%--style="width: ${percent}%;" class="progress-bar progress-bar">--%>
+                                        <%--<span class="sr-only">${percent}% Complete (success)</span>--%>
+                                    <%--</div>--%>
+                                <%--</div>--%>
+                            <%--</span>--%>
+                        <%--</div>--%>
+                    <%--</div>--%>
 
                     <div class="row">
                         <div class="col-md-12">

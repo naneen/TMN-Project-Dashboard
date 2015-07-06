@@ -1,5 +1,8 @@
 package com.springapp.mvc.controller;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -50,14 +53,9 @@ public class KioskController {
     }
 
 
-
-    public void Revenue(ModelMap model) throws SQLException {
-        double actual = 450;
-        double target = 666;
-        double percent = (actual/target)*100;
-
-        // initial month
-        String month = "5" ;
+    @RequestMapping(value = "/bill_topup_chart",method = RequestMethod.GET)
+    public @ResponseBody
+    String Revenue(ModelMap model) throws SQLException, JSONException {
 
         //bill of each week , b = bill
         double week1b  ;
@@ -71,8 +69,14 @@ public class KioskController {
         double week3t  ;
         double week4t ;
 
-        ResultSet  resultSet1b,resultSet2b,resultSet3b,resultSet4b,resultSet1t,resultSet2t,resultSet3t,resultSet4t;
-        Statement state1b,state2b,state3b,state4b,state1t,state2t,state3t,state4t;
+        //date of each week
+        String week1d ;
+        String week2d ;
+        String week3d ;
+        String week4d ;
+
+        ResultSet  resultSet1b,resultSet2b,resultSet3b,resultSet4b,resultSet1t,resultSet2t,resultSet3t,resultSet4t,resultSet1d,resultSet2d,resultSet3d,resultSet4d;
+        Statement state1b,state2b,state3b,state4b,state1t,state2t,state3t,state4t,state1d,state2d,state3d,state4d;
 
         state1t = connect.createStatement();
         state2t = connect.createStatement();
@@ -82,9 +86,12 @@ public class KioskController {
         state2b = connect.createStatement();
         state3b = connect.createStatement();
         state4b = connect.createStatement();
+        state1d = connect.createStatement();
+        state2d = connect.createStatement();
+        state3d = connect.createStatement();
+        state4d = connect.createStatement();
 
         // Query Database of topup transaction
-
         resultSet1t = state1t.executeQuery("SELECT COUNT(DISTINCT TRANS_ID) as COUNT " +
                 "FROM TR_TRANS_MULTIBILL " +
                 "WHERE SVC_ID = 'ConfirmMobileTopupAndDebit' and STATE = 0 " +
@@ -120,6 +127,12 @@ public class KioskController {
                 "WHERE h.SVC_ID = 'PostBillConfirm' and h.STATE = 0 "+
                 "and (created >= TO_CHAR(SYSDATE - 28, 'DD-MON-YYYY') and created <= TO_CHAR(SYSDATE-21, 'DD-MON-YYYY'))");
 
+        //query date
+        resultSet1d = state1d.executeQuery("SELECT TO_CHAR(SYSDATE - 28, 'DD-MON-YYYY') as TEXT FROM dual");
+        resultSet2d = state2d.executeQuery("SELECT TO_CHAR(SYSDATE - 21, 'DD-MON-YYYY') as TEXT FROM dual");
+        resultSet3d = state3d.executeQuery("SELECT TO_CHAR(SYSDATE - 14, 'DD-MON-YYYY') as TEXT FROM dual");
+        resultSet4d = state4d.executeQuery("SELECT TO_CHAR(SYSDATE - 7, 'DD-MON-YYYY') as TEXT FROM dual");
+
         resultSet1t.next();
         resultSet2t.next();
         resultSet3t.next();
@@ -128,6 +141,10 @@ public class KioskController {
         resultSet2b.next();
         resultSet3b.next();
         resultSet4b.next();
+        resultSet1d.next();
+        resultSet2d.next();
+        resultSet3d.next();
+        resultSet4d.next();
 
         week1t = resultSet1t.getDouble("COUNT");
         week2t = resultSet2t.getDouble("COUNT");
@@ -137,16 +154,37 @@ public class KioskController {
         week2b = resultSet2b.getDouble("COUNT");
         week3b = resultSet3b.getDouble("COUNT");
         week4b = resultSet4b.getDouble("COUNT");
+        week1d = resultSet1d.getString("TEXT");
+        week2d = resultSet1d.getString("TEXT");
+        week3d = resultSet1d.getString("TEXT");
+        week4d = resultSet1d.getString("TEXT");
 
 
-        String bill = "[[\"Start\", 0],"+"[\"Week1\","+ Double.toString(week1b)+"],[\"Week2\","+Double.toString(week2b)+"],[\"Week3\","+Double.toString(week3b)+"],[\"Week4\","+Double.toString(week4b)+"]]";
-        String topup = "[[\"Start\", 0],"+"[\"Week1\","+ Double.toString(week1t)+"],[\"Week2\","+Double.toString(week2t)+"],[\"Week3\","+Double.toString(week3t)+"],[\"Week4\","+Double.toString(week4t)+"]]";
+//
+//        String bill = "[[\"Start\", 0],"+"[\"Week1\","+ Double.toString(week1b)+"],[\"Week2\","+Double.toString(week2b)+"],[\"Week3\","+Double.toString(week3b)+"],[\"Week4\","+Double.toString(week4b)+"]]";
+//        String topup = "[[\"Start\", 0],"+"[\"Week1\","+ Double.toString(week1t)+"],[\"Week2\","+Double.toString(week2t)+"],[\"Week3\","+Double.toString(week3t)+"],[\"Week4\","+Double.toString(week4t)+"]]";
 
-        model.addAttribute("actual", Double.toString(actual));
-        model.addAttribute("target", Double.toString(target));
-        model.addAttribute("topup", topup);
-        model.addAttribute("bill", bill);
-        model.addAttribute("percent", Integer.toString((int) percent));
+        JSONObject rootJSON = new JSONObject();
+        JSONObject billJSON = new JSONObject();
+        JSONObject topupJSON = new JSONObject();
+
+        billJSON.put("Startb",0);
+        billJSON.put("Week1b",new String[]{week1d,Double.toString(week1b)});
+        billJSON.put("Week2b",new String[]{week2d,Double.toString(week2b)});
+        billJSON.put("Week3b",new String[]{week3d,Double.toString(week3b)});
+        billJSON.put("Week4b",new String[]{week4d,Double.toString(week4b)});
+        rootJSON.put("bill", billJSON);
+
+        topupJSON.put("Startd",5);
+        billJSON.put("Week1d",new String[]{week1d,Double.toString(week1t)});
+        billJSON.put("Week2d",new String[]{week2d,Double.toString(week2t)});
+        billJSON.put("Week3d",new String[]{week3d,Double.toString(week3t)});
+        billJSON.put("Week4d",new String[]{week4d,Double.toString(week4t)});
+        rootJSON.put("topup", topupJSON);
+
+
+//        model.addAttribute("topup", topup);
+//        model.addAttribute("bill", bill);
 
         resultSet1t.close();
         resultSet2t.close();
@@ -156,6 +194,10 @@ public class KioskController {
         resultSet2b.close();
         resultSet3b.close();
         resultSet4b.close();
+        resultSet1d.close();
+        resultSet2d.close();
+        resultSet3d.close();
+        resultSet4d.close();
 
         state1b.close();
         state2b.close();
@@ -165,6 +207,11 @@ public class KioskController {
         state2t.close();
         state3t.close();
         state4t.close();
+        state1d.close();
+        state2d.close();
+        state3d.close();
+        state4d.close();
+        return rootJSON.toString();
     }
 
     @RequestMapping(value = "/QueryTop4", method = RequestMethod.GET,produces = "text/plain;charset=UTF-8")
@@ -281,7 +328,6 @@ public class KioskController {
     @RequestMapping(value = "/kiosk",method = RequestMethod.GET )
     public String MainCon(ModelMap model) throws SQLException, ClassNotFoundException {
         fucConnectDB();
-        Revenue(model);
         return "Kiosk";
     }
 }
