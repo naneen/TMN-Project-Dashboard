@@ -41,7 +41,7 @@ public class TMNProductController {
         int[] countTransaction = {
                 queryCountTransaction.getCountMobileApp(),queryCountTransaction.getCountKiosk(),
                 queryCountTransaction.getCountTmx(),queryCountTransaction.getCountPaymentGate(),
-                100,queryCountTransaction.getCountTopupGame(),
+                queryCountTransaction.getCountTopupMobile(),queryCountTransaction.getCountTopupGame(),
                 queryCountTransaction.getCountMasterCard(),queryCountTransaction.getCountBillPay()
         };
         int sum = 0;
@@ -63,7 +63,7 @@ public class TMNProductController {
         connectKiosk.setConnect("kioskpx", "kioskdev");
         connectTmx.setConnect("tmx", "tmx#4672");
         connectPaymentGate.setConnect("payment", "PAY#MENT12");
-//        connectTopupMobile.setConnect("cpgreport", "cpg#777$");
+        connectTopupMobile.setConnect("cpgreport", "rpt1#cpg");
         connectTopupGame.setConnect("gamereport", "RPT#4Game");
         connectMasterCard.setConnect("prepaidcard", "PRE#PAID99");
         connectBillPay.setConnect("bpay", "bpay#123$");

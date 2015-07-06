@@ -38,11 +38,12 @@ function pieTransection() {
                 data: browserData,
                 size: '40%',
                 dataLabels: {
-                    formatter: function() {
-                        return this.point.name;
-                    },
                     color: 'white',
-                    distance: 40
+                    distance: 40,
+                    //useHTML : true,
+                    formatter: function() {
+                        return "<p><span style=\"font-size: large;\">" + this.point.name + " </p></span><p><span style=\"font-size: large; color: orange;\">" + this.point.y + "%</span></p>";
+                    }
                 },
                 cursor: 'pointer',
                 events: {
@@ -50,18 +51,20 @@ function pieTransection() {
                         document.location.href = '/DashBoard/'+(event.point.name).replace( /\s/g, "").toLowerCase();
                     }
                 }
-            },{
-                name: 'Percent',
-                data: browserData,
-                size: '40%',
-                dataLabels: {
-                    formatter: function() {
-                        return this.point.y + "%";
-                    },
-                    color: 'white',
-                    distance: -30
-                }
-            }, {
+            }
+                //,{
+            //    name: 'Percent',
+            //    data: browserData,
+            //    size: '40%',
+            //    dataLabels: {
+            //        formatter: function() {
+            //            return this.point.y + "%";
+            //        },
+            //        color: 'white',
+            //        distance: -30
+            //    }
+            //}
+                , {
                 name: 'Percent',
                 data: browserData,
                 size: '40%',

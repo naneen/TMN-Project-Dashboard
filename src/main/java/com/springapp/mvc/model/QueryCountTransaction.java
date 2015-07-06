@@ -133,7 +133,14 @@ public class QueryCountTransaction {
         ResultSet resultSet;
         Statement state;
         state = connectTopupMobile.getConnect().createStatement();
-        String query = "";
+        String query = "select SUM(cnt) as COUNT " +
+                "from(SELECT to_char(a.paydate,'yyyymmdd')pay_date, a.merchant_id,a.merchant_name,a.channel, a.sof ,a.ref2,(a.totalamtvat/100) as price, count(*) cnt , sum(a.totalamtvat/100) as sum_amt " +
+                "FROM cpgreport.cpg711_trans a " +
+                "where a.resp_code = '0' and a.ref2 like '%topup%' and a.ref2 not like '%cc' " +
+                "and a.merchant_id = '800000641' " +
+                "and a.paydate between to_date('01/01/2015 00:00:00', 'dd/MM/yyyy hh24:mi:ss') and to_date(SYSDATE,'dd/MM/yyyy hh24:mi:ss') " +
+                "group by to_char(a.paydate,'yyyymmdd'), a.merchant_id,a.merchant_name,a.channel, a.sof,a.ref2,(a.totalamtvat/100) " +
+                "order by to_char(a.paydate,'yyyymmdd'), a.merchant_id,a.merchant_name,a.channel, a.sof,a.ref2,(a.totalamtvat/100)) ";
         resultSet = state.executeQuery(query);
         resultSet.next();
         int ans = resultSet.getInt("COUNT");

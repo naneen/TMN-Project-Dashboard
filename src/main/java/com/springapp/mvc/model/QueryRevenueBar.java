@@ -35,11 +35,12 @@ public class QueryRevenueBar {
         Statement state;
         state = connectKiosk.getConnect().createStatement();
         resultSet = state.executeQuery("SELECT TARGET_AMOUNT as TARGET " +
-                "                       FROM ( " +
-                "                       SELECT a.TARGET_DATE,a.TARGET_AMOUNT  " +
-                "                       FROM DT_TARGET a " +
-                "                       ORDER BY TARGET_DATE desc) " +
-                "                       WHERE rownum <= 1 and to_date(TARGET_DATE, 'dd/MM/yyyy hh24:mi:ss') <= to_date(SYSDATE, 'dd/MM/yyyy hh24:mi:ss')");
+                "FROM ( " +
+                "  SELECT *  " +
+                "  FROM DT_TARGET a " +
+                "  WHERE SYSDATE between to_date(a.TARGET_DATE_START, 'dd/MM/yyyy hh24:mi:ss') and to_date(a.TARGET_DATE_END, 'dd/MM/yyyy hh24:mi:ss') " +
+                "  ORDER BY a.TARGET_DATE_START desc) " +
+                "  WHERE rownum <= 1 ");
         resultSet.next();
         int ans = resultSet.getInt("TARGET");
         resultSet.close();
