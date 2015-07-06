@@ -127,6 +127,9 @@
         <script src="${pageContext.request.contextPath}/resources/js/jquery.flot.categories.js"></script>
         <script src="${pageContext.request.contextPath}/resources/js/jquery.flot.tooltip.js"></script>
         <script src="${pageContext.request.contextPath}/resources/js/jquery.flot.spline.js"></script>
+
+
+
     </head>
 
     <body>

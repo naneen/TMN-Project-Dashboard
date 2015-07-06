@@ -18,11 +18,19 @@
 
 
 
+    <script>
+        $.getJSON("transaction", function(json) {
+            $("#tranKiosk").html(json);
+        });
+    </script>
+
+
 </head>
 <body>
 
     <a href="/DashBoard/kiosk" id="headNav">${msg}</a>
-    
+
+
    
    
        <div id="div4">
@@ -46,7 +54,7 @@
 
       <tr>
        <td>Kiosk</td>
-        <td> 100</td>
+        <td><div id="tranKiosk"></div></td>
          <td>100</td>
 
       </tr>

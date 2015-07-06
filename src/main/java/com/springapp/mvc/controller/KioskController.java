@@ -218,25 +218,11 @@ public class KioskController {
         return arrayJSON.toString();
     }
 
-//
-//    @RequestMapping(value = "/transaction", method = RequestMethod.GET)
-//    public @ResponseBody
-//    Integer trans() throws SQLException,JSONException {
-//        ResultSet resultSet1;
-//    Statement state1;
-//    state1 = connect.createStatement();
-//
-//    resultSet1 = state1.executeQuery("select COUNT(*) from TR_PAY_MULTIBILL " +
-//            "where CREATED >= to_date('01/01/2015', 'dd/MM/yyyy') ");
-//
-//    resultSet1.next();
-//    int t = resultSet1.getInt("count(*)");
-//
-//    resultSet1.close();
-//    state1.close();
-//        return t;
-//    }
 
+
+
+
+//
 //public static void main(String[]args) throws ClassNotFoundException, SQLException, JSONException {
 //    Connection connect = null;
 //    String url = "jdbc:oracle:thin:@//10.224.102.10:2992/pdev";
@@ -245,19 +231,20 @@ public class KioskController {
 //
 //    Class.forName("oracle.jdbc.driver.OracleDriver");
 //    connect = DriverManager.getConnection(url, username, pass);
+//    JSONObject json = new JSONObject();
 //    ResultSet resultSet1;
 //    Statement state1;
 //    state1 = connect.createStatement();
 //
-//    resultSet1 = state1.executeQuery("select COUNT(*) from TR_PAY_MULTIBILL " +
-//            "where CREATED >= to_date('01/01/2015', 'dd/MM/yyyy') ");
+//    resultSet1 = state1.executeQuery("select COUNT(*) as COUNT from TR_PAY_MULTIBILL " +
+//            "where CREATED BETWEEN to_date('01/01/2015', 'dd/MM/yyyy') and to_date(sysdate,'dd/MM/yyyy') ");
 //
 //    resultSet1.next();
-//    int t = resultSet1.getInt("count(*)");
+//    json.put("trans", resultSet1.getString("COUNT"));
 //
 //    resultSet1.close();
 //    state1.close();
-//    System.out.println(t);
+//    System.out.println(json);
 //
 //}
 
