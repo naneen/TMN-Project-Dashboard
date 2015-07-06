@@ -19,98 +19,162 @@
 
 
     <script>
-        $.getJSON("transaction", function(json) {
-            $("#tranKiosk").html(json);
+        $.getJSON("tranTMNProduct", function(json) {
+
+            $("#MobileApp").html(json.product[0]);
+            $("#Kiosk").html(json.product[1]);
+            $("#TMX").html(json.product[2]);
+            $("#Payment").html(json.product[3]);
+            $("#TopupMobile").html(json.product[4]);
+            $("#TopupGame").html(json.product[5]);
+            $("#WeCard").html(json.product[6]);
+            $("#BillPay").html(json.product[7]);
+            $("#Total").html(json.product[8]);
+
+            $("#tranMobileApp").html(json.tran[0]);
+            $("#tranKiosk").html(json.tran[1]);
+            $("#tranTMX").html(json.trann[2]);
+            $("#tranPayment").html(json.tran[3]);
+            $("#tranTopupMobile").html(json.tran[4]);
+            $("#tranTopupGame").html(json.tran[5]);
+            $("#tranWeCard").html(json.tran[6]);
+            $("#tranBillPay").html(json.tran[7]);
+            $("#tranTotal").html(json.totalTran);
+
+        $("#amountMobileApp").html(json.amount[0]);
+        $("#amountKiosk").html(json.amount[1]);
+        $("#amountTMX").html(json.amount[2]);
+        $("#amountPayment").html(json.amount[3]);
+        $("#amountTopupMobile").html(json.amount[4]);
+        $("#amountTopupGame").html(json.amount[5]);
+        $("#amountWeCard").html(json.amount[6]);
+        $("#amountBillPay").html(json.amount[7]);
+        $("#amountTotal").html(json.totalAmount);
+
+
+
+
         });
+    </script>
+
+    <%--<script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>--%>
+    <link href='${pageContext.request.contextPath}/resources/css/PieTransaction.css' rel="stylesheet">
+    <script src='${pageContext.request.contextPath}/resources/js/highcharts.js'></script>
+    <script src='${pageContext.request.contextPath}/resources/js/exporting.js'></script>
+    <script src="${pageContext.request.contextPath}/resources/js/PieTransaction.js"></script>
+
+
+    <script>
+        function TimeReal() {
+            $.ajax({
+                url : "TimeReal" , success : function(data) {
+                    if(data == "00:00:00"){
+                        pieTransection();
+                    }
+                }
+            });
+        }
+        setInterval(TimeReal,1000);
+
+        window.onload = function () {
+            pieTransection();
+            TimeReal();
+        };
     </script>
 
 
 </head>
 <body>
 
-    <a href="/DashBoard/kiosk" id="headNav">${msg}</a>
+<a href="/DashBoard/kiosk" id="headNav">${msg}</a>
 
 
-   
-   
-       <div id="div4">
-     <div id="divall"><div id="textdiv"><b>Total by TMN Product</b></div></div>
 
-  <table class="table divtable">
-    <thead bgcolor="#000000" style="color: #fff">
-      <tr>
-        <th>Product Name</th>
-        <th>Transaction</th>
-        <th>Amount</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>Moblie app</td>
-        <td>100</td>
-         <td>100</td>
-        
-      </tr>
 
-      <tr>
-       <td>Kiosk</td>
-        <td><div id="tranKiosk"></div></td>
-         <td>100</td>
 
-      </tr>
+<div id="div4">
 
-      <tr>
-        <td>TMX</td>
-       <td>100</td>
-        <td>100</td>
+    <div id="divall">
+        <div id="textdiv"><b>Total by TMN Product</b></div>
 
-      </tr>
+    </div>
 
-       <tr>
-        <td>Payment Gateway</td>
-        <td>100</td>
-         <td>100</td>
+    <table class="table divtable">
+        <thead bgcolor="#000000" style="color: #fff">
+        <tr>
+            <th>Product Name</th>
+            <th>Transaction</th>
+            <th>Amount</th>
+        </tr>
+        </thead>
+        <tbody>
 
-      </tr>
+        <tr>
+            <td><div id="MobileApp"></div></td>
+            <td><div id="tranMobileApp"></div></td>
+            <td><div id="amountMobileApp"></div></td>
 
-      <tr>
-        <td>Topup Mobile</td>
-        <td>100</td>
-         <td>100</td>
+        </tr>
+        <tr>
+            <td><div id="Kiosk"></div></td>
+            <td><div id="tranKiosk"></div></td>
+            <td><div id="amountKiosk"></div></td>
 
-       </tr>
+        </tr>
 
-     <tr>  
-         <td>Topup Game</td>
-         <td>100</td>
-         <td>100</td>
+        <tr>
+            <td><div id="TMX"></div></td>
+            <td><div id="tranTMX"></div></td>
+            <td><div id="amountTMX"></div></td>
 
-     </tr>
+        </tr>
 
-     <tr>  
-        <td>Master Card</td>
-        <td>100</td>
-         <td>100</td>
+        <tr>
+            <td><div id="Payment"></div></td>
+            <td><div id="tranPayment"></div></td>
+            <td><div id="amountPayment"></div></td>
 
-      </tr>
+        </tr>
 
-     <tr>   
-         <td>Bil pay</td>
-         <td>100</td>
-         <td>100</td>
+        <tr>
+            <td><div id="TopupMobile"></div></td>
+            <td><div id="tranTopupMobile"></div></td>
+            <td><div id="amountTopupMobile"></div></td>
 
-      </tr>
+        </tr>
 
-    </tbody>
- <thead bgcolor="#BDC3C7" style="color: #000">
-      <tr>
-        <th>Total</th>
-        <th>800</th>
-        <th>800</th>
-      </tr>
-    </thead>
-  </table>
+        <tr>
+            <td><div id="TopupGame"></div></td>
+            <td><div id="tranTopupGame"></div></td>
+            <td><div id="amountTopupGame"></div></td>
+
+        </tr>
+
+        <tr>
+            <td><div id="WeCard"></div></td>
+            <td><div id="tranWeCard"></div></td>
+            <td><div id="amountWeCard"></div></td>
+
+        </tr>
+
+        <tr>
+            <td><div id="BillPay"></div></td>
+            <td><div id="tranBillPay"></div></td>
+            <td><div id="amountBillPay"></div></td>
+
+        </tr>
+
+        </tbody>
+        <thead bgcolor="#BDC3C7" style="color: #000">
+        <tr>
+            <th><div id="Total"></div></th>
+            <th><div id="tranTotal"></div></th>
+            <th><div id="amountTotal"></div></th>
+        </tr>
+        </thead>
+    </table>
 </div>
+
 
 </body>
 </html>

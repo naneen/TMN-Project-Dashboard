@@ -11,11 +11,10 @@ $(function(){jQuery(document).ready(function () {
     var count=0;
     $.getJSON( "complaintTicket", function(json) {
         initialize();
-        var lon,lat,id,ticket;
+        var lon,lat,ticket;
         for(i=0;i<json.length;i+=5){
              lon=parseFloat(json[i+1]);
              lat=parseFloat(json[i+2]);
-             id=parseInt(json[i+3]);
             ticket=parseInt(json[i+4]);
 
 
@@ -78,7 +77,7 @@ $(function(){jQuery(document).ready(function () {
 
     }
 
-    function setMarkers(map,json, lon,lat,ticket) {
+    function setMarkers(map,location, lon,lat,ticket) {
 
         var infoBubble = new InfoBubble({
             Padding: 10,
@@ -105,7 +104,7 @@ $(function(){jQuery(document).ready(function () {
             }
             google.maps.event.addListener(marker, 'mouseover', (function(marker, i) {
                 return function() {
-                    infoBubble.setContent(json + "<br />Ticket : "+ticket );
+                    infoBubble.setContent(location + "<br />Ticket : "+ticket );
                     infoBubble.open(map, marker);
                 }
             })(marker, i));

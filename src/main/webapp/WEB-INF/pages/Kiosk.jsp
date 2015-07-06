@@ -19,17 +19,9 @@
         <script src='${pageContext.request.contextPath}/resources/js/Map.js'></script>
 
         <script type="text/javascript">
-            function PIECHART() {
-                $.get("QueryPieChart",function(data){
-                        var myDate = new Date();
-                        var monthNames = ["January", "February", "March", "April", "May", "June",
-                            "July", "August", "September", "October", "November", "December"
-                        ];
-                        myDate.setDate(myDate.getDate()-1);
-                        var Day = myDate.getDate();
-                        var Month = monthNames[myDate.getMonth()];
-                        var Year = myDate.getFullYear();
-                        $("#result2").html("<font color=\"#green\">"+data+"%</font>"+" OffLoad <br>"+ "As of " + Day + " " + Month + " " + Year);
+            function pieCHART() {
+                $.get("PieChart",function(data){
+                        $("#result2").text(data+"%");
                         var freeSpace = 100-data;
                         var pieData = [
                             {
@@ -51,23 +43,64 @@
                 );
             }
 
-            function TOP4() {
-                $.get("QueryTop4", function(data){
-                    $("#resultTop4").html(data);
-                });
-            }
-
-            function TimeRE() {
-                $.ajax({
-                    url : "TimeSet" , success : function(data) {
-                        if(data == "00:00:00"){
-                            TOP4();
-                            PIECHART();
+            function top4() {
+                $.getJSON("Top4", function(json){
+                    for(var i = 1;i<=4;i++){
+                        $("#resultTop4-"+i+"-place").text(json[i-1].place);
+                        if(json[i-1].place != ""){
+                            $("#resultTop4-"+i+"-percent").text(json[i-1].percent + "%");
+                        }
+                        else{
+                            $("#resultTop4-"+i+"-percent").text(json[i-1].percent);
                         }
                     }
                 });
             }
-            setInterval(TimeRE,1000);
+
+            function revenueBar() {
+                $.getJSON("revenueBar", function(json){
+                    var actualBar = 0;
+                    if(json.percent <= 100){
+                        document.getElementById('color_revenuebar').className = "progress lessThan100 progress-sm";
+                        actualBar = json.percent;
+                    }
+                    else{
+                        document.getElementById('color_revenuebar').className = "progress greaterThan100 progress-sm";
+                        actualBar = 200 - json.percent;
+                    }
+                    $("#actual").html(json.actual);
+                    $("#target").html(json.target);
+                    $("#percent").html(json.percent + " %");
+                    $("#percent2").attr({"aria-valuenow":actualBar,style:"width: "+actualBar+"%;"});
+                });
+            }
+            function dateYesterDay() {
+                $.get("DateYesterDay", function(data){
+                    $("#yesterday").text(data);
+                });
+            };
+
+            function getCorrectTime() {
+                $.ajax({
+                    url : "GetCorrectTime" , success : function(data) {
+                        if(data == "00:00:00"){
+                            top4();
+                            pieCHART();
+                            revenueBar();
+                            dateYesterDay();
+                        }
+                    }
+                });
+            };
+            setInterval(getCorrectTime,1000);
+
+            window.onload = function () {
+                pieCHART();
+                top4();
+                revenueBar();
+                getCorrectTime();
+                dateYesterDay();
+            };
 
             $(function () {
                 //BEGIN AREA CHART SPLINE
@@ -133,12 +166,6 @@
     </head>
 
     <body>
-        <script type="text/javascript">
-            PIECHART();
-            TOP4();
-            TimeRE();
-        </script>
-
         <div id="divBG"></div>
                                                         <%--TOP4 & PIE--%>
 
@@ -149,10 +176,18 @@
                 <div id="diva">
                     <div id="canvas-holder"><canvas id="chart-area"></canvas></div>
                 </div>
-                <center><div id="result2" class="displayoffload"></div></center>
+                <center><div class="displayoffload"><font color="#green" id = "result2"></font> OffLoad <br>As of <font id="yesterday"></font></div></center>
+                <%--<center><div id="result2" class="displayoffload"></div></center>--%>
             </div>
+            <div id="box1" class="boxall"><img src="${pageContext.request.contextPath}/resources/img/1.png" width=20% class="pic"/><div id="text"><center><div id="PercentageSize"><div id="resultTop4-1-percent"></div></div><div id="textSize"><div id="resultTop4-1-place"></div></div></center></div></div>
+            <div id="box2" class="boxall"><img src="${pageContext.request.contextPath}/resources/img/2.png" width=20% class="pic"/><div id="text"><center><div id="PercentageSize"><div id="resultTop4-2-percent"></div></div><div id="textSize"><div id="resultTop4-2-place"></div></div></center></div></div>
+            <div id="box3" class="boxall"><img src="${pageContext.request.contextPath}/resources/img/3.png" width=20% class="pic"/><div id="text"><center><div id="PercentageSize"><div id="resultTop4-3-percent"></div></div><div id="textSize"><div id="resultTop4-3-place"></div></div></center></div></div>
+            <div id="box4" class="boxall"><img src="${pageContext.request.contextPath}/resources/img/4.png" width=20% class="pic"/><div id="text"><center><div id="PercentageSize"><div id="resultTop4-4-percent"></div></div><div id="textSize"><div id="resultTop4-4-place"></div></div></center></div></div>
 
-            <div id="resultTop4"></div>
+
+
+
+        <div id="resultTop4"></div>
         </div>
 
                                                             <%--REVENUE--%>
@@ -167,15 +202,14 @@
 
                             <span class="task-item">
                                 <span style="color: red">Actual:</span>
-                                <span style="color: #737373">${actual} </span>
+                                <span style="color: #737373" id="actual"></span>
                                 <span style="color: red">Target: </span>
-                                <span style="color: #737373">${target}</span>
-                                <small class="pull-right text-muted">${percent}%</small>
-                                <div class="progress progress-sm">
-                                    <div role="progressbar" aria-valuenow="${percent}"
+                                <span style="color: #737373" id="target"></span>
+                                <small class="pull-right text-muted" id="percent"></small>
+                                <div id="color_revenuebar">
+                                    <div id="percent2" role="progressbar" aria-valuenow="50"
                                         aria-valuemin="0" aria-valuemax="100"
-                                        style="width: ${percent}%;" class="progress-bar progress-bar">
-                                        <span class="sr-only">${percent}% Complete (success)</span>
+                                        style="width: 50%;" class="progress-bar" >
                                     </div>
                                 </div>
                             </span>
