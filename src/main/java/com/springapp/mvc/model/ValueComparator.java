@@ -1,11 +1,11 @@
-package com.springapp.mvc.controller;
+package com.springapp.mvc.model;
 
 import java.util.Comparator;
 import java.util.HashMap;
 import java.util.Map;
 
 public class ValueComparator implements Comparator<String> {
-    Map<String, Integer> base;
+    HashMap<String, Integer> base;
     public ValueComparator(HashMap<String, Integer> base) {
         this.base = base;
     }
@@ -14,7 +14,7 @@ public class ValueComparator implements Comparator<String> {
         if (base.get(a) > base.get(b)) {
             return -1;
         }
-        else if(base.get(a) == base.get(b)){
+        else if(base.get(a).equals(base.get(b))){
             if(b.compareTo(a) < 0){
                 return -1;
             }

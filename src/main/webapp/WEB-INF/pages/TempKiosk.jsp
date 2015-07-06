@@ -186,6 +186,7 @@
             </div>
             <script src="resources/js/deployChartDecor.js"></script>
             <script src="resources/js/deployChartJs.js"></script>
+
             <%-- map --%>
             <div id="Q3">
                 <div id="headMap">
