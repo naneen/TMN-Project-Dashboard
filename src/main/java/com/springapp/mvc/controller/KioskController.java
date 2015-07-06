@@ -56,7 +56,6 @@ public class KioskController {
         String bill = "[[\"Start\", 0],[\"Week1\", 29],[\"Week2\", 15],[\"Week3\", 67],[\"Week4\", 40]]";
         model.addAttribute("topup", topup);
         model.addAttribute("bill", bill);
-        model.addAttribute("percent",Integer.toString((int)percent));
     }
 
     @RequestMapping(value = "/Top4", method = RequestMethod.GET,produces = "text/plain;charset=UTF-8")

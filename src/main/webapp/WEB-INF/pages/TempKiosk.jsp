@@ -22,22 +22,14 @@
         <script src='${pageContext.request.contextPath}/resources/js/Map.js'></script>
 
         <script type="text/javascript">
-            function PIECHART() {
-                $.get("QueryPieChart",function(data){
-                            var myDate = new Date();
-                            var monthNames = ["January", "February", "March", "April", "May", "June",
-                                "July", "August", "September", "October", "November", "December"
-                            ];
-                            myDate.setDate(myDate.getDate()-1);
-                            var Day = myDate.getDate();
-                            var Month = monthNames[myDate.getMonth()];
-                            var Year = myDate.getFullYear();
-                            $("#offloadResult").html("<font color=\"#38b44a\" size=\"10px\">"+data+"%</font>"+" OffLoad <br>"+ "As of " + Day + " " + Month + " " + Year);
+            function pieCHART() {
+                $.get("PieChart",function(data){
+                            $("#result2").text(data+"%");
                             var freeSpace = 100-data;
                             var pieData = [
                                 {
                                     value: data,
-                                    color: "#ff4220",
+                                    color: "#46BFBD",
                                     highlight: "#5AD3D1",
                                     label: "Green"
                                 },
@@ -54,23 +46,64 @@
                 );
             }
 
-            function TOP4() {
-                $.get("QueryTop4", function(data){
-                    $("#resultTop4").html(data);
-                });
-            }
-
-            function TimeRE() {
-                $.ajax({
-                    url : "TimeSet" , success : function(data) {
-                        if(data == "00:00:00"){
-                            TOP4();
-                            PIECHART();
+            function top4() {
+                $.getJSON("Top4", function(json){
+                    for(var i = 1;i<=4;i++){
+                        $("#resultTop4-"+i+"-place").text(json[i-1].place);
+                        if(json[i-1].place != ""){
+                            $("#resultTop4-"+i+"-percent").text(json[i-1].percent + "%");
+                        }
+                        else{
+                            $("#resultTop4-"+i+"-percent").text(json[i-1].percent);
                         }
                     }
                 });
             }
-            setInterval(TimeRE,1000);
+
+            function revenueBar() {
+                $.getJSON("revenueBar", function(json){
+                    var actualBar = 0;
+                    if(json.percent <= 100){
+                        document.getElementById('color_revenuebar').className = "progress lessThan100 progress-sm";
+                        actualBar = json.percent;
+                    }
+                    else{
+                        document.getElementById('color_revenuebar').className = "progress greaterThan100 progress-sm";
+                        actualBar = 200 - json.percent;
+                    }
+                    $("#actual").html(json.actual);
+                    $("#target").html(json.target);
+                    $("#percent").html(json.percent + " %");
+                    $("#percent2").attr({"aria-valuenow":actualBar,style:"width: "+actualBar+"%;"});
+                });
+            }
+            function dateYesterDay() {
+                $.get("DateYesterDay", function(data){
+                    $("#yesterday").text(data);
+                });
+            };
+
+            function getCorrectTime() {
+                $.ajax({
+                    url : "GetCorrectTime" , success : function(data) {
+                        if(data == "00:00:00"){
+                            top4();
+                            pieCHART();
+                            revenueBar();
+                            dateYesterDay();
+                        }
+                    }
+                });
+            };
+            setInterval(getCorrectTime,1000);
+
+            window.onload = function () {
+                pieCHART();
+                top4();
+                revenueBar();
+                getCorrectTime();
+                dateYesterDay();
+            };
 
             $(function () {
                 //BEGIN AREA CHART SPLINE
@@ -79,22 +112,21 @@
                 $.plot("#area-chart-spline", [{
                     data: d6_1,
                     label: "Top-up",
-                    color: "#E5412D"
+                    color: "#F7C445"
                 },{
                     data: d6_2,
                     label: "Bill payment",
-                    color: "rgb(124,124,124)"
+                    color: "#7E98F7"
                 }], {
                     series: {
                         lines: {
                             show: !1
-
                         },
                         splines: {
                             show: !0,
                             tension: .4,
-                            lineWidth: 3,
-                            fill: 0.35
+                            lineWidth: 2,
+                            fill: .8
                         },
                         points: {
                             show: !0,
@@ -102,8 +134,7 @@
                         }
                     },
                     grid: {
-//                        borderColor: "#fafafa",
-                        borderColor: "#ABB7B7",
+                        borderColor: "#fafafa",
                         borderWidth: 1,
                         hoverable: !0
                     },
@@ -113,11 +144,11 @@
                         defaultTheme: true
                     },
                     xaxis: {
-                        tickColor: "#DDDDDD",
+                        tickColor: "#ABB7B7",
                         mode: "categories"
                     },
                     yaxis: {
-                        tickColor: "#DDDDDD"
+                        tickColor: "#ABB7B7"
                     },
                     shadowSize: 0
                 });
@@ -135,12 +166,6 @@
         <script src="${pageContext.request.contextPath}/resources/js/jquery.flot.spline.js"></script>
     </head>
     <body>
-        <script type="text/javascript">
-            PIECHART();
-            TOP4();
-            TimeRE();
-        </script>
-
         <%-- navigation bar --%>
         <nav class="navbar navbar-default navbar-fixed-top">
             <div id="headerContainer" class="container">
@@ -155,7 +180,7 @@
             <div id="Q2">
                 <div id="pieDiv" class="well well-lg">
                     <canvas id="chart-area"></canvas>
-                    <div id="offloadResult" class="displayoffload"></div>
+                    <center><div class="displayoffload"><font color="#green" id = "result2"></font> OffLoad <br>As of <font id="yesterday"></font></div></center>
                 </div>
 
                 <div id="top4div">
