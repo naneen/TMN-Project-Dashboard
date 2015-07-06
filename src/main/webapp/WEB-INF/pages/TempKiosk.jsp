@@ -189,34 +189,42 @@
                 <div id="pieDiv" class="well well-lg">
                     <canvas id="chart-area"></canvas>
                     <div class="displayoffload">
-                        <font id = "result2" style="color: green; font-size: 30px;"></font> OffLoad <br>As of <font id="yesterday"></font>
+                        <p><text id = "result2" style="color: green; font-size: 30px;"></text> OffLoad <br>As of <text id="yesterday"></text></p>
                     </div>
                 </div>
 
                 <div id="top4div">
                     <div id="top1" class="well top4boxes">
-                        <div id="first" class="order">    <p>1<sup>st</sup></p>   </div>
+                        <div id="first" class="order">
+                            <p>1<sup>st</sup></p>
+                        </div>
                         <div class="percentOffset">
                             <div id="resultTop4-1-percent" class="percent"></div>
                             <div id="resultTop4-1-place" class="location"></div>
                         </div>
                     </div>
                     <div id="top2" class="well top4boxes">
-                        <div id="second" class="order">    <p>2<sup>nd</sup></p>   </div>
+                        <div id="second" class="order">
+                            <p>2<sup>nd</sup></p>
+                        </div>
                         <div class="percentOffset">
                             <div id="resultTop4-2-percent" class="percent"></div>
                             <div id="resultTop4-2-place" class="location"></div>
                         </div>
                     </div>
                     <div id="top3" class="well top4boxes">
-                        <div id="third" class="order">    <p>3<sup>rd</sup></p>   </div>
+                        <div id="third" class="order">
+                            <p>3<sup>rd</sup></p>
+                        </div>
                         <div class="percentOffset">
                             <div id="resultTop4-3-percent" class="percent"></div>
                             <div id="resultTop4-3-place" class="location"></div>
                         </div>
                     </div>
                     <div id="top4" class="well top4boxes">
-                        <div id="fourth" class="order">    <p>4<sup>th</sup></p>   </div>
+                        <div id="fourth" class="order">
+                            <p>4<sup>th</sup></p>
+                        </div>
                         <div class="percentOffset">
                             <div id="resultTop4-4-percent" class="percent"></div>
                             <div id="resultTop4-4-place" class="location"></div>
