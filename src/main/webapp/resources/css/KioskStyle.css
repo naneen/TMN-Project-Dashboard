@@ -211,6 +211,7 @@ body {
     -webkit-box-shadow: none !important;
     box-shadow: none !important;
     background-color: #60EF84;
+
 }
 .progress .progress-bar.progress-bar-success {
     background-color: #5cb85c !important;
@@ -276,16 +277,6 @@ body {
 .progress.vertical.progress-lg {
     width: 70px;
 }
-.sr-only {
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    margin: -1px;
-    padding: 0;
-    overflow: hidden;
-    clip: rect(0, 0, 0, 0);
-    border: 0;
-}
 
 /* ************************* DEPLOYMENT ************************** */
 
@@ -312,7 +303,7 @@ body {
 }
 #deployChart{
     width: 250px;
-    margin: 1 auto;
+    margin: auto;
 }
 #donutChart {
     position: relative;

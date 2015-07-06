@@ -166,26 +166,7 @@
             <div class="panel">
                 <div class="panel-body">
 
-                    <%--<div id="revenue" class="row">--%>
-                        <%--<div class="col-md-12" id="target-bar">--%>
-                            <%--<h4 class="mbm">Revenue</h4>--%>
 
-                            <%--<span class="task-item">--%>
-                                <%--<span style="color: red">Actual:</span>--%>
-                                <%--<span style="color: #737373">${actual} </span>--%>
-                                <%--<span style="color: red">Target: </span>--%>
-                                <%--<span style="color: #737373">${target}</span>--%>
-                                <%--<small class="pull-right text-muted">${percent}%</small>--%>
-                                <%--<div class="progress progress-sm">--%>
-                                    <%--<div role="progressbar" aria-valuenow="${percent}"--%>
-                                        <%--aria-valuemin="0" aria-valuemax="100"--%>
-                                        <%--style="width: ${percent}%;" class="progress-bar progress-bar">--%>
-                                        <%--<span class="sr-only">${percent}% Complete (success)</span>--%>
-                                    <%--</div>--%>
-                                <%--</div>--%>
-                            <%--</span>--%>
-                        <%--</div>--%>
-                    <%--</div>--%>
 
                     <div class="row">
                         <div class="col-md-12">

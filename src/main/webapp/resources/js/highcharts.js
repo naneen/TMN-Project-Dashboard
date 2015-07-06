@@ -418,7 +418,11 @@
     var kb = F.adapterRun, Rb = F.getScript, Ma = F.inArray, o = A.each = F.each,
         lb = F.grep, Sb = F.offset, Ua = F.map, H = F.addEvent, Z = F.removeEvent, I = F.fireEvent, Tb = F.washMouseEvent, mb = F.animate, db = F.stop;
     T = {
+<<<<<<< HEAD
         colors: "#7cb5ec,#434348,#90ed7d,#f7a35c,#8085e9,#f15c80,#e4d354,#2b908f,#f45b5b,#91e8e1".split(","),
+=======
+         colors: "#7cb5ec,#434348,#90ed7d,#f7a35c,#8085e9,#f15c80,#e4d354,#2b908f,#f45b5b,#91e8e1".split(","),
+>>>>>>> 4a2faad6f43bc89717472c52b738b18a85970e67
         symbols: ["circle", "diamond", "square", "triangle", "triangle-down"],
         lang: {
             loading: "Loading...",
@@ -543,7 +547,11 @@
             style: {color: "#333333", cursor: "default", fontSize: "12px", padding: "8px", whiteSpace: "nowrap"}
         },
         credits: {
+<<<<<<< HEAD
             enabled: !0,
+=======
+            enabled: 0,
+>>>>>>> 4a2faad6f43bc89717472c52b738b18a85970e67
             text: "Highcharts.com",
             href: "http://www.highcharts.com",
             position: {align: "right", x: -10, verticalAlign: "bottom", y: -5},
