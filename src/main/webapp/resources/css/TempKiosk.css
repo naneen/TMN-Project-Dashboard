@@ -106,7 +106,7 @@
     left: 5%;
     top: 1%;
 }
-#first{
+.order{
     float: left;
     position: relative;
     width: 20%;
@@ -239,8 +239,8 @@
 .progress .progress-bar.progress-bar-red {
     background-color: rgb(229, 65, 45) !important;
 }
-.progress .progress-bar.progress-bar-yellow {
-    background-color: rgb(228, 229, 18) !important;
+.progress .progress-bar.progress-bar-blue {
+    background-color: #81CFE0 !important;
 }
 .progress.progress-sm {
     height: 5%;

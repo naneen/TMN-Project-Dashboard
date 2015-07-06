@@ -172,6 +172,7 @@
         <script src="${pageContext.request.contextPath}/resources/js/jquery.flot.tooltip.js"></script>
         <script src="${pageContext.request.contextPath}/resources/js/jquery.flot.spline.js"></script>
     </head>
+
     <body>
         <%-- navigation bar --%>
         <nav class="navbar navbar-default navbar-fixed-top">
@@ -194,29 +195,32 @@
 
                 <div id="top4div">
                     <div id="top1" class="well top4boxes">
-                        <%--ONE--%>
-                        <div id="first">
-                            <p>1<sup>st</sup></p>
-                        </div>
-                        <div id="percentOffset">
+                        <div id="first" class="order">    <p>1<sup>st</sup></p>   </div>
+                        <div class="percentOffset">
                             <p id="resultTop4-1-percent"></p>
                             <p id="resultTop4-1-place"></p>
                         </div>
                     </div>
                     <div id="top2" class="well top4boxes">
-                        TWO
-                        <p id="resultTop4-2-percent"></p>
-                        <p id="resultTop4-2-place"></p>
+                        <div id="second" class="order">    <p>2<sup>nd</sup></p>   </div>
+                        <div class="percentOffset">
+                            <p id="resultTop4-2-percent"></p>
+                            <p id="resultTop4-2-place"></p>
+                        </div>
                     </div>
                     <div id="top3" class="well top4boxes">
-                        THREE
-                        <p id="resultTop4-3-percent"></p>
-                        <p id="resultTop4-3-place"></p>
+                        <div id="third" class="order">    <p>3<sup>rd</sup></p>   </div>
+                        <div class="percentOffset">
+                            <p id="resultTop4-3-percent"></p>
+                            <p id="resultTop4-3-place"></p>
+                        </div>
                     </div>
                     <div id="top4" class="well top4boxes">
-                        FOUR
-                        <p id="resultTop4-4-percent"></p>
-                        <p id="resultTop4-4-place"></p>
+                        <div id="fourth" class="order">    <p>4<sup>th</sup></p>   </div>
+                        <div class="percentOffset">
+                            <p id="resultTop4-4-percent"></p>
+                            <p id="resultTop4-4-place"></p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -250,21 +254,6 @@
                     <div class="col-md-12" id="target-bar">
                         <h4 class="mbm">Revenue</h4>
                         <span class="task-item">
-                            <%--<span style="color: red">Actual:</span>--%>
-                            <%--<span style="color: #313131">${actual} </span>--%>
-                            <%--<span style="color: red">Target: </span>--%>
-                            <%--<span style="color: #000000">${target}</span>--%>
-                            <%--<small class="pull-right text-muted">${percent}%</small>--%>
-                            <%--<div id="progressbar" class="progress progress-sm">--%>
-                                <%--<div role="progressbar" aria-valuenow="${percent}"--%>
-                                     <%--aria-valuemin="0" aria-valuemax="100"--%>
-                                     <%--style="width: ${percent}%;" class="progress-bar progress-bar">--%>
-                                <%--</div>--%>
-                                <%--<div role="progressbar" aria-valuenow="${lessPercent}"--%>
-                                     <%--aria-valuemin="0" aria-valuemax="100"--%>
-                                     <%--style="width: ${lessPercent}%;" class="progress-bar progress-bar-red">--%>
-                                <%--</div>--%>
-                            <%--</div>--%>
 
                             <span style="color: red">Actual:</span>
                                 <span style="color: #313131" id="actual"></span>
@@ -282,7 +271,7 @@
                                     </div>
                                     <div id="bonusP" role="progressbar" aria-valuenow="0"
                                          aria-valuemin="0" aria-valuemax="100"
-                                         style="width: 0%;" class="progress-bar progress-bar-yellow">
+                                         style="width: 0%;" class="progress-bar progress-bar-blue">
                                     </div>
                                 </div>
                         </span>
