@@ -106,6 +106,13 @@
     left: 5%;
     top: 1%;
 }
+#first{
+    float: left;
+    position: relative;
+    width: 20%;
+    height: 100%;
+    font-size: 30px;
+}
 
 /* ************ DEPLOY ************ */
 #Q1{
@@ -208,7 +215,7 @@
     margin-bottom: -13px;
     width: 93%;
 }
-.task-item, #progressbar{
+.task-item, #color_revenuebar{
     margin-left: 7.5%;
 }
 #billTopup{
@@ -231,6 +238,9 @@
 }
 .progress .progress-bar.progress-bar-red {
     background-color: rgb(229, 65, 45) !important;
+}
+.progress .progress-bar.progress-bar-yellow {
+    background-color: rgb(228, 229, 18) !important;
 }
 .progress.progress-sm {
     height: 5%;

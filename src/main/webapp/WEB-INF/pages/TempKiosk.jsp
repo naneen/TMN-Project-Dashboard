@@ -21,8 +21,6 @@
         <script src='${pageContext.request.contextPath}/resources/js/infobubble.js'></script>
         <script src='${pageContext.request.contextPath}/resources/js/Map.js'></script>
 
-        <%--<script src='${pageContext.request.contextPath}/resources/js/Kiosk.js'></script>--%>
-
         <script type="text/javascript">
             function pieCHART() {
                 $.get("PieChart",function(data){
@@ -64,19 +62,25 @@
 
             function revenueBar() {
                 $.getJSON("revenueBar", function(json){
-                    var actualBar = 0;
+                    var actualPercent = 0;
+                    var lessPercent = 0;
+                    var bonusPercent = 0;
                     if(json.percent <= 100){
                         document.getElementById('color_revenuebar').className = "progress lessThan100 progress-sm";
-                        actualBar = json.percent;
+                        actualPercent = json.percent;
+                        lessPercent = 100 - actualPercent;
                     }
                     else{
                         document.getElementById('color_revenuebar').className = "progress greaterThan100 progress-sm";
-                        actualBar = 200 - json.percent;
+                        actualPercent = 200 - json.percent;
+                        bonusPercent = 100 - actualPercent
                     }
                     $("#actual").html(json.actual);
                     $("#target").html(json.target);
                     $("#percent").html(json.percent + " %");
-                    $("#percent2").attr({"aria-valuenow":actualBar,style:"width: "+actualBar+"%;"});
+                    $("#actualP").attr({"aria-valuenow":actualPercent,style:"width: "+actualPercent+"%;"});
+                    $("#lessP").attr({"aria-valuenow":lessPercent,style:"width: "+lessPercent+"%;"});
+                    $("#bonusP").attr({"aria-valuenow":bonusPercent,style:"width: "+bonusPercent+"%;"});
                 });
             }
             function dateYesterDay() {
@@ -191,8 +195,13 @@
                 <div id="top4div">
                     <div id="top1" class="well top4boxes">
                         <%--ONE--%>
-                        <p id="resultTop4-1-percent"></p>
-                        <p id="resultTop4-1-place"></p>
+                        <div id="first">
+                            <p>1<sup>st</sup></p>
+                        </div>
+                        <div id="percentOffset">
+                            <p id="resultTop4-1-percent"></p>
+                            <p id="resultTop4-1-place"></p>
+                        </div>
                     </div>
                     <div id="top2" class="well top4boxes">
                         TWO
@@ -246,16 +255,16 @@
                             <%--<span style="color: red">Target: </span>--%>
                             <%--<span style="color: #000000">${target}</span>--%>
                             <%--<small class="pull-right text-muted">${percent}%</small>--%>
-                            <div id="progressbar" class="progress progress-sm">
-                                <div role="progressbar" aria-valuenow="${percent}"
-                                     aria-valuemin="0" aria-valuemax="100"
-                                     style="width: ${percent}%;" class="progress-bar progress-bar">
-                                </div>
-                                <div role="progressbar" aria-valuenow="${lessPercent}"
-                                     aria-valuemin="0" aria-valuemax="100"
-                                     style="width: ${lessPercent}%;" class="progress-bar progress-bar-red">
-                                </div>
-                            </div>
+                            <%--<div id="progressbar" class="progress progress-sm">--%>
+                                <%--<div role="progressbar" aria-valuenow="${percent}"--%>
+                                     <%--aria-valuemin="0" aria-valuemax="100"--%>
+                                     <%--style="width: ${percent}%;" class="progress-bar progress-bar">--%>
+                                <%--</div>--%>
+                                <%--<div role="progressbar" aria-valuenow="${lessPercent}"--%>
+                                     <%--aria-valuemin="0" aria-valuemax="100"--%>
+                                     <%--style="width: ${lessPercent}%;" class="progress-bar progress-bar-red">--%>
+                                <%--</div>--%>
+                            <%--</div>--%>
 
                             <span style="color: red">Actual:</span>
                                 <span style="color: #313131" id="actual"></span>
@@ -263,9 +272,17 @@
                                 <span style="color: #000000" id="target"></span>
                                 <small class="pull-right text-muted" id="percent"></small>
                                 <div id="color_revenuebar">
-                                    <div id="percent2" role="progressbar" aria-valuenow="50"
+                                    <div id="actualP" role="progressbar" aria-valuenow="0"
                                          aria-valuemin="0" aria-valuemax="100"
-                                         style="width: 50%;" class="progress-bar" >
+                                         style="width: 0%;" class="progress-bar progress-bar">
+                                    </div>
+                                    <div id="lessP" role="progressbar" aria-valuenow="0"
+                                         aria-valuemin="0" aria-valuemax="100"
+                                         style="width: 0%;" class="progress-bar progress-bar-red">
+                                    </div>
+                                    <div id="bonusP" role="progressbar" aria-valuenow="0"
+                                         aria-valuemin="0" aria-valuemax="100"
+                                         style="width: 0%;" class="progress-bar progress-bar-yellow">
                                     </div>
                                 </div>
                         </span>
