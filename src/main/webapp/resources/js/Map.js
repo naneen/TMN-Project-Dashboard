@@ -104,7 +104,7 @@ $(function(){jQuery(document).ready(function () {
             }
             google.maps.event.addListener(marker, 'mouseover', (function(marker, i) {
                 return function() {
-                    infoBubble.setContent(location + "<br />Ticket : "+ticket );
+                    infoBubble.setContent(location + "<br />Ticket : "+ticket);
                     infoBubble.open(map, marker);
                 }
             })(marker, i));

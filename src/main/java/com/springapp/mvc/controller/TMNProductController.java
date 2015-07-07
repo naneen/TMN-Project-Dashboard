@@ -117,10 +117,9 @@ public class TMNProductController {
 
         for(int i = 0;i<trueMoneyProduct.length;i++){
             tranJson.put(trueMoneyProduct[i]);
-
         }
 
-        jsonObject.put("product",tranJson);
+        jsonObject.put("productName",tranJson);
 
         for(int valueComponent : countTran){
             jsontranArray.put(valueComponent);
@@ -128,6 +127,7 @@ public class TMNProductController {
         }
         jsonObject.put("tran",jsontranArray);
         jsonObject.put("totalTran",sumTran);
+
 
         for(Double valueComponent : amount){
             jsonamountArray.put(valueComponent);

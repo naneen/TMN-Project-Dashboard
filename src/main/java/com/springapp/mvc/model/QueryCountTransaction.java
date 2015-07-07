@@ -101,7 +101,7 @@ public class QueryCountTransaction {
                 "where a.agent_id=b.agent_id(+) " +
                 "and trans_date BETWEEN to_date('01/01/2015 00:00:00', 'dd/MM/yyyy hh24:mi:ss') and to_date(SYSDATE, 'dd/MM/yyyy hh24:mi:ss') " +
                 "and response_code='0' " +
-                "and service_code not in ( 'BANKA/C','TMN_TRANSFER') " +
+                "and service_code not in ('BANKA/C','TMN_TRANSFER') " +
                 "and trans_cancel_status is null " +
                 "order by trans_date) ";
         resultSet = state.executeQuery(query);

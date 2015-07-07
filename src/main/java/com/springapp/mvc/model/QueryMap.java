@@ -3,6 +3,7 @@ package com.springapp.mvc.model;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -17,8 +18,9 @@ import java.sql.Statement;
  */
 @Component
 public class QueryMap {
+
     @Autowired
-    ConnectDB connectKiosk;
+    private ConnectDB connectKiosk;
 
     public String queryLocation() throws SQLException,JSONException {
         JSONArray arrayJSON=new JSONArray();

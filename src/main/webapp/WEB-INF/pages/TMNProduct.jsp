@@ -21,19 +21,19 @@
     <script>
         $.getJSON("tranTMNProduct", function(json) {
 
-            $("#MobileApp").html(json.product[0]);
-            $("#Kiosk").html(json.product[1]);
-            $("#TMX").html(json.product[2]);
-            $("#Payment").html(json.product[3]);
-            $("#TopupMobile").html(json.product[4]);
-            $("#TopupGame").html(json.product[5]);
-            $("#WeCard").html(json.product[6]);
-            $("#BillPay").html(json.product[7]);
-            $("#Total").html(json.product[8]);
+            $("#MobileApp").html(json.productName[0]);
+            $("#Kiosk").html(json.productName[1]);
+            $("#TMX").html(json.productName[2]);
+            $("#Payment").html(json.productName[3]);
+            $("#TopupMobile").html(json.productName[4]);
+            $("#TopupGame").html(json.productName[5]);
+            $("#WeCard").html(json.productName[6]);
+            $("#BillPay").html(json.productName[7]);
+            $("#Total").html(json.productName[8]);
 
             $("#tranMobileApp").html(json.tran[0]);
             $("#tranKiosk").html(json.tran[1]);
-            $("#tranTMX").html(json.trann[2]);
+            $("#tranTMX").html(json.tran[2]);
             $("#tranPayment").html(json.tran[3]);
             $("#tranTopupMobile").html(json.tran[4]);
             $("#tranTopupGame").html(json.tran[5]);
@@ -87,15 +87,25 @@
 <body>
 
 <a href="/DashBoard/kiosk" id="headNav">${msg}</a>
+<div id="div1Pie">
+
+    <div id="divallPie">
+        <div id="textdivPie"><b>Pie Graph by TMN Product</b></div>
+
+    </div>
+
+<div id="chart" class="pie pie1"></div>
+
+</div>
 
 
 
 
 
-<div id="div4">
+<div id="div4PT">
 
-    <div id="divall">
-        <div id="textdiv"><b>Total by TMN Product</b></div>
+    <div id="divallPT">
+        <div id="textdivPT"><b>Total by TMN Product</b></div>
 
     </div>
 
