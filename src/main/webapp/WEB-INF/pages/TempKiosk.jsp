@@ -100,21 +100,12 @@
                         }
                     }
                 });
-            };
-            setInterval(getCorrectTime,1000);
-
-            window.onload = function () {
-                pieCHART();
-                top4();
-                revenueBar();
-                getCorrectTime();
-                dateYesterDay();
-                getBillTopup();
-            };
-
+            }
+            setInterval(getCorrectTime,5000);
             function getBillTopup() {
                 $.getJSON("bill_topup_chart", function (rootJSON){
                     //BEGIN AREA CHART SPLINE
+
                     var d6_1 = rootJSON.bill;
                     var d6_2 = rootJSON.topup;
                     $.plot("#area-chart-spline", [{
@@ -163,6 +154,17 @@
                     //END AREA CHART SPLINE
                 });
             };
+
+            window.onload = function () {
+                getBillTopup();
+                pieCHART();
+                top4();
+                revenueBar();
+                getCorrectTime();
+                dateYesterDay();
+            };
+
+
         </script>
 
         <script src="${pageContext.request.contextPath}/resources/js/jquery-1.10.2.min.js"></script>

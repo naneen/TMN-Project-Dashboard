@@ -31,6 +31,8 @@ public class KioskController {
     private QueryTop4 queryTop4;
     @Autowired
     private QueryPieChart queryPieChart;
+    @Autowired
+    QueryBillTopup query;
 
 
     public int getPercent(int count,int sum){
@@ -58,19 +60,19 @@ public class KioskController {
         return userJSON.toString();
     }
 
-    @RequestMapping(value = "/bill_topup_chart",method = RequestMethod.GET)
+    @RequestMapping(value = "/bill_topup_chart",method = RequestMethod.GET,produces = "text/plain;charset=UTF-8")
     public @ResponseBody
     String Revenue() throws SQLException, JSONException {
-
+        System.out.println("1");
         Object[][] bill = new Object[5][2];
         Object[][] topup = new Object[5][2];
 
-        QueryBillTopup query = new QueryBillTopup();
 
+        System.out.println("2");
         query.getBillAmount();
         query.getDate();
         query.getTopupAmount();
-
+        System.out.println("3");
         //date of each week
         topup[0][0] = query.weekd;
         topup[1][0] = query.week1d;
