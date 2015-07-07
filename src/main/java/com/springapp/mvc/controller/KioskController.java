@@ -54,7 +54,7 @@ public class KioskController {
         userJSON.put("actual", actual);
         userJSON.put("target", target);
         userJSON.put("percent", percent);
-        userJSON.put("percent", 100 - percent);
+
         return userJSON.toString();
     }
 
@@ -148,12 +148,6 @@ public class KioskController {
         return Integer.toString(avgOffset);
     }
 
-    @RequestMapping(value = "/kiosk",method = RequestMethod.GET )
-     public String mainCon(ModelMap model) throws SQLException, ClassNotFoundException {
-        connectKiosk.setConnect("kioskpx", "kioskdev");
-
-        return "Kiosk";
-    }
 
     @RequestMapping(value = "/",method = RequestMethod.GET )
     public String product(ModelMap model) throws SQLException, ClassNotFoundException {

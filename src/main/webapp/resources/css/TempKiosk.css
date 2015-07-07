@@ -102,9 +102,40 @@
     color: #ffffff;
 }
 #top4{
-    background-color: rgb(198, 198, 198);
+    background-color: #C6C6C6;
     left: 5%;
     top: 1%;
+}
+.order{
+    float: left;
+    position: relative;
+    width: 20%;
+    height: 100%;
+    font-size: 30px;
+}
+.percent{
+    position: relative;
+    height: 67%;
+    text-align: center;
+    font-size: 45px;
+}
+.location{
+    position: relative;
+    height: 33%;
+    text-align: center;
+    font-size: 16px;
+}
+#first{
+    color: #9c9c9c;
+}
+#second{
+    color: #ffb6a5;
+}
+#third{
+    color: #ff9c87;
+}
+#fourth{
+    color: #f7f7f7;
 }
 
 /* ************ DEPLOY ************ */
@@ -208,7 +239,7 @@
     margin-bottom: -13px;
     width: 93%;
 }
-.task-item, #progressbar{
+.task-item, #color_revenuebar{
     margin-left: 7.5%;
 }
 #billTopup{
@@ -231,6 +262,9 @@
 }
 .progress .progress-bar.progress-bar-red {
     background-color: rgb(229, 65, 45) !important;
+}
+.progress .progress-bar.progress-bar-blue {
+    background-color: #81CFE0 !important;
 }
 .progress.progress-sm {
     height: 5%;

@@ -21,8 +21,6 @@
         <script src='${pageContext.request.contextPath}/resources/js/infobubble.js'></script>
         <script src='${pageContext.request.contextPath}/resources/js/Map.js'></script>
 
-        <%--<script src='${pageContext.request.contextPath}/resources/js/Kiosk.js'></script>--%>
-
         <script type="text/javascript">
             function pieCHART() {
                 $.get("PieChart",function(data){
@@ -64,19 +62,25 @@
 
             function revenueBar() {
                 $.getJSON("revenueBar", function(json){
-                    var actualBar = 0;
+                    var actualPercent = 0;
+                    var lessPercent = 0;
+                    var bonusPercent = 0;
                     if(json.percent <= 100){
                         document.getElementById('color_revenuebar').className = "progress lessThan100 progress-sm";
-                        actualBar = json.percent;
+                        actualPercent = json.percent;
+                        lessPercent = 100 - actualPercent;
                     }
                     else{
                         document.getElementById('color_revenuebar').className = "progress greaterThan100 progress-sm";
-                        actualBar = 200 - json.percent;
+                        actualPercent = 200 - json.percent;
+                        bonusPercent = 100 - actualPercent
                     }
                     $("#actual").html(json.actual);
                     $("#target").html(json.target);
                     $("#percent").html(json.percent + " %");
-                    $("#percent2").attr({"aria-valuenow":actualBar,style:"width: "+actualBar+"%;"});
+                    $("#actualP").attr({"aria-valuenow":actualPercent,style:"width: "+actualPercent+"%;"});
+                    $("#lessP").attr({"aria-valuenow":lessPercent,style:"width: "+lessPercent+"%;"});
+                    $("#bonusP").attr({"aria-valuenow":bonusPercent,style:"width: "+bonusPercent+"%;"});
                 });
             }
             function dateYesterDay() {
@@ -169,6 +173,7 @@
         <script src="${pageContext.request.contextPath}/resources/js/jquery.flot.tooltip.js"></script>
         <script src="${pageContext.request.contextPath}/resources/js/jquery.flot.spline.js"></script>
     </head>
+
     <body>
         <%-- navigation bar --%>
         <nav class="navbar navbar-default navbar-fixed-top">
@@ -185,30 +190,46 @@
                 <div id="pieDiv" class="well well-lg">
                     <canvas id="chart-area"></canvas>
                     <div class="displayoffload">
-                        <font id = "result2" style="color: green; font-size: 30px;"></font> OffLoad <br>As of <font id="yesterday"></font>
+                        <p><text id = "result2" style="color: green; font-size: 30px;"></text> OffLoad <br>As of <text id="yesterday"></text></p>
                     </div>
                 </div>
 
                 <div id="top4div">
                     <div id="top1" class="well top4boxes">
-                        <%--ONE--%>
-                        <p id="resultTop4-1-percent"></p>
-                        <p id="resultTop4-1-place"></p>
+                        <div id="first" class="order">
+                            <p>1<sup>st</sup></p>
+                        </div>
+                        <div class="percentOffset">
+                            <div id="resultTop4-1-percent" class="percent"></div>
+                            <div id="resultTop4-1-place" class="location"></div>
+                        </div>
                     </div>
                     <div id="top2" class="well top4boxes">
-                        TWO
-                        <p id="resultTop4-2-percent"></p>
-                        <p id="resultTop4-2-place"></p>
+                        <div id="second" class="order">
+                            <p>2<sup>nd</sup></p>
+                        </div>
+                        <div class="percentOffset">
+                            <div id="resultTop4-2-percent" class="percent"></div>
+                            <div id="resultTop4-2-place" class="location"></div>
+                        </div>
                     </div>
                     <div id="top3" class="well top4boxes">
-                        THREE
-                        <p id="resultTop4-3-percent"></p>
-                        <p id="resultTop4-3-place"></p>
+                        <div id="third" class="order">
+                            <p>3<sup>rd</sup></p>
+                        </div>
+                        <div class="percentOffset">
+                            <div id="resultTop4-3-percent" class="percent"></div>
+                            <div id="resultTop4-3-place" class="location"></div>
+                        </div>
                     </div>
                     <div id="top4" class="well top4boxes">
-                        FOUR
-                        <p id="resultTop4-4-percent"></p>
-                        <p id="resultTop4-4-place"></p>
+                        <div id="fourth" class="order">
+                            <p>4<sup>th</sup></p>
+                        </div>
+                        <div class="percentOffset">
+                            <div id="resultTop4-4-percent" class="percent"></div>
+                            <div id="resultTop4-4-place" class="location"></div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -242,21 +263,6 @@
                     <div class="col-md-12" id="target-bar">
                         <h4 class="mbm">Revenue</h4>
                         <span class="task-item">
-                            <%--<span style="color: red">Actual:</span>--%>
-                            <%--<span style="color: #313131">${actual} </span>--%>
-                            <%--<span style="color: red">Target: </span>--%>
-                            <%--<span style="color: #000000">${target}</span>--%>
-                            <%--<small class="pull-right text-muted">${percent}%</small>--%>
-                            <div id="progressbar" class="progress progress-sm">
-                                <div role="progressbar" aria-valuenow="${percent}"
-                                     aria-valuemin="0" aria-valuemax="100"
-                                     style="width: ${percent}%;" class="progress-bar progress-bar">
-                                </div>
-                                <div role="progressbar" aria-valuenow="${lessPercent}"
-                                     aria-valuemin="0" aria-valuemax="100"
-                                     style="width: ${lessPercent}%;" class="progress-bar progress-bar-red">
-                                </div>
-                            </div>
 
                             <span style="color: red">Actual:</span>
                                 <span style="color: #313131" id="actual"></span>
@@ -264,9 +270,17 @@
                                 <span style="color: #000000" id="target"></span>
                                 <small class="pull-right text-muted" id="percent"></small>
                                 <div id="color_revenuebar">
-                                    <div id="percent2" role="progressbar" aria-valuenow="50"
+                                    <div id="actualP" role="progressbar" aria-valuenow="0"
                                          aria-valuemin="0" aria-valuemax="100"
-                                         style="width: 50%;" class="progress-bar" >
+                                         style="width: 0%;" class="progress-bar progress-bar">
+                                    </div>
+                                    <div id="lessP" role="progressbar" aria-valuenow="0"
+                                         aria-valuemin="0" aria-valuemax="100"
+                                         style="width: 0%;" class="progress-bar progress-bar-red">
+                                    </div>
+                                    <div id="bonusP" role="progressbar" aria-valuenow="0"
+                                         aria-valuemin="0" aria-valuemax="100"
+                                         style="width: 0%;" class="progress-bar progress-bar-blue">
                                     </div>
                                 </div>
                         </span>
