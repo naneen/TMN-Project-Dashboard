@@ -105,59 +105,60 @@
                 revenueBar();
                 getCorrectTime();
                 dateYesterDay();
+                getBillTopup();
             };
 
-            $(function () {
-                //BEGIN AREA CHART SPLINE
-                var d6_1 = ${topup};
-                var d6_2 = ${bill};
-                $.plot("#area-chart-spline", [{
-                    data: d6_1,
-                    label: "Top-up",
-                    color: "#E5412D"
-                },{
-                    data: d6_2,
-                    label: "Bill payment",
-                    color: "rgb(124,124,124)"
-                }], {
-                    series: {
-                        lines: {
-                            show: !1
-
+            function getBillTopup() {
+                $.getJSON("bill_topup_chart", function (rootJSON){
+                    //BEGIN AREA CHART SPLINE
+                    var d6_1 = rootJSON.bill;
+                    var d6_2 = rootJSON.topup;
+                    $.plot("#area-chart-spline", [{
+                        data: d6_1,
+                        label: "Top-up",
+                        color: "#F7C445"
+                    },{
+                        data: d6_2,
+                        label: "Bill payment",
+                        color: "#7E98F7"
+                    }], {
+                        series: {
+                            lines: {
+                                show: !1
+                            },
+                            splines: {
+                                show: !0,
+                                tension: .4,
+                                lineWidth: 2,
+                                fill: .8
+                            },
+                            points: {
+                                show: !0,
+                                radius: 4
+                            }
                         },
-                        splines: {
-                            show: !0,
-                            tension: .4,
-                            lineWidth: 3,
-                            fill: 0.35
+                        grid: {
+                            borderColor: "#fafafa",
+                            borderWidth: 1,
+                            hoverable: !0
                         },
-                        points: {
-                            show: !0,
-                            radius: 4
-                        }
-                    },
-                    grid: {
-//                        borderColor: "#fafafa",
-                        borderColor: "#ABB7B7",
-                        borderWidth: 1,
-                        hoverable: !0
-                    },
-                    tooltip: !0,
-                    tooltipOpts: {
-                        content: "%x : %y",
-                        defaultTheme: true
-                    },
-                    xaxis: {
-                        tickColor: "#DDDDDD",
-                        mode: "categories"
-                    },
-                    yaxis: {
-                        tickColor: "#DDDDDD"
-                    },
-                    shadowSize: 0
+                        tooltip: !0,
+                        tooltipOpts: {
+                            content: "%x : %y",
+                            defaultTheme: true
+                        },
+                        xaxis: {
+                            tickColor: "#fafafa",
+                            mode: "categories"
+                        },
+                        yaxis: {
+                            tickColor: "#fafafa"
+                        },
+                        shadowSize: 0
+                    });
+                    //END AREA CHART SPLINE
                 });
-                //END AREA CHART SPLINE
-            });
+            };
         </script>
 
         <script src="${pageContext.request.contextPath}/resources/js/jquery-1.10.2.min.js"></script>

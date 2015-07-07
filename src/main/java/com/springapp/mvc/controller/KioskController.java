@@ -58,11 +58,12 @@ public class KioskController {
         return userJSON.toString();
     }
 
-
-
     @RequestMapping(value = "/bill_topup_chart",method = RequestMethod.GET)
     public @ResponseBody
-    String Revenue(ModelMap model) throws SQLException, JSONException {
+    String Revenue() throws SQLException, JSONException {
+
+        Object[][] bill = new Object[5][2];
+        Object[][] topup = new Object[5][2];
 
         QueryBillTopup query = new QueryBillTopup();
 
@@ -70,57 +71,47 @@ public class KioskController {
         query.getDate();
         query.getTopupAmount();
 
-        double week1b = query.week1b;
-        double week2b = query.week2b;
-        double week3b = query.week3b;
-        double week4b = query.week4b;
+        //date of each week
+        topup[0][0] = query.weekd;
+        topup[1][0] = query.week1d;
+        topup[2][0] = query.week2d;
+        topup[3][0] = query.week3d;
+        topup[4][0] = query.week4d;
+
+
+        bill[0][0] = query.weekd;
+        bill[1][0] = query.week1d;
+        bill[2][0] = query.week2d;
+        bill[3][0] = query.week3d;
+        bill[4][0] = query.week4d;
+
+        //bill of each week , b = bill
+        bill[0][1] = query.weekb;
+        bill[1][1] = query.week1b;
+        bill[2][1] = query.week2b;
+        bill[3][1] = query.week3b;
+        bill[4][1] = query.week4b;
 
         //topup of each week , t = topup
-        double week1t = query.week1t;
-        double week2t = query.week2t;
-        double week3t = query.week3t;
-        double week4t = query.week4t;
+        topup[0][1] = query.weekt ;
+        topup[1][1] = query.week1t;
+        topup[2][1] = query.week2t;
+        topup[3][1] = query.week3t;
+        topup[4][1] = query.week4t;
 
-        //date of each week
-        String week1d = query.week1d ;
-        String week2d = query.week2d ;
-        String week3d = query.week3d ;
-        String week4d = query.week4d ;
 
 
         JSONObject rootJSON = new JSONObject();
-        JSONObject billJSON = new JSONObject();
-        JSONObject topupJSON = new JSONObject();
 
-        billJSON.put("Startb", 0);
-        billJSON.put("Week1b", new String[]{week1d, Double.toString(week1b)});
-        billJSON.put("Week2b", new String[]{week2d, Double.toString(week2b)});
-        billJSON.put("Week3b", new String[]{week3d, Double.toString(week3b)});
-        billJSON.put("Week4b", new String[]{week4d, Double.toString(week4b)});
-        rootJSON.put("bill", billJSON);
+        rootJSON.put("bill", bill);
+        rootJSON.put("topup", topup);
 
-        topupJSON.put("Startd", 5);
-        billJSON.put("Week1d", new String[]{week1d, Double.toString(week1t)});
-        billJSON.put("Week2d", new String[]{week2d, Double.toString(week2t)});
-        billJSON.put("Week3d", new String[]{week3d, Double.toString(week3t)});
-        billJSON.put("Week4d", new String[]{week4d, Double.toString(week4t)});
-        rootJSON.put("topup", topupJSON);
+        System.out.println("Root: " + rootJSON.toString());
 
-
-//        model.addAttribute("topup", topup);
-//        model.addAttribute("bill", bill);
-
-
-        return rootJSON.toString();
+        return rootJSON.toString() ;
     }
 
-    public void revenueGraph(ModelMap model){
-        String topup = "[[\"Start\", 0],[\"Week1\", 91],[\"Week2\", 36],[\"Week3\", 100],[\"Week4\", 64]]";
-        String bill = "[[\"Start\", 0],[\"Week1\", 29],[\"Week2\", 15],[\"Week3\", 67],[\"Week4\", 40]]";
-        model.addAttribute("topup", topup);
-        model.addAttribute("bill", bill);
 
-    }
 
     @RequestMapping(value = "/Top4", method = RequestMethod.GET,produces = "text/plain;charset=UTF-8")
     public @ResponseBody
@@ -160,7 +151,6 @@ public class KioskController {
     @RequestMapping(value = "/kiosk",method = RequestMethod.GET )
      public String mainCon(ModelMap model) throws SQLException, ClassNotFoundException {
         connectKiosk.setConnect("kioskpx", "kioskdev");
-        revenueGraph(model);
 
         return "Kiosk";
     }
@@ -168,7 +158,7 @@ public class KioskController {
     @RequestMapping(value = "/",method = RequestMethod.GET )
     public String product(ModelMap model) throws SQLException, ClassNotFoundException {
         connectKiosk.setConnect("kioskpx", "kioskdev");
-        revenueGraph(model);
+//        revenueGraph(model);
 //        return "TMNProduct";
         return "TempKiosk";
     }
