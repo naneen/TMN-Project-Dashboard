@@ -2,7 +2,7 @@ function pieTransection() {
     $.getJSON("PieTransaction", function(json){
         var name = 'TrueMoneyProduct';
         var browserData = [];
-        var colors =  ["#dc49ee","#b64dee","#7946e8","#615aff","#466ae8","#4da3ff","#4ed6ff","#47e8e3","#5bffcb","#47e888","#4eff63","#70ff4a","#9fe843","#efff57","#e8dc43","#ffdf4a"];
+        var colors =  ["#38BCFF","#fdfa04","#0074AA"  ,"#fd3f04"  ,"#e9fd05","#fd5004" ,"#fdb404" ,"#68f40b" ,"#e9fd05","#47e888","#4eff63","#70ff4a","#9fe843","#efff57","#e8dc43","#ffdf4a"];
 
         for (var i = 0; i < json.length; i++) {
             browserData.push({
@@ -53,6 +53,7 @@ function pieTransection() {
                 cursor: 'pointer',
                 events: {
                     click: function (event) {
+                        if(event.point.name = "Kiosk")
                         document.location.href = '/DashBoard/'+(event.point.name).replace( /\s/g, "").toLowerCase();
                     }
                 }
@@ -64,6 +65,7 @@ function pieTransection() {
                 cursor: 'pointer',
                 events: {
                     click: function (event) {
+                        if(event.point.name = "Kiosk")
                         document.location.href = '/DashBoard/'+(event.point.name).replace( /\s/g, "").toLowerCase();
                     }
                 }

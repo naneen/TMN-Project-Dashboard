@@ -2,6 +2,7 @@ package com.springapp.mvc.controller;
 
 
 import com.springapp.mvc.model.QueryAmount;
+import com.springapp.mvc.model.QueryBarGraph;
 import com.springapp.mvc.model.QueryCountTransaction;
 
 
@@ -22,7 +23,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 
 import java.sql.SQLException;
-
+import java.text.DecimalFormat;
 
 
 @Controller
@@ -33,6 +34,8 @@ public class TMNProductController {
     private QueryCountTransaction queryCountTransaction;
     @Autowired
     private  QueryAmount queryAmount;
+    @Autowired
+    private QueryBarGraph queryBarGraph;
 
     public int getPercentInt(int count,int sum){
         return (int) Math.round(((double) count / sum) * 100);
@@ -80,6 +83,18 @@ public class TMNProductController {
         connectMasterCard.setConnect("prepaidcard", "PRE#PAID99");
         connectBillPay.setConnect("bpay", "bpay#123$");
         model.addAttribute("msg", "TMN Product Dashboard");
+
+        queryBarGraph.tranBar(model);
+        queryBarGraph.amountBar(model);
+
+
+
+
+
+
+
+
+
         return "TMNProduct";
     }
 
@@ -93,7 +108,8 @@ public class TMNProductController {
         JSONArray jsontranArray=new JSONArray();
         JSONArray jsonamountArray=new JSONArray();
         String[] trueMoneyProduct = {"Mobile Application", "Kiosk", "TMX", "Payment Gateway", "Topup Mobile","Topup Game","Master Card","Bill pay","Total"};
-
+        DecimalFormat changeFormat = new DecimalFormat("#,##0.00");
+        DecimalFormat changeFormatTran = new DecimalFormat("#,##0");
         int[] countTran = {
                 queryCountTransaction.getCountMobileApp(),queryCountTransaction.getCountKiosk(),
                 queryCountTransaction.getCountTmx(),queryCountTransaction.getCountPaymentGate(),
@@ -122,15 +138,16 @@ public class TMNProductController {
         jsonObject.put("productName",tranJson);
 
         for(int valueComponent : countTran){
-            jsontranArray.put(valueComponent);
+            jsontranArray.put(changeFormatTran.format(valueComponent));
             sumTran += valueComponent;
         }
         jsonObject.put("tran",jsontranArray);
-        jsonObject.put("totalTran",sumTran);
+        jsonObject.put("totalTran",changeFormatTran.format(sumTran));
+
 
 
         for(Double valueComponent : amount){
-            jsonamountArray.put(valueComponent);
+            jsonamountArray.put(changeFormat.format(valueComponent));
             sumAmount += valueComponent;
         }
 
@@ -138,7 +155,7 @@ public class TMNProductController {
 
         jsonObject.put("amount",jsonamountArray);
 
-        jsonObject.put("totalAmount",sumAmount);
+        jsonObject.put("totalAmount",changeFormat.format(sumAmount));
 
         return jsonObject.toString();
 
