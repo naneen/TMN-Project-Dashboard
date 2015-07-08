@@ -112,6 +112,7 @@
                     var d6_1 = rootJSON.bill;
                     var d6_2 = rootJSON.topup;
 
+
                     $.plot("#area-chart-spline", [{
                         data: d6_1,
                         label: "Top-up",
@@ -124,12 +125,13 @@
                         series: {
                             lines: {
                                 show: !1
+
                             },
                             splines: {
                                 show: !0,
                                 tension: .4,
-                                lineWidth: 2,
-                                fill: .8
+                                lineWidth: 3,
+                                fill: 0.35
                             },
                             points: {
                                 show: !0,
@@ -137,7 +139,8 @@
                             }
                         },
                         grid: {
-                            borderColor: "#fafafa",
+//                        borderColor: "#fafafa",
+                            borderColor: "#ABB7B7",
                             borderWidth: 1,
                             hoverable: !0
                         },
@@ -147,11 +150,11 @@
                             defaultTheme: true
                         },
                         xaxis: {
-                            tickColor: "#fafafa",
+                            tickColor: "#DDDDDD",
                             mode: "categories"
                         },
                         yaxis: {
-                            tickColor: "#fafafa"
+                            tickColor: "#DDDDDD"
                         },
                         shadowSize: 0
                     });
