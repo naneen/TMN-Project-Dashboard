@@ -98,6 +98,9 @@
                             revenueBar();
                             dateYesterDay();
                         }
+                        else if(data == "09:55:00"){
+                            getBillTopup();
+                        }
                     }
                 });
             }
@@ -108,14 +111,15 @@
 
                     var d6_1 = rootJSON.bill;
                     var d6_2 = rootJSON.topup;
+
                     $.plot("#area-chart-spline", [{
                         data: d6_1,
                         label: "Top-up",
-                        color: "#F7C445"
+                        color: "#E5412D"
                     },{
                         data: d6_2,
                         label: "Bill payment",
-                        color: "#7E98F7"
+                        color: "rgb(124,124,124)"
                     }], {
                         series: {
                             lines: {

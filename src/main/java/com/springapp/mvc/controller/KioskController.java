@@ -63,16 +63,16 @@ public class KioskController {
     @RequestMapping(value = "/bill_topup_chart",method = RequestMethod.GET,produces = "text/plain;charset=UTF-8")
     public @ResponseBody
     String Revenue() throws SQLException, JSONException {
-        System.out.println("1");
+
         Object[][] bill = new Object[5][2];
         Object[][] topup = new Object[5][2];
 
 
-        System.out.println("2");
+
         query.getBillAmount();
         query.getDate();
         query.getTopupAmount();
-        System.out.println("3");
+
         //date of each week
         topup[0][0] = query.weekd;
         topup[1][0] = query.week1d;
@@ -108,7 +108,7 @@ public class KioskController {
         rootJSON.put("bill", bill);
         rootJSON.put("topup", topup);
 
-        System.out.println("Root: " + rootJSON.toString());
+
 
         return rootJSON.toString() ;
     }
