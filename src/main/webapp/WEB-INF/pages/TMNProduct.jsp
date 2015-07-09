@@ -191,220 +191,220 @@
 
     <a href="/DashBoard/kiosk" id="headNav">${msg}</a>
 
-<div id="div1Pie">
+    <div id="div1Pie">
 
-    <div id="divallPie">
-        <div id="textdivPie"><b>Pie Graph by TMN Product</b></div>
+        <div id="divallPie">
+            <div id="textdivPie"><b>Pie Graph by TMN Product</b></div>
 
-    </div>
+        </div>
 
-    <div id="chart" class="pie pie1"></div>
-
-</div>
-
-
-<div id="div1Bubble">
-
-    <div id="divallBubble">
-        <div id="textdivBubble"><b>Bubble Graph by TMN Product</b></div>
+        <div id="chart" class="pie pie1"></div>
 
     </div>
 
-    <div id="container_bubble" style="height: 90%"></div>
-</div>
 
+    <div id="div1Bubble">
 
-<div id="div4PT">
+        <div id="divallBubble">
+            <div id="textdivBubble"><b>Bubble Graph by TMN Product</b></div>
 
-    <div id="divallPT">
-        <div id="textdivPT"><b>Total by TMN Product</b></div>
+        </div>
 
-    </div>
-
-    <table class="table divtable">
-        <thead bgcolor="#000000" style="color: #fff">
-        <tr>
-            <th>Product Name</th>
-            <th>Transaction</th>
-            <th>Amount(THB)</th>
-        </tr>
-        </thead>
-        <tbody>
-
-        <tr>
-            <td>
-                <div id="MobileApp"></div>
-            </td>
-            <td>
-                <div id="tranMobileApp"></div>
-            </td>
-            <td>
-                <div id="amountMobileApp"></div>
-            </td>
-
-        </tr>
-        <tr>
-            <td>
-                <div id="Kiosk"></div>
-            </td>
-            <td>
-                <div id="tranKiosk"></div>
-            </td>
-            <td>
-                <div id="amountKiosk"></div>
-            </td>
-
-        </tr>
-
-        <tr>
-            <td>
-                <div id="TMX"></div>
-            </td>
-            <td>
-                <div id="tranTMX"></div>
-            </td>
-            <td>
-                <div id="amountTMX"></div>
-            </td>
-
-        </tr>
-
-        <tr>
-            <td>
-                <div id="Payment"></div>
-            </td>
-            <td>
-                <div id="tranPayment"></div>
-            </td>
-            <td>
-                <div id="amountPayment"></div>
-            </td>
-
-        </tr>
-
-        <tr>
-            <td>
-                <div id="TopupMobile"></div>
-            </td>
-            <td>
-                <div id="tranTopupMobile"></div>
-            </td>
-            <td>
-                <div id="amountTopupMobile"></div>
-            </td>
-
-        </tr>
-
-        <tr>
-            <td>
-                <div id="TopupGame"></div>
-            </td>
-            <td>
-                <div id="tranTopupGame"></div>
-            </td>
-            <td>
-                <div id="amountTopupGame"></div>
-            </td>
-
-        </tr>
-
-        <tr>
-            <td>
-                <div id="WeCard"></div>
-            </td>
-            <td>
-                <div id="tranWeCard"></div>
-            </td>
-            <td>
-                <div id="amountWeCard"></div>
-            </td>
-
-        </tr>
-
-        <tr>
-            <td>
-                <div id="BillPay"></div>
-            </td>
-            <td>
-                <div id="tranBillPay"></div>
-            </td>
-            <td>
-                <div id="amountBillPay"></div>
-            </td>
-
-        </tr>
-
-        </tbody>
-        <thead bgcolor="#BDC3C7" style="color: #000">
-        <tr>
-            <th>
-                <div id="Total"></div>
-            </th>
-            <th>
-                <div id="tranTotal"></div>
-            </th>
-            <th>
-                <div id="amountTotal"></div>
-            </th>
-        </tr>
-        </thead>
-    </table>
-</div>
-
-
-<div id="divBarTran">
-
-    <div id="divallBarTran">
-        <div id="textdivBarTran"><b>Transaction Bar Graph by TMN Product</b></div>
-
-    </div>
-    <div id="transaction_chart" data-sort="false" data-width="200%" class="jChart chart-lg"
-         name="Success Transaction made (${month})">
-        <div class="define-chart-row" data-color="#84d6ff" title="Mobile App.">${mobileAppTran}</div>
-        <div class="define-chart-row" data-color="#38BCFF" title="Kiosk">${kioskTran}</div>
-        <div class="define-chart-row" data-color="#00A9FF" title="TMX">${tmxTran}</div>
-        <div class="define-chart-row" data-color="#008DD3" title="Payment Gateway">${paymentGatewayTran}</div>
-        <div class="define-chart-row" data-color="#0074AA" title="Top-up Mobile">${TopUpMobileTran}</div>
-        <div class="define-chart-row" data-color="#005882" title="Top-up Game">${TopUpGameTran}</div>
-        <div class="define-chart-row" data-color="#00496B" title="Master Card">${masterCardTran}</div>
-        <div class="define-chart-row" data-color="#013750" title="Bill Payment">${billPayTran}</div>
-
-        <div class="define-chart-footer">10000</div>
-        <div class="define-chart-footer">20000</div>
-        <div class="define-chart-footer">30000</div>
-        <div class="define-chart-footer">40000</div>
-        <div class="define-chart-footer">50000</div>
+        <div id="container_bubble" style="height: 90%"></div>
     </div>
 
 
-</div>
+    <div id="div4PT">
 
-<div id="divBarAmount">
+        <div id="divallPT">
+            <div id="textdivPT"><b>Total by TMN Product</b></div>
 
-    <div id="divallBarAmount">
-        <div id="textdivBarAmount"><b>Transaction Bar Graph by TMN Product</b></div>
+        </div>
+
+        <table class="table divtable">
+            <thead bgcolor="#000000" style="color: #fff">
+            <tr>
+                <th>Product Name</th>
+                <th>Transaction</th>
+                <th>Amount(THB)</th>
+            </tr>
+            </thead>
+            <tbody>
+
+            <tr>
+                <td>
+                    <div id="MobileApp"></div>
+                </td>
+                <td>
+                    <div id="tranMobileApp"></div>
+                </td>
+                <td>
+                    <div id="amountMobileApp"></div>
+                </td>
+
+            </tr>
+            <tr>
+                <td>
+                    <div id="Kiosk"></div>
+                </td>
+                <td>
+                    <div id="tranKiosk"></div>
+                </td>
+                <td>
+                    <div id="amountKiosk"></div>
+                </td>
+
+            </tr>
+
+            <tr>
+                <td>
+                    <div id="TMX"></div>
+                </td>
+                <td>
+                    <div id="tranTMX"></div>
+                </td>
+                <td>
+                    <div id="amountTMX"></div>
+                </td>
+
+            </tr>
+
+            <tr>
+                <td>
+                    <div id="Payment"></div>
+                </td>
+                <td>
+                    <div id="tranPayment"></div>
+                </td>
+                <td>
+                    <div id="amountPayment"></div>
+                </td>
+
+            </tr>
+
+            <tr>
+                <td>
+                    <div id="TopupMobile"></div>
+                </td>
+                <td>
+                    <div id="tranTopupMobile"></div>
+                </td>
+                <td>
+                    <div id="amountTopupMobile"></div>
+                </td>
+
+            </tr>
+
+            <tr>
+                <td>
+                    <div id="TopupGame"></div>
+                </td>
+                <td>
+                    <div id="tranTopupGame"></div>
+                </td>
+                <td>
+                    <div id="amountTopupGame"></div>
+                </td>
+
+            </tr>
+
+            <tr>
+                <td>
+                    <div id="WeCard"></div>
+                </td>
+                <td>
+                    <div id="tranWeCard"></div>
+                </td>
+                <td>
+                    <div id="amountWeCard"></div>
+                </td>
+
+            </tr>
+
+            <tr>
+                <td>
+                    <div id="BillPay"></div>
+                </td>
+                <td>
+                    <div id="tranBillPay"></div>
+                </td>
+                <td>
+                    <div id="amountBillPay"></div>
+                </td>
+
+            </tr>
+
+            </tbody>
+            <thead bgcolor="#BDC3C7" style="color: #000">
+            <tr>
+                <th>
+                    <div id="Total"></div>
+                </th>
+                <th>
+                    <div id="tranTotal"></div>
+                </th>
+                <th>
+                    <div id="amountTotal"></div>
+                </th>
+            </tr>
+            </thead>
+        </table>
+    </div>
+
+
+    <div id="divBarTran">
+
+        <div id="divallBarTran">
+            <div id="textdivBarTran"><b>Transaction Bar Graph by TMN Product</b></div>
+
+        </div>
+        <div id="transaction_chart" data-sort="false" data-width="200%" class="jChart chart-lg"
+             name="Success Transaction made (${month})">
+            <div class="define-chart-row" data-color="#84d6ff" title="Mobile App.">${mobileAppTran}</div>
+            <div class="define-chart-row" data-color="#38BCFF" title="Kiosk">${kioskTran}</div>
+            <div class="define-chart-row" data-color="#00A9FF" title="TMX">${tmxTran}</div>
+            <div class="define-chart-row" data-color="#008DD3" title="Payment Gateway">${paymentGatewayTran}</div>
+            <div class="define-chart-row" data-color="#0074AA" title="Top-up Mobile">${TopUpMobileTran}</div>
+            <div class="define-chart-row" data-color="#005882" title="Top-up Game">${TopUpGameTran}</div>
+            <div class="define-chart-row" data-color="#00496B" title="Master Card">${masterCardTran}</div>
+            <div class="define-chart-row" data-color="#013750" title="Bill Payment">${billPayTran}</div>
+
+            <div class="define-chart-footer">10000</div>
+            <div class="define-chart-footer">20000</div>
+            <div class="define-chart-footer">30000</div>
+            <div class="define-chart-footer">40000</div>
+            <div class="define-chart-footer">50000</div>
+        </div>
+
 
     </div>
-    <div id="transaction_chart2" data-sort="false" data-width="200%" class="jChart chart-lg"
-         name="Success Amount made (${month})">
-        <div class="define-chart-row" data-color="#e9fd05" title="Mobile App.">${mobileAppAmount}</div>
-        <div class="define-chart-row" data-color="#fdee04" title="Kiosk">${kioskAmount}</div>
-        <div class="define-chart-row" data-color="#fddd04" title="TMX">${tmxAmount}</div>
-        <div class="define-chart-row" data-color="#fdbf04" title="Payment Gateway">${paymentGatewayAmount}</div>
-        <div class="define-chart-row" data-color="#fdb404" title="Top-up Mobile">${TopUpMobileAmount}</div>
-        <div class="define-chart-row" data-color="#fda204" title="Top-up Game">${TopUpGameAmount}</div>
-        <div class="define-chart-row" data-color="#fd7904" title="Master Card">${masterCardAmount}</div>
-        <div class="define-chart-row" data-color="#fd3f04" title="Bill Payment">${billPayAmount}</div>
 
-        <div class="define-chart-footer">40000</div>
-        <div class="define-chart-footer">80000</div>
-        <div class="define-chart-footer">120000</div>
-        <div class="define-chart-footer">160000</div>
-        <div class="define-chart-footer">200000</div>
+    <div id="divBarAmount">
+
+        <div id="divallBarAmount">
+            <div id="textdivBarAmount"><b>Transaction Bar Graph by TMN Product</b></div>
+
+        </div>
+        <div id="transaction_chart2" data-sort="false" data-width="200%" class="jChart chart-lg"
+             name="Success Amount made (${month})">
+            <div class="define-chart-row" data-color="#e9fd05" title="Mobile App.">${mobileAppAmount}</div>
+            <div class="define-chart-row" data-color="#fdee04" title="Kiosk">${kioskAmount}</div>
+            <div class="define-chart-row" data-color="#fddd04" title="TMX">${tmxAmount}</div>
+            <div class="define-chart-row" data-color="#fdbf04" title="Payment Gateway">${paymentGatewayAmount}</div>
+            <div class="define-chart-row" data-color="#fdb404" title="Top-up Mobile">${TopUpMobileAmount}</div>
+            <div class="define-chart-row" data-color="#fda204" title="Top-up Game">${TopUpGameAmount}</div>
+            <div class="define-chart-row" data-color="#fd7904" title="Master Card">${masterCardAmount}</div>
+            <div class="define-chart-row" data-color="#fd3f04" title="Bill Payment">${billPayAmount}</div>
+
+            <div class="define-chart-footer">40000</div>
+            <div class="define-chart-footer">80000</div>
+            <div class="define-chart-footer">120000</div>
+            <div class="define-chart-footer">160000</div>
+            <div class="define-chart-footer">200000</div>
+        </div>
+
+
     </div>
-
-
-</div>
 
 </body>
 </html>
