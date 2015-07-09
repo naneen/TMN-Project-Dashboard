@@ -11,7 +11,6 @@
     <link href='${pageContext.request.contextPath}/resources/css/ProductTable.css' rel="stylesheet">
 
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
-
     <script type="text/javascript" src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
 
     <script src="${pageContext.request.contextPath}/resources/js/jquery-1.10.2.min.js"></script>
@@ -19,7 +18,7 @@
 
 
     <script>
-        $.getJSON("tranTMNProduct", function(json) {
+        $.getJSON("tranTMNProduct", function (json) {
 
             $("#MobileApp").html(json.productName[0]);
             $("#Kiosk").html(json.productName[1]);
@@ -52,8 +51,6 @@
             $("#amountTotal").html(json.totalAmount);
 
 
-
-
         });
     </script>
 
@@ -68,14 +65,14 @@
     <script>
         function TimeReal() {
             $.ajax({
-                url : "TimeReal" , success : function(data) {
-                    if(data == "00:00:00"){
+                url: "TimeReal", success: function (data) {
+                    if (data == "00:00:00") {
                         pieTransection();
                     }
                 }
             });
         }
-        setInterval(TimeReal,1000);
+        setInterval(TimeReal, 1000);
 
         window.onload = function () {
             pieTransection();
@@ -91,8 +88,8 @@
                     enabled: false
                 },
                 yAxis: {
-                    title:{
-                        text : 'Amount (Million Baht)'
+                    title: {
+                        text: 'Amount (Million Baht)'
                     }
                 },
 
@@ -104,21 +101,21 @@
                             [2, 'rgb(200, 200, 255)']
                         ]
                     },
-                    style:{"height":"99.8%","width":"100%"},
+                    style: {"height": "99.8%", "width": "100%"},
                     type: 'bubble'
 
                 },
 
                 title: {
                     text: 'Bubble Size = Transaction Volume',
-                    style:{"fontSize": "110%"}
+                    style: {"fontSize": "110%"}
 
                 },
 
                 legend: {
                     align: 'right',
                     verticalAlign: 'top',
-                    dataLabels : false,
+                    dataLabels: false,
                     layout: 'vertical',
                     x: 0,
                     y: 25
@@ -141,19 +138,19 @@
                         data: [[25, 10, 87], [2, 75, 59], [11, 54, 8], [86, 55, 93], [5, 3, 58], [90, 63, 44], [91, 33, 17], [97, 3, 56], [15, 67, 48], [54, 25, 81]],
                         name: 'Payment Gateway',
                         color: '#C8F7C5'
-                    },{
+                    }, {
                         data: [[54, 28, 69], [15, 50, 32], [20, 36, 15], [86, 55, 93], [42, 26, 51], [12, 66, 45], [2, 76, 99], [42, 37, 14], [19, 27, 5], [80, 76, 89]],
                         name: 'Topup Mobile',
                         color: '#86E2D5'
-                    },{
+                    }, {
                         data: [[33, 42, 93], [84, 70, 60], [55, 69, 47], [13, 2, 9], [39, 89, 22], [26, 29, 39], [36, 33, 30], [43, 46, 49], [41, 51, 60], [11, 51, 81]],
                         name: 'Topup Game',
                         color: '#2ECC71'
-                    },{
+                    }, {
                         data: [[84, 42, 46], [4, 62, 13], [45, 65, 78], [23, 57, 16], [38, 9, 46], [25, 97, 22], [67, 57, 35], [21, 7, 56], [27, 95, 32], [21, 6, 31]],
                         name: 'Master Card',
                         color: '#F89406'
-                    },{
+                    }, {
                         data: [[86, 75, 24], [75, 23, 9], [71, 35, 38], [64, 44, 45], [9, 23, 32], [45, 54, 65], [27, 73, 39], [62, 28, 84], [86, 41, 32], [20, 31, 33]],
                         name: 'Bill pay',
                         color: '#D35400'
@@ -171,10 +168,6 @@
     </script>
 
 
-
-
-
-
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/js/bootstrap-3.1.1.min.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/barGraph.css">
 
@@ -182,18 +175,14 @@
     <script src="${pageContext.request.contextPath}/resources/js/jchart.js"></script>
 
 
-
     <script>
-        $(document).ready(function() {
-            $("#transaction_chart").jChart({x_label:"Transaction"});
-            $("#transaction_chart2").jChart({x_label:"Amount"});
+        $(document).ready(function () {
+            $("#transaction_chart").jChart({x_label: "Transaction"});
+            $("#transaction_chart2").jChart({x_label: "Amount"});
             $("#colors_chart").jChart();
 
         });
     </script>
-
-
-
 
 
 </head>
@@ -207,10 +196,9 @@
 
     </div>
 
-<div id="chart" class="pie pie1"></div>
+    <div id="chart" class="pie pie1"></div>
 
 </div>
-
 
 
 <div id="div1Bubble">
@@ -222,9 +210,6 @@
 
     <div id="container_bubble" style="height: 90%"></div>
 </div>
-
-
-
 
 
 <div id="div4PT">
@@ -245,71 +230,124 @@
         <tbody>
 
         <tr>
-            <td><div id="MobileApp"></div></td>
-            <td><div id="tranMobileApp"></div></td>
-            <td><div id="amountMobileApp"></div></td>
+            <td>
+                <div id="MobileApp"></div>
+            </td>
+            <td>
+                <div id="tranMobileApp"></div>
+            </td>
+            <td>
+                <div id="amountMobileApp"></div>
+            </td>
 
         </tr>
         <tr>
-            <td><div id="Kiosk"></div></td>
-            <td><div id="tranKiosk"></div></td>
-            <td><div id="amountKiosk"></div></td>
-
-        </tr>
-
-        <tr>
-            <td><div id="TMX"></div></td>
-            <td><div id="tranTMX"></div></td>
-            <td><div id="amountTMX"></div></td>
-
-        </tr>
-
-        <tr>
-            <td><div id="Payment"></div></td>
-            <td><div id="tranPayment"></div></td>
-            <td><div id="amountPayment"></div></td>
+            <td>
+                <div id="Kiosk"></div>
+            </td>
+            <td>
+                <div id="tranKiosk"></div>
+            </td>
+            <td>
+                <div id="amountKiosk"></div>
+            </td>
 
         </tr>
 
         <tr>
-            <td><div id="TopupMobile"></div></td>
-            <td><div id="tranTopupMobile"></div></td>
-            <td><div id="amountTopupMobile"></div></td>
+            <td>
+                <div id="TMX"></div>
+            </td>
+            <td>
+                <div id="tranTMX"></div>
+            </td>
+            <td>
+                <div id="amountTMX"></div>
+            </td>
 
         </tr>
 
         <tr>
-            <td><div id="TopupGame"></div></td>
-            <td><div id="tranTopupGame"></div></td>
-            <td><div id="amountTopupGame"></div></td>
+            <td>
+                <div id="Payment"></div>
+            </td>
+            <td>
+                <div id="tranPayment"></div>
+            </td>
+            <td>
+                <div id="amountPayment"></div>
+            </td>
 
         </tr>
 
         <tr>
-            <td><div id="WeCard"></div></td>
-            <td><div id="tranWeCard"></div></td>
-            <td><div id="amountWeCard"></div></td>
+            <td>
+                <div id="TopupMobile"></div>
+            </td>
+            <td>
+                <div id="tranTopupMobile"></div>
+            </td>
+            <td>
+                <div id="amountTopupMobile"></div>
+            </td>
 
         </tr>
 
         <tr>
-            <td><div id="BillPay"></div></td>
-            <td><div id="tranBillPay"></div></td>
-            <td><div id="amountBillPay"></div></td>
+            <td>
+                <div id="TopupGame"></div>
+            </td>
+            <td>
+                <div id="tranTopupGame"></div>
+            </td>
+            <td>
+                <div id="amountTopupGame"></div>
+            </td>
+
+        </tr>
+
+        <tr>
+            <td>
+                <div id="WeCard"></div>
+            </td>
+            <td>
+                <div id="tranWeCard"></div>
+            </td>
+            <td>
+                <div id="amountWeCard"></div>
+            </td>
+
+        </tr>
+
+        <tr>
+            <td>
+                <div id="BillPay"></div>
+            </td>
+            <td>
+                <div id="tranBillPay"></div>
+            </td>
+            <td>
+                <div id="amountBillPay"></div>
+            </td>
 
         </tr>
 
         </tbody>
         <thead bgcolor="#BDC3C7" style="color: #000">
         <tr>
-            <th><div id="Total"></div></th>
-            <th><div id="tranTotal"></div></th>
-            <th><div id="amountTotal"></div></th>
+            <th>
+                <div id="Total"></div>
+            </th>
+            <th>
+                <div id="tranTotal"></div>
+            </th>
+            <th>
+                <div id="amountTotal"></div>
+            </th>
         </tr>
         </thead>
     </table>
 </div>
-
 
 
 <div id="divBarTran">
@@ -318,7 +356,8 @@
         <div id="textdivBarTran"><b>Transaction Bar Graph by TMN Product</b></div>
 
     </div>
-    <div id="transaction_chart" data-sort="false" data-width="200%" class="jChart chart-lg" name="Success Transaction made (${month})">
+    <div id="transaction_chart" data-sort="false" data-width="200%" class="jChart chart-lg"
+         name="Success Transaction made (${month})">
         <div class="define-chart-row" data-color="#84d6ff" title="Mobile App.">${mobileAppTran}</div>
         <div class="define-chart-row" data-color="#38BCFF" title="Kiosk">${kioskTran}</div>
         <div class="define-chart-row" data-color="#00A9FF" title="TMX">${tmxTran}</div>
@@ -344,7 +383,8 @@
         <div id="textdivBarAmount"><b>Transaction Bar Graph by TMN Product</b></div>
 
     </div>
-    <div id="transaction_chart2" data-sort="false" data-width="200%" class="jChart chart-lg" name="Success Amount made (${month})">
+    <div id="transaction_chart2" data-sort="false" data-width="200%" class="jChart chart-lg"
+         name="Success Amount made (${month})">
         <div class="define-chart-row" data-color="#e9fd05" title="Mobile App.">${mobileAppAmount}</div>
         <div class="define-chart-row" data-color="#fdee04" title="Kiosk">${kioskAmount}</div>
         <div class="define-chart-row" data-color="#fddd04" title="TMX">${tmxAmount}</div>
@@ -363,11 +403,6 @@
 
 
 </div>
-
-
-
-
-
 
 
 </body>
