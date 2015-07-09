@@ -380,7 +380,7 @@
 <div id="divBarAmount">
 
     <div id="divallBarAmount">
-        <div id="textdivBarAmount"><b>Transaction Bar Graph by TMN Product</b></div>
+        <div id="textdivBarAmount"><b>Amount Bar Graph by TMN Product</b></div>
 
     </div>
     <div id="transaction_chart2" data-sort="false" data-width="200%" class="jChart chart-lg"
