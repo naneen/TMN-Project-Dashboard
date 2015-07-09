@@ -54,6 +54,7 @@
         });
     </script>
 
+
     <%--<script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>--%>
     <link href='${pageContext.request.contextPath}/resources/css/PieTransaction.css' rel="stylesheet">
     <script src='${pageContext.request.contextPath}/resources/js/highcharts.js'></script>
@@ -189,7 +190,8 @@
 </head>
 <body>
 
-<%--<a href="/DashBoard/kiosk" id="headNav">${msg}</a>--%>
+    <a href="/DashBoard/kiosk" id="headNav">${msg}</a>
+
 <div id="div1Pie">
 
     <div id="divallPie">
@@ -406,5 +408,6 @@
 </div>
 
 
+>>>>>>> b50e02a3b779fa300a9fe6ea27d20b006898557f
 </body>
 </html>
