@@ -129,11 +129,11 @@
 
                     $.plot("#area-chart-spline", [{
                         data: d6_1,
-                        label: "Top-up",
+                        label: "Bill payment",
                         color: "#E5412D"
                     },{
                         data: d6_2,
-                        label: "Bill payment",
+                        label: "Top-up",
                         color: "rgb(124,124,124)"
                     }], {
                         series: {
@@ -264,8 +264,8 @@
                 <div id="deployTitle">Deployment Success by versions</div>
                 <div id="deployVersion">4.9.10</div>
                 <div id="deployChart">
-                    <div id="donutChart" data-percent="69">
-                        <span id="donutPerc">69%</span>
+                    <div id="donutChart" data-percent="">
+                        <span id="donutPerc"></span>
                     </div>
                 </div>
             </div>
