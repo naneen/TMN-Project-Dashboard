@@ -74,6 +74,7 @@ function pieTransaction() {
             exporting: {
                 buttons: [
                     {
+                        enabled: false,
                         symbol: false
                     }
                 ]

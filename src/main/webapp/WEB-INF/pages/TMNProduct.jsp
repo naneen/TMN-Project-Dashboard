@@ -158,6 +158,7 @@
                 exporting: {
                     buttons: [
                         {
+                            enabled: false,
                             symbol: false
                         }
                     ]
