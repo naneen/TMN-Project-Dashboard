@@ -1,30 +1,20 @@
 package com.springapp.mvc.controller;
 
-
 import com.springapp.mvc.model.QueryAmount;
 import com.springapp.mvc.model.QueryBarGraph;
 import com.springapp.mvc.model.QueryCountTransaction;
-
-
 import org.json.JSONException;
 import org.json.JSONObject;
-
 import com.springapp.mvc.model.ConnectDB;
-
 import org.json.JSONArray;
 import org.springframework.beans.factory.annotation.Autowired;
-
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
-
-
-
 import java.sql.SQLException;
 import java.text.DecimalFormat;
-
 
 @Controller
 public class TMNProductController {
@@ -72,7 +62,7 @@ public class TMNProductController {
         return userArray.toString();
     }
 
-    @RequestMapping(value = "/",method = RequestMethod.GET )
+    @RequestMapping(value = "/product",method = RequestMethod.GET )
     public String product(ModelMap model) throws SQLException, ClassNotFoundException {
         connectMobileApp.setConnect("ewreport", "9wb77b");
         connectKiosk.setConnect("kioskpx", "kioskdev");
@@ -82,23 +72,14 @@ public class TMNProductController {
         connectTopupGame.setConnect("gamereport", "RPT#4Game");
         connectMasterCard.setConnect("prepaidcard", "PRE#PAID99");
         connectBillPay.setConnect("bpay", "bpay#123$");
+
         model.addAttribute("msg", "TMN Product Dashboard");
 
         queryBarGraph.tranBar(model);
         queryBarGraph.amountBar(model);
 
-
-
-
-
-
-
-
-
         return "TMNProduct";
     }
-
-
 
     @RequestMapping(value = "/tranTMNProduct", method = RequestMethod.GET)
     public @ResponseBody
@@ -117,8 +98,6 @@ public class TMNProductController {
                 queryCountTransaction.getCountMasterCard(),queryCountTransaction.getCountBillPay()
         };
 
-
-
         Double[] amount = {
                 queryAmount.getAmountMobileApp(),queryAmount.getAmountKiosk(),
                 queryAmount.getAmountTmx(),queryAmount.getAmountPaymentGate(),
@@ -128,8 +107,6 @@ public class TMNProductController {
 
         int sumTran = 0;
         Double sumAmount = 0.0;
-
-
 
         for(int i = 0;i<trueMoneyProduct.length;i++){
             tranJson.put(trueMoneyProduct[i]);
@@ -144,24 +121,14 @@ public class TMNProductController {
         jsonObject.put("tran",jsontranArray);
         jsonObject.put("totalTran",changeFormatTran.format(sumTran));
 
-
-
         for(Double valueComponent : amount){
             jsonamountArray.put(changeFormat.format(valueComponent));
             sumAmount += valueComponent;
         }
 
-
-
         jsonObject.put("amount",jsonamountArray);
-
         jsonObject.put("totalAmount",changeFormat.format(sumAmount));
 
         return jsonObject.toString();
-
     }
-
-
-
-
 }

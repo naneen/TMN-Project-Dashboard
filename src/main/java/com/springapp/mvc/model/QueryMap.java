@@ -3,12 +3,7 @@ package com.springapp.mvc.model;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
-
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -36,8 +31,6 @@ public class QueryMap {
                 " WHERE DT_LOCATION.AREA_BANGKOK='yes' AND DT_TICKETS.DATE_OF_ARRIVAL >= to_date('01/01/2015','DD-MM-YYYY')"+
                 " GROUP BY DT_LOCATION.PLACE,DT_LOCATION.LON,DT_LOCATION.LAT,DT_LOCATION.LOCATION_ID ORDER BY COUNT(*) DESC");
 
-
-
         while(resultSet1.next()) {
             arrayJSON.put(resultSet1.getString("PLACE"));
             arrayJSON.put(resultSet1.getDouble("LON"));
@@ -50,15 +43,6 @@ public class QueryMap {
         state1.close();
         return arrayJSON.toString();
     }
-
-
-
-
-
-
-
-
-
 }
 
 

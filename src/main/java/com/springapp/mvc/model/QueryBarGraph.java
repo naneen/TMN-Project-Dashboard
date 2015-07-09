@@ -35,7 +35,6 @@ public class QueryBarGraph {
             case 11: month_name = "December"; break;
         }
 
-
         model.addAttribute("month", month_name);
         model.addAttribute("mobileAppTran", queryCountTransaction.getCountMobileApp());
         model.addAttribute("kioskTran", queryCountTransaction.getCountKiosk());
@@ -45,9 +44,8 @@ public class QueryBarGraph {
         model.addAttribute("TopUpGameTran", queryCountTransaction.getCountTopupGame());
         model.addAttribute("masterCardTran", queryCountTransaction.getCountMasterCard());
         model.addAttribute("billPayTran", queryCountTransaction.getCountBillPay());
-
-
     }
+
     public void amountBar(ModelMap model) throws SQLException {
         model.addAttribute("mobileAppAmount", queryAmount.getAmountMobileApp()/1000);
         model.addAttribute("kioskAmount", queryAmount.getAmountKiosk()/1000);
@@ -57,10 +55,5 @@ public class QueryBarGraph {
         model.addAttribute("TopUpGameAmount", queryAmount.getAmountTopupGame()/1000);
         model.addAttribute("masterCardAmount", queryAmount.getAmountMasterCard()/1000);
         model.addAttribute("billPayAmount", queryAmount.getAmountBillPay()/1000);
-
-
     }
-
-
-
 }
