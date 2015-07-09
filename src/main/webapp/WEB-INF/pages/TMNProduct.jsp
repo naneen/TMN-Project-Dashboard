@@ -247,7 +247,7 @@
         <tr>
             <th>Product Name</th>
             <th>Transaction</th>
-            <th>Amount</th>
+            <th>Amount(THB)</th>
         </tr>
         </thead>
         <tbody>
@@ -363,10 +363,10 @@
         <div class="define-chart-row" data-color="#fd3f04" title="Bill Payment">${billPayAmount}</div>
 
         <div class="define-chart-footer">40000</div>
-        <div class="define-chart-footer">80000K</div>
-        <div class="define-chart-footer">120000K</div>
-        <div class="define-chart-footer">160000K</div>
-        <div class="define-chart-footer">200000K</div>
+        <div class="define-chart-footer">80000</div>
+        <div class="define-chart-footer">120000</div>
+        <div class="define-chart-footer">160000</div>
+        <div class="define-chart-footer">200000</div>
     </div>
 
 

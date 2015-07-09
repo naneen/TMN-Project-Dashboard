@@ -127,27 +127,52 @@
 					html: settings.headers[i]
 				});
 			var bar_width = (settings.values[i]/chart_max) * chart_width;
-			var bar = 
-				$("<div>", {
-					class: "bar",
-					"data-placement": "right",
-					"data-toggle": "tooltip",
-					title: commaSeparateNumber(settings.values[i]),
-					style: "height:"+bar_height+"px;background-color:"+settings.colors[i%settings.colors.length],
-					width: bar_width
-				});
+			if(settings.name.indexOf("Amount")>=0) {
+				var bar =
+					$("<div>", {
+						class: "bar",
+						"data-placement": "right",
+						"data-toggle": "tooltip",
+						title: commaSeparateNumber(settings.values[i] + "K"),
+						style: "height:" + bar_height + "px;background-color:" + settings.colors[i % settings.colors.length],
+						width: bar_width
+					});
+			}
+			else {
+				var bar =
+					$("<div>", {
+						class: "bar",
+						"data-placement": "right",
+						"data-toggle": "tooltip",
+						title: commaSeparateNumber(settings.values[i]),
+						style: "height:" + bar_height + "px;background-color:" + settings.colors[i % settings.colors.length],
+						width: bar_width
+					});
+			}
 			legend_left.append(heading);
 			chart.append(bar);
+
 		}
 		chart.append(legend_bottom);
 		for(var i=0;i<settings.footers.length;i++) {
 			var margin = "margin-left:"+((settings.footers[i]/chart_max)*chart_width-9).toString() + "px;";
-			var chart_label_bottom =
-				$("<div>", {
-					class: "chart-label chart-label-bottom",
-					style: margin,
-					html: commaSeparateNumber(settings.footers[i])
-				});
+			if(settings.name.indexOf("Amount")>=0) {
+				var chart_label_bottom =
+					$("<div>", {
+						class: "chart-label chart-label-bottom",
+						style: margin,
+						html: commaSeparateNumber(settings.footers[i] + "K")
+					});
+			}
+			else
+			{
+				var chart_label_bottom =
+					$("<div>", {
+						class: "chart-label chart-label-bottom",
+						style: margin,
+						html: commaSeparateNumber(settings.footers[i])
+					});
+			}
 			var margin = "margin-left:"+((settings.footers[i]/chart_max)*chart_width-2).toString() + "px;";
 			var chart_label_hr = 
 				$("<div>", {
