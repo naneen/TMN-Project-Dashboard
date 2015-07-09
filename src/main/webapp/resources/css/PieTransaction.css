@@ -1,9 +1,37 @@
+#bar{
+    left:50%;
+    top:50%;
+}
+
+#textdivPie {
+    color:#757D75;
+    padding-top:0%;
+    margin-left:1%;
+}
+#divallPie {
+    height: 10%;
+    background: #EEEEEE;
+}
+
+#div1Pie{
+    position:relative;
+    float: left;
+    width:35%;
+    height:40.5%;
+    margin-left: 1%;
+    border-color:#EEEEEE;
+    border-style: solid;
+    border-width: 2px;
+    background:-webkit-gradient(linear, left top, left bottom, from(white), to(#eaeafc)); /* Webkit, IE 9 */
+    background:-moz-linear-gradient(top, white, #eaeafc); /* Firefox */
+    background:-o-linear-gradient(top, white, #eaeafc); /* Opera */
+    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=white, endColorstr=#eaeafc); /* IE 5.5 - 7 */
+    -ms-filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=white, endColorstr=#eaeafc); /* IE 8 */
+}
+
 .pie {
-  position: relative;
-  border: 5px black;
-  border-radius: 5px 50%;
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
-  -webkit-mask-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAIAAACQd1PeAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAA5JREFUeNpiYGBgAAgwAAAEAAGbA+oJAAAAAElFTkSuQmCC);
+position: relative;
+width: 100%;
+height: 100%;
+overflow: hidden;
 }

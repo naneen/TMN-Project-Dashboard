@@ -12,10 +12,11 @@
 
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
         <script type="text/javascript" src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
-        <%--<script src="${pageContext.request.contextPath}/resources/js/jquery-1.10.2.min.js"></script>--%>
         <script src="${pageContext.request.contextPath}/resources/js/bootstrap.min.js"></script>
+
         <%-- pie --%>
         <script src='${pageContext.request.contextPath}/resources/js/Chart.js'></script>
+
         <%-- map --%>
         <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&signed_in=false"  type="text/javascript"></script>
         <script src='${pageContext.request.contextPath}/resources/js/infobubble.js'></script>
@@ -172,6 +173,42 @@
             };
 
 
+<<<<<<< HEAD
+=======
+                        },
+                        splines: {
+                            show: !0,
+                            tension: .4,
+                            lineWidth: 3,
+                            fill: 0.35
+                        },
+                        points: {
+                            show: !0,
+                            radius: 4
+                        }
+                    },
+                    grid: {
+                        borderColor: "#ABB7B7",
+                        borderWidth: 1,
+                        hoverable: !0
+                    },
+                    tooltip: !0,
+                    tooltipOpts: {
+                        content: "%x : %y",
+                        defaultTheme: true
+                    },
+                    xaxis: {
+                        tickColor: "#DDDDDD",
+                        mode: "categories"
+                    },
+                    yaxis: {
+                        tickColor: "#DDDDDD"
+                    },
+                    shadowSize: 0
+                });
+                //END AREA CHART SPLINE
+            });
+>>>>>>> b50e02a3b779fa300a9fe6ea27d20b006898557f
         </script>
 
         <script src="${pageContext.request.contextPath}/resources/js/jquery-1.10.2.min.js"></script>
@@ -303,3 +340,4 @@
         </div>
     </body>
 </html>
+

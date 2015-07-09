@@ -2,7 +2,8 @@ function pieTransection() {
     $.getJSON("PieTransaction", function(json){
         var name = 'TrueMoneyProduct';
         var browserData = [];
-        var colors =  ["#dc49ee","#b64dee","#7946e8","#615aff","#466ae8","#4da3ff","#4ed6ff","#47e8e3","#5bffcb","#47e888","#4eff63","#70ff4a","#9fe843","#efff57","#e8dc43","#ffdf4a"];
+        var colors =  ["#38BCFF","#fdfa04","#0074AA"  ,"#fd3f04"  ,"#e9fd05","#fd5004" ,"#fdb404" ,"#68f40b" ,"#e9fd05","#47e888","#4eff63","#70ff4a","#9fe843","#efff57","#e8dc43","#ffdf4a"];
+
         for (var i = 0; i < json.length; i++) {
             browserData.push({
                 name: json[i].product,
@@ -11,10 +12,14 @@ function pieTransection() {
             });
         }
 
-        // Create the chart
         $('#chart').highcharts({
             chart: {
-                type: 'pie'
+                type: 'pie',
+               backgroundColor:false
+
+            },
+            credits: {
+                enabled: false
             },
             title: {
                 text: false
@@ -27,65 +32,51 @@ function pieTransection() {
             plotOptions: {
                 pie: {
                     shadow: true,
-                    center: ['50%', '50%']
+                    center: ['50%', '45%']
                 }
             },
             tooltip: {
-              valueSuffix: '%'
+                valueSuffix: '%'
             },
             series: [{
                 name: 'Percent',
                 data: browserData,
-                size: '40%',
+                size: '70%',
                 dataLabels: {
-                    color: 'white',
-                    distance: 40,
+                    color: 'gray',
+                    distance: 20,
                     //useHTML : true,
                     formatter: function() {
-                        return "<p><span style=\"font-size: large;\">" + this.point.name + " </p></span><p><span style=\"font-size: large; color: orange;\">" + this.point.y + "%</span></p>";
+                        return "<p><span style=\"font-size: 100%;\">" + this.point.name + " </p></span><p><span style=\"font-size: 100%; color: orange;\">" + this.point.y + "%</span></p>";
                     }
                 },
                 cursor: 'pointer',
                 events: {
                     click: function (event) {
-                        document.location.href = '/DashBoard/'+(event.point.name).replace( /\s/g, "").toLowerCase();
-                    }
-                }
-            }
-                //,{
-            //    name: 'Percent',
-            //    data: browserData,
-            //    size: '40%',
-            //    dataLabels: {
-            //        formatter: function() {
-            //            return this.point.y + "%";
-            //        },
-            //        color: 'white',
-            //        distance: -30
-            //    }
-            //}
-                , {
-                name: 'Percent',
-                data: browserData,
-                size: '40%',
-                dataLabels : false,
-                cursor: 'pointer',
-                events: {
-                    click: function (event) {
+                        if(event.point.name = "Kiosk")
                         document.location.href = '/DashBoard/'+(event.point.name).replace( /\s/g, "").toLowerCase();
                     }
                 }
             },{
-                exporting: {
-                    buttons: {
-                        contextButtons: {
-                            enabled: false,
-                            menuItems: null
-                        }
-                    },
-                    enabled: true
+                name: 'Percent',
+                data: browserData,
+                size: '70%',
+                dataLabels : false,
+                cursor: 'pointer',
+                events: {
+                    click: function (event) {
+                        if(event.point.name = "Kiosk")
+                        document.location.href = '/DashBoard/'+(event.point.name).replace( /\s/g, "").toLowerCase();
+                    }
                 }
-            }]
+            }],
+            exporting: {
+                buttons: [
+                    {
+                        symbol: false
+                    }
+                ]
+            }
         });
     });
 }

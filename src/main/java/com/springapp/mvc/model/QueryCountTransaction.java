@@ -2,7 +2,6 @@ package com.springapp.mvc.model;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -81,7 +80,7 @@ public class QueryCountTransaction {
         Statement state;
         state = connectKiosk.getConnect().createStatement();
         String query = "select COUNT(TRANS_ID) as COUNT from " +
-                "(select * from kioskpx.TR_PAY_MULTIBILL P " +
+                "(select DISTINCT(P.trans_id) from kioskpx.TR_PAY_MULTIBILL P " +
                 "where P.CREATED BETWEEN to_date('01/01/2015 00:00:00', 'dd/MM/yyyy hh24:mi:ss') and to_date(SYSDATE, 'dd/MM/yyyy hh24:mi:ss')) ";
         resultSet = state.executeQuery(query);
         resultSet.next();
@@ -101,7 +100,7 @@ public class QueryCountTransaction {
                 "where a.agent_id=b.agent_id(+) " +
                 "and trans_date BETWEEN to_date('01/01/2015 00:00:00', 'dd/MM/yyyy hh24:mi:ss') and to_date(SYSDATE, 'dd/MM/yyyy hh24:mi:ss') " +
                 "and response_code='0' " +
-                "and service_code not in ( 'BANKA/C','TMN_TRANSFER') " +
+                "and service_code not in ('BANKA/C','TMN_TRANSFER') " +
                 "and trans_cancel_status is null " +
                 "order by trans_date) ";
         resultSet = state.executeQuery(query);

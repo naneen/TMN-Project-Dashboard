@@ -1,3 +1,27 @@
+#textdivBubble
+{	color:#757D75;
+    padding-top:0%;
+    margin-left:1%;
+}
+#divallBubble{
+    height:10%;
+    background:#EEEEEE;
+}
+
+#div1Bubble{
+    /*position:absolute;*/
+    position:relative;
+    float: left;
+    margin-left: 1%;
+    width:62%;
+    height:40.5%;
+    /*left:37%;*/
+    /*top:3%;*/
+    border-color:#EEEEEE;
+    border-style: solid;
+    border-width: 2px;
+}
+
 #headNav{
     color: dodgerblue;
     font-weight: bold;
