@@ -76,7 +76,7 @@
         setInterval(TimeReal, 1000);
 
         window.onload = function () {
-            pieTransection();
+            pieTransaction();
             TimeReal();
         };
     </script>

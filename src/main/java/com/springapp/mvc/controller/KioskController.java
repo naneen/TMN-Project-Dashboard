@@ -30,11 +30,11 @@ public class KioskController {
     @Autowired
     private QueryPieChart queryPieChart;
     @Autowired
-<<<<<<< HEAD
-    QueryBillTopup query;
-=======
+     QueryBillTopup query;
+    @Autowired
+    private QueryDeployChart queryDeployChart;
+    @Autowired
     private QueryMap queryMap;
->>>>>>> b50e02a3b779fa300a9fe6ea27d20b006898557f
 
 
     public int getPercent(int count, int sum) {
@@ -63,7 +63,7 @@ public class KioskController {
         return userJSON.toString();
     }
 
-<<<<<<< HEAD
+
     @RequestMapping(value = "/bill_topup_chart",method = RequestMethod.GET,produces = "text/plain;charset=UTF-8")
     public @ResponseBody
     String Revenue() throws SQLException, JSONException {
@@ -121,18 +121,16 @@ public class KioskController {
 
     @RequestMapping(value = "/Top4", method = RequestMethod.GET,produces = "text/plain;charset=UTF-8")
     public @ResponseBody
-=======
-    public void revenueGraph(ModelMap model) {
+    void revenueGraph(ModelMap model) {
         String topup = "[[\"Start\", 0],[\"Week1\", 91],[\"Week2\", 36],[\"Week3\", 100],[\"Week4\", 64]]";
         String bill = "[[\"Start\", 0],[\"Week1\", 29],[\"Week2\", 15],[\"Week3\", 67],[\"Week4\", 40]]";
         model.addAttribute("topup", topup);
         model.addAttribute("bill", bill);
     }
 
-    @RequestMapping(value = "/Top4", method = RequestMethod.GET, produces = "text/plain;charset=UTF-8")
-    public
-    @ResponseBody
->>>>>>> b50e02a3b779fa300a9fe6ea27d20b006898557f
+
+    @RequestMapping(value = "/top4", method = RequestMethod.GET,produces = "text/plain;charset=UTF-8")
+    public @ResponseBody
     String Top4() throws SQLException, JSONException {
         JSONObject userJSON;
         JSONArray userArray = new JSONArray();
@@ -156,9 +154,8 @@ public class KioskController {
         return userArray.toString();
     }
 
-    @RequestMapping(value = "/PieChart", method = RequestMethod.GET)
-    public
-    @ResponseBody
+    @RequestMapping(value = "/pieChart", method = RequestMethod.GET)
+    public @ResponseBody
     String queryPieChart() throws SQLException {
         int countBillKisok = queryPieChart.getCountBillKiosk();
         int countBillTRM = queryPieChart.getCountBillTRM();
@@ -166,8 +163,19 @@ public class KioskController {
         return Integer.toString(avgOffset);
     }
 
-<<<<<<< HEAD
-=======
+
+    @RequestMapping(value = "/deployChart", method = RequestMethod.GET)
+    public @ResponseBody
+    String queryDeployChart() throws SQLException, JSONException {
+        int deployPercent = queryDeployChart.getCountBillKiosk();
+        String version = queryDeployChart.getLastestVersion();
+        JSONObject userJSON = new JSONObject();
+        userJSON.put("version",version);
+        userJSON.put("deployPercent",deployPercent);
+        return userJSON.toString();
+    }
+
+
     @RequestMapping(value = "/complaintTicket", method = RequestMethod.GET)
      public
      @ResponseBody
@@ -178,18 +186,14 @@ public class KioskController {
 
     }
 
->>>>>>> b50e02a3b779fa300a9fe6ea27d20b006898557f
 
     @RequestMapping(value = "/",method = RequestMethod.GET )
     public String product(ModelMap model) throws SQLException, ClassNotFoundException {
 
         connectKiosk.setConnect("kioskpx", "kioskdev");
-<<<<<<< HEAD
-//        revenueGraph(model);
-//        return "TMNProduct";
-=======
+
         revenueGraph(model);
->>>>>>> b50e02a3b779fa300a9fe6ea27d20b006898557f
+
         return "TempKiosk";
     }
 

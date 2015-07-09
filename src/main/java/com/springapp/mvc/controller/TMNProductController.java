@@ -37,7 +37,7 @@ public class TMNProductController {
         return temp;
     }
 
-    @RequestMapping(value = "/PieTransaction", method = RequestMethod.GET)
+    @RequestMapping(value = "/pieTransaction", method = RequestMethod.GET)
     public @ResponseBody
     String pieTransaction() throws JSONException, SQLException {
         JSONArray userArray = new JSONArray();
