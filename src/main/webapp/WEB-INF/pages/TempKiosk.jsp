@@ -276,26 +276,25 @@
                     <div class="col-md-12" id="target-bar">
                         <h4 class="mbm">Revenue</h4>
                         <span class="task-item">
-
                             <span style="color: red">Actual:</span>
-                                <span style="color: #313131" id="actual"></span>
-                                <span style="color: red">Target: </span>
-                                <span style="color: #000000" id="target"></span>
-                                <small class="pull-right text-muted" id="percent"></small>
-                                <div id="color_revenuebar">
-                                    <div id="actualP" role="progressbar" aria-valuenow="0"
-                                         aria-valuemin="0" aria-valuemax="100"
-                                         style="width: 0%;" class="progress-bar progress-bar">
-                                    </div>
-                                    <div id="lessP" role="progressbar" aria-valuenow="0"
-                                         aria-valuemin="0" aria-valuemax="100"
-                                         style="width: 0%;" class="progress-bar progress-bar-red">
-                                    </div>
-                                    <div id="bonusP" role="progressbar" aria-valuenow="0"
-                                         aria-valuemin="0" aria-valuemax="100"
-                                         style="width: 0%;" class="progress-bar progress-bar-blue">
-                                    </div>
+                            <span style="color: #313131" id="actual"></span>
+                            <span style="color: red">Target: </span>
+                            <span style="color: #000000" id="target"></span>
+                            <small class="pull-right text-muted" id="percent"></small>
+                            <div id="color_revenuebar">
+                                <div id="actualP" role="progressbar" aria-valuenow="0"
+                                     aria-valuemin="0" aria-valuemax="100"
+                                     style="width: 0%;" class="progress-bar progress-bar">
                                 </div>
+                                <div id="lessP" role="progressbar" aria-valuenow="0"
+                                     aria-valuemin="0" aria-valuemax="100"
+                                     style="width: 0%;" class="progress-bar progress-bar-red">
+                                </div>
+                                <div id="bonusP" role="progressbar" aria-valuenow="0"
+                                     aria-valuemin="0" aria-valuemax="100"
+                                     style="width: 0%;" class="progress-bar progress-bar-blue">
+                                </div>
+                            </div>
                         </span>
                     </div>
                 </div>

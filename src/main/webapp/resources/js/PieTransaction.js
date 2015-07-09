@@ -51,20 +51,7 @@ function pieTransaction() {
                         document.location.href = '/DashBoard/'+(event.point.name).replace( /\s/g, "").toLowerCase();
                     }
                 }
-            }
-                //,{
-            //    name: 'Percent',
-            //    data: browserData,
-            //    size: '40%',
-            //    dataLabels: {
-            //        formatter: function() {
-            //            return this.point.y + "%";
-            //        },
-            //        color: 'white',
-            //        distance: -30
-            //    }
-            //}
-                , {
+            } , {
                 name: 'Percent',
                 data: browserData,
                 size: '40%',
