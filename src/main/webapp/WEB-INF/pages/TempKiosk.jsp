@@ -187,42 +187,7 @@
             };
 
 
-<<<<<<< HEAD
-=======
-                        },
-                        splines: {
-                            show: !0,
-                            tension: .4,
-                            lineWidth: 3,
-                            fill: 0.35
-                        },
-                        points: {
-                            show: !0,
-                            radius: 4
-                        }
-                    },
-                    grid: {
-                        borderColor: "#ABB7B7",
-                        borderWidth: 1,
-                        hoverable: !0
-                    },
-                    tooltip: !0,
-                    tooltipOpts: {
-                        content: "%x : %y",
-                        defaultTheme: true
-                    },
-                    xaxis: {
-                        tickColor: "#DDDDDD",
-                        mode: "categories"
-                    },
-                    yaxis: {
-                        tickColor: "#DDDDDD"
-                    },
-                    shadowSize: 0
-                });
-                //END AREA CHART SPLINE
-            });
->>>>>>> b50e02a3b779fa300a9fe6ea27d20b006898557f
+
         </script>
 
         <script src="${pageContext.request.contextPath}/resources/js/jquery-1.10.2.min.js"></script>

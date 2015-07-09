@@ -74,11 +74,6 @@ public class TMNProductController {
         connectBillPay.setConnect("bpay", "bpay#123$");
 
         model.addAttribute("msg", "TMN Product Dashboard");
-<<<<<<< HEAD
-        return "bubble_chart";
-    }
-
-=======
 
         queryBarGraph.tranBar(model);
         queryBarGraph.amountBar(model);
@@ -136,5 +131,5 @@ public class TMNProductController {
 
         return jsonObject.toString();
     }
->>>>>>> b50e02a3b779fa300a9fe6ea27d20b006898557f
+
 }
