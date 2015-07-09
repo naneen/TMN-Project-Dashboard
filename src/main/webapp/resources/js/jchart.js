@@ -127,7 +127,7 @@
 					html: settings.headers[i]
 				});
 			var bar_width = (settings.values[i]/chart_max) * chart_width;
-			if(settings.name.indexOf("Amount")>=0) {
+			if(settings.name.indexOf(" ")>=0) {
 				var bar =
 					$("<div>", {
 						class: "bar",
@@ -155,8 +155,8 @@
 		}
 		chart.append(legend_bottom);
 		for(var i=0;i<settings.footers.length;i++) {
-			var margin = "margin-left:"+((settings.footers[i]/chart_max)*chart_width-9).toString() + "px;";
-			if(settings.name.indexOf("Amount")>=0) {
+			var margin = "margin-left:"+((settings.footers[i]/chart_max)*chart_width-15).toString() + "px;";
+			if(settings.name.indexOf(" ")>=0) {
 				var chart_label_bottom =
 					$("<div>", {
 						class: "chart-label chart-label-bottom",
