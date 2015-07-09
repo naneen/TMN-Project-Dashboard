@@ -15,10 +15,11 @@ public class QueryDeployChart {
 
     public int getCountBillKiosk() throws SQLException {
         ResultSet kioskUpdatedSet, kioskAllSet;
-        Statement state;
-        state = connectKiosk.getConnect().createStatement();
+        Statement state1,state2;
+        state1 = connectKiosk.getConnect().createStatement();
+        state2 = connectKiosk.getConnect().createStatement();
 
-        kioskUpdatedSet = state.executeQuery("select count(KIOSK_ID) as UPDATED " +
+        kioskUpdatedSet = state1.executeQuery("select count(KIOSK_ID) as UPDATED " +
                 "from DT_KIOSK_DEPLOYMENT deploy " +
                 "where deploy.KIOSKVER_ID = ( " +
                 "select MAX(KIOSKVER_ID) " +
@@ -27,7 +28,7 @@ public class QueryDeployChart {
         int number_updated = kioskUpdatedSet.getInt("UPDATED");
         kioskUpdatedSet.close();
 
-        kioskAllSet = state.executeQuery("select count(*) as TOTAL " +
+        kioskAllSet = state2.executeQuery("select count(*) as TOTAL " +
                 "from DT_KIOSK_DEPLOYMENT deploy " );
         kioskAllSet.next();
         int number_all = kioskAllSet.getInt("TOTAL");
@@ -35,7 +36,8 @@ public class QueryDeployChart {
 
         double percentUpdated = 100.0 * number_updated / number_all;
 
-        state.close();
+        state1.close();
+        state2.close();
         return (int)percentUpdated;
     }
 

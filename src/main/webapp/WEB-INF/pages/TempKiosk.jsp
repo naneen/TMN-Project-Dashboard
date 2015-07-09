@@ -21,9 +21,10 @@
         <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&signed_in=false"  type="text/javascript"></script>
         <script src='${pageContext.request.contextPath}/resources/js/infobubble.js'></script>
         <script src='${pageContext.request.contextPath}/resources/js/Map.js'></script>
-        <%-- deploy --%>
-        <%--<script src="${pageContext.request.contextPath}/resources/js/deployChartGetValue.js"></script>--%>
 
+        <%-- deploychart --%>
+        <%--<script src="resources/js/deployChartDecor.js"></script>--%>
+        <%--<script src="resources/js/deployChartJs.js"></script>--%>
         <script type="text/javascript">
             function pieCHART() {
                 $.get("pieChart",function(data){
@@ -91,17 +92,20 @@
                 $.getJSON("deployChart", function(json) {
                     var version = json.version;
                     var deployPercent = json.deployPercent;
-                    document.getElementById("deployVersion").innerHTML = version;
-                    document.getElementById("donutPerc").innerHTML = deployPercent+"%";
-                    document.getElementById("donutChart").setAttribute("data-percent", deployPercent);
-                });
+                    var oldPerc = $("#donutPerc").html();
+                    changeDeployPerc = (deployPercent+"%") == oldPerc ? false : true;
+
+                    $("#deployVersion").html(version);
+                    $("#donutPerc").html(deployPercent+"%");
+                    $("#donutChart").attr("data-percent",deployPercent);
+                })
             }
 
             function dateYesterDay() {
                 $.get("DateYesterDay", function(data){
                     $("#yesterday").text(data);
                 });
-            };
+            }
 
             function getCorrectTime() {
                 $.ajax({
@@ -115,10 +119,14 @@
                         else if(data == "09:55:00"){
                             getBillTopup();
                         }
+                        deployChartGetValue();
+                        if(changeDeployPerc) {
+                            drawDonutChart();
+                        }
                     }
                 });
             }
-            setInterval(getCorrectTime,5000);
+            setInterval(getCorrectTime,2000);
             function getBillTopup() {
                 $.getJSON("bill_topup_chart", function (rootJSON){
                     //BEGIN AREA CHART SPLINE
@@ -153,7 +161,6 @@
                             }
                         },
                         grid: {
-//                        borderColor: "#fafafa",
                             borderColor: "#ABB7B7",
                             borderWidth: 1,
                             hoverable: !0
@@ -185,8 +192,6 @@
                 dateYesterDay();
                 deployChartGetValue();
             };
-
-
 
         </script>
 
@@ -264,11 +269,12 @@
                 <div id="deployTitle">Deployment Success by versions</div>
                 <div id="deployVersion">4.9.10</div>
                 <div id="deployChart">
-                    <div id="donutChart" data-percent="69">
-                        <span id="donutPerc">69%</span>
+                    <div id="donutChart" data-percent="0">
+                        <span id="donutPerc">0%</span>
                     </div>
                 </div>
             </div>
+
             <script src="resources/js/deployChartDecor.js"></script>
             <script src="resources/js/deployChartJs.js"></script>
 
@@ -314,8 +320,9 @@
                     <div id="area-chart-spline"></div>
                 </div>
             </div>
-
         </div>
+        <%--<script src="resources/js/deployChartDecor.js"></script>--%>
+        <%--<script src="resources/js/deployChartJs.js"></script>--%>
     </body>
 </html>
 
