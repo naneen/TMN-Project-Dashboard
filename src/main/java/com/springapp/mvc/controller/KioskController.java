@@ -24,8 +24,9 @@ public class KioskController {
     @Autowired
     private QueryPieChart queryPieChart;
     @Autowired
+    private QueryDeployChart queryDeployChart;
+    @Autowired
     private QueryMap queryMap;
-
 
     public int getPercent(int count, int sum) {
         return (int) Math.round((double) count / sum * 100);
@@ -59,9 +60,8 @@ public class KioskController {
         model.addAttribute("bill", bill);
     }
 
-    @RequestMapping(value = "/Top4", method = RequestMethod.GET, produces = "text/plain;charset=UTF-8")
-    public
-    @ResponseBody
+    @RequestMapping(value = "/top4", method = RequestMethod.GET,produces = "text/plain;charset=UTF-8")
+    public @ResponseBody
     String Top4() throws SQLException, JSONException {
         JSONObject userJSON;
         JSONArray userArray = new JSONArray();
@@ -85,14 +85,24 @@ public class KioskController {
         return userArray.toString();
     }
 
-    @RequestMapping(value = "/PieChart", method = RequestMethod.GET)
-    public
-    @ResponseBody
+    @RequestMapping(value = "/pieChart", method = RequestMethod.GET)
+    public @ResponseBody
     String queryPieChart() throws SQLException {
         int countBillKisok = queryPieChart.getCountBillKiosk();
         int countBillTRM = queryPieChart.getCountBillTRM();
         int avgOffset = getPercent(countBillKisok, countBillKisok + countBillTRM);
         return Integer.toString(avgOffset);
+    }
+
+    @RequestMapping(value = "/deployChart", method = RequestMethod.GET)
+    public @ResponseBody
+    String queryDeployChart() throws SQLException, JSONException {
+        int deployPercent = queryDeployChart.getCountBillKiosk();
+        String version = queryDeployChart.getLastestVersion();
+        JSONObject userJSON = new JSONObject();
+        userJSON.put("version",version);
+        userJSON.put("deployPercent",deployPercent);
+        return userJSON.toString();
     }
 
     @RequestMapping(value = "/complaintTicket", method = RequestMethod.GET)
@@ -104,7 +114,6 @@ public class KioskController {
         return tran;
 
     }
-
 
     @RequestMapping(value = "/",method = RequestMethod.GET )
     public String product(ModelMap model) throws SQLException, ClassNotFoundException {

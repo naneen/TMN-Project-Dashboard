@@ -1,5 +1,5 @@
-function pieTransection() {
-    $.getJSON("PieTransaction", function(json){
+function pieTransaction() {
+    $.getJSON("pieTransaction", function(json){
         var name = 'TrueMoneyProduct';
         var browserData = [];
         var colors =  ["#38BCFF","#fdfa04","#0074AA"  ,"#fd3f04"  ,"#e9fd05","#fd5004" ,"#fdb404" ,"#68f40b" ,"#e9fd05","#47e888","#4eff63","#70ff4a","#9fe843","#efff57","#e8dc43","#ffdf4a"];
@@ -57,7 +57,8 @@ function pieTransection() {
                         document.location.href = '/DashBoard/'+(event.point.name).replace( /\s/g, "").toLowerCase();
                     }
                 }
-            },{
+            } , {
+
                 name: 'Percent',
                 data: browserData,
                 size: '70%',
