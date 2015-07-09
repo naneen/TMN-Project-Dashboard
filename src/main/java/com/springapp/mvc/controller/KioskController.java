@@ -49,8 +49,7 @@ public class KioskController {
     }
 
     @RequestMapping(value = "/revenueBar", method = RequestMethod.GET)
-    public
-    @ResponseBody
+    public @ResponseBody
     String revenueBar() throws JSONException, SQLException {
         JSONObject userJSON = new JSONObject();
         int actual = queryRevenueBar.getActual();
@@ -165,24 +164,15 @@ public class KioskController {
 
 
     @RequestMapping(value = "/complaintTicket", method = RequestMethod.GET)
-     public
-     @ResponseBody
+     public @ResponseBody
      String queryMap() throws SQLException, JSONException, ClassNotFoundException {
-
-        String tran = queryMap.queryLocation();
-        return tran;
-
+        return queryMap.queryLocation();
     }
 
 
-    @RequestMapping(value = "/",method = RequestMethod.GET )
+    @RequestMapping(value = "/kiosk",method = RequestMethod.GET )
     public String product(ModelMap model) throws SQLException, ClassNotFoundException {
-
         connectKiosk.setConnect("kioskpx", "kioskdev");
-
-
-        return "TempKiosk";
+        return "Kiosk";
     }
-
-
 }

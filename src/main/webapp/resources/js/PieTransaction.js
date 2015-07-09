@@ -53,8 +53,8 @@ function pieTransaction() {
                 cursor: 'pointer',
                 events: {
                     click: function (event) {
-                        if(event.point.name = "Kiosk")
-                        document.location.href = '/DashBoard/'+(event.point.name).replace( /\s/g, "").toLowerCase();
+                        if(event.point.name == "Kiosk")
+                        document.location.href = window.location + "/" + (event.point.name).replace( /\s/g, "").toLowerCase();
                     }
                 }
             } , {
@@ -66,14 +66,15 @@ function pieTransaction() {
                 cursor: 'pointer',
                 events: {
                     click: function (event) {
-                        if(event.point.name = "Kiosk")
-                        document.location.href = '/DashBoard/'+(event.point.name).replace( /\s/g, "").toLowerCase();
+                        if(event.point.name == "Kiosk")
+                            document.location.href = window.location + "/" + (event.point.name).replace( /\s/g, "").toLowerCase();
                     }
                 }
             }],
             exporting: {
                 buttons: [
                     {
+                        enabled: false,
                         symbol: false
                     }
                 ]
