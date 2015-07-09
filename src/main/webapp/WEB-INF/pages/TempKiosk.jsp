@@ -137,11 +137,11 @@
 
                     $.plot("#area-chart-spline", [{
                         data: d6_1,
-                        label: "Top-up",
+                        label: "Bill payment",
                         color: "#E5412D"
                     },{
                         data: d6_2,
-                        label: "Bill payment",
+                        label: "Top-up",
                         color: "rgb(124,124,124)"
                     }], {
                         series: {

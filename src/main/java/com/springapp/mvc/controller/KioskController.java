@@ -117,18 +117,6 @@ public class KioskController {
         return rootJSON.toString() ;
     }
 
-
-
-    @RequestMapping(value = "/Top4", method = RequestMethod.GET,produces = "text/plain;charset=UTF-8")
-    public @ResponseBody
-    void revenueGraph(ModelMap model) {
-        String topup = "[[\"Start\", 0],[\"Week1\", 91],[\"Week2\", 36],[\"Week3\", 100],[\"Week4\", 64]]";
-        String bill = "[[\"Start\", 0],[\"Week1\", 29],[\"Week2\", 15],[\"Week3\", 67],[\"Week4\", 40]]";
-        model.addAttribute("topup", topup);
-        model.addAttribute("bill", bill);
-    }
-
-
     @RequestMapping(value = "/top4", method = RequestMethod.GET,produces = "text/plain;charset=UTF-8")
     public @ResponseBody
     String Top4() throws SQLException, JSONException {
@@ -192,7 +180,6 @@ public class KioskController {
 
         connectKiosk.setConnect("kioskpx", "kioskdev");
 
-        revenueGraph(model);
 
         return "TempKiosk";
     }
