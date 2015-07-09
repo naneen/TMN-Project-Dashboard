@@ -178,7 +178,7 @@
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/js/bootstrap-3.1.1.min.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/barGraph.css">
 
-    <script src="${pageContext.request.contextPath}/resources/js/run-prettify.js"></script>
+    <script src="${pageContext.request.contextPath}/resources/js/run_prettify.js"></script>
     <script src="${pageContext.request.contextPath}/resources/js/jchart.js"></script>
 
 
