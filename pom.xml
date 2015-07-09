@@ -69,10 +69,23 @@
             <version>1.0.4</version>
         </dependency>
 
+
         <dependency>
-            <groupId>org.json</groupId>
-            <artifactId>json</artifactId>
-            <version>20080701</version>
+
+        <groupId>org.json</groupId>
+
+        <artifactId>json</artifactId>
+
+        <version>20080701</version>
+
+    </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-context</artifactId>
+            <version>4.0.2.RELEASE</version>
+
+
+
         </dependency>
 
         <dependency>

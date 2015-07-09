@@ -3,15 +3,18 @@
     background-color: rgb(60, 60, 60);
     border-bottom-color: transparent;
 }
+
 #headerContainer{
     margin-left: 5%;
 }
+
 #tmnLogo{
     float: left;
     position: relative;
     width: 8%;
     margin-top: 0.5%;
 }
+
 #header{
     float: left;
     position: relative;
@@ -38,6 +41,7 @@
     left: 1.5%;
     right: 0.75%;
 }
+
 /* ---------------- PIE ---------------- */
 #pieDiv{
     float: left;
@@ -52,12 +56,14 @@
     box-shadow: none;
     background-color: #f7f7f7;
 }
+
 #chart-area{
     position: relative;
     width: 60% ;
     height: 60% ;
     left: 20%;
 }
+
 .displayoffload{
     text-align: center;
     margin-top: 7%;
@@ -71,6 +77,7 @@
     right: 3.5%;
     top: 8%;
 }
+
 .well.top4boxes{
     float: left;
     position: relative;
@@ -81,24 +88,29 @@
     width: 47.5%;
     height: 46%;
 }
+
 #top1{
     background-color: #ffffff;
 }
+
 #top2{
     background-color: rgb(229, 65, 45);
     left: 5%;
     color: #ffffff;
 }
+
 #top3{
     background-color: #C0392B;
     top: 1%;
     color: #ffffff;
 }
+
 #top4{
     background-color: #C6C6C6;
     left: 5%;
     top: 1%;
 }
+
 .order{
     float: left;
     position: relative;
@@ -106,27 +118,33 @@
     height: 100%;
     font-size: 30px;
 }
+
 .percent{
     position: relative;
     height: 67%;
     text-align: center;
     font-size: 45px;
 }
+
 .location{
     position: relative;
     height: 33%;
     text-align: center;
     font-size: 16px;
 }
+
 #first{
     color: #9c9c9c;
 }
+
 #second{
     color: #ffb6a5;
 }
+
 #third{
     color: #ff9c87;
 }
+
 #fourth{
     color: #f7f7f7;
 }
@@ -142,25 +160,30 @@
     left: 3%;
     top: 0.5%;
 }
+
 #deployTitle{
     text-align: center;
     top: 5%;
     font-size: 20px;
     position: relative;
 }
+
 #deployVersion{
     color: #ff001e;
     text-align: center;
     font-size: 24px;
     margin: 2% 0 2% 0;
 }
+
 #deployChart{
     width: 250px;
     margin: 1px auto;
 }
+
 #donutChart {
     position: relative;
 }
+
 #donutPerc {
     text-align: center;
     font-size: 3em;
@@ -170,12 +193,12 @@
     width: 100%;
     color: #E5412D;
 }
+
 #donutChart canvas {
     position: absolute;
     top: 0;
     left: 0;
 }
-
 
 /* ************ MAP ************ */
 #Q3{
@@ -188,9 +211,11 @@
     right: 0.75%;
     top: 3%;
 }
+
 #Q3 h4{
     font-size: 20px;
 }
+
 #map {
     margin-left: auto;
     margin-right: auto;
@@ -220,6 +245,7 @@
     font-size: 20px;
     text-align: center;
 }
+
 #revenue{
     float: right;
     position: relative;
@@ -227,13 +253,16 @@
     width: 100%;
     border-top: solid 1px #EEEEEE;
 }
+
 #target-bar{
     margin-bottom: -13px;
     width: 93%;
 }
+
 .task-item, #color_revenuebar{
     margin-left: 7.5%;
 }
+
 #billTopup{
     float: right;
     position: relative;
@@ -242,20 +271,25 @@
 .progress {
     position: relative;
 }
+
 .progress .progress-bar {
     -webkit-box-shadow: none !important;
     box-shadow: none !important;
     background-color: rgb(56, 180, 74);
 }
+
 .progress .progress-bar.progress-bar-red {
     background-color: rgb(229, 65, 45) !important;
 }
+
 .progress .progress-bar.progress-bar-blue {
     background-color: #81CFE0 !important;
 }
+
 .progress.progress-sm {
     height: 5%;
 }
+
 #area-chart-spline{
     width: 85%;
     height: 70%;

@@ -1,0 +1,28 @@
+#textdivPT {
+    color: #757D75;
+    padding-top: 1%;
+    margin-left: 1%;
+}
+
+#divallPT {
+    height: 8%;
+    background: #EEEEEE;
+}
+
+#div4PT {
+    position: relative;
+    float: left;
+    width: 40%;
+    height: 54.5%;
+    margin-left: 1%;
+    margin-top: 1%;
+    border: #EEEEEE solid 2px;
+}
+
+.divtable {
+    position: absolute;
+    width: 99%;
+    font-size: 100%;
+    top: 9%;
+    left: 0.5%;
+}

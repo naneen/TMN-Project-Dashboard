@@ -25,33 +25,35 @@ public class KioskController {
     private QueryPieChart queryPieChart;
     @Autowired
     private QueryDeployChart queryDeployChart;
+    @Autowired
+    private QueryMap queryMap;
 
-
-    public int getPercent(int count,int sum){
+    public int getPercent(int count, int sum) {
         return (int) Math.round((double) count / sum * 100);
     }
 
-    public TreeMap<String, Integer> getSort(HashMap<String, Integer> map){
-        ValueComparator bvc =  new ValueComparator(map);
+    public TreeMap<String, Integer> getSort(HashMap<String, Integer> map) {
+        ValueComparator bvc = new ValueComparator(map);
         TreeMap<String, Integer> sorted_map = new TreeMap<String, Integer>(bvc);
         sorted_map.putAll(map);
         return sorted_map;
     }
 
     @RequestMapping(value = "/revenueBar", method = RequestMethod.GET)
-    public @ResponseBody
+    public
+    @ResponseBody
     String revenueBar() throws JSONException, SQLException {
         JSONObject userJSON = new JSONObject();
         int actual = queryRevenueBar.getActual();
         int target = queryRevenueBar.getTarget();
-        int percent = getPercent(actual,target);
+        int percent = getPercent(actual, target);
         userJSON.put("actual", actual);
         userJSON.put("target", target);
         userJSON.put("percent", percent);
         return userJSON.toString();
     }
 
-    public void revenueGraph(ModelMap model){
+    public void revenueGraph(ModelMap model) {
         String topup = "[[\"Start\", 0],[\"Week1\", 91],[\"Week2\", 36],[\"Week3\", 100],[\"Week4\", 64]]";
         String bill = "[[\"Start\", 0],[\"Week1\", 29],[\"Week2\", 15],[\"Week3\", 67],[\"Week4\", 40]]";
         model.addAttribute("topup", topup);
@@ -66,17 +68,16 @@ public class KioskController {
         int sum = queryTop4.getSum();
         HashMap<String, Integer> map = queryTop4.getCountByPlace(sum);
         Iterator<String> Vmap = getSort(map).keySet().iterator();
-        for(int i = 1;i<=4;i++) {
+        for (int i = 1; i <= 4; i++) {
             userJSON = new JSONObject();
-            if(Vmap.hasNext()){
+            if (Vmap.hasNext()) {
                 String key = Vmap.next();
                 int val = map.get(key);
-                userJSON.put("place",key);
-                userJSON.put("percent",val);
-            }
-            else{
-                userJSON.put("place","");
-                userJSON.put("percent","");
+                userJSON.put("place", key);
+                userJSON.put("percent", val);
+            } else {
+                userJSON.put("place", "");
+                userJSON.put("percent", "");
             }
             userArray.put(userJSON);
         }
@@ -104,11 +105,23 @@ public class KioskController {
         return userJSON.toString();
     }
 
+    @RequestMapping(value = "/complaintTicket", method = RequestMethod.GET)
+     public
+     @ResponseBody
+     String queryMap() throws SQLException, JSONException, ClassNotFoundException {
+
+        String tran = queryMap.queryLocation();
+        return tran;
+
+    }
+
     @RequestMapping(value = "/",method = RequestMethod.GET )
     public String product(ModelMap model) throws SQLException, ClassNotFoundException {
+
         connectKiosk.setConnect("kioskpx", "kioskdev");
         revenueGraph(model);
-//        return "TMNProduct";
         return "TempKiosk";
     }
+
+
 }
