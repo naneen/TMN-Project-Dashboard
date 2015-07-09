@@ -6,12 +6,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-
-
-
-
-
-
     <link type="text/css" rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/bootstrap.min.css">
     <link href='${pageContext.request.contextPath}/resources/css/Bubble.css' rel="stylesheet">
     <link href='${pageContext.request.contextPath}/resources/css/ProductTable.css' rel="stylesheet">
@@ -184,8 +178,6 @@
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/js/bootstrap-3.1.1.min.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/barGraph.css">
 
-    <%--<script src="${pageContext.request.contextPath}/resources/js/jquery-2.1.1.min.js"></script>--%>
-    <%--<script src="${pageContext.request.contextPath}/resources/js/bootstrap-3.1.1.min.js"></script>--%>
     <script src="${pageContext.request.contextPath}/resources/js/run-prettify.js"></script>
     <script src="${pageContext.request.contextPath}/resources/js/jchart.js"></script>
 
