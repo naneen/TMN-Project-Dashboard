@@ -1,10 +1,6 @@
 .idea/
-<<<<<<< HEAD
-target/
-=======
 target/
 src/main/webapp/.DS_Store
 src/main/webapp/WEB-INF/.DS_Store
 src/main/webapp/WEB-INF/pages/.DS_Store
 Dashboard.iml
->>>>>>> 8673e2611fc15aa7f15d3e1d14334383c3d7ac28
