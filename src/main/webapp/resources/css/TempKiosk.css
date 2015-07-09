@@ -1,15 +1,10 @@
 .navbar{
     margin-bottom: 0;
-    /*background-color: rgb(245, 245, 245);*/
     background-color: rgb(60, 60, 60);
-    /*background-color: transparent;*/
     border-bottom-color: transparent;
-    /*border-color: #080808;*/
 }
 #headerContainer{
-    /*margin: 0.5%;*/
     margin-left: 5%;
-    /*background-color: #222222;*/
 }
 #tmnLogo{
     float: left;
@@ -30,7 +25,6 @@
 #allContents{
     margin-top: 72.9375px;
     height: 90.2%;
-    /*background: cadetblue;*/
 }
 
 /* *************** OFFSET ************** */
@@ -76,7 +70,6 @@
     width: 59.5%;
     right: 3.5%;
     top: 8%;
-    /*background-color: #0a819c;*/
 }
 .well.top4boxes{
     float: left;
@@ -171,7 +164,6 @@
 #donutPerc {
     text-align: center;
     font-size: 3em;
-    /*left: 5%;*/
     top: 35%;
     display: block;
     position: absolute;
@@ -249,11 +241,6 @@
 }
 .progress {
     position: relative;
-    /*-webkit-border-radius: 0 !important;*/
-    /*-moz-border-radius: 0 !important;*/
-    /*border-radius: 0 !important;*/
-    /*-webkit-box-shadow: none !important;*/
-    /*box-shadow: none !important;*/
 }
 .progress .progress-bar {
     -webkit-box-shadow: none !important;

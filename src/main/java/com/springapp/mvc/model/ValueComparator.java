@@ -2,7 +2,6 @@ package com.springapp.mvc.model;
 
 import java.util.Comparator;
 import java.util.HashMap;
-import java.util.Map;
 
 public class ValueComparator implements Comparator<String> {
     HashMap<String, Integer> base;

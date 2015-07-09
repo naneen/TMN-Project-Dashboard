@@ -1,5 +1,5 @@
-function pieTransection() {
-    $.getJSON("PieTransaction", function(json){
+function pieTransaction() {
+    $.getJSON("pieTransaction", function(json){
         var name = 'TrueMoneyProduct';
         var browserData = [];
         var colors =  ["#dc49ee","#b64dee","#7946e8","#615aff","#466ae8","#4da3ff","#4ed6ff","#47e8e3","#5bffcb","#47e888","#4eff63","#70ff4a","#9fe843","#efff57","#e8dc43","#ffdf4a"];

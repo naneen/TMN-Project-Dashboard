@@ -10,9 +10,7 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
-
 import java.sql.*;
-import java.text.DecimalFormat;
 import java.util.*;
 
 @Controller
@@ -25,6 +23,8 @@ public class KioskController {
     private QueryTop4 queryTop4;
     @Autowired
     private QueryPieChart queryPieChart;
+    @Autowired
+    private QueryDeployChart queryDeployChart;
 
 
     public int getPercent(int count,int sum){
@@ -58,7 +58,7 @@ public class KioskController {
         model.addAttribute("bill", bill);
     }
 
-    @RequestMapping(value = "/Top4", method = RequestMethod.GET,produces = "text/plain;charset=UTF-8")
+    @RequestMapping(value = "/top4", method = RequestMethod.GET,produces = "text/plain;charset=UTF-8")
     public @ResponseBody
     String Top4() throws SQLException, JSONException {
         JSONObject userJSON;
@@ -84,13 +84,24 @@ public class KioskController {
         return userArray.toString();
     }
 
-    @RequestMapping(value = "/PieChart", method = RequestMethod.GET)
+    @RequestMapping(value = "/pieChart", method = RequestMethod.GET)
     public @ResponseBody
     String queryPieChart() throws SQLException {
         int countBillKisok = queryPieChart.getCountBillKiosk();
         int countBillTRM = queryPieChart.getCountBillTRM();
         int avgOffset = getPercent(countBillKisok, countBillKisok + countBillTRM);
         return Integer.toString(avgOffset);
+    }
+
+    @RequestMapping(value = "/deployChart", method = RequestMethod.GET)
+    public @ResponseBody
+    String queryDeployChart() throws SQLException, JSONException {
+        int deployPercent = queryDeployChart.getCountBillKiosk();
+        String version = queryDeployChart.getLastestVersion();
+        JSONObject userJSON = new JSONObject();
+        userJSON.put("version",version);
+        userJSON.put("deployPercent",deployPercent);
+        return userJSON.toString();
     }
 
     @RequestMapping(value = "/",method = RequestMethod.GET )

@@ -28,7 +28,7 @@
             $.ajax({
                 url : "TimeReal" , success : function(data) {
                     if(data == "00:00:00"){
-                        pieTransection();
+                        pieTransaction();
                     }
                 }
             });
@@ -36,7 +36,7 @@
         setInterval(TimeReal,1000);
 
         window.onload = function () {
-            pieTransection();
+            pieTransaction();
             TimeReal();
         };
     </script>

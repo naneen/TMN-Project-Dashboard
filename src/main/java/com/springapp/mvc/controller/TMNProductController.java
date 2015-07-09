@@ -11,9 +11,7 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
-
 import java.sql.SQLException;
-import java.util.HashMap;
 
 @Controller
 public class TMNProductController {
@@ -32,7 +30,7 @@ public class TMNProductController {
         return temp;
     }
 
-    @RequestMapping(value = "/PieTransaction", method = RequestMethod.GET)
+    @RequestMapping(value = "/pieTransaction", method = RequestMethod.GET)
     public @ResponseBody
     String pieTransaction() throws JSONException, SQLException {
         JSONArray userArray = new JSONArray();

@@ -20,10 +20,12 @@
         <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&signed_in=false"  type="text/javascript"></script>
         <script src='${pageContext.request.contextPath}/resources/js/infobubble.js'></script>
         <script src='${pageContext.request.contextPath}/resources/js/Map.js'></script>
+        <%-- deploy --%>
+        <%--<script src="${pageContext.request.contextPath}/resources/js/deployChartGetValue.js"></script>--%>
 
         <script type="text/javascript">
             function pieCHART() {
-                $.get("PieChart",function(data){
+                $.get("pieChart",function(data){
                         $("#result2").text(data+"%");
                         var freeSpace = 100-data;
                         var pieData = [
@@ -47,7 +49,7 @@
             }
 
             function top4() {
-                $.getJSON("Top4", function(json){
+                $.getJSON("top4", function(json){
                     for(var i = 1;i<=4;i++){
                         $("#resultTop4-"+i+"-place").text(json[i-1].place);
                         if(json[i-1].place != ""){
@@ -83,6 +85,17 @@
                     $("#bonusP").attr({"aria-valuenow":bonusPercent,style:"width: "+bonusPercent+"%;"});
                 });
             }
+
+            function deployChartGetValue() {
+                $.getJSON("deployChart", function(json) {
+                    var version = json.version;
+                    var deployPercent = json.deployPercent;
+                    document.getElementById("deployVersion").innerHTML = version;
+                    document.getElementById("donutPerc").innerHTML = deployPercent+"%";
+                    document.getElementById("donutChart").setAttribute("data-percent", deployPercent);
+                });
+            }
+
             function dateYesterDay() {
                 $.get("DateYesterDay", function(data){
                     $("#yesterday").text(data);
@@ -109,6 +122,7 @@
                 revenueBar();
                 getCorrectTime();
                 dateYesterDay();
+                deployChartGetValue();
             };
 
             $(function () {
@@ -178,7 +192,7 @@
         <nav class="navbar navbar-default navbar-fixed-top">
             <div id="headerContainer" class="container">
                 <img id="tmnLogo" src="${pageContext.request.contextPath}/resources/img/tmn_logo.png" alt="Null">
-                <a id="header" href="/Dashboard/kiosk">TMN Product Dashboard</a>
+                <a id="header" href="/Dashboard/product">TMN Product Dashboard</a>
             </div>
         </nav>
 
