@@ -9,6 +9,8 @@
 
     <properties>
         <spring.version>4.1.1.RELEASE</spring.version>
+        <jee.level>1.8</jee.level>
+        <jdk.level>1.8</jdk.level>
     </properties>
 
     <repositories>
@@ -98,6 +100,15 @@
     <build>
         <finalName>Dashboard</finalName>
         <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>${jdk.level}</source>
+                    <target>${jdk.level}</target>
+                </configuration>
+            </plugin>
+
             <plugin>
                 <groupId>org.mortbay.jetty</groupId>
                 <artifactId>maven-jetty-plugin</artifactId>
