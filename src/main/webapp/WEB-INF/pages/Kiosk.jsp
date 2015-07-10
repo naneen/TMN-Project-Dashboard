@@ -24,6 +24,8 @@
 
         <%-- deploychart --%>
         <script type="text/javascript">
+            var changeDeployPerc = true;
+            var changeDeployDonut = true;
             function pieCHART() {
                 $.get("pieChart",function(data){
                         $("#result2").text(data+"%");
@@ -90,11 +92,24 @@
                 $.getJSON("deployChart", function(json) {
                     var version = json.version;
                     var deployPercent = json.deployPercent;
+                    var tmpDeployPerc = deployPercent + "%";
+
+                    var oldVersion = $("#deployVersion").html();
                     var oldPerc = $("#donutPerc").html();
-                    changeDeployPerc = (deployPercent+"%") != oldPerc;
-                    $("#deployVersion").html(version);
-                    $("#donutPerc").html(deployPercent+"%");
-                    $("#donutChart").attr("data-percent",deployPercent);
+
+                    console.log("oldVersion: " + oldVersion + " version: " + version);
+                    console.log("oldVersion!=version: " + (oldVersion!=version));
+                    console.log("oldPerc!=tmpDeployPerc: " + (oldPerc!=tmpDeployPerc));
+                    if(oldVersion!=version || oldPerc!=tmpDeployPerc) {
+                        changeDeployPerc = true;
+                        changeDeployDonut = false;
+                        $("#deployVersion").html(version);
+                        $("#donutPerc").html(deployPercent+"%");
+                        $("#donutChart").attr("data-percent",deployPercent);
+                    }
+                    else {
+                        changeDeployPerc = false;
+                    }
                 })
             }
 
@@ -115,8 +130,12 @@
                             dateYesterDay();
                         }
                         deployChartGetValue();
-                        if(true || changeDeployPerc) {
+                        if(changeDeployPerc) {
                             drawDonutChart();
+                        }
+                        else if(!changeDeployDonut){
+                            drawDonutChart();
+                            changeDeployDonut = true;
                         }
                     }
                 });
@@ -265,7 +284,7 @@
             <%-- deployment --%>
             <div id="Q1">
                 <div id="deployTitle">Deployment Success by versions</div>
-                <div id="deployVersion">4.9.10</div>
+                <div id="deployVersion"></div>
                 <div id="deployChart">
                     <div id="donutChart" data-percent="0">
                         <span id="donutPerc">0%</span>
