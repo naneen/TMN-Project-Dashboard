@@ -92,9 +92,6 @@
                     var deployPercent = json.deployPercent;
                     var oldPerc = $("#donutPerc").html();
                     changeDeployPerc = (deployPercent+"%") != oldPerc;
-//                    alert((deployPercent+"%") != oldPerc);
-//                    alert(oldPerc == "0%");
-//                    alert(oldPerc);
                     $("#deployVersion").html(version);
                     $("#donutPerc").html(deployPercent+"%");
                     $("#donutChart").attr("data-percent",deployPercent);
@@ -102,7 +99,7 @@
             }
 
             function dateYesterDay() {
-                $.get("DateYesterDay", function(data){
+                $.get("dateYesterDay", function(data){
                     $("#yesterday").text(data);
                 });
             }
@@ -118,7 +115,7 @@
                             dateYesterDay();
                         }
                         deployChartGetValue();
-                        if(changeDeployPerc) {
+                        if(true || changeDeployPerc) {
                             drawDonutChart();
                         }
                     }
