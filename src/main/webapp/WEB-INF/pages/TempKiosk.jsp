@@ -33,7 +33,7 @@
                         var pieData = [
                             {
                                 value: data,
-                                color: "#46BFBD",
+                                color: "rgb(229, 65, 45)",
                                 highlight: "#5AD3D1",
                                 label: "Green"
                             },
