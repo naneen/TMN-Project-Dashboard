@@ -9,8 +9,6 @@
 
     <properties>
         <spring.version>4.1.1.RELEASE</spring.version>
-        <!--<jee.level>1.7</jee.level>-->
-        <!--<jdk.level>1.7</jdk.level>-->
     </properties>
 
     <repositories>
@@ -108,40 +106,17 @@
                 </configuration>
             </plugin>
             <plugin>
-                <groupId>org.apache.tomcat.maven</groupId>
-                <artifactId>tomcat7-maven-plugin</artifactId>
-                <version>2.2</version>
+                <groupId>org.mortbay.jetty</groupId>
+                <artifactId>maven-jetty-plugin</artifactId>
+                <version>6.1.26</version>
                 <configuration>
-                    <path>/ers-rpt-web</path>
-                    <port>8080</port>
+                    <connectors>
+                        <connector implementation="org.mortbay.jetty.nio.SelectChannelConnector">
+                            <port>9000</port>
+                        </connector>
+                    </connectors>
                 </configuration>
             </plugin>
         </plugins>
     </build>
-    <!--<build>-->
-        <!--<finalName>Dashboard</finalName>-->
-        <!--<plugins>-->
-            <!--<plugin>-->
-                <!--<groupId>org.apache.maven.plugins</groupId>-->
-                <!--<artifactId>maven-compiler-plugin</artifactId>-->
-                <!--<configuration>-->
-                    <!--<source>${jdk.level}</source>-->
-                    <!--<target>${jdk.level}</target>-->
-                <!--</configuration>-->
-            <!--</plugin>-->
-
-            <!--<plugin>-->
-                <!--<groupId>org.mortbay.jetty</groupId>-->
-                <!--<artifactId>maven-jetty-plugin</artifactId>-->
-                <!--<version>6.1.26</version>-->
-                <!--<configuration>-->
-                    <!--<connectors>-->
-                        <!--<connector implementation="org.mortbay.jetty.nio.SelectChannelConnector">-->
-                            <!--<port>9000</port>-->
-                        <!--</connector>-->
-                    <!--</connectors>-->
-                <!--</configuration>-->
-            <!--</plugin>-->
-        <!--</plugins>-->
-    <!--</build>-->
 </project>
