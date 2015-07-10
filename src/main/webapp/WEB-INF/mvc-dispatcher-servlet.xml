@@ -15,6 +15,7 @@
 
     <mvc:annotation-driven/>
     <mvc:resources mapping="/resources/**" location="/resources/" />
+    <mvc:resources mapping="/resources/**" location="/resources/js" />
     <mvc:default-servlet-handler/>
     <bean id="connectMobileApp" class="com.springapp.mvc.model.ConnectDB"/>
     <bean id="connectKiosk" class="com.springapp.mvc.model.ConnectDB"/>

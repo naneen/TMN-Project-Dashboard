@@ -21,7 +21,7 @@ public class QueryCountTransaction {
                 "where trans_state = '2'and type_desc in ('banksource','bankcashin') " +
                 "and channel = 'IOS_APP' " +
                 "and amount > 0 " +
-                "and create_ts between TO_DATE('20150101','yyyymmdd') and TO_DATE(sysdate) " +
+                "and create_ts between TO_DATE('20150101','yyyymmdd') and SYSDATE " +
                 "group by to_char(create_ts,'yyyymmdd'),channel,type_desc,debtor_ref,debtor_name,sourceoffund ) " +
                 "union " +
                 "(select to_char(create_ts,'yyyymmdd') trans_date,channel , type_desc ,'debtor_ref','debtor_name',sourceoffund,count(*)  as COUNT,sum(amount),count(distinct(initiator_ref)) " +
@@ -30,7 +30,7 @@ public class QueryCountTransaction {
                 "and type_desc in ('transfer') " +
                 "and channel = 'IOS_APP' " +
                 "and amount > 0 " +
-                "and create_ts between TO_DATE('20150101','yyyymmdd') and TO_DATE(sysdate) " +
+                "and create_ts between TO_DATE('20150101','yyyymmdd') and SYSDATE " +
                 "group by to_char(create_ts,'yyyymmdd'),channel,type_desc,sourceoffund) " +
                 "union " +
                 "(select to_char(create_ts,'yyyymmdd') trans_date ,channel, type_desc , creditor_ref,creditor_name,sourceoffund,count(*)  as COUNT,sum(amount),count(distinct(initiator_ref)) " +
@@ -39,7 +39,7 @@ public class QueryCountTransaction {
                 "and type_desc in ('bankcashout','billcollect','billpay','buy','sell') " +
                 "and channel = 'IOS_APP' " +
                 "and amount > 0 " +
-                "and create_ts between TO_DATE('20150101','yyyymmdd') and TO_DATE(sysdate) " +
+                "and create_ts between TO_DATE('20150101','yyyymmdd') and SYSDATE " +
                 "group by to_char(create_ts,'yyyymmdd'),channel,type_desc,creditor_ref,creditor_name,channel,sourceoffund ) " +
                 "union " +
                 "(select to_char(create_ts,'yyyymmdd') trans_date ,channel ,type_desc ,debtor_ref,debtor_name,sourceoffund,count(*) as COUNT,sum(amount),count(distinct(initiator_ref)) from SUMMARY_TRANS " +
@@ -47,7 +47,7 @@ public class QueryCountTransaction {
                 "and type_desc in ('banksource','bankcashin') " +
                 "and channel = 'ANDROID' " +
                 "and amount > 0 " +
-                "and create_ts between TO_DATE('20150101','yyyymmdd') and TO_DATE(sysdate) " +
+                "and create_ts between TO_DATE('20150101','yyyymmdd') and SYSDATE " +
                 "group by to_char(create_ts,'yyyymmdd'),channel,type_desc,debtor_ref,debtor_name,sourceoffund ) " +
                 "union " +
                 "(select to_char(create_ts,'yyyymmdd') trans_date,channel , type_desc ,'debtor_ref','debtor_name',sourceoffund,count(*) as COUNT,sum(amount),count(distinct(initiator_ref)) " +
@@ -56,7 +56,7 @@ public class QueryCountTransaction {
                 "and type_desc in ('transfer') " +
                 "and channel = 'ANDROID' " +
                 "and amount > 0 " +
-                "and create_ts between TO_DATE('20150101','yyyymmdd') and TO_DATE(sysdate) " +
+                "and create_ts between TO_DATE('20150101','yyyymmdd') and SYSDATE " +
                 "group by to_char(create_ts,'yyyymmdd'),channel,type_desc,sourceoffund) " +
                 "union " +
                 "(select to_char(create_ts,'yyyymmdd') trans_date ,channel, type_desc , creditor_ref,creditor_name,sourceoffund,count(*) as COUNT,sum(amount),count(distinct(initiator_ref)) " +
@@ -65,13 +65,11 @@ public class QueryCountTransaction {
                 "and type_desc in ('bankcashout','billcollect','billpay','buy','sell') " +
                 "and channel = 'ANDROID' " +
                 "and amount > 0 " +
-                "and create_ts between TO_DATE('20150101','yyyymmdd') and TO_DATE(sysdate) " +
+                "and create_ts between TO_DATE('20150101','yyyymmdd') and SYSDATE " +
                 "group by to_char(create_ts,'yyyymmdd'),channel,type_desc,creditor_ref,creditor_name,channel,sourceoffund )) ";
-        System.out.println("SQL:" + query);
         resultSet = state.executeQuery(query);
         resultSet.next();
         int ans = resultSet.getInt("COUNT");
-        System.out.println("ans:" + ans);
         resultSet.close();
         state.close();
         return ans;
@@ -84,11 +82,9 @@ public class QueryCountTransaction {
         String query = "select COUNT(TRANS_ID) as COUNT from " +
                 "(select DISTINCT(P.trans_id) from kioskpx.TR_PAY_MULTIBILL P " +
                 "where P.CREATED BETWEEN to_date('01/01/2015 00:00:00', 'dd/MM/yyyy hh24:mi:ss') and SYSDATE) ";
-        System.out.println("SQL:" + query);
         resultSet = state.executeQuery(query);
         resultSet.next();
         int ans = resultSet.getInt("COUNT");
-        System.out.println("ans:" + ans);
         resultSet.close();
         state.close();
         return ans;
@@ -107,11 +103,9 @@ public class QueryCountTransaction {
                 "and service_code not in ('BANKA/C','TMN_TRANSFER') " +
                 "and trans_cancel_status is null " +
                 "order by trans_date) ";
-        System.out.println("SQL:" + query);
         resultSet = state.executeQuery(query);
         resultSet.next();
         int ans = resultSet.getInt("COUNT");
-        System.out.println("ans:" + ans);
         resultSet.close();
         state.close();
         return ans;
@@ -126,11 +120,9 @@ public class QueryCountTransaction {
                 "from payment.trans " +
                 "where created_date between to_date('01/01/2015 00:00:00', 'dd/MM/yyyy hh24:mi:ss') and SYSDATE " +
                 "group by to_char(created_date,'yyyymmdd'),app_name,app_id,trans_state order by to_char(created_date,'yyyymmdd'),app_name,app_id,trans_state)";
-        System.out.println("SQL:" + query);
         resultSet = state.executeQuery(query);
         resultSet.next();
         int ans = resultSet.getInt("COUNT");
-        System.out.println("ans:" + ans);
         resultSet.close();
         state.close();
         return ans;
@@ -148,11 +140,9 @@ public class QueryCountTransaction {
                 "and a.paydate between to_date('01/01/2015 00:00:00', 'dd/MM/yyyy hh24:mi:ss') and SYSDATE " +
                 "group by to_char(a.paydate,'yyyymmdd'), a.merchant_id,a.merchant_name,a.channel, a.sof,a.ref2,(a.totalamtvat/100) " +
                 "order by to_char(a.paydate,'yyyymmdd'), a.merchant_id,a.merchant_name,a.channel, a.sof,a.ref2,(a.totalamtvat/100)) ";
-        System.out.println("SQL:" + query);
         resultSet = state.executeQuery(query);
         resultSet.next();
         int ans = resultSet.getInt("COUNT");
-        System.out.println("ans:" + ans);
         resultSet.close();
         state.close();
         return ans;
@@ -168,11 +158,9 @@ public class QueryCountTransaction {
                 "where a.transstatus like '%Success%' " +
                 "and a.paydate between to_date('01/01/2015 00:00:00', 'dd/MM/yyyy hh24:mi:ss') and SYSDATE " +
                 "group by to_char(a.paydate,'yyyymm'),a.merchant_id, a.merchant_name ,sof,(a.totalamtvat)/100 order by to_char(a.paydate,'yyyymm'),a.merchant_id, a.merchant_name ,sof,(a.totalamtvat)/100)";
-        System.out.println("SQL:" + query);
         resultSet = state.executeQuery(query);
         resultSet.next();
         int ans = resultSet.getInt("COUNT");
-        System.out.println("ans:" + ans);
         resultSet.close();
         state.close();
         return ans;
@@ -190,7 +178,6 @@ public class QueryCountTransaction {
         resultSet = state.executeQuery(query);
         resultSet.next();
         int ans = resultSet.getInt("COUNT");
-        System.out.println("ans:" + ans);
         resultSet.close();
         state.close();
         return ans;
@@ -205,11 +192,9 @@ public class QueryCountTransaction {
                 "PARTNER_NAME,PAYMENT_TRANSACTION_STATUS AS PAYMAENT_STS " +
                 "from bpay.payment_transactions " +
                 "where payment_date between to_date('01/01/2015 00:00:00', 'dd/MM/yyyy hh24:mi:ss') and SYSDATE) ";
-        System.out.println("SQL:" + query);
         resultSet = state.executeQuery(query);
         resultSet.next();
         int ans = resultSet.getInt("COUNT");
-        System.out.println("ans:" + ans);
         resultSet.close();
         state.close();
         return ans;

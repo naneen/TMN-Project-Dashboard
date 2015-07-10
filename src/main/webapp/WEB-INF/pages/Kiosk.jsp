@@ -24,8 +24,10 @@
 
         <%-- deploychart --%>
         <script type="text/javascript">
+            var changeDeployPerc = true;
+            var changeDeployDonut = true;
             function pieCHART() {
-                $.get("pieChart",function(data){
+                $.get("${pageContext.request.contextPath}/pieChart",function(data){
                         $("#result2").text(data+"%");
                         var freeSpace = 100-data;
                         var pieData = [
@@ -49,7 +51,7 @@
             }
 
             function top4() {
-                $.getJSON("top4", function(json){
+                $.getJSON("${pageContext.request.contextPath}/top4", function(json){
                     for(var i = 1;i<=4;i++){
                         $("#resultTop4-"+i+"-place").text(json[i-1].place);
                         if(json[i-1].place != ""){
@@ -63,7 +65,7 @@
             }
 
             function revenueBar() {
-                $.getJSON("revenueBar", function(json){
+                $.getJSON("${pageContext.request.contextPath}/revenueBar", function(json){
                     var actualPercent = 0;
                     var lessPercent = 0;
                     var bonusPercent = 0;
@@ -87,26 +89,36 @@
             }
 
             function deployChartGetValue() {
-                $.getJSON("deployChart", function(json) {
+                $.getJSON("${pageContext.request.contextPath}/deployChart", function(json) {
                     var version = json.version;
                     var deployPercent = json.deployPercent;
+                    var tmpDeployPerc = deployPercent + "%";
+
+                    var oldVersion = $("#deployVersion").html();
                     var oldPerc = $("#donutPerc").html();
-                    changeDeployPerc = (deployPercent+"%") != oldPerc;
-                    $("#deployVersion").html(version);
-                    $("#donutPerc").html(deployPercent+"%");
-                    $("#donutChart").attr("data-percent",deployPercent);
+
+                    if(oldVersion!=version || oldPerc!=tmpDeployPerc) {
+                        changeDeployPerc = true;
+                        changeDeployDonut = false;
+                        $("#deployVersion").html(version);
+                        $("#donutPerc").html(deployPercent+"%");
+                        $("#donutChart").attr("data-percent",deployPercent);
+                    }
+                    else {
+                        changeDeployPerc = false;
+                    }
                 })
             }
 
             function dateYesterDay() {
-                $.get("dateYesterDay", function(data){
+                $.get("${pageContext.request.contextPath}/dateYesterDay", function(data){
                     $("#yesterday").text(data);
                 });
             }
 
             function getCorrectTime() {
                 $.ajax({
-                    url : "getCorrectTime" , success : function(data) {
+                    url : "${pageContext.request.contextPath}/getCorrectTime" , success : function(data) {
                         if(data == "00:00:00"){
                             top4();
                             pieCHART();
@@ -115,8 +127,12 @@
                             dateYesterDay();
                         }
                         deployChartGetValue();
-                        if(true || changeDeployPerc) {
+                        if(changeDeployPerc) {
                             drawDonutChart();
+                        }
+                        else if(!changeDeployDonut){
+                            drawDonutChart();
+                            changeDeployDonut = true;
                         }
                     }
                 });
@@ -124,7 +140,7 @@
             setInterval(getCorrectTime,3000);
 
             function getBillTopup() {
-                $.getJSON("bill_topup_chart", function (rootJSON){
+                $.getJSON("${pageContext.request.contextPath}/bill_topup_chart", function (rootJSON){
                     //BEGIN AREA CHART SPLINE
 
                     var d6_1 = rootJSON.bill;
@@ -265,7 +281,7 @@
             <%-- deployment --%>
             <div id="Q1">
                 <div id="deployTitle">Deployment Success by versions</div>
-                <div id="deployVersion">4.9.10</div>
+                <div id="deployVersion"></div>
                 <div id="deployChart">
                     <div id="donutChart" data-percent="0">
                         <span id="donutPerc">0%</span>

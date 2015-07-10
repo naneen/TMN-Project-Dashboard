@@ -19,7 +19,7 @@ public class QueryRevenueBar {
         resultSet = state.executeQuery("select sum(AMOUNT) as ACTUAL " +
                 "                from TR_PAY_MULTIBILL t1,TR_PAY_DETAIL_MULTIBILL t2 " +
                 "                where t1.TRANS_ID = t2.TRANS_ID " +
-                "                and t1.PAYMENT_DATETIME between to_date('01/01/2015 00:00:00', 'dd/MM/yyyy hh24:mi:ss') and to_date(SYSDATE, 'dd/MM/yyyy hh24:mi:ss')");
+                "                and t1.PAYMENT_DATETIME between to_date('01/01/2015 00:00:00', 'dd/MM/yyyy hh24:mi:ss') and SYSDATE");
         resultSet.next();
         int ans = resultSet.getInt("ACTUAL");
         resultSet.close();
@@ -35,7 +35,7 @@ public class QueryRevenueBar {
                 "FROM ( " +
                 "  SELECT *  " +
                 "  FROM DT_TARGET a " +
-                "  WHERE SYSDATE between to_date(a.TARGET_DATE_START, 'dd/MM/yyyy hh24:mi:ss') and to_date(a.TARGET_DATE_END, 'dd/MM/yyyy hh24:mi:ss') " +
+                "  WHERE SYSDATE between to_date(a.TARGET_DATE_START, 'dd/MM/yyyy hh24:mi:ss') and SYSDATE " +
                 "  ORDER BY a.TARGET_DATE_START desc) " +
                 "  WHERE rownum <= 1 ");
         resultSet.next();
