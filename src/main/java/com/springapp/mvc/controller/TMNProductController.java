@@ -62,25 +62,6 @@ public class TMNProductController {
         return userArray.toString();
     }
 
-    @RequestMapping(value = "/product",method = RequestMethod.GET )
-    public String product(ModelMap model) throws SQLException, ClassNotFoundException {
-        connectMobileApp.setConnect("ewreport", "9wb77b");
-        connectKiosk.setConnect("kioskpx", "kioskdev");
-        connectTmx.setConnect("tmx", "tmx#4672");
-        connectPaymentGate.setConnect("payment", "PAY#MENT12");
-        connectTopupMobile.setConnect("cpgreport", "rpt1#cpg");
-        connectTopupGame.setConnect("gamereport", "RPT#4Game");
-        connectMasterCard.setConnect("prepaidcard", "PRE#PAID99");
-        connectBillPay.setConnect("bpay", "bpay#123$");
-
-        model.addAttribute("msg", "TMN Product Dashboard");
-
-        queryBarGraph.tranBar(model);
-        queryBarGraph.amountBar(model);
-
-        return "TMNProduct";
-    }
-
     @RequestMapping(value = "/tranTMNProduct", method = RequestMethod.GET)
     public @ResponseBody
     String tranAllProduct() throws JSONException, SQLException {
@@ -108,8 +89,8 @@ public class TMNProductController {
         int sumTran = 0;
         Double sumAmount = 0.0;
 
-        for(int i = 0;i<trueMoneyProduct.length;i++){
-            tranJson.put(trueMoneyProduct[i]);
+        for (String aTrueMoneyProduct : trueMoneyProduct) {
+            tranJson.put(aTrueMoneyProduct);
         }
 
         jsonObject.put("productName",tranJson);
@@ -132,4 +113,18 @@ public class TMNProductController {
         return jsonObject.toString();
     }
 
+    @RequestMapping(value = "/",method = RequestMethod.GET )
+    public String product(ModelMap model) throws SQLException, ClassNotFoundException {
+        connectMobileApp.setConnect("ewreport", "9wb77b");
+        connectKiosk.setConnect("kioskpx", "kioskdev");
+        connectTmx.setConnect("tmx", "tmx#4672");
+        connectPaymentGate.setConnect("payment", "PAY#MENT12");
+        connectTopupMobile.setConnect("cpgreport", "rpt1#cpg");
+        connectTopupGame.setConnect("gamereport", "RPT#4Game");
+        connectMasterCard.setConnect("prepaidcard", "PRE#PAID99");
+        connectBillPay.setConnect("bpay", "bpay#123$");
+        queryBarGraph.tranBar(model);
+        queryBarGraph.amountBar(model);
+        return "TMNProduct";
+    }
 }

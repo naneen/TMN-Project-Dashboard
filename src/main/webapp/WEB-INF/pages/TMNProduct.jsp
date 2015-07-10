@@ -62,26 +62,6 @@
     <script src='${pageContext.request.contextPath}/resources/js/exporting.js'></script>
     <script src="${pageContext.request.contextPath}/resources/js/PieTransaction.js"></script>
 
-
-    <script>
-        function TimeReal() {
-            $.ajax({
-                url: "TimeReal", success: function (data) {
-                    if (data == "00:00:00") {
-                        pieTransection();
-                    }
-                }
-            });
-        }
-        setInterval(TimeReal, 1000);
-
-        window.onload = function () {
-            pieTransaction();
-            TimeReal();
-        };
-    </script>
-
-
     <script type="text/javascript">
         $(function () {
             $('#container_bubble').highcharts({
@@ -159,6 +139,7 @@
                 exporting: {
                     buttons: [
                         {
+                            enabled:false,
                             symbol: false
                         }
                     ]
@@ -184,12 +165,25 @@
 
         });
     </script>
+    <script>
+        function getCorrectTime() {
+            $.ajax({
+                url: "getCorrectTime", success: function (data) {
+                    if (data == "23:00:00") {
+                        pieTransaction();
+                    }
+                }
+            });
+        }
+        setInterval(getCorrectTime, 3000);
 
-
+        window.onload = function () {
+            pieTransaction();
+            getCorrectTime();
+        };
+    </script>
 </head>
 <body>
-
-    <a href="/DashBoard/kiosk" id="headNav">${msg}</a>
 
     <div id="div1Pie">
 

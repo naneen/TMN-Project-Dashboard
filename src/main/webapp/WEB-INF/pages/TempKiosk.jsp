@@ -23,8 +23,8 @@
         <script src='${pageContext.request.contextPath}/resources/js/Map.js'></script>
 
         <%-- deploychart --%>
-        <%--<script src="resources/js/deployChartDecor.js"></script>--%>
-        <%--<script src="resources/js/deployChartJs.js"></script>--%>
+        <script src="resources/js/deployChartDecor.js"></script>
+        <script src="resources/js/deployChartJs.js"></script>
         <script type="text/javascript">
             function pieCHART() {
                 $.get("pieChart",function(data){
