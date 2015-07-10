@@ -108,8 +108,8 @@ public class TMNProductController {
         int sumTran = 0;
         Double sumAmount = 0.0;
 
-        for(int i = 0;i<trueMoneyProduct.length;i++){
-            tranJson.put(trueMoneyProduct[i]);
+        for (String aTrueMoneyProduct : trueMoneyProduct) {
+            tranJson.put(aTrueMoneyProduct);
         }
 
         jsonObject.put("productName",tranJson);
