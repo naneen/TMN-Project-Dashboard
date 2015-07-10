@@ -18,7 +18,7 @@
 
 
     <script>
-        $.getJSON("tranTMNProduct", function (json) {
+        $.getJSON("${pageContext.request.contextPath}/tranTMNProduct", function (json) {
 
             $("#MobileApp").html(json.productName[0]);
             $("#Kiosk").html(json.productName[1]);
@@ -73,7 +73,6 @@
                         text: 'Amount (Million Baht)'
                     }
                 },
-
                 chart: {
                     backgroundColor: {
                         linearGradient: [0, 0, 0, 500],
@@ -168,7 +167,7 @@
     <script>
         function getCorrectTime() {
             $.ajax({
-                url: "getCorrectTime", success: function (data) {
+                url: "${pageContext.request.contextPath}/getCorrectTime", success: function (data) {
                     if (data == "23:00:00") {
                         pieTransaction();
                     }
