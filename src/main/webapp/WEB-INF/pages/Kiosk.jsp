@@ -70,12 +70,10 @@
                     var lessPercent = 0;
                     var bonusPercent = 0;
                     if(json.percent <= 100){
-                        document.getElementById('color_revenuebar').className = "progress lessThan100 progress-sm";
                         actualPercent = json.percent;
                         lessPercent = 100 - actualPercent;
                     }
                     else{
-                        document.getElementById('color_revenuebar').className = "progress greaterThan100 progress-sm";
                         actualPercent = 200 - json.percent;
                         bonusPercent = 100 - actualPercent
                     }
@@ -313,7 +311,7 @@
                             <span style="color: red">Target: </span>
                             <span style="color: #000000" id="target"></span>
                             <small class="pull-right text-muted" id="percent"></small>
-                            <div id="color_revenuebar">
+                            <div id="color_revenuebar" class="progress progress-sm">
                                 <div id="actualP" role="progressbar" aria-valuenow="0"
                                      aria-valuemin="0" aria-valuemax="100"
                                      style="width: 0%;" class="progress-bar progress-bar">
