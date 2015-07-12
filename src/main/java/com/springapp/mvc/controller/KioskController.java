@@ -167,7 +167,6 @@ public class KioskController {
      public @ResponseBody
      String queryMap() throws SQLException, JSONException, ClassNotFoundException {
         return queryMap.queryLocation();
-
     }
 
 

@@ -118,6 +118,7 @@
                 $.ajax({
                     url : "${pageContext.request.contextPath}/getCorrectTime" , success : function(data) {
                         if(data == "00:00:00"){
+                            alert("AAA");
                             top4();
                             pieCHART();
                             revenueBar();
@@ -135,7 +136,7 @@
                     }
                 });
             }
-            setInterval(getCorrectTime,3000);
+            setInterval(getCorrectTime,1000);
 
             function getBillTopup() {
                 $.getJSON("${pageContext.request.contextPath}/bill_topup_chart", function (rootJSON){

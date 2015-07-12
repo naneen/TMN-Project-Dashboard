@@ -256,13 +256,13 @@
         function getCorrectTime() {
             $.ajax({
                 url: "${pageContext.request.contextPath}/getCorrectTime", success: function (data) {
-                    if (data == "23:00:00") {
+                    if (data == "00:00:00") {
                         pieTransaction();
                     }
                 }
             });
         }
-        setInterval(getCorrectTime, 3000);
+        setInterval(getCorrectTime, 1000);
 
         window.onload = function () {
             pieTransaction();

@@ -20,27 +20,26 @@ public class QueryMap {
     public String queryLocation() throws SQLException,JSONException {
         JSONArray arrayJSON=new JSONArray();
 
-        ResultSet  resultSet1;
-        Statement state1;
-        state1 = connectKiosk.getConnect().createStatement();
+        ResultSet  resultSet;
+        Statement state;
+        state = connectKiosk.getConnect().createStatement();
 
-        resultSet1 = state1.executeQuery("select DT_LOCATION.PLACE,DT_LOCATION.LON,DT_LOCATION.LAT,DT_LOCATION.LOCATION_ID,COUNT(*) as COUNT"+
+        resultSet = state.executeQuery("select DT_LOCATION.PLACE,DT_LOCATION.LON,DT_LOCATION.LAT,DT_LOCATION.LOCATION_ID,COUNT(*) as COUNT"+
                 " FROM (DT_LOCATION INNER JOIN RE_LOCATION_KIOSK ON DT_LOCATION.LOCATION_ID = RE_LOCATION_KIOSK.LOCATION_ID)" +
                 "INNER JOIN DT_TICKETS"+
                 " ON RE_LOCATION_KIOSK.KIOSK_ID = DT_TICKETS.KIOSK_ID"+
                 " WHERE DT_LOCATION.AREA_BANGKOK='yes' AND DT_TICKETS.DATE_OF_ARRIVAL >= to_date('01/01/2015','DD-MM-YYYY')"+
                 " GROUP BY DT_LOCATION.PLACE,DT_LOCATION.LON,DT_LOCATION.LAT,DT_LOCATION.LOCATION_ID ORDER BY COUNT(*) DESC");
 
-        while(resultSet1.next()) {
-            arrayJSON.put(resultSet1.getString("PLACE"));
-            arrayJSON.put(resultSet1.getDouble("LON"));
-            arrayJSON.put(resultSet1.getDouble("LAT"));
-            arrayJSON.put(resultSet1.getInt("LOCATION_ID"));
-            arrayJSON.put(resultSet1.getInt("COUNT")
-            );
+        while(resultSet.next()) {
+            arrayJSON.put(resultSet.getString("PLACE"));
+            arrayJSON.put(resultSet.getDouble("LON"));
+            arrayJSON.put(resultSet.getDouble("LAT"));
+            arrayJSON.put(resultSet.getInt("LOCATION_ID"));
+            arrayJSON.put(resultSet.getInt("COUNT"));
         }
-        resultSet1.close();
-        state1.close();
+        resultSet.close();
+        state.close();
         return arrayJSON.toString();
     }
 }
