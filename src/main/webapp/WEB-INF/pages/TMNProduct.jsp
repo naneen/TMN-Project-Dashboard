@@ -215,7 +215,7 @@
                             distance: 20,
                             //useHTML : true,
                             formatter: function() {
-                                return "<p><span style=\"font-size: 100%;\">" + this.point.name + " </p></span><p><span style=\"font-size: 100%; color: orange;\">" + this.point.y + "%</span></p>";
+                                return "<span style=\"font-size: 100%;\">" + this.point.name + " </span><span style=\"font-size: 100%; color: orange;\">" + this.point.y + "%</span>";
                             }
                         },
                         cursor: 'pointer',
@@ -251,12 +251,6 @@
             });
         }
     </script>
-
-
-
-
-
-
 
     <script>
         function getCorrectTime() {
@@ -445,7 +439,7 @@
             <div id="textdivBarTran"><b>Transaction Bar Graph by TMN Product</b></div>
 
         </div>
-        <div id="transaction_chart" data-sort="false" data-width="200%" class="jChart chart-lg"
+        <div id="transaction_chart" data-sort="false"  data-width="320%"  class="jChart chart-lg"
              name="Success Transaction made (${month})">
             <div class="define-chart-row" data-color="#84d6ff" title="Mobile App.">${mobileAppTran}</div>
             <div class="define-chart-row" data-color="#38BCFF" title="Kiosk">${kioskTran}</div>
@@ -472,7 +466,7 @@
             <div id="textdivBarAmount"><b>Transaction Bar Graph by TMN Product</b></div>
 
         </div>
-        <div id="transaction_chart2" data-sort="false" data-width="200%" class="jChart chart-lg"
+        <div id="transaction_chart2" data-sort="false" data-width="320%" class="jChart chart-lg"
              name="Success Amount made (${month})">
             <div class="define-chart-row" data-color="#e9fd05" title="Mobile App.">${mobileAppAmount}</div>
             <div class="define-chart-row" data-color="#fdee04" title="Kiosk">${kioskAmount}</div>
