@@ -102,7 +102,11 @@
                     y: 25
                 },
 
-                series: [{
+
+
+
+
+                    series: [{
                     data: [[97, 36, 79], [94, 74, 60], [68, 76, 58], [64, 87, 56], [68, 27, 73], [74, 99, 42], [7, 93, 87], [51, 69, 40], [38, 23, 33], [57, 86, 31]],
                     name: 'Moblie app',
                     color: '#F64747'
@@ -278,7 +282,7 @@
     <div id="div1Pie">
 
         <div id="divallPie">
-            <div id="textdivPie"><b>Pie Graph by TMN Product</b></div>
+            <div id="textdivPie"><b>Transaction Pie Graph</b></div>
 
         </div>
 
@@ -290,7 +294,7 @@
     <div id="div1Bubble">
 
         <div id="divallBubble">
-            <div id="textdivBubble"><b>Bubble Graph by TMN Product</b></div>
+            <div id="textdivBubble"><b>Transaction and Amount Bubble Graph</b></div>
 
         </div>
 
@@ -301,7 +305,7 @@
     <div id="div4PT">
 
         <div id="divallPT">
-            <div id="textdivPT"><b>Total by TMN Product</b></div>
+            <div id="textdivPT"><b>Total Transaction and Amount Table</b></div>
 
         </div>
 
@@ -309,8 +313,8 @@
             <thead bgcolor="#000000" style="color: #fff">
             <tr>
                 <th>Product Name</th>
-                <th>Transaction</th>
-                <th>Amount(THB)</th>
+                <th width="20%" class="text-right">Transaction</th>
+                <th width="40%" class="text-right">Amount(THB)</th>
             </tr>
             </thead>
             <tbody>
@@ -320,10 +324,10 @@
                     <div id="MobileApp"></div>
                 </td>
                 <td>
-                    <div id="tranMobileApp"></div>
+                    <div id="tranMobileApp"class="text-right" ></div>
                 </td>
                 <td>
-                    <div id="amountMobileApp"></div>
+                    <div id="amountMobileApp" class="text-right"></div>
                 </td>
 
             </tr>
@@ -332,10 +336,10 @@
                     <div id="Kiosk"></div>
                 </td>
                 <td>
-                    <div id="tranKiosk"></div>
+                    <div id="tranKiosk" class="text-right"></div>
                 </td>
                 <td>
-                    <div id="amountKiosk"></div>
+                    <div id="amountKiosk" class="text-right"></div>
                 </td>
 
             </tr>
@@ -345,10 +349,10 @@
                     <div id="TMX"></div>
                 </td>
                 <td>
-                    <div id="tranTMX"></div>
+                    <div id="tranTMX" class="text-right"></div>
                 </td>
                 <td>
-                    <div id="amountTMX"></div>
+                    <div id="amountTMX" class="text-right"></div>
                 </td>
 
             </tr>
@@ -358,10 +362,10 @@
                     <div id="Payment"></div>
                 </td>
                 <td>
-                    <div id="tranPayment"></div>
+                    <div id="tranPayment" class="text-right"></div>
                 </td>
                 <td>
-                    <div id="amountPayment"></div>
+                    <div id="amountPayment" class="text-right"></div>
                 </td>
 
             </tr>
@@ -371,10 +375,10 @@
                     <div id="TopupMobile"></div>
                 </td>
                 <td>
-                    <div id="tranTopupMobile"></div>
+                    <div id="tranTopupMobile" class="text-right"></div>
                 </td>
                 <td>
-                    <div id="amountTopupMobile"></div>
+                    <div id="amountTopupMobile" class="text-right"></div>
                 </td>
 
             </tr>
@@ -384,10 +388,10 @@
                     <div id="TopupGame"></div>
                 </td>
                 <td>
-                    <div id="tranTopupGame"></div>
+                    <div id="tranTopupGame" class="text-right"></div>
                 </td>
                 <td>
-                    <div id="amountTopupGame"></div>
+                    <div id="amountTopupGame" class="text-right"></div>
                 </td>
 
             </tr>
@@ -397,10 +401,10 @@
                     <div id="WeCard"></div>
                 </td>
                 <td>
-                    <div id="tranWeCard"></div>
+                    <div id="tranWeCard" class="text-right"></div>
                 </td>
                 <td>
-                    <div id="amountWeCard"></div>
+                    <div id="amountWeCard" class="text-right"></div>
                 </td>
 
             </tr>
@@ -410,10 +414,10 @@
                     <div id="BillPay"></div>
                 </td>
                 <td>
-                    <div id="tranBillPay"></div>
+                    <div id="tranBillPay" class="text-right"></div>
                 </td>
                 <td>
-                    <div id="amountBillPay"></div>
+                    <div id="amountBillPay" class="text-right"></div>
                 </td>
 
             </tr>
@@ -425,10 +429,10 @@
                     <div id="Total"></div>
                 </th>
                 <th>
-                    <div id="tranTotal"></div>
+                    <div id="tranTotal" class="text-right"></div>
                 </th>
                 <th>
-                    <div id="amountTotal"></div>
+                    <div id="amountTotal" class="text-right"></div>
                 </th>
             </tr>
             </thead>
@@ -439,7 +443,7 @@
     <div id="divBarTran">
 
         <div id="divallBarTran">
-            <div id="textdivBarTran"><b>Transaction Bar Graph by TMN Product</b></div>
+            <div id="textdivBarTran"><b>Transaction Bar Graph</b></div>
 
         </div>
         <div id="transaction_chart" data-sort="false"  data-width="320%"  class="jChart chart-lg"
@@ -466,7 +470,7 @@
     <div id="divBarAmount">
 
         <div id="divallBarAmount">
-            <div id="textdivBarAmount"><b>Transaction Bar Graph by TMN Product</b></div>
+            <div id="textdivBarAmount"><b>Amount Bar Graph</b></div>
 
         </div>
         <div id="transaction_chart2" data-sort="false" data-width="320%" class="jChart chart-lg"
