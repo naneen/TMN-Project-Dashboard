@@ -5,8 +5,10 @@ $(function () {
         var map;
         var count = 0;
         $.getJSON("complaintTicket", function (json) {
-            initialize();
-            var lon, lat, ticket;
+            var lon, lat, ticket,lonCenter,latCenter;
+            lonCenter=parseFloat(json[1]);
+            latCenter=parseFloat(json[2]);
+            initialize(lonCenter,latCenter);
             for (i = 0; i < json.length; i += 5) {
                 lon = parseFloat(json[i + 1]);
                 lat = parseFloat(json[i + 2]);
@@ -17,10 +19,11 @@ $(function () {
             }
         });
 
-        function initialize() {
+        function initialize(lon,lat) {
             var mapOptions = {
-                zoom: 13,
-                center: new google.maps.LatLng(13.7557261, 100.4988848),
+                zoom: 12,
+                //center: new google.maps.LatLng(13.7557261, 100.4988848),
+                center: new google.maps.LatLng(lon,lat),
                 disableDefaultUI: true,
                 boxClass: "info-windows"
             }
@@ -225,13 +228,14 @@ $(function () {
             count++;
             marker = new google.maps.Marker({
                 position: new google.maps.LatLng(lon, lat),
+                optimized: false,
                 map: map
             });
             if (count > 3) {
                 marker.setIcon('resources/img/pin_orange_default.png');
             }
             else {
-                marker.setIcon('resources/img/pin_orange_alert.png');
+                marker.setIcon('resources/img/pinAn.gif');
             }
             google.maps.event.addListener(marker, 'mouseover', (function (marker, i) {
                 return function () {

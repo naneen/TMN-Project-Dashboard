@@ -267,6 +267,25 @@
     margin: 1% 0 0 5%;
 }
 
+<<<<<<< HEAD
+=======
+.task-item, #color_revenuebar{
+    margin-left: 7.5%;
+}
+
+#billTopup{
+    float: right;
+    position: relative;
+    width: 100%;
+    /*height: 95%;*/
+    /*top: 8%;*/
+}
+
+#billTopup p{
+    margin: 1% 0 0 7%;
+}
+
+>>>>>>> 617b9262bc4670eaa15aada574ee1836f885171f
 .progress {
     position: relative;
 }

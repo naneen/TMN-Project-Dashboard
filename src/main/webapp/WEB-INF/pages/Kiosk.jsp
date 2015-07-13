@@ -317,7 +317,7 @@
             <div id="Q4">
                 <h4 class="mbm">Revenue</h4>
                 <div id="billTopup">
-                    <p>Amount(milion baht)</p>
+                    <p>Amount(million baht)</p>
                     <div id="area-chart-spline"></div>
                 </div>
             </div>
