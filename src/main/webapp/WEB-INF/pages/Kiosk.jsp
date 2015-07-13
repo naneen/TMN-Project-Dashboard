@@ -73,6 +73,7 @@
                         actualPercent = json.percent;
                         lessPercent = 100 - actualPercent;
                         $("#actualP_inbar").html(actualPercent+"%");
+                        $("#triangleLogo").attr("src","${pageContext.request.contextPath}/resources/img/triangle_down.gif");
                     }
                     else if(json.percent <= 200){
                         actualPercent = 200 - json.percent;
@@ -82,6 +83,7 @@
                     else{
                         bonusPercent = 100;
                     }
+                    $("#actualHeader").html(json.actual);
                     $("#actual").html(json.actual);
                     $("#target").html(json.target);
                     $("#percent").html(json.percent + " %");
@@ -229,7 +231,9 @@
             <div id="headerContainer" class="container">
                 <img id="tmnLogo" src="${pageContext.request.contextPath}/resources/img/tmn_logo.png" alt="Null">
                 <%--<a id="header" href="/Dashboard/product">TMN Product Dashboard</a>--%>
-                <a id="header" href="javascript:history.back()">TMN Kiosk</a>
+                <a id="header" href="javascript:history.back()">TMN Kiosk </a>
+                <span id="headerActual">Actual : <span id="actualHeader" style="color: mediumspringgreen"></span></span>
+                <img id="triangleLogo" src="${pageContext.request.contextPath}/resources/img/triangle_up.gif" alt="Null">
             </div>
         </nav>
 

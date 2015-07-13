@@ -15,11 +15,29 @@
     margin-top: 0.5%;
 }
 
+#triangleLogo{
+    float: right;
+    position: relative;
+    width: 5%;
+    height: 5%;
+    margin-top: 0.5%;
+}
+
 #header{
     float: left;
     position: relative;
     font-size: 27px;
     color: #ff4220;
+    font-weight: bold;
+    text-decoration: none;
+    padding: 1%;
+}
+
+#headerActual{
+    float: right;
+    position: relative;
+    font-size: 27px;
+    color: white;
     font-weight: bold;
     text-decoration: none;
     padding: 1%;
