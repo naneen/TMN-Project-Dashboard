@@ -190,7 +190,6 @@
 </head>
 <body>
 
-    <a href="/DashBoard/kiosk" id="headNav">${msg}</a>
 
 <div id="div1Pie">
 
@@ -223,7 +222,7 @@
     </div>
 
     <table class="table divtable">
-        <thead bgcolor="#000000" style="color: #fff">
+        <thead bgcolor="#757D75" style="color: #EEEEEE">
         <tr>
             <th>Product Name</th>
             <th>Transaction</th>
@@ -336,7 +335,7 @@
         </tr>
 
         </tbody>
-        <thead bgcolor="#BDC3C7" style="color: #000">
+        <thead bgcolor="#EEEEEE" style="color: #757D75">
         <tr>
             <th>
                 <div id="Total"></div>
@@ -408,6 +407,5 @@
 </div>
 
 
->>>>>>> b50e02a3b779fa300a9fe6ea27d20b006898557f
 </body>
 </html>

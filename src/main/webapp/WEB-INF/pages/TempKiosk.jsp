@@ -92,7 +92,7 @@
                     var version = json.version;
                     var deployPercent = json.deployPercent;
                     document.getElementById("deployVersion").innerHTML = version;
-                    document.getElementById("donutPerc").innerHTML = deployPercent+"%";
+                    document.getElementById("donutPerc").innerHTML = 69+"%";
                     document.getElementById("donutChart").setAttribute("data-percent", deployPercent);
                 });
             }
