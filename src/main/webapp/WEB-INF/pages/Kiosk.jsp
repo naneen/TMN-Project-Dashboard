@@ -72,10 +72,12 @@
                     if(json.percent <= 100){
                         actualPercent = json.percent;
                         lessPercent = 100 - actualPercent;
+                        $("#actualP_inbar").html(actualPercent+"%");
                     }
                     else if(json.percent <= 200){
                         actualPercent = 200 - json.percent;
                         bonusPercent = 100 - actualPercent;
+                        $("#actualP_inbar").html("100%");
                     }
                     else{
                         bonusPercent = 100;
@@ -86,6 +88,8 @@
                     $("#actualP").attr({"aria-valuenow":actualPercent,style:"width: "+actualPercent+"%;"});
                     $("#lessP").attr({"aria-valuenow":lessPercent,style:"width: "+lessPercent+"%;"});
                     $("#bonusP").attr({"aria-valuenow":bonusPercent,style:"width: "+bonusPercent+"%;"});
+                    $("#lessP_inbar").html(lessPercent+"%");
+                    $("#bonusP_inbar").html(bonusPercent+"%");
                 });
             }
 
@@ -225,8 +229,7 @@
             <div id="headerContainer" class="container">
                 <img id="tmnLogo" src="${pageContext.request.contextPath}/resources/img/tmn_logo.png" alt="Null">
                 <%--<a id="header" href="/Dashboard/product">TMN Product Dashboard</a>--%>
-                <a id="header"    href="javascript:history.back()">TMN Product Dashboard</a>
-
+                <a id="header" href="javascript:history.back()">TMN Kiosk</a>
             </div>
         </nav>
 
@@ -320,14 +323,17 @@
                                 <div id="actualP" role="progressbar" aria-valuenow="0"
                                      aria-valuemin="0" aria-valuemax="100"
                                      style="width: 0%;" class="progress-bar progress-bar">
+                                    <div id="actualP_inbar"></div>
                                 </div>
                                 <div id="lessP" role="progressbar" aria-valuenow="0"
                                      aria-valuemin="0" aria-valuemax="100"
                                      style="width: 0%;" class="progress-bar progress-bar-red">
+                                    <div id="lessP_inbar"></div>
                                 </div>
                                 <div id="bonusP" role="progressbar" aria-valuenow="0"
                                      aria-valuemin="0" aria-valuemax="100"
                                      style="width: 0%;" class="progress-bar progress-bar-blue">
+                                    <div id="bonusP_inbar"></div>
                                 </div>
                             </div>
                         </span>

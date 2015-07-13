@@ -18,7 +18,8 @@
 
 
     <script>
-        function tranTMNProduct() {
+        function pieTransaction() {
+
             $.getJSON("${pageContext.request.contextPath}/tranTMNProduct", function (json) {
 
             $("#MobileApp").html(json.productName[0]);
@@ -51,8 +52,8 @@
             $("#amountBillPay").html(json.amount[7]);
             $("#amountTotal").html(json.totalAmount);
 
-            });
-        }
+
+        });
     </script>
 
 
@@ -259,7 +260,6 @@
                 url: "${pageContext.request.contextPath}/getCorrectTime", success: function (data) {
                     if (data == "00:00:00") {
                         pieTransaction();
-                        tranTMNProduct();
                     }
                 }
             });
@@ -268,7 +268,6 @@
 
         window.onload = function () {
             pieTransaction();
-            tranTMNProduct();
             getCorrectTime();
         };
     </script>
