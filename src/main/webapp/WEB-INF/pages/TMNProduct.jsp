@@ -18,7 +18,7 @@
 
 
     <script>
-        function pieTransaction() {
+        function tranTMNProduct() {
 
             $.getJSON("${pageContext.request.contextPath}/tranTMNProduct", function (json) {
 
@@ -53,7 +53,8 @@
             $("#amountTotal").html(json.totalAmount);
 
 
-        });
+            });
+        }
     </script>
 
 
@@ -102,7 +103,6 @@
                     x: 0,
                     y: 25
                 },
-
                 series: [{
                     data: [[97, 36, 79], [94, 74, 60], [68, 76, 58], [64, 87, 56], [68, 27, 73], [74, 99, 42], [7, 93, 87], [51, 69, 40], [38, 23, 33], [57, 86, 31]],
                     name: 'Moblie app',
@@ -145,7 +145,6 @@
                         }
                     ]
                 }
-
             });
         });
     </script>
@@ -260,6 +259,7 @@
                 url: "${pageContext.request.contextPath}/getCorrectTime", success: function (data) {
                     if (data == "00:00:00") {
                         pieTransaction();
+                        tranTMNProduct();
                     }
                 }
             });
@@ -268,6 +268,7 @@
 
         window.onload = function () {
             pieTransaction();
+            tranTMNProduct();
             getCorrectTime();
         };
     </script>
