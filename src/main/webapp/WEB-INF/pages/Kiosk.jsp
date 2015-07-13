@@ -344,6 +344,7 @@
                     </div>
                 </div>
                 <div id="billTopup">
+                    <p>Amount(million baht)</p>
                     <div id="area-chart-spline"></div>
                 </div>
             </div>

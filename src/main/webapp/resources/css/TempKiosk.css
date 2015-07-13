@@ -285,7 +285,14 @@
     float: right;
     position: relative;
     width: 100%;
+    /*height: 95%;*/
+    /*top: 8%;*/
 }
+
+#billTopup p{
+    margin: 1% 0 0 7%;
+}
+
 .progress {
     position: relative;
 }
