@@ -73,9 +73,12 @@
                         actualPercent = json.percent;
                         lessPercent = 100 - actualPercent;
                     }
-                    else{
+                    else if(json.percent <= 200){
                         actualPercent = 200 - json.percent;
-                        bonusPercent = 100 - actualPercent
+                        bonusPercent = 100 - actualPercent;
+                    }
+                    else{
+                        bonusPercent = 100;
                     }
                     $("#actual").html(json.actual);
                     $("#target").html(json.target);
@@ -85,6 +88,7 @@
                     $("#bonusP").attr({"aria-valuenow":bonusPercent,style:"width: "+bonusPercent+"%;"});
                 });
             }
+
 
             function deployChartGetValue() {
                 $.getJSON("${pageContext.request.contextPath}/deployChart", function(json) {
