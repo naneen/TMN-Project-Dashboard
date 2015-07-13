@@ -1,5 +1,5 @@
-var chart4Height = document.getElementById('Q1').offsetHeight;
-var donutHeight =  (chart4Height - document.getElementById('deployTitle').offsetHeight - document.getElementById('deployVersion').offsetHeight)*80/100;
+var chart4Height = document.getElementById('Q1-right').offsetHeight;
+var donutHeight =  (chart4Height - document.getElementById('deployTitle').offsetHeight - document.getElementById('deployVersion').offsetHeight)*70/100;
 document.getElementById('deployChart').style.width = donutHeight+"px";
 document.getElementById('donutChart').style.height = donutHeight+"px";
 document.getElementById('donutChart').style.width = donutHeight+"px";
