@@ -27,7 +27,7 @@
             var changeDeployPerc = true;
             var changeDeployDonut = true;
             function pieCHART() {
-                $.get("pieChart",function(data){
+                $.get("${pageContext.request.contextPath}/pieChart",function(data){
                         $("#result2").text(data+"%");
                         var freeSpace = 100-data;
                         var pieData = [
@@ -51,7 +51,7 @@
             }
 
             function top4() {
-                $.getJSON("top4", function(json){
+                $.getJSON("${pageContext.request.contextPath}/top4", function(json){
                     for(var i = 1;i<=4;i++){
                         $("#resultTop4-"+i+"-place").text(json[i-1].place);
                         if(json[i-1].place != ""){
@@ -65,19 +65,20 @@
             }
 
             function revenueBar() {
-                $.getJSON("revenueBar", function(json){
+                $.getJSON("${pageContext.request.contextPath}/revenueBar", function(json){
                     var actualPercent = 0;
                     var lessPercent = 0;
                     var bonusPercent = 0;
                     if(json.percent <= 100){
-                        document.getElementById('color_revenuebar').className = "progress lessThan100 progress-sm";
                         actualPercent = json.percent;
                         lessPercent = 100 - actualPercent;
                     }
-                    else{
-                        document.getElementById('color_revenuebar').className = "progress greaterThan100 progress-sm";
+                    else if(json.percent <= 200){
                         actualPercent = 200 - json.percent;
-                        bonusPercent = 100 - actualPercent
+                        bonusPercent = 100 - actualPercent;
+                    }
+                    else{
+                        bonusPercent = 100;
                     }
                     $("#actual").html(json.actual);
                     $("#target").html(json.target);
@@ -88,8 +89,9 @@
                 });
             }
 
+
             function deployChartGetValue() {
-                $.getJSON("deployChart", function(json) {
+                $.getJSON("${pageContext.request.contextPath}/deployChart", function(json) {
                     var version = json.version;
                     var deployPercent = json.deployPercent;
                     var tmpDeployPerc = deployPercent + "%";
@@ -97,9 +99,6 @@
                     var oldVersion = $("#deployVersion").html();
                     var oldPerc = $("#donutPerc").html();
 
-                    console.log("oldVersion: " + oldVersion + " version: " + version);
-                    console.log("oldVersion!=version: " + (oldVersion!=version));
-                    console.log("oldPerc!=tmpDeployPerc: " + (oldPerc!=tmpDeployPerc));
                     if(oldVersion!=version || oldPerc!=tmpDeployPerc) {
                         changeDeployPerc = true;
                         changeDeployDonut = false;
@@ -114,15 +113,16 @@
             }
 
             function dateYesterDay() {
-                $.get("dateYesterDay", function(data){
+                $.get("${pageContext.request.contextPath}/dateYesterDay", function(data){
                     $("#yesterday").text(data);
                 });
             }
 
             function getCorrectTime() {
                 $.ajax({
-                    url : "getCorrectTime" , success : function(data) {
+                    url : "${pageContext.request.contextPath}/getCorrectTime" , success : function(data) {
                         if(data == "00:00:00"){
+                            alert("AAA");
                             top4();
                             pieCHART();
                             revenueBar();
@@ -140,10 +140,10 @@
                     }
                 });
             }
-            setInterval(getCorrectTime,3000);
+            setInterval(getCorrectTime,1000);
 
             function getBillTopup() {
-                $.getJSON("bill_topup_chart", function (rootJSON){
+                $.getJSON("${pageContext.request.contextPath}/bill_topup_chart", function (rootJSON){
                     //BEGIN AREA CHART SPLINE
 
                     var d6_1 = rootJSON.bill;
@@ -316,7 +316,7 @@
                             <span style="color: red">Target: </span>
                             <span style="color: #000000" id="target"></span>
                             <small class="pull-right text-muted" id="percent"></small>
-                            <div id="color_revenuebar">
+                            <div id="color_revenuebar" class="progress progress-sm">
                                 <div id="actualP" role="progressbar" aria-valuenow="0"
                                      aria-valuemin="0" aria-valuemax="100"
                                      style="width: 0%;" class="progress-bar progress-bar">

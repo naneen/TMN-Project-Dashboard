@@ -18,7 +18,8 @@
 
 
     <script>
-        $.getJSON("tranTMNProduct", function (json) {
+        function tranTMNProduct() {
+            $.getJSON("${pageContext.request.contextPath}/tranTMNProduct", function (json) {
 
             $("#MobileApp").html(json.productName[0]);
             $("#Kiosk").html(json.productName[1]);
@@ -50,8 +51,8 @@
             $("#amountBillPay").html(json.amount[7]);
             $("#amountTotal").html(json.totalAmount);
 
-
-        });
+            });
+        }
     </script>
 
 
@@ -60,7 +61,7 @@
     <script src='${pageContext.request.contextPath}/resources/js/highcharts.js'></script>
     <script src="${pageContext.request.contextPath}/resources/js/highcharts-more.js"></script>
     <script src='${pageContext.request.contextPath}/resources/js/exporting.js'></script>
-    <script src="${pageContext.request.contextPath}/resources/js/PieTransaction.js"></script>
+    <%--<script src="${pageContext.request.contextPath}/resources/js/PieTransaction.js"></script>--%>
 
     <script type="text/javascript">
         $(function () {
@@ -73,7 +74,6 @@
                         text: 'Amount (Million Baht)'
                     }
                 },
-
                 chart: {
                     backgroundColor: {
                         linearGradient: [0, 0, 0, 500],
@@ -165,20 +165,110 @@
 
         });
     </script>
+
+    <script>
+        function pieTransaction() {
+            $.getJSON("${pageContext.request.contextPath}/pieTransaction", function(json){
+                var name = 'TrueMoneyProduct';
+                var browserData = [];
+                var colors =  ["#38BCFF","#fdfa04","#0074AA"  ,"#fd3f04"  ,"#e9fd05","#fd5004" ,"#fdb404" ,"#68f40b" ,"#e9fd05","#47e888","#4eff63","#70ff4a","#9fe843","#efff57","#e8dc43","#ffdf4a"];
+
+                for (var i = 0; i < json.length; i++) {
+                    browserData.push({
+                        name: json[i].product,
+                        y: json[i].percent,
+                        color: colors[i]
+                    });
+                }
+
+                $('#chart').highcharts({
+                    chart: {
+                        type: 'pie',
+                        backgroundColor:false
+
+                    },
+                    credits: {
+                        enabled: false
+                    },
+                    title: {
+                        text: false
+                    },
+                    yAxis: {
+                        title: {
+                            text: false
+                        }
+                    },
+                    plotOptions: {
+                        pie: {
+                            shadow: true,
+                            center: ['50%', '45%']
+                        }
+                    },
+                    tooltip: {
+                        valueSuffix: '%'
+                    },
+                    series: [{
+                        name: 'Percent',
+                        data: browserData,
+                        size: '70%',
+                        dataLabels: {
+                            color: 'gray',
+                            distance: 20,
+                            //useHTML : true,
+                            formatter: function() {
+                                return "<span style=\"font-size: 100%;\">" + this.point.name + " </span><span style=\"font-size: 100%; color: orange;\">" + this.point.y + "%</span>";
+                            }
+                        },
+                        cursor: 'pointer',
+                        events: {
+                            click: function (event) {
+                                if(event.point.name == "Kiosk")
+                                    document.location.href = window.location + "/" + (event.point.name).replace( /\s/g, "").toLowerCase();
+                            }
+                        }
+                    } , {
+
+                        name: 'Percent',
+                        data: browserData,
+                        size: '70%',
+                        dataLabels : false,
+                        cursor: 'pointer',
+                        events: {
+                            click: function (event) {
+                                if(event.point.name == "Kiosk")
+                                    document.location.href = window.location + "/" + (event.point.name).replace( /\s/g, "").toLowerCase();
+                            }
+                        }
+                    }],
+                    exporting: {
+                        buttons: [
+                            {
+                                enabled: false,
+                                symbol: false
+                            }
+                        ]
+                    }
+                });
+            });
+        }
+    </script>
+
     <script>
         function getCorrectTime() {
             $.ajax({
-                url: "getCorrectTime", success: function (data) {
-                    if (data == "23:00:00") {
+                url: "${pageContext.request.contextPath}/getCorrectTime", success: function (data) {
+                    if (data == "00:00:00") {
                         pieTransaction();
+                        tranTMNProduct();
                     }
                 }
             });
         }
-        setInterval(getCorrectTime, 3000);
+        setInterval(getCorrectTime, 1000);
 
         window.onload = function () {
             pieTransaction();
+            tranTMNProduct();
             getCorrectTime();
         };
     </script>
@@ -352,7 +442,7 @@
             <div id="textdivBarTran"><b>Transaction Bar Graph by TMN Product</b></div>
 
         </div>
-        <div id="transaction_chart" data-sort="false" data-width="200%" class="jChart chart-lg"
+        <div id="transaction_chart" data-sort="false"  data-width="320%"  class="jChart chart-lg"
              name="Success Transaction made (${month})">
             <div class="define-chart-row" data-color="#84d6ff" title="Mobile App.">${mobileAppTran}</div>
             <div class="define-chart-row" data-color="#38BCFF" title="Kiosk">${kioskTran}</div>
@@ -379,7 +469,7 @@
             <div id="textdivBarAmount"><b>Transaction Bar Graph by TMN Product</b></div>
 
         </div>
-        <div id="transaction_chart2" data-sort="false" data-width="200%" class="jChart chart-lg"
+        <div id="transaction_chart2" data-sort="false" data-width="320%" class="jChart chart-lg"
              name="Success Amount made (${month})">
             <div class="define-chart-row" data-color="#e9fd05" title="Mobile App.">${mobileAppAmount}</div>
             <div class="define-chart-row" data-color="#fdee04" title="Kiosk">${kioskAmount}</div>

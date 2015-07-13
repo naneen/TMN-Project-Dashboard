@@ -161,9 +161,10 @@
 	line-height: 5px;
 	position: relative;
 	max-width: 300px;
-	margin-top: 3px;
-	margin-bottom: 3px;
+	margin-top: 5%;
+	margin-bottom: 5%;
 	margin-right: 7px;
+	margin-left: 7px;
 }
 .data-point {
 	height: 25px;
