@@ -4,7 +4,7 @@
 <property name="projectname"  value="Dashboard"/>
 <property name="build.dir"    value="${basedir}/build"/>
 <property name="version"      value="2.0.6"/>
-<property name="release"      value="${release}"/>
+<property name="release"      value="0"/>
 <property name="buildarch"    value="x86_64"/>
 <property name="buildparams"  value="--define &quot;buildarch ${buildarch}&quot; --define &quot;version ${version}&quot; --define &quot;release ${release}&quot; --define &quot;projectname ${projectname}&quot;"/>
 
