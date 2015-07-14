@@ -320,10 +320,10 @@
 
             <%-- OFFLOAD --%>
             <div id="Q1-left">
-                <canvas id="chart-area"></canvas>
                 <div class="displayoffload">
                     <p><text id = "result2" style="color: green; font-size: 30px;"></text> OffLoad <br>As of <text id="yesterday"></text></p>
                 </div>
+                <canvas id="chart-area"></canvas>
             </div>
 
             <%-- deployment --%>
