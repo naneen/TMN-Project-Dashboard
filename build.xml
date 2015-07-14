@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project name="${project}" default="rpm" basedir=".">
+<project name="Dashboard" default="rpm" basedir=".">
 
-<property name="projectname"  value="${project}"/>
+<property name="projectname"  value=""/>
 <property name="build.dir"    value="${basedir}/build"/>
 <property name="version"      value="${version}"/>
 <property name="release"      value="${release}"/>
-<property name="buildarch"    value="${arch}"/>
+<property name="buildarch"    value="x86_64"/>
 <property name="buildparams"  value="--define &quot;buildarch ${buildarch}&quot; --define &quot;version ${version}&quot; --define &quot;release ${release}&quot; --define &quot;projectname ${projectname}&quot;"/>
 
 <target name="clean">
