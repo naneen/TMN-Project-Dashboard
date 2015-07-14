@@ -3,10 +3,11 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.springapp</groupId>
     <artifactId>Dashboard</artifactId>
+    <!--<packaging>rpm</packaging>-->
     <packaging>war</packaging>
     <version>1.0-SNAPSHOT</version>
-    <name>Dashboard</name>
-
+    <!--<name>Dashboard</name>-->
+    <!--<packaging>rpm</packaging>-->
     <properties>
         <spring.version>4.1.1.RELEASE</spring.version>
     </properties>
@@ -99,10 +100,135 @@
             <version>2.1.3</version>
         </dependency>
 
+        <dependency>
+            <groupId>jmock</groupId>
+            <artifactId>jmock</artifactId>
+            <version>1.0.1</version>
+        </dependency>
     </dependencies>
     <build>
         <finalName>Dashboard</finalName>
         <plugins>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>rpm-maven-plugin</artifactId>
+                <version>2.1.3</version>
+                <executions>
+                    <execution>
+                        <id>generate-rpm</id>
+                        <goals>
+                            <goal>rpm</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <license>GPL (c) 2005, SWWDC</license>
+                    <distribution>Trash 2005</distribution>
+                    <group>Application/Collectors</group>
+                    <icon>src/main/resources/icon.gif</icon>
+                    <packager>SWWDC</packager>
+                    <prefix>/usr/local</prefix>
+                    <changelogFile>src/changelog</changelogFile>
+                    <defineStatements>
+                        <defineStatement>_unpackaged_files_terminate_build 0</defineStatement>
+                    </defineStatements>
+                    <mappings>
+                        <mapping>
+                            <directory>/usr/local/bin/landfill</directory>
+                            <filemode>440</filemode>
+                            <username>dumper</username>
+                            <groupname>dumpgroup</groupname>
+                            <sources>
+                                <source>
+                                    <location>target/classes</location>
+                                </source>
+                            </sources>
+                        </mapping>
+                        <mapping>
+                            <directory>/usr/local/doc/landfill</directory>
+                            <documentation>true</documentation>
+                            <filemode>444</filemode>
+                            <username>dumper</username>
+                            <groupname>dumpgroup</groupname>
+                            <sources>
+                                <source>
+                                    <location>target/site</location>
+                                </source>
+                            </sources>
+                        </mapping>
+                        <mapping>
+                            <directory>/usr/local/lib</directory>
+                            <filemode>750</filemode>
+                            <username>dumper</username>
+                            <groupname>dumpgroup</groupname>
+                            <dependency>
+                                <includes>
+                                    <include>jmock:jmock</include>
+                                    <include>javax.servlet:servlet-api:2.4</include>
+                                </includes>
+                                <excludes>
+                                    <exclude>junit:junit</exclude>
+                                </excludes>
+                            </dependency>
+                        </mapping>
+                        <mapping>
+                            <directory>/usr/local/bin</directory>
+                            <filemode>750</filemode>
+                            <username>dumper</username>
+                            <groupname>dumpgroup</groupname>
+                            <sources>
+                                <source>
+                                    <location>src/main/bin</location>
+                                </source>
+                                <softlinkSource>
+                                    <location>/usr/local/bin/new.sh</location>
+                                    <destination>old.sh</destination>
+                                </softlinkSource>
+                            </sources>
+                        </mapping>
+                        <mapping>
+                            <directory>/usr/local/oldbin</directory>
+                            <filemode>750</filemode>
+                            <username>dumper</username>
+                            <groupname>dumpgroup</groupname>
+                            <sources>
+                                <softlinkSource>
+                                    <location>/usr/local/bin</location>
+                                </softlinkSource>
+                            </sources>
+                        </mapping>
+                        <mapping>
+                            <directory>/usr/local/conf/landfill</directory>
+                            <configuration>true</configuration>
+                            <filemode>640</filemode>
+                            <username>dumper</username>
+                            <groupname>dumpgroup</groupname>
+                            <sources>
+                                <source>
+                                    <location>src/main/conf</location>
+                                </source>
+                            </sources>
+                        </mapping>
+                        <mapping>
+                            <directory>/usr/local/log/landfill</directory>
+                            <filemode>750</filemode>
+                            <username>dumper</username>
+                            <groupname>dumpgroup</groupname>
+                        </mapping>
+                    </mappings>
+                    <preinstallScriptlet>
+                        <script>echo "installing now"</script>
+                    </preinstallScriptlet>
+                    <postinstallScriptlet>
+                        <scriptFile>src/main/scripts/postinstall</scriptFile>
+                        <fileEncoding>utf-8</fileEncoding>
+                    </postinstallScriptlet>
+                    <!--<preremoveScriptlet>-->
+                        <!--<scriptFile>src/main/scripts/preremove</scriptFile>-->
+                        <!--<fileEncoding>utf-8</fileEncoding>-->
+                    <!--</preremoveScript>-->
+                </configuration>
+            </plugin>
             <plugin>
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>3.1</version>
