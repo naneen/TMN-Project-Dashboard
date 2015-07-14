@@ -37,7 +37,7 @@
 			bar_height = 17;
 		}
 		else if($(this).hasClass("chart-lg")) {
-			bar_height = 25;
+			bar_height = 11;
 		}
 		else if(settings.width!=null) {
 			chart_width=parseInt(settings.width);
@@ -123,18 +123,19 @@
 			var heading = 
 				$("<div>", {
 					class: "heading heading-left",
-					style: "height: "+bar_height+"px;font-size: 70%;",
+					//style: "height: "+bar_height+"%;font-size: 70%;",
+					style: "height: "+bar_height+"%;font-size: 70%;",
 					html: settings.headers[i]
 				});
 			var bar_width = (settings.values[i]/chart_max) * chart_width;
-			if(settings.name.indexOf(" ")>=0) {
+			if(settings.name.indexOf("Amount")>=0) {
 				var bar =
 					$("<div>", {
 						class: "bar",
 						"data-placement": "right",
 						"data-toggle": "tooltip",
 						title: commaSeparateNumber(settings.values[i] + "K"),
-						style: "height:" + bar_height + "px;background-color:" + settings.colors[i % settings.colors.length],
+						style: "height:" + bar_height + "%;background-color:" + settings.colors[i % settings.colors.length],
 						width: bar_width
 					});
 			}
@@ -145,7 +146,7 @@
 						"data-placement": "right",
 						"data-toggle": "tooltip",
 						title: commaSeparateNumber(settings.values[i]),
-						style: "height:" + bar_height + "px;background-color:" + settings.colors[i % settings.colors.length],
+						style: "height:" + bar_height + "%;background-color:" + settings.colors[i % settings.colors.length],
 						width: bar_width
 					});
 			}
@@ -156,7 +157,7 @@
 		chart.append(legend_bottom);
 		for(var i=0;i<settings.footers.length;i++) {
 			var margin = "margin-left:"+((settings.footers[i]/chart_max)*chart_width-15).toString() + "px;";
-			if(settings.name.indexOf(" ")>=0) {
+			if(settings.name.indexOf("Amount")>=0) {
 				var chart_label_bottom =
 					$("<div>", {
 						class: "chart-label chart-label-bottom",

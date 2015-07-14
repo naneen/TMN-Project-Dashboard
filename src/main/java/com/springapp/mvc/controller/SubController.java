@@ -10,7 +10,7 @@ import java.util.Date;
 
 @Controller
 public class SubController {
-    @RequestMapping(value = "/GetCorrectTime", method = RequestMethod.GET)
+    @RequestMapping(value = "/getCorrectTime", method = RequestMethod.GET)
     public @ResponseBody
     String getCorrectTime(){
         String time="";
@@ -39,7 +39,7 @@ public class SubController {
         return time;
     }
 
-    @RequestMapping(value = "/DateYesterDay", method = RequestMethod.GET)
+    @RequestMapping(value = "/dateYesterDay", method = RequestMethod.GET)
     public @ResponseBody
     String DateYesterDay(){
         String[] monthNames = {"January", "February", "March", "April", "May", "June","July", "August", "September", "October", "November", "December"};

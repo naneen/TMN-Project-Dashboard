@@ -1,11 +1,3 @@
-/**!
- * easyPieChart
- * Lightweight plugin to render simple, animated and retina optimized pie charts
- *
- * @license Dual licensed under the MIT (http://www.opensource.org/licenses/mit-license.php) and GPL (http://www.opensource.org/licenses/gpl-license.php) licenses.
- * @author Robert Fleischmann <rendro87@gmail.com> (http://robert-fleischmann.de)
- * @version 2.0.1
- **/
 !function () {
     var a = function (a, b) {
         var c = document.createElement("canvas");
@@ -82,16 +74,3 @@
     window.EasyPieChart = b
 }();
 
-var options = {
-    scaleColor: false,
-    trackColor: 'rgba(0,0,0,0.2)',
-    barColor: '#E5412D',
-    lineWidth: 15,
-    lineCap: 'butt',
-    size: donutHeight
-};
-
-var charts = [];
-[].forEach.call(document.querySelectorAll('#donutChart'), function (el) {
-    charts.push(new EasyPieChart(el, options));
-});
