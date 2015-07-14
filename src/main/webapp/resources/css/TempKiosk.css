@@ -16,11 +16,16 @@
 }
 
 #triangleLogo-header {
+    /*float: right;*/
+    /*position: relative;*/
+    /*width: 4%;*/
+    /*height: 4%;*/
+    /*margin-top: 0.8%;*/
     float: right;
     position: relative;
-    width: 5%;
-    height: 5%;
-    margin-top: 0.5%;
+    width: 2.05%;
+    height: 2.05%;
+    margin-top: 1.85%;
 }
 
 #header{
@@ -328,4 +333,59 @@
     width: 85%;
     height: 70%;
     margin: 0 auto;
+}
+#actualTx{
+    /*position: relative;*/
+    /*float: left;*/
+    /*margin-left: 8%;*/
+    /*margin-top: 5%;*/
+    position: absolute;
+    top:7%;
+    left: 8%;
+    color: #2386ff;
+    font-size: 180%;
+}
+.actualAmount{
+    /*position: relative;*/
+    /*float: left;*/
+    /*margin-top: 15%;*/
+    position: absolute;
+    top:17%;
+    /*left: 20%;*/
+    color: #7acf00;
+    font-size: 300%;
+}
+
+#targetTx{
+    position: absolute;
+    /*float: left;*/
+    top: 45%;
+    left: 8%;
+    /*margin-left: 8%;*/
+    color: red;
+    font-size: 180%;
+}
+.targetAmount{
+    position: absolute;
+    top:55%;
+    /*left: 20%;*/
+    /*float: left;*/
+    /*margin-top: 10%;*/
+    color: #000000;
+    font-size: 300%;
+}
+.up-downArrow{
+    /*position: relative;*/
+    /*float: left;*/
+    /*margin-top: 35%;*/
+    position: absolute;
+    left:77%;
+    top:20%;
+    width: 15%;
+}
+#revenueBar{
+position: absolute;
+    width: 95%;
+    height: 150%;
+    margin-top: 71%;
 }

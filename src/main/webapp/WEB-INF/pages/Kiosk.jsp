@@ -73,7 +73,7 @@
                         actualPercent = json.percent;
                         lessPercent = 100 - actualPercent;
                         $("#actualP_inbar").html(actualPercent+"%");
-                        $("#triangleLogo-header").attr("src","${pageContext.request.contextPath}/resources/img/triangle_down.gif");
+                        $("#triangleLogo-header").attr("src","${pageContext.request.contextPath}/resources/img/down.gif");
                         $("#triangleLogo-revenue").attr("src","${pageContext.request.contextPath}/resources/img/triangle_down.gif");
                     }
                     else if(json.percent <= 200){
@@ -233,9 +233,10 @@
             <div id="headerContainer" class="container">
                 <img id="tmnLogo" src="${pageContext.request.contextPath}/resources/img/tmn_logo.png" alt="Null">
                 <%--<a id="header" href="/Dashboard/product">TMN Product Dashboard</a>--%>
-                <a id="header" href="javascript:history.back()">TMN Kiosk </a>
+                <a id="header" href="javascript:history.back()">TMN Kiosk Dashboard</a>
+                <img id="triangleLogo-header" src="${pageContext.request.contextPath}/resources/img/up.gif" alt="Null">
                 <span id="headerActual">Actual : <span id="actualHeader" style="color: mediumspringgreen"></span></span>
-                <img id="triangleLogo-header" src="${pageContext.request.contextPath}/resources/img/triangle_up.gif" alt="Null">
+                <%--<img id="triangleLogo-header" src="${pageContext.request.contextPath}/resources/img/triangle_up.gif" alt="Null">--%>
             </div>
         </nav>
 
@@ -244,10 +245,15 @@
             <%-- top4 --%>
             <div id="Q2-revenue">
                 <span class="task-item">
-                    <div style="color: red">Actual: <span style="color: #313131" id="actual"></span></div>
-                    <img id="triangleLogo-revenue" src="${pageContext.request.contextPath}/resources/img/triangle_up.gif" alt="Null">
-                    <div style="color: red">Target: <span style="color: #000000" id="target"></span></div>
+                    <div id="actualTx">Actual </div><span id="actual" class="actualAmount"></span>
+                     <img id="triangleLogo-revenue" src="${pageContext.request.contextPath}/resources/img/triangle_up2.gif" alt="Null" class="up-downArrow">
+                    <div id="targetTx">Target </div><span id="target" class="targetAmount"></span>
+
+
+
+
                     <%--<small class="pull-right text-muted" id="percent"></small>--%>
+                    <div id="revenueBar"><br>
                     <div id="color_revenuebar" class="progress progress-sm">
                         <div id="actualP" role="progressbar" aria-valuenow="0"
                              aria-valuemin="0" aria-valuemax="100"
@@ -265,8 +271,10 @@
                             <div id="bonusP_inbar"></div>
                         </div>
                     </div>
+                    </div>
                 </span>
             </div>
+
 
             <%-- top4 --%>
             <div id="Q2-top4">
