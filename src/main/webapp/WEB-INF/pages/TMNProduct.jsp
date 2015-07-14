@@ -19,6 +19,7 @@
 
     <script>
         function tranTMNProduct() {
+
             $.getJSON("${pageContext.request.contextPath}/tranTMNProduct", function (json) {
 
             $("#MobileApp").html(json.productName[0]);
@@ -50,6 +51,7 @@
             $("#amountWeCard").html(json.amount[6]);
             $("#amountBillPay").html(json.amount[7]);
             $("#amountTotal").html(json.totalAmount);
+
 
             });
         }
@@ -146,7 +148,6 @@
                         }
                     ]
                 }
-
             });
         });
     </script>
@@ -294,7 +295,9 @@
     <div id="div1Bubble">
 
         <div id="divallBubble">
-            <div id="textdivBubble"><b>Bubble Graph</b></div>
+
+            <div id="textdivBubble"><b>Transaction and Amount Bubble Graph</b></div>
+
 
         </div>
 
@@ -325,7 +328,9 @@
                     <div id="MobileApp"></div>
                 </td>
                 <td>
-                    <div id="tranMobileApp" class="text-right"></div>
+
+                    <div id="tranMobileApp"class="text-right" ></div>
+
                 </td>
                 <td>
                     <div id="amountMobileApp" class="text-right"></div>
@@ -340,7 +345,9 @@
                     <div id="tranKiosk" class="text-right"></div>
                 </td>
                 <td>
-                    <div id="amountKiosk" class=" text-right"></div>
+
+                    <div id="amountKiosk" class="text-right"></div>
+
                 </td>
 
             </tr>

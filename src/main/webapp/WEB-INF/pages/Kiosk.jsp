@@ -72,20 +72,27 @@
                     if(json.percent <= 100){
                         actualPercent = json.percent;
                         lessPercent = 100 - actualPercent;
+                        $("#actualP_inbar").html(actualPercent+"%");
+                        $("#triangleLogo-header").attr("src","${pageContext.request.contextPath}/resources/img/triangle_down.gif");
+                        $("#triangleLogo-revenue").attr("src","${pageContext.request.contextPath}/resources/img/triangle_down.gif");
                     }
                     else if(json.percent <= 200){
                         actualPercent = 200 - json.percent;
                         bonusPercent = 100 - actualPercent;
+                        $("#actualP_inbar").html("100%");
                     }
                     else{
                         bonusPercent = 100;
                     }
+                    $("#actualHeader").html(json.actual);
                     $("#actual").html(json.actual);
                     $("#target").html(json.target);
                     $("#percent").html(json.percent + " %");
                     $("#actualP").attr({"aria-valuenow":actualPercent,style:"width: "+actualPercent+"%;"});
                     $("#lessP").attr({"aria-valuenow":lessPercent,style:"width: "+lessPercent+"%;"});
                     $("#bonusP").attr({"aria-valuenow":bonusPercent,style:"width: "+bonusPercent+"%;"});
+                    $("#lessP_inbar").html(lessPercent+"%");
+                    $("#bonusP_inbar").html(bonusPercent+"%");
                 });
             }
 
@@ -217,6 +224,7 @@
         <script src="${pageContext.request.contextPath}/resources/js/jquery.flot.categories.js"></script>
         <script src="${pageContext.request.contextPath}/resources/js/jquery.flot.tooltip.js"></script>
         <script src="${pageContext.request.contextPath}/resources/js/jquery.flot.spline.js"></script>
+
     </head>
 
     <body>
@@ -225,22 +233,43 @@
             <div id="headerContainer" class="container">
                 <img id="tmnLogo" src="${pageContext.request.contextPath}/resources/img/tmn_logo.png" alt="Null">
                 <%--<a id="header" href="/Dashboard/product">TMN Product Dashboard</a>--%>
-                <a id="header"    href="javascript:history.back()">TMN Product Dashboard</a>
-
+                <a id="header" href="javascript:history.back()">TMN Kiosk </a>
+                <span id="headerActual">Actual : <span id="actualHeader" style="color: mediumspringgreen"></span></span>
+                <img id="triangleLogo-header" src="${pageContext.request.contextPath}/resources/img/triangle_up.gif" alt="Null">
             </div>
         </nav>
 
         <div id="allContents">
 
-            <%-- offset + top4 --%>
-            <div id="Q2">
-                <div id="pieDiv" class="well well-lg">
-                    <canvas id="chart-area"></canvas>
-                    <div class="displayoffload">
-                        <p><text id = "result2" style="color: green; font-size: 30px;"></text> OffLoad <br>As of <text id="yesterday"></text></p>
+            <%-- top4 --%>
+            <div id="Q2-revenue">
+                <span class="task-item">
+                    <div style="color: red">Actual: <span style="color: #313131" id="actual"></span></div>
+                    <img id="triangleLogo-revenue" src="${pageContext.request.contextPath}/resources/img/triangle_up.gif" alt="Null">
+                    <div style="color: red">Target: <span style="color: #000000" id="target"></span></div>
+                    <%--<small class="pull-right text-muted" id="percent"></small>--%>
+                    <div id="color_revenuebar" class="progress progress-sm">
+                        <div id="actualP" role="progressbar" aria-valuenow="0"
+                             aria-valuemin="0" aria-valuemax="100"
+                             style="width: 0%;" class="progress-bar progress-bar">
+                            <div id="actualP_inbar"></div>
+                        </div>
+                        <div id="lessP" role="progressbar" aria-valuenow="0"
+                             aria-valuemin="0" aria-valuemax="100"
+                             style="width: 0%;" class="progress-bar progress-bar-red">
+                            <div id="lessP_inbar"></div>
+                        </div>
+                        <div id="bonusP" role="progressbar" aria-valuenow="0"
+                             aria-valuemin="0" aria-valuemax="100"
+                             style="width: 0%;" class="progress-bar progress-bar-blue">
+                            <div id="bonusP_inbar"></div>
+                        </div>
                     </div>
-                </div>
+                </span>
+            </div>
 
+            <%-- top4 --%>
+            <div id="Q2-top4">
                 <div id="top4div">
                     <div id="top1" class="well top4boxes">
                         <div id="first" class="order">
@@ -281,8 +310,16 @@
                 </div>
             </div>
 
+            <%-- OFFLOAD --%>
+            <div id="Q1-left">
+                <canvas id="chart-area"></canvas>
+                <div class="displayoffload">
+                    <p><text id = "result2" style="color: green; font-size: 30px;"></text> OffLoad <br>As of <text id="yesterday"></text></p>
+                </div>
+            </div>
+
             <%-- deployment --%>
-            <div id="Q1">
+            <div id="Q1-right">
                 <div id="deployTitle">Deployment Success by versions</div>
                 <div id="deployVersion"></div>
                 <div id="deployChart">
@@ -307,33 +344,9 @@
 
             <%-- revenue --%>
             <div id="Q4">
-                <div id="revenue">
-                    <div class="col-md-12" id="target-bar">
-                        <h4 class="mbm">Revenue</h4>
-                        <span class="task-item">
-                            <span style="color: red">Actual:</span>
-                            <span style="color: #313131" id="actual"></span>
-                            <span style="color: red">Target: </span>
-                            <span style="color: #000000" id="target"></span>
-                            <small class="pull-right text-muted" id="percent"></small>
-                            <div id="color_revenuebar" class="progress progress-sm">
-                                <div id="actualP" role="progressbar" aria-valuenow="0"
-                                     aria-valuemin="0" aria-valuemax="100"
-                                     style="width: 0%;" class="progress-bar progress-bar">
-                                </div>
-                                <div id="lessP" role="progressbar" aria-valuenow="0"
-                                     aria-valuemin="0" aria-valuemax="100"
-                                     style="width: 0%;" class="progress-bar progress-bar-red">
-                                </div>
-                                <div id="bonusP" role="progressbar" aria-valuenow="0"
-                                     aria-valuemin="0" aria-valuemax="100"
-                                     style="width: 0%;" class="progress-bar progress-bar-blue">
-                                </div>
-                            </div>
-                        </span>
-                    </div>
-                </div>
+                <h4 class="mbm">Revenue</h4>
                 <div id="billTopup">
+                    <p>Amount(million baht)</p>
                     <div id="area-chart-spline"></div>
                 </div>
             </div>

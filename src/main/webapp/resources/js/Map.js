@@ -9,7 +9,6 @@ $(function () {
             lonCenter=parseFloat(json[1]);
             latCenter=parseFloat(json[2]);
             initialize(lonCenter,latCenter);
-
             for (i = 0; i < json.length; i += 5) {
                 lon = parseFloat(json[i + 1]);
                 lat = parseFloat(json[i + 2]);
