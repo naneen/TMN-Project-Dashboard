@@ -17,7 +17,7 @@ public class QueryPieChart {
         Statement state;
         state = connectKiosk.getConnect().createStatement();
         resultSet = state.executeQuery("select count(*) as COUNT " +
-                "from TR_PAY_DETAIL_MULTIBILL t1,TR_PAY_MULTIBILL t2,RE_LOCATION_KIOSK t3 " +
+                "from TR_PAY_DETAIL_MULTIBILL t1,TR_PAY_MULTIBILL t2,TEST_RE_LOCATION_KIOSK t3 " +
                 "where t1.trans_id in ( " +
                 "Select distinct(TRANS_ID) " +
                 "from TR_TRANS_MULTIBILL " +
@@ -35,7 +35,7 @@ public class QueryPieChart {
         Statement state;
         state = connectKiosk.getConnect().createStatement();
         resultSet = state.executeQuery("select SUM(TRM_AMOUNT) as COUNT " +
-                "from DT_TRM " +
+                "from TEST_DT_TRM " +
                 "where TO_CHAR (SYSDATE-1,'DD-MON-YYYY') = TO_CHAR (TRM_DATE,'DD-MON-YYYY')");
         resultSet.next();
         int ans = resultSet.getInt("COUNT");

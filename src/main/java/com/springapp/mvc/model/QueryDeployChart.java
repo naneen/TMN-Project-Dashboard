@@ -20,16 +20,16 @@ public class QueryDeployChart {
         state2 = connectKiosk.getConnect().createStatement();
 
         kioskUpdatedSet = state1.executeQuery("select count(KIOSK_ID) as UPDATED " +
-                "from DT_KIOSK_DEPLOYMENT deploy " +
+                "from TEST_DT_KIOSK_DEPLOYMENT deploy " +
                 "where deploy.KIOSKVER_ID = ( " +
                 "select MAX(KIOSKVER_ID) " +
-                "from DT_KIOSK_DEPLOY_VERSIONS)");
+                "from TEST_DT_KIOSK_DEPLOY_VERSIONS)");
         kioskUpdatedSet.next();
         int number_updated = kioskUpdatedSet.getInt("UPDATED");
         kioskUpdatedSet.close();
 
         kioskAllSet = state2.executeQuery("select count(*) as TOTAL " +
-                "from DT_KIOSK_DEPLOYMENT deploy " );
+                "from TEST_DT_KIOSK_DEPLOYMENT deploy " );
         kioskAllSet.next();
         int number_all = kioskAllSet.getInt("TOTAL");
         kioskUpdatedSet.close();
@@ -48,10 +48,10 @@ public class QueryDeployChart {
         state = connectKiosk.getConnect().createStatement();
 
         versionSet = state.executeQuery("select KIOSK_VERSIONS as LASTEST " +
-                "from DT_KIOSK_DEPLOY_VERSIONS " +
+                "from TEST_DT_KIOSK_DEPLOY_VERSIONS " +
                 "where KIOSKVER_ID = ( " +
                 "select MAX(KIOSKVER_ID) " +
-                "from DT_KIOSK_DEPLOY_VERSIONS)" );
+                "from TEST_DT_KIOSK_DEPLOY_VERSIONS)" );
         versionSet.next();
         String ver = versionSet.getString("LASTEST");
         versionSet.close();

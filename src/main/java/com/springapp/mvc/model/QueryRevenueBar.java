@@ -34,7 +34,7 @@ public class QueryRevenueBar {
         resultSet = state.executeQuery("SELECT TARGET_AMOUNT as TARGET " +
                 "                FROM ( " +
                 "                  SELECT *  " +
-                "                  FROM DT_TARGET a " +
+                "                  FROM TEST_DT_TARGET a " +
                 "                  WHERE SYSDATE between a.TARGET_DATE_START and a.TARGET_DATE_END " +
                 "                  ORDER BY a.TARGET_DATE_START desc) " +
                 "                 WHERE rownum <= 1 ");
