@@ -1,5 +1,5 @@
 function pieTransaction() {
-    $.getJSON("pieTransaction", function(json){
+    $.getJSON("${pageContext.request.contextPath}/pieTransaction", function(json){
         var name = 'TrueMoneyProduct';
         var browserData = [];
         var colors =  ["#38BCFF","#fdfa04","#0074AA"  ,"#fd3f04"  ,"#e9fd05","#fd5004" ,"#fdb404" ,"#68f40b" ,"#e9fd05","#47e888","#4eff63","#70ff4a","#9fe843","#efff57","#e8dc43","#ffdf4a"];
@@ -53,8 +53,8 @@ function pieTransaction() {
                 cursor: 'pointer',
                 events: {
                     click: function (event) {
-                        if(event.point.name = "Kiosk")
-                        document.location.href = '/DashBoard/'+(event.point.name).replace( /\s/g, "").toLowerCase();
+                        if(event.point.name == "Kiosk")
+                        document.location.href = window.location + "/" + (event.point.name).replace( /\s/g, "").toLowerCase();
                     }
                 }
             } , {
@@ -66,14 +66,15 @@ function pieTransaction() {
                 cursor: 'pointer',
                 events: {
                     click: function (event) {
-                        if(event.point.name = "Kiosk")
-                        document.location.href = '/DashBoard/'+(event.point.name).replace( /\s/g, "").toLowerCase();
+                        if(event.point.name == "Kiosk")
+                            document.location.href = window.location + "/" + (event.point.name).replace( /\s/g, "").toLowerCase();
                     }
                 }
             }],
             exporting: {
                 buttons: [
                     {
+                        enabled: false,
                         symbol: false
                     }
                 ]
@@ -81,3 +82,4 @@ function pieTransaction() {
         });
     });
 }
+

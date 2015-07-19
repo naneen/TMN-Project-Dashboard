@@ -1,11 +1,11 @@
 #textdivBubble
-{	color:#757D75;
+{	color:#2a2a2a;
     padding-top:0%;
     margin-left:1%;
 }
 #divallBubble{
     height:10%;
-    background:#EEEEEE;
+    background:#BDC3C7;
 }
 
 #div1Bubble{
@@ -17,7 +17,7 @@
     height:40.5%;
     /*left:37%;*/
     /*top:3%;*/
-    border-color:#EEEEEE;
+    border-color:#BDC3C7;
     border-style: solid;
     border-width: 2px;
 }
@@ -27,3 +27,11 @@
     font-weight: bold;
     text-decoration: none;
 }
+
+/*#container_bubble {*/
+    /*width : 45% ;*/
+/*}*/
+
+/*#div_bubble {*/
+    /*margin-right: 5%;*/
+/*}*/

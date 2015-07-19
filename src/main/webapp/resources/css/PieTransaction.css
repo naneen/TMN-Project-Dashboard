@@ -4,13 +4,13 @@
 }
 
 #textdivPie {
-    color:#757D75;
+    color:#2a2a2a;
     padding-top:0%;
     margin-left:1%;
 }
 #divallPie {
     height: 10%;
-    background: #EEEEEE;
+    background:#BDC3C7;
 }
 
 #div1Pie{
@@ -19,14 +19,16 @@
     width:35%;
     height:40.5%;
     margin-left: 1%;
-    border-color:#EEEEEE;
+    border-color:#BDC3C7;
     border-style: solid;
     border-width: 2px;
     background:-webkit-gradient(linear, left top, left bottom, from(white), to(#eaeafc)); /* Webkit, IE 9 */
     background:-moz-linear-gradient(top, white, #eaeafc); /* Firefox */
     background:-o-linear-gradient(top, white, #eaeafc); /* Opera */
     filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=white, endColorstr=#eaeafc); /* IE 5.5 - 7 */
-    -ms-filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=white, endColorstr=#eaeafc); /* IE 8 */
+    -ms-filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=white, endColorstr=#eaeafc);
+
+
 }
 
 .pie {

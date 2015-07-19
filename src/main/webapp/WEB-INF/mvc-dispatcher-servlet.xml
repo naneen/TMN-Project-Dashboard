@@ -13,9 +13,7 @@
         <property name="suffix" value=".jsp"/>
     </bean>
 
-    <mvc:annotation-driven/>
     <mvc:resources mapping="/resources/**" location="/resources/" />
-    <mvc:default-servlet-handler/>
     <bean id="connectMobileApp" class="com.springapp.mvc.model.ConnectDB"/>
     <bean id="connectKiosk" class="com.springapp.mvc.model.ConnectDB"/>
     <bean id="connectTmx" class="com.springapp.mvc.model.ConnectDB"/>
@@ -24,4 +22,7 @@
     <bean id="connectTopupGame" class="com.springapp.mvc.model.ConnectDB"/>
     <bean id="connectMasterCard" class="com.springapp.mvc.model.ConnectDB"/>
     <bean id="connectBillPay" class="com.springapp.mvc.model.ConnectDB"/>
+    <mvc:default-servlet-handler/>
+    <mvc:annotation-driven/>
+
 </beans>

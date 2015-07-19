@@ -15,27 +15,29 @@ public class QueryDeployChart {
 
     public int getCountBillKiosk() throws SQLException {
         ResultSet kioskUpdatedSet, kioskAllSet;
-        Statement state;
-        state = connectKiosk.getConnect().createStatement();
+        Statement state1,state2;
+        state1 = connectKiosk.getConnect().createStatement();
+        state2 = connectKiosk.getConnect().createStatement();
 
-        kioskUpdatedSet = state.executeQuery("select count(KIOSK_ID) as UPDATED " +
-                "from DT_KIOSK_DEPLOYMENT deploy " +
+        kioskUpdatedSet = state1.executeQuery("select count(KIOSK_ID) as UPDATED " +
+                "from TEST_DT_KIOSK_DEPLOYMENT deploy " +
                 "where deploy.KIOSKVER_ID = ( " +
                 "select MAX(KIOSKVER_ID) " +
-                "from DT_KIOSK_DEPLOY_VERSIONS)");
+                "from TEST_DT_KIOSK_DEPLOY_VERSIONS)");
         kioskUpdatedSet.next();
         int number_updated = kioskUpdatedSet.getInt("UPDATED");
         kioskUpdatedSet.close();
 
-        kioskAllSet = state.executeQuery("select count(*) as TOTAL " +
-                "from DT_KIOSK_DEPLOYMENT deploy " );
+        kioskAllSet = state2.executeQuery("select count(*) as TOTAL " +
+                "from TEST_DT_KIOSK_DEPLOYMENT deploy " );
         kioskAllSet.next();
         int number_all = kioskAllSet.getInt("TOTAL");
         kioskUpdatedSet.close();
 
         double percentUpdated = 100.0 * number_updated / number_all;
 
-        state.close();
+        state1.close();
+        state2.close();
         return (int)percentUpdated;
     }
 
@@ -46,10 +48,10 @@ public class QueryDeployChart {
         state = connectKiosk.getConnect().createStatement();
 
         versionSet = state.executeQuery("select KIOSK_VERSIONS as LASTEST " +
-                "from DT_KIOSK_DEPLOY_VERSIONS " +
+                "from TEST_DT_KIOSK_DEPLOY_VERSIONS " +
                 "where KIOSKVER_ID = ( " +
                 "select MAX(KIOSKVER_ID) " +
-                "from DT_KIOSK_DEPLOY_VERSIONS)" );
+                "from TEST_DT_KIOSK_DEPLOY_VERSIONS)" );
         versionSet.next();
         String ver = versionSet.getString("LASTEST");
         versionSet.close();

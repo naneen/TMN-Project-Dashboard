@@ -15,6 +15,19 @@
     margin-top: 0.5%;
 }
 
+#triangleLogo-header {
+    /*float: right;*/
+    /*position: relative;*/
+    /*width: 4%;*/
+    /*height: 4%;*/
+    /*margin-top: 0.8%;*/
+    float: right;
+    position: relative;
+    width: 2.05%;
+    height: 2.05%;
+    margin-top: 1.85%;
+}
+
 #header{
     float: left;
     position: relative;
@@ -25,55 +38,50 @@
     padding: 1%;
 }
 
+#headerActual{
+    float: right;
+    position: relative;
+    font-size: 27px;
+    color: white;
+    font-weight: bold;
+    text-decoration: none;
+    padding: 1%;
+}
+
 #allContents{
     margin-top: 72.9375px;
     height: 90.2%;
 }
 
-/* *************** OFFSET ************** */
-#Q2{
+/* *************** REVENUE ************** */
+#Q2-revenue{
     float: left;
     position: relative;
     background: #e5e5e5;
-    width: 60.75%;  /* 63-1.5-0.75 */
+    width: 21%;
     height: 47.5%;
     top: 0.5%;
     left: 1.5%;
     right: 0.75%;
 }
 
-/* ---------------- PIE ---------------- */
-#pieDiv{
+/* *************** TOP4 ************** */
+#Q2-top4{
     float: left;
-    width: 30%;
-    height: 84%;
     position: relative;
-    top: 8%;
-    left: 3.5%;
-    border: none;
-    border-radius: 0;
-    -webkit-box-shadow: none;
-    box-shadow: none;
-    background-color: #f7f7f7;
+    background: #e5e5e5;
+    width: 38.25%;  /* 63-1.5-0.75 */
+    height: 47.5%;
+    top: 0.5%;
+    left: 3%;
+    right: 0.75%;
 }
 
-#chart-area{
-    position: relative;
-    width: 60% ;
-    height: 60% ;
-    left: 20%;
-}
-
-.displayoffload{
-    text-align: center;
-    margin-top: 7%;
-}
-/* ---------------- TOP4 ---------------- */
 #top4div{
     float: right;
     position: relative;
     height: 84%;
-    width: 59.5%;
+    width: 93%;
     right: 3.5%;
     top: 8%;
 }
@@ -130,7 +138,8 @@
     position: relative;
     height: 33%;
     text-align: center;
-    font-size: 16px;
+    font-size: 13px;
+
 }
 
 #first{
@@ -149,15 +158,42 @@
     color: #f7f7f7;
 }
 
+/* ************ PIE OFFSET ************ */
+#Q1-left{
+    float: left;
+    position: relative;
+    background: #C6C6C6;
+    width: 16.625%;
+    /*width: 34.75%;*/
+    height: 47.5%;
+    right: 1.5%;
+    left: 4.5%;
+    top: 0.5%;
+}
+
+#chart-area{
+    position: relative;
+    width: 70% ;
+    height: 70% ;
+    left: 15%;
+}
+
+.displayoffload{
+    text-align: center;
+    margin-top: 7%;
+    font-size: 20px;
+}
+
 /* ************ DEPLOY ************ */
-#Q1{
+#Q1-right{
     float: left;
     position: relative;
     background: rgb(244, 244, 244);
-    width: 34.75%;
+    width: 16.625%;
+    /*width: 34.75%;*/
     height: 47.5%;
     right: 1.5%;
-    left: 3%;
+    left: 6%;
     top: 0.5%;
 }
 
@@ -172,12 +208,12 @@
     color: #ff001e;
     text-align: center;
     font-size: 24px;
-    margin: 2% 0 2% 0;
+    margin: 7% 0 2% 0;
 }
 
 #deployChart{
-    width: 250px;
-    margin: 1px auto;
+    margin: 0px auto;
+    margin-top: 2%;
 }
 
 #donutChart {
@@ -246,17 +282,14 @@
     text-align: center;
 }
 
-#revenue{
+#billTopup{
     float: right;
     position: relative;
-    background-color: #f7f7f7;
     width: 100%;
-    border-top: solid 1px #EEEEEE;
 }
 
-#target-bar{
-    margin-bottom: -13px;
-    width: 93%;
+#billTopup p{
+    margin: 1% 0 0 5%;
 }
 
 .task-item, #color_revenuebar{
@@ -267,7 +300,14 @@
     float: right;
     position: relative;
     width: 100%;
+    /*height: 95%;*/
+    /*top: 8%;*/
 }
+
+#billTopup p{
+    margin: 1% 0 0 7%;
+}
+
 .progress {
     position: relative;
 }
@@ -294,4 +334,59 @@
     width: 85%;
     height: 70%;
     margin: 0 auto;
+}
+#actualTx{
+    /*position: relative;*/
+    /*float: left;*/
+    /*margin-left: 8%;*/
+    /*margin-top: 5%;*/
+    position: absolute;
+    top:7%;
+    left: 8%;
+    color: black;
+    font-size: 180%;
+}
+.actualAmount{
+    /*position: relative;*/
+    /*float: left;*/
+    /*margin-top: 15%;*/
+    position: absolute;
+    top:17%;
+    left: 20%;
+    color: #38b44a;
+    font-size: 300%;
+}
+
+#targetTx{
+    position: absolute;
+    /*float: left;*/
+    top: 45%;
+    left: 8%;
+    /*margin-left: 8%;*/
+    color: black;
+    font-size: 180%;
+}
+.targetAmount{
+    position: absolute;
+    top:55%;
+    left: 20%;
+    /*float: left;*/
+    /*margin-top: 10%;*/
+    color: red;
+    font-size: 300%;
+}
+.up-downArrow{
+    /*position: relative;*/
+    /*float: left;*/
+    /*margin-top: 35%;*/
+    position: absolute;
+    left:82%;
+    top:23%;
+    width: 12%;
+}
+#revenueBar{
+position: absolute;
+    width: 95%;
+    height: 150%;
+    margin-top: 71%;
 }
