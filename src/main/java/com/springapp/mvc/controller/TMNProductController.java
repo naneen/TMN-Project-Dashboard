@@ -15,6 +15,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import java.sql.SQLException;
 import java.text.DecimalFormat;
+import java.util.Calendar;
+import java.util.Date;
 
 @Controller
 public class TMNProductController {
@@ -35,6 +37,17 @@ public class TMNProductController {
         double temp =  count / sum * 10000;
         temp = Math.round(temp)/100.0;
         return temp;
+    }
+
+    public String getDateAgo(int day_ago){
+        String[] monthNames = {"Jan", "Feb", "Mar", "Apr", "May", "Jun","Jul", "Aug", "Sep", "Oct", "Nov", "Dec"};
+        Calendar calendar = Calendar.getInstance();
+        Date date = new Date();
+        date.setDate(date.getDate()-day_ago);
+        calendar.setTime(date);
+        int Day = calendar.get(Calendar.DATE);
+        String Month = monthNames[calendar.get(Calendar.MONTH)];
+        return Day + " " + Month;
     }
 
     @RequestMapping(value = "/pieTransaction", method = RequestMethod.GET)
@@ -112,6 +125,65 @@ public class TMNProductController {
 
         return jsonObject.toString();
     }
+
+    @RequestMapping(value = "/bubbleGraph", method = RequestMethod.GET)
+    public @ResponseBody
+    String bubbleGraph() throws JSONException, SQLException {
+        JSONArray jsonxAXIS = new JSONArray();
+
+        for(int i = 4;i>=0;i--){
+            String day = getDateAgo(1+7*i);
+            jsonxAXIS.put(day);
+        }
+
+        JSONArray tranJson=new JSONArray();
+        JSONObject jsonObject=new JSONObject();
+        JSONArray jsontranArray=new JSONArray();
+        JSONArray jsonamountArray=new JSONArray();
+        String[] trueMoneyProduct = {"Mobile Application", "Kiosk", "TMX", "Payment Gateway", "Topup Mobile","Topup Game","Master Card","Bill pay","Total"};
+        DecimalFormat changeFormat = new DecimalFormat("#,##0.00");
+        DecimalFormat changeFormatTran = new DecimalFormat("#,##0");
+        int[] countTran = {
+                queryCountTransaction.getCountMobileApp(),queryCountTransaction.getCountKiosk(),
+                queryCountTransaction.getCountTmx(),queryCountTransaction.getCountPaymentGate(),
+                queryCountTransaction.getCountTopupMobile(),queryCountTransaction.getCountTopupGame(),
+                queryCountTransaction.getCountMasterCard(),queryCountTransaction.getCountBillPay()
+        };
+
+        Double[] amount = {
+                queryAmount.getAmountMobileApp(),queryAmount.getAmountKiosk(),
+                queryAmount.getAmountTmx(),queryAmount.getAmountPaymentGate(),
+                queryAmount.getAmountTopupMobile(),queryAmount.getAmountTopupGame(),
+                queryAmount.getAmountMasterCard(),queryAmount.getAmountBillPay()
+        };
+
+        int sumTran = 0;
+        Double sumAmount = 0.0;
+
+        for (String aTrueMoneyProduct : trueMoneyProduct) {
+            tranJson.put(aTrueMoneyProduct);
+        }
+
+        jsonObject.put("productName",tranJson);
+
+        for(int valueComponent : countTran){
+            jsontranArray.put(changeFormatTran.format(valueComponent));
+            sumTran += valueComponent;
+        }
+        jsonObject.put("tran",jsontranArray);
+        jsonObject.put("totalTran",changeFormatTran.format(sumTran));
+
+        for(Double valueComponent : amount){
+            jsonamountArray.put(changeFormat.format(valueComponent));
+            sumAmount += valueComponent;
+        }
+
+        jsonObject.put("amount",jsonamountArray);
+        jsonObject.put("totalAmount",changeFormat.format(sumAmount));
+
+        return jsonObject.toString();
+    }
+
 
     @RequestMapping(value = "/",method = RequestMethod.GET )
     public String product(ModelMap model) throws SQLException, ClassNotFoundException {

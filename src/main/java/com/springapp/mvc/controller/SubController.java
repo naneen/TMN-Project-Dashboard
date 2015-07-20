@@ -52,5 +52,4 @@ public class SubController {
         int Year = calendar.get(Calendar.YEAR);
         return Day + " " + Month + " " + Year;
     }
-
 }

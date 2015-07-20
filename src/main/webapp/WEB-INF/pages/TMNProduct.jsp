@@ -66,90 +66,99 @@
     <%--<script src="${pageContext.request.contextPath}/resources/js/PieTransaction.js"></script>--%>
 
     <script type="text/javascript">
-        $(function () {
-            $('#container_bubble').highcharts({
-                credits: {
-                    enabled: false
-                },
-                yAxis: {
-                    title: {
-                        text: 'Amount (Million Baht)'
-                    }
-                },
-                chart: {
-                    backgroundColor: {
-                        linearGradient: [0, 0, 0, 500],
-                        stops: [
-                            [0, 'rgb(255, 255, 255)'],
-                            [2, 'rgb(200, 200, 255)']
-                        ]
+        function bubbleGraph() {
+            $.getJSON("${pageContext.request.contextPath}/bubbleGraph", function(json){
+                $('#container_bubble').highcharts({
+                    credits: {
+                        enabled: false
                     },
-                    style: {"height": "99.8%", "width": "100%"},
-                    type: 'bubble'
-
-                },
-
-                title: {
-                    text: 'Bubble Size = Transaction Volume',
-                    style: {"fontSize": "110%"}
-
-                },
-
-                legend: {
-                    align: 'right',
-                    verticalAlign: 'top',
-                    dataLabels: false,
-                    layout: 'vertical',
-                    x: 0,
-                    y: 25
-                },
-
-                series: [{
-                    data: [[97, 36, 79], [94, 74, 60], [68, 76, 58], [64, 87, 56], [68, 27, 73], [74, 99, 42], [7, 93, 87], [51, 69, 40], [38, 23, 33], [57, 86, 31]],
-                    name: 'Moblie app',
-                    color: '#F64747'
-                }, {
-                    data: [[25, 10, 87], [2, 75, 59], [11, 54, 8], [86, 55, 93], [5, 3, 58], [90, 63, 44], [91, 33, 17], [97, 3, 56], [15, 67, 48], [54, 25, 81]],
-                    name: 'Kiosk',
-                    color: '#F62459'
-                }, {
-                    data: [[47, 47, 21], [20, 12, 4], [6, 76, 91], [38, 30, 60], [57, 98, 64], [61, 17, 80], [83, 60, 13], [67, 78, 75], [64, 12, 10], [30, 77, 82]],
-                    name: 'TMX',
-                    color: '#D91E18'
-                },
-                    {
-                        data: [[25, 10, 87], [2, 75, 59], [11, 54, 8], [86, 55, 93], [5, 3, 58], [90, 63, 44], [91, 33, 17], [97, 3, 56], [15, 67, 48], [54, 25, 81]],
-                        name: 'Payment Gateway',
-                        color: '#C8F7C5'
-                    }, {
-                        data: [[54, 28, 69], [15, 50, 32], [20, 36, 15], [86, 55, 93], [42, 26, 51], [12, 66, 45], [2, 76, 99], [42, 37, 14], [19, 27, 5], [80, 76, 89]],
-                        name: 'Topup Mobile',
-                        color: '#86E2D5'
-                    }, {
-                        data: [[33, 42, 93], [84, 70, 60], [55, 69, 47], [13, 2, 9], [39, 89, 22], [26, 29, 39], [36, 33, 30], [43, 46, 49], [41, 51, 60], [11, 51, 81]],
-                        name: 'Topup Game',
-                        color: '#2ECC71'
-                    }, {
-                        data: [[84, 42, 46], [4, 62, 13], [45, 65, 78], [23, 57, 16], [38, 9, 46], [25, 97, 22], [67, 57, 35], [21, 7, 56], [27, 95, 32], [21, 6, 31]],
-                        name: 'Master Card',
-                        color: '#F89406'
-                    }, {
-                        data: [[86, 75, 24], [75, 23, 9], [71, 35, 38], [64, 44, 45], [9, 23, 32], [45, 54, 65], [27, 73, 39], [62, 28, 84], [86, 41, 32], [20, 31, 33]],
-                        name: 'Bill pay',
-                        color: '#D35400'
-                    }],
-                exporting: {
-                    buttons: [
-                        {
-
-                            enabled:false,
-
-                            symbol: false
+                    yAxis: {
+                        title: {
+                            text: 'Amount (Million Baht)'
                         }
-                    ]
-                }
+                    },
+                    xAxis: {
+                        title:{
+                            text:'Day'
+                        },
+                        categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
+                    },
+                    chart: {
+                        backgroundColor: {
+                            linearGradient: [0, 0, 0, 500],
+                            stops: [
+                                [0, 'rgb(255, 255, 255)'],
+                                [2, 'rgb(200, 200, 255)']
+                            ]
+                        },
+                        style: {"height": "99.8%", "width": "100%"},
+                        type: 'bubble'
+
+                    },
+
+                    title: {
+                        text: 'Bubble Size = Transaction Volume',
+                        style: {"fontSize": "110%"}
+
+                    },
+
+                    legend: {
+                        align: 'right',
+                        verticalAlign: 'top',
+                        dataLabels: false,
+                        layout: 'vertical',
+                        x: 0,
+                        y: 25
+                    },
+
+                    series: [{
+                        data: [[97, 36, 79], [94, 74, 60], [68, 76, 58], [64, 87, 56], [68, 27, 73], [74, 99, 42], [7, 93, 87], [51, 69, 40], [38, 23, 33], [57, 86, 31]],
+                        name: 'Moblie app',
+                        color: '#F64747'
+                    }, {
+                        data: [[25, 10, 87], [2, 75, 59], [11, 54, 8], [86, 55, 93], [5, 3, 58], [90, 63, 44], [91, 33, 17], [97, 3, 56], [15, 67, 48], [54, 25, 81]],
+                        name: 'Kiosk',
+                        color: '#F62459'
+                    }, {
+                        data: [[47, 47, 21], [20, 12, 4], [6, 76, 91], [38, 30, 60], [57, 98, 64], [61, 17, 80], [83, 60, 13], [67, 78, 75], [64, 12, 10], [30, 77, 82]],
+                        name: 'TMX',
+                        color: '#D91E18'
+                    },
+                        {
+                            data: [[25, 10, 87], [2, 75, 59], [11, 54, 8], [86, 55, 93], [5, 3, 58], [90, 63, 44], [91, 33, 17], [97, 3, 56], [15, 67, 48], [54, 25, 81]],
+                            name: 'Payment Gateway',
+                            color: '#C8F7C5'
+                        }, {
+                            data: [[54, 28, 69], [15, 50, 32], [20, 36, 15], [86, 55, 93], [42, 26, 51], [12, 66, 45], [2, 76, 99], [42, 37, 14], [19, 27, 5], [80, 76, 89]],
+                            name: 'Topup Mobile',
+                            color: '#86E2D5'
+                        }, {
+                            data: [[33, 42, 93], [84, 70, 60], [55, 69, 47], [13, 2, 9], [39, 89, 22], [26, 29, 39], [36, 33, 30], [43, 46, 49], [41, 51, 60], [11, 51, 81]],
+                            name: 'Topup Game',
+                            color: '#2ECC71'
+                        }, {
+                            data: [[84, 42, 46], [4, 62, 13], [45, 65, 78], [23, 57, 16], [38, 9, 46], [25, 97, 22], [67, 57, 35], [21, 7, 56], [27, 95, 32], [21, 6, 31]],
+                            name: 'Master Card',
+                            color: '#F89406'
+                        }, {
+                            data: [[86, 75, 24], [75, 23, 9], [71, 35, 38], [64, 44, 45], [9, 23, 32], [45, 54, 65], [27, 73, 39], [62, 28, 84], [86, 41, 32], [20, 31, 33]],
+                            name: 'Bill pay',
+                            color: '#D35400'
+                        }],
+                    exporting: {
+                        buttons: [
+                            {
+
+                                enabled:false,
+
+                                symbol: false
+                            }
+                        ]
+                    }
+                });
             });
-        });
+        }
+
     </script>
 
 
@@ -263,6 +272,7 @@
                     if (data == "00:00:00") {
                         pieTransaction();
                         tranTMNProduct();
+                        bubbleGraph();
                     }
                 }
             });
@@ -272,6 +282,7 @@
         window.onload = function () {
             pieTransaction();
             tranTMNProduct();
+            bubbleGraph();
             getCorrectTime();
         };
     </script>
