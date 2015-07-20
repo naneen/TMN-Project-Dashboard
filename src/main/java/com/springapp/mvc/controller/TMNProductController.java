@@ -130,56 +130,54 @@ public class TMNProductController {
     public @ResponseBody
     String bubbleGraph() throws JSONException, SQLException {
         JSONArray jsonxAXIS = new JSONArray();
+        JSONObject jsonObject=new JSONObject();
+        JSONArray jsonArrayMoblieApp,jsonArrayKiosk,jsonArrayTmx,jsonArrayPaymentGate,jsonArrayTopupMobile,jsonArrayTopupGame,jsonArrayMasterCard,jsonArrayBillPay;
+        jsonArrayMoblieApp = new JSONArray();
+        jsonArrayKiosk = new JSONArray();
+        jsonArrayTmx = new JSONArray();
+        jsonArrayPaymentGate = new JSONArray();
+        jsonArrayTopupMobile = new JSONArray();
+        jsonArrayTopupGame = new JSONArray();
+        jsonArrayMasterCard = new JSONArray();
+        jsonArrayBillPay = new JSONArray();
 
         for(int i = 4;i>=0;i--){
             String day = getDateAgo(1+7*i);
+            queryCountTransaction.setDay_ago(1+7*i);
+            queryAmount.setDay_ago(1+7*i);
+            int[] countTran = {
+                    queryCountTransaction.getCountMobileApp(),queryCountTransaction.getCountKiosk(),
+                    queryCountTransaction.getCountTmx(),queryCountTransaction.getCountPaymentGate(),
+                    queryCountTransaction.getCountTopupMobile(),queryCountTransaction.getCountTopupGame(),
+                    queryCountTransaction.getCountMasterCard(),queryCountTransaction.getCountBillPay()
+            };
+
+            Double[] amount = {
+                    queryAmount.getAmountMobileApp(),queryAmount.getAmountKiosk(),
+                    queryAmount.getAmountTmx(),queryAmount.getAmountPaymentGate(),
+                    queryAmount.getAmountTopupMobile(),queryAmount.getAmountTopupGame(),
+                    queryAmount.getAmountMasterCard(),queryAmount.getAmountBillPay()
+            };
+            jsonArrayMoblieApp.put(new int[]{countTran[0], (int) Math.round(amount[0])});
+            jsonArrayKiosk.put(new int[]{countTran[1],(int)Math.round(amount[1])});
+            jsonArrayTmx.put(new int[]{countTran[2], (int) Math.round(amount[2])});
+            jsonArrayPaymentGate.put(new int[]{countTran[3],(int)Math.round(amount[3])});
+            jsonArrayTopupMobile.put(new int[]{countTran[4], (int) Math.round(amount[4])});
+            jsonArrayTopupGame.put(new int[]{countTran[5],(int)Math.round(amount[5])});
+            jsonArrayMasterCard.put(new int[]{countTran[6],(int)Math.round(amount[6])});
+            jsonArrayBillPay.put(new int[]{countTran[7],(int)Math.round(amount[7])});
             jsonxAXIS.put(day);
         }
+        jsonObject.put("MobileApp",jsonArrayMoblieApp);
+        jsonObject.put("Kiosk",jsonArrayKiosk);
+        jsonObject.put("Tmx",jsonArrayTmx);
+        jsonObject.put("PaymentGate",jsonArrayPaymentGate);
+        jsonObject.put("TopupMobile",jsonArrayTopupMobile);
+        jsonObject.put("TopupGame",jsonArrayTopupGame);
+        jsonObject.put("MasterCard",jsonArrayMasterCard);
+        jsonObject.put("BillPay",jsonArrayBillPay);
+        jsonObject.put("xAXIS",jsonxAXIS);
 
-        JSONArray tranJson=new JSONArray();
-        JSONObject jsonObject=new JSONObject();
-        JSONArray jsontranArray=new JSONArray();
-        JSONArray jsonamountArray=new JSONArray();
-        String[] trueMoneyProduct = {"Mobile Application", "Kiosk", "TMX", "Payment Gateway", "Topup Mobile","Topup Game","Master Card","Bill pay","Total"};
-        DecimalFormat changeFormat = new DecimalFormat("#,##0.00");
-        DecimalFormat changeFormatTran = new DecimalFormat("#,##0");
-        int[] countTran = {
-                queryCountTransaction.getCountMobileApp(),queryCountTransaction.getCountKiosk(),
-                queryCountTransaction.getCountTmx(),queryCountTransaction.getCountPaymentGate(),
-                queryCountTransaction.getCountTopupMobile(),queryCountTransaction.getCountTopupGame(),
-                queryCountTransaction.getCountMasterCard(),queryCountTransaction.getCountBillPay()
-        };
-
-        Double[] amount = {
-                queryAmount.getAmountMobileApp(),queryAmount.getAmountKiosk(),
-                queryAmount.getAmountTmx(),queryAmount.getAmountPaymentGate(),
-                queryAmount.getAmountTopupMobile(),queryAmount.getAmountTopupGame(),
-                queryAmount.getAmountMasterCard(),queryAmount.getAmountBillPay()
-        };
-
-        int sumTran = 0;
-        Double sumAmount = 0.0;
-
-        for (String aTrueMoneyProduct : trueMoneyProduct) {
-            tranJson.put(aTrueMoneyProduct);
-        }
-
-        jsonObject.put("productName",tranJson);
-
-        for(int valueComponent : countTran){
-            jsontranArray.put(changeFormatTran.format(valueComponent));
-            sumTran += valueComponent;
-        }
-        jsonObject.put("tran",jsontranArray);
-        jsonObject.put("totalTran",changeFormatTran.format(sumTran));
-
-        for(Double valueComponent : amount){
-            jsonamountArray.put(changeFormat.format(valueComponent));
-            sumAmount += valueComponent;
-        }
-
-        jsonObject.put("amount",jsonamountArray);
-        jsonObject.put("totalAmount",changeFormat.format(sumAmount));
 
         return jsonObject.toString();
     }
