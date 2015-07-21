@@ -43,7 +43,7 @@ public class TMNProductController {
         String[] monthNames = {"Jan", "Feb", "Mar", "Apr", "May", "Jun","Jul", "Aug", "Sep", "Oct", "Nov", "Dec"};
         Calendar calendar = Calendar.getInstance();
         Date date = new Date();
-        date.setDate(date.getDate()-day_ago);
+        date.setDate(date.getDate() - day_ago);
         calendar.setTime(date);
         int Day = calendar.get(Calendar.DATE);
         String Month = monthNames[calendar.get(Calendar.MONTH)];
@@ -181,6 +181,55 @@ public class TMNProductController {
         jsonObject.put("BillPay",jsonArrayBillPay);
         jsonObject.put("xAXIS",jsonxAXIS);
 
+        return jsonObject.toString();
+    }
+
+    @RequestMapping(value = "/barGraph", method = RequestMethod.GET)
+    public @ResponseBody
+    String barGraph() throws SQLException, JSONException {
+        JSONObject jsonObject=new JSONObject();
+        JSONArray jsonArrayTran = new JSONArray();
+        JSONArray jsonArrayAmount = new JSONArray();
+        String[] trueMoneyProduct = {"Mobile Application", "Kiosk", "TMX", "Payment Gateway", "Topup Mobile","Topup Game","Master Card","Bill pay"};
+        String month_name = null;
+        switch(Calendar.getInstance().get(Calendar.MONTH)){
+            case 0: month_name = "January"; break;
+            case 1: month_name = "February"; break;
+            case 2: month_name = "March"; break;
+            case 3: month_name = "April"; break;
+            case 4: month_name = "May"; break;
+            case 5: month_name = "June"; break;
+            case 6: month_name = "July"; break;
+            case 7:
+                month_name = "August"; break;
+            case 8: month_name = "September"; break;
+            case 9: month_name = "October"; break;
+            case 10: month_name = "November"; break;
+            case 11: month_name = "December"; break;
+        }
+        queryCountTransaction0.setDay_ago(0);
+        queryAmount0.setDay_ago(0);
+        int[] countTran = {
+                queryCountTransaction0.getCountMobileApp(),queryCountTransaction0.getCountKiosk(),
+                queryCountTransaction0.getCountTmx(),queryCountTransaction0.getCountPaymentGate(),
+                queryCountTransaction0.getCountTopupMobile(),queryCountTransaction0.getCountTopupGame(),
+                queryCountTransaction0.getCountMasterCard(),queryCountTransaction0.getCountBillPay()
+        };
+
+        Double[] amount = {
+                queryAmount0.getAmountMobileApp(),queryAmount0.getAmountKiosk(),
+                queryAmount0.getAmountTmx(),queryAmount0.getAmountPaymentGate(),
+                queryAmount0.getAmountTopupMobile(),queryAmount0.getAmountTopupGame(),
+                queryAmount0.getAmountMasterCard(),queryAmount0.getAmountBillPay()
+        };
+        for(int i = 0;i<trueMoneyProduct.length;i++){
+            jsonArrayTran.put(countTran[i]);
+            jsonArrayAmount.put(amount[i]);
+        }
+        jsonObject.put("month",month_name);
+        jsonObject.put("product",trueMoneyProduct);
+        jsonObject.put("countTran",jsonArrayTran);
+        jsonObject.put("amount",jsonArrayAmount);
         return jsonObject.toString();
     }
 

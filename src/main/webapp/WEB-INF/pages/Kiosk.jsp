@@ -22,6 +22,19 @@
         <script src='${pageContext.request.contextPath}/resources/js/infobubble.js'></script>
         <script src='${pageContext.request.contextPath}/resources/js/Map.js'></script>
 
+        <script>
+            function addCommas(nStr) {
+                nStr += '';
+                x = nStr.split('.');
+                x1 = x[0];
+                x2 = x.length > 1 ? '.' + x[1] : '';
+                var rgx = /(\d+)(\d{3})/;
+                while (rgx.test(x1)) {
+                    x1 = x1.replace(rgx, '$1' + ',' + '$2');
+                }
+                return x1 + x2;
+            }
+        </script>
         <%-- deploychart --%>
         <script type="text/javascript">
             var changeDeployPerc = true;
@@ -84,9 +97,9 @@
                     else{
                         bonusPercent = 100;
                     }
-                    $("#actualHeader").html(json.actual);
-                    $("#actual").html(json.actual);
-                    $("#target").html(json.target);
+                    $("#actualHeader").html(addCommas(json.actual));
+                    $("#actual").html(addCommas(json.actual));
+                    $("#target").html(addCommas(json.target));
                     $("#percent").html(json.percent + " %");
                     $("#actualP").attr({"aria-valuenow":actualPercent,style:"width: "+actualPercent+"%;"});
                     $("#lessP").attr({"aria-valuenow":lessPercent,style:"width: "+lessPercent+"%;"});
