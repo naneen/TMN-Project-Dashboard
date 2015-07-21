@@ -23,9 +23,9 @@ public class TMNProductController {
     @Autowired
     private ConnectDB connectMobileApp,connectKiosk,connectTmx,connectPaymentGate,connectTopupMobile,connectTopupGame,connectMasterCard,connectBillPay;
     @Autowired
-    private QueryCountTransaction queryCountTransaction;
+    private QueryCountTransaction queryCountTransaction,queryCountTransaction0;
     @Autowired
-    private  QueryAmount queryAmount;
+    private  QueryAmount queryAmount,queryAmount0;
     @Autowired
     private QueryBarGraph queryBarGraph;
 
@@ -56,11 +56,12 @@ public class TMNProductController {
         JSONArray userArray = new JSONArray();
         JSONObject userJSON;
         String[] trueMoneyProduct = {"Mobile Application", "Kiosk", "TMX", "Payment Gateway", "Topup Mobile","Topup Game","Master Card","Bill pay"};
+        queryCountTransaction0.setDay_ago(0);
         int[] countTransaction = {
-                queryCountTransaction.getCountMobileApp(),queryCountTransaction.getCountKiosk(),
-                queryCountTransaction.getCountTmx(),queryCountTransaction.getCountPaymentGate(),
-                queryCountTransaction.getCountTopupMobile(),queryCountTransaction.getCountTopupGame(),
-                queryCountTransaction.getCountMasterCard(),queryCountTransaction.getCountBillPay()
+                queryCountTransaction0.getCountMobileApp(),queryCountTransaction0.getCountKiosk(),
+                queryCountTransaction0.getCountTmx(),queryCountTransaction0.getCountPaymentGate(),
+                queryCountTransaction0.getCountTopupMobile(),queryCountTransaction0.getCountTopupGame(),
+                queryCountTransaction0.getCountMasterCard(),queryCountTransaction0.getCountBillPay()
         };
         int sum = 0;
         for(int valueComponent : countTransaction){
@@ -85,18 +86,20 @@ public class TMNProductController {
         String[] trueMoneyProduct = {"Mobile Application", "Kiosk", "TMX", "Payment Gateway", "Topup Mobile","Topup Game","Master Card","Bill pay","Total"};
         DecimalFormat changeFormat = new DecimalFormat("#,##0.00");
         DecimalFormat changeFormatTran = new DecimalFormat("#,##0");
+        queryCountTransaction0.setDay_ago(0);
+        queryAmount0.setDay_ago(0);
         int[] countTran = {
-                queryCountTransaction.getCountMobileApp(),queryCountTransaction.getCountKiosk(),
-                queryCountTransaction.getCountTmx(),queryCountTransaction.getCountPaymentGate(),
-                queryCountTransaction.getCountTopupMobile(),queryCountTransaction.getCountTopupGame(),
-                queryCountTransaction.getCountMasterCard(),queryCountTransaction.getCountBillPay()
+                queryCountTransaction0.getCountMobileApp(),queryCountTransaction0.getCountKiosk(),
+                queryCountTransaction0.getCountTmx(),queryCountTransaction0.getCountPaymentGate(),
+                queryCountTransaction0.getCountTopupMobile(),queryCountTransaction0.getCountTopupGame(),
+                queryCountTransaction0.getCountMasterCard(),queryCountTransaction0.getCountBillPay()
         };
 
         Double[] amount = {
-                queryAmount.getAmountMobileApp(),queryAmount.getAmountKiosk(),
-                queryAmount.getAmountTmx(),queryAmount.getAmountPaymentGate(),
-                queryAmount.getAmountTopupMobile(),queryAmount.getAmountTopupGame(),
-                queryAmount.getAmountMasterCard(),queryAmount.getAmountBillPay()
+                queryAmount0.getAmountMobileApp(),queryAmount0.getAmountKiosk(),
+                queryAmount0.getAmountTmx(),queryAmount0.getAmountPaymentGate(),
+                queryAmount0.getAmountTopupMobile(),queryAmount0.getAmountTopupGame(),
+                queryAmount0.getAmountMasterCard(),queryAmount0.getAmountBillPay()
         };
 
         int sumTran = 0;
@@ -143,8 +146,8 @@ public class TMNProductController {
 
         for(int i = 4;i>=0;i--){
             String day = getDateAgo(1+7*i);
-            queryCountTransaction.setDay_ago(1+7*i);
-            queryAmount.setDay_ago(1+7*i);
+            queryCountTransaction.setDay_ago(7*i);
+            queryAmount.setDay_ago(7*i);
             int[] countTran = {
                     queryCountTransaction.getCountMobileApp(),queryCountTransaction.getCountKiosk(),
                     queryCountTransaction.getCountTmx(),queryCountTransaction.getCountPaymentGate(),
@@ -158,14 +161,14 @@ public class TMNProductController {
                     queryAmount.getAmountTopupMobile(),queryAmount.getAmountTopupGame(),
                     queryAmount.getAmountMasterCard(),queryAmount.getAmountBillPay()
             };
-            jsonArrayMoblieApp.put(new int[]{countTran[0], (int) Math.round(amount[0])});
-            jsonArrayKiosk.put(new int[]{countTran[1],(int)Math.round(amount[1])});
-            jsonArrayTmx.put(new int[]{countTran[2], (int) Math.round(amount[2])});
-            jsonArrayPaymentGate.put(new int[]{countTran[3],(int)Math.round(amount[3])});
-            jsonArrayTopupMobile.put(new int[]{countTran[4], (int) Math.round(amount[4])});
-            jsonArrayTopupGame.put(new int[]{countTran[5],(int)Math.round(amount[5])});
-            jsonArrayMasterCard.put(new int[]{countTran[6],(int)Math.round(amount[6])});
-            jsonArrayBillPay.put(new int[]{countTran[7],(int)Math.round(amount[7])});
+            jsonArrayMoblieApp.put(new int[]{(int) Math.round(amount[0]),countTran[0]});
+            jsonArrayKiosk.put(new int[]{(int)Math.round(amount[1]),countTran[1]});
+            jsonArrayTmx.put(new int[]{(int) Math.round(amount[2]),countTran[2]});
+            jsonArrayPaymentGate.put(new int[]{(int)Math.round(amount[3]),countTran[3]});
+            jsonArrayTopupMobile.put(new int[]{(int) Math.round(amount[4]),countTran[4]});
+            jsonArrayTopupGame.put(new int[]{(int)Math.round(amount[5]),countTran[5]});
+            jsonArrayMasterCard.put(new int[]{(int)Math.round(amount[6]),countTran[6]});
+            jsonArrayBillPay.put(new int[]{(int)Math.round(amount[7]),countTran[7]});
             jsonxAXIS.put(day);
         }
         jsonObject.put("MobileApp",jsonArrayMoblieApp);
@@ -178,10 +181,8 @@ public class TMNProductController {
         jsonObject.put("BillPay",jsonArrayBillPay);
         jsonObject.put("xAXIS",jsonxAXIS);
 
-
         return jsonObject.toString();
     }
-
 
     @RequestMapping(value = "/",method = RequestMethod.GET )
     public String product(ModelMap model) throws SQLException, ClassNotFoundException {

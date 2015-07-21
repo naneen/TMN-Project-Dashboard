@@ -8,7 +8,7 @@ import java.sql.Statement;
 
 @Component
 public class QueryCountTransaction {
-    private int day_ago = 1;
+    private int day_ago = 0;
     @Autowired
     private ConnectDB connectMobileApp,connectKiosk,connectTmx,connectPaymentGate,connectTopupMobile,connectTopupGame,connectMasterCard,connectBillPay;
 

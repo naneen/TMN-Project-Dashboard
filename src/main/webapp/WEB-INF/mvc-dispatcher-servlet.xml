@@ -22,6 +22,10 @@
     <bean id="connectTopupGame" class="com.springapp.mvc.model.ConnectDB"/>
     <bean id="connectMasterCard" class="com.springapp.mvc.model.ConnectDB"/>
     <bean id="connectBillPay" class="com.springapp.mvc.model.ConnectDB"/>
+    <bean id="queryCountTransaction0" class="com.springapp.mvc.model.QueryCountTransaction"/>
+    <bean id="queryCountTransaction" class="com.springapp.mvc.model.QueryCountTransaction"/>
+    <bean id="queryAmount0" class="com.springapp.mvc.model.QueryAmount"/>
+    <bean id="queryAmount" class="com.springapp.mvc.model.QueryAmount"/>
     <mvc:default-servlet-handler/>
     <mvc:annotation-driven/>
 

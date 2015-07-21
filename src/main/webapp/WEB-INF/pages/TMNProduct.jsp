@@ -95,7 +95,6 @@
                         type: 'bubble'
 
                     },
-
                     title: {
                         text: 'Bubble Size = Transaction Volume',
                         style: {"fontSize": "110%"}
@@ -110,7 +109,11 @@
                         x: 0,
                         y: 25
                     },
-
+                    tooltip: {
+                        formatter: function () {
+                            return this.series.name  + '<br>Transaction : ' + this.point.z + '<br>Amount : ' + this.y;
+                        }
+                    },
                     series: [{
                         data: json.MobileApp,
                         name: 'Moblie app',
@@ -123,11 +126,10 @@
                         data: json.Tmx,
                         name: 'TMX',
                         color: '#D91E18'
-                    },
-                        {
+                    }, {
                             data: json.PaymentGate,
                             name: 'Payment Gateway',
-                            color: '#C8F7C5'
+                            color: '#00CCFF'
                         }, {
                             data: json.TopupMobile,
                             name: 'Topup Mobile',
