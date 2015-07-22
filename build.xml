@@ -34,7 +34,7 @@
     </copy>
 
     <rpm
-        specFile="dashboard.spec"
+        specFile="Dashboard.spec"
         topDir="build"
         cleanBuildDir="false"
         removeSpec="false"
