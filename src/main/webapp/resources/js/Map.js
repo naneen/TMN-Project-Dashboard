@@ -17,6 +17,9 @@ $(function () {
                 setMarkers(map, json[i], lon, lat, ticket);
 
             }
+
+
+
         });
 
         function initialize(lon,lat) {

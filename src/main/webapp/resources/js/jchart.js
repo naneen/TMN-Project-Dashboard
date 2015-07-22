@@ -156,7 +156,7 @@
 		}
 		chart.append(legend_bottom);
 		for(var i=0;i<settings.footers.length;i++) {
-			var margin = "margin-left:"+((settings.footers[i]/chart_max)*chart_width-9).toString() + "px;";
+			var margin = "margin-left:"+((settings.footers[i]/chart_max)*chart_width-15).toString() + "px;";
 			if(settings.name.indexOf("Amount")>=0) {
 				var chart_label_bottom =
 					$("<div>", {

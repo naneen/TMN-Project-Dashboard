@@ -22,6 +22,19 @@
         <script src='${pageContext.request.contextPath}/resources/js/infobubble.js'></script>
         <script src='${pageContext.request.contextPath}/resources/js/Map.js'></script>
 
+        <script>
+            function addCommas(nStr) {
+                nStr += '';
+                x = nStr.split('.');
+                x1 = x[0];
+                x2 = x.length > 1 ? '.' + x[1] : '';
+                var rgx = /(\d+)(\d{3})/;
+                while (rgx.test(x1)) {
+                    x1 = x1.replace(rgx, '$1' + ',' + '$2');
+                }
+                return x1 + x2;
+            }
+        </script>
         <%-- deploychart --%>
         <script type="text/javascript">
             var changeDeployPerc = true;
@@ -73,7 +86,7 @@
                         actualPercent = json.percent;
                         lessPercent = 100 - actualPercent;
                         $("#actualP_inbar").html(actualPercent+"%");
-                        $("#triangleLogo-header").attr("src","${pageContext.request.contextPath}/resources/img/triangle_down.gif");
+                        $("#triangleLogo-header").attr("src","${pageContext.request.contextPath}/resources/img/down.gif");
                         $("#triangleLogo-revenue").attr("src","${pageContext.request.contextPath}/resources/img/triangle_down.gif");
                     }
                     else if(json.percent <= 200){
@@ -84,9 +97,9 @@
                     else{
                         bonusPercent = 100;
                     }
-                    $("#actualHeader").html(json.actual);
-                    $("#actual").html(json.actual);
-                    $("#target").html(json.target);
+                    $("#actualHeader").html(addCommas(json.actual));
+                    $("#actual").html(addCommas(json.actual));
+                    $("#target").html(addCommas(json.target));
                     $("#percent").html(json.percent + " %");
                     $("#actualP").attr({"aria-valuenow":actualPercent,style:"width: "+actualPercent+"%;"});
                     $("#lessP").attr({"aria-valuenow":lessPercent,style:"width: "+lessPercent+"%;"});
@@ -233,9 +246,10 @@
             <div id="headerContainer" class="container">
                 <img id="tmnLogo" src="${pageContext.request.contextPath}/resources/img/tmn_logo.png" alt="Null">
                 <%--<a id="header" href="/Dashboard/product">TMN Product Dashboard</a>--%>
-                <a id="header" href="javascript:history.back()">TMN Kiosk </a>
+                <a id="header" href="javascript:history.back()">TMN Kiosk Dashboard</a>
+                <img id="triangleLogo-header" src="${pageContext.request.contextPath}/resources/img/up.gif" alt="Null">
                 <span id="headerActual">Actual : <span id="actualHeader" style="color: mediumspringgreen"></span></span>
-                <img id="triangleLogo-header" src="${pageContext.request.contextPath}/resources/img/triangle_up.gif" alt="Null">
+                <%--<img id="triangleLogo-header" src="${pageContext.request.contextPath}/resources/img/triangle_up.gif" alt="Null">--%>
             </div>
         </nav>
 
@@ -244,10 +258,15 @@
             <%-- top4 --%>
             <div id="Q2-revenue">
                 <span class="task-item">
-                    <div style="color: red">Actual: <span style="color: #313131" id="actual"></span></div>
-                    <img id="triangleLogo-revenue" src="${pageContext.request.contextPath}/resources/img/triangle_up.gif" alt="Null">
-                    <div style="color: red">Target: <span style="color: #000000" id="target"></span></div>
+                    <div id="actualTx">Actual </div><span id="actual" class="actualAmount"></span>
+                     <img id="triangleLogo-revenue" src="${pageContext.request.contextPath}/resources/img/triangle_up2.gif" alt="Null" class="up-downArrow">
+                    <div id="targetTx">Target </div><span id="target" class="targetAmount"></span>
+
+
+
+
                     <%--<small class="pull-right text-muted" id="percent"></small>--%>
+                    <div id="revenueBar"><br>
                     <div id="color_revenuebar" class="progress progress-sm">
                         <div id="actualP" role="progressbar" aria-valuenow="0"
                              aria-valuemin="0" aria-valuemax="100"
@@ -265,8 +284,10 @@
                             <div id="bonusP_inbar"></div>
                         </div>
                     </div>
+                    </div>
                 </span>
             </div>
+
 
             <%-- top4 --%>
             <div id="Q2-top4">
@@ -312,10 +333,10 @@
 
             <%-- OFFLOAD --%>
             <div id="Q1-left">
-                <canvas id="chart-area"></canvas>
                 <div class="displayoffload">
                     <p><text id = "result2" style="color: green; font-size: 30px;"></text> OffLoad <br>As of <text id="yesterday"></text></p>
                 </div>
+                <canvas id="chart-area"></canvas>
             </div>
 
             <%-- deployment --%>
