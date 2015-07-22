@@ -34,7 +34,7 @@
     </copy>
 
     <rpm
-        specFile="Dashboard.spec"
+        specFile="prepaid-card-service.spec"
         topDir="build"
         cleanBuildDir="false"
         removeSpec="false"
