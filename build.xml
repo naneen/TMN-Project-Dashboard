@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project name="Dashboard" default="rpm" basedir=".">
 
-<property name="projectname"  value="Dashboard"/>`
+<property name="projectname"  value="Dashboard"/>
 <property name="build.dir"    value="${basedir}/build"/>
 <property name="version"      value="1"/>
 <property name="release"      value="0"/>
