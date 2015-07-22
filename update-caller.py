@@ -10,4 +10,4 @@ config.read(configurationFile)
 
 profileName = config.get('WebSphere', 'profileName')
 
-subprocess.call(["/data/IBM/WebSphere/AppServer/profiles/" + profileName + "/bin/wsadmin.sh", "-user", "wasadmin", "-password", "adminwas", "-lang", "jython", "-f", "/tmp/Dashboard/update.py"] )
+subprocess.call(["/data/IBM/WebSphere/AppServer/profiles/" + profileName + "/bin/wsadmin.sh", "-lang", "jython", "-f", "/tmp/Dashboard/update.py"] )

@@ -2,12 +2,13 @@
 This script is used to deploy application to web server, IBM WebSphere, by using wsadmin client with Jython language.
 
 Author : Saroj Sangphongamphai (saroj_san@truecorp.co.th)
-Modify : Jiraporn W
+Modify : Chayakorn P (chayakorn_pon@truecorp.co.th)
 Date created : Saturday 4th October 2014
-Last update : Friday 30th January 2015
+Last update : Wednesday 04th February 2015
 """
 
 import os
+import sys
 import shutil
 import time
 import ConfigParser
@@ -17,6 +18,7 @@ configurationFile='/tmp/Dashboard/install.ini'
 config = ConfigParser.ConfigParser()
 print('Reading configuration from ' + configurationFile)
 config.read(configurationFile)
+
 
 appName = config.get('WebSphere', 'appName')
 moduleName = config.get('WebSphere', 'moduleName')
@@ -28,26 +30,6 @@ warFile = config.get('WebSphere', 'warFile')
 artifact = config.get('WebSphere', 'artifact')
 contextroot = config.get('WebSphere', 'contextroot')
 
-"""
-The application, TWS, need to use libraries.
-4 variables below will be used together to copy, create and map the shared library.
-"""
-sourceLib = '/home/wasadmin/tws/lib'
-destLib = '/data/IBM/WebSphere/AppServer/lib/TWS_LIB'
-classPath = '${WAS_INSTALL_ROOT}/lib/TWS_LIB'
-sharedLibName = 'TWS_LIBRARIES'
-
-def copyLib(sourceLib, destLib):
-	if not os.path.exists(destLib):
-		shutil.copytree(sourceLib, destLib)
-		print '>>> Copied library from %s to %s' % (sourceLib, destLib)
-
-def createSharedLib(sharedLibName, classPath, cell):
-	if len(AdminConfig.getid('/Library:%s/' % sharedLibName)) == 0:
-		cellId = AdminConfig.getid('/Cell:%s/' % cell)
-		AdminConfig.create('Library', cellId, [['name', sharedLibName], ['classPath', classPath]])
-		print '>>> Shared library has been created'
-
 def installApp(artifact, node, cell, server, cluster):
 	print '>>> Installing application'
 	option = [
@@ -56,15 +38,15 @@ def installApp(artifact, node, cell, server, cluster):
         '-server', server,
         '-cluster', cluster,
         '-appname', appName,
-        '-MapModulesToServers', [[moduleName, warFile + ',WEB-INF/web.xml', 'WebSphere:cell=%s,cluster=%s+WebSphere:cell=%s,node=ihsnode,server=webserver1' % (cell, cluster, cell)]],
+        '-MapModulesToServers', [['.*', '.*.war,.*', 'WebSphere:cell=%s,cluster=%s+WebSphere:cell=%s,node=ihsnode,server=webserver1' % (cell, cluster, cell)]],
         '-MapWebModToVH', [[moduleName, warFile + ',WEB-INF/web.xml', 'default_host' ]],
-        '-CtxRootForWebMod', [[moduleName, warFile + ',WEB-INF/web.xml', contextroot ]],
+        '-CtxRootForWebMod', [[ moduleName, warFile + ',WEB-INF/web.xml', '/Dashboard' ]],
+        '-MapResRefToEJB', [[moduleName,'', warFile + ',WEB-INF/web.xml', 'jdbc/silog', 'javax.sql.DataSource', 'jdbc/silog', '', '', '' ]] ,
         '-createMBeansForResources',
         '-preCompileJSPs',
         '-distributeApp',
         '-nouseMetaDataFromBinary',
         '-nodeployejb',
-        '-appname', 'appName',
         '-createMBeansForResources',
         '-noreloadEnabled',
         '-nodeployws',
@@ -125,22 +107,34 @@ def updateApp(appName, artifact):
 		isAppReady = AdminApp.isAppReady(appName)
 	print '>>> Updated application'
 
+def restartApp(appServer):
+    print '>>> Restarting AppServer: ' + appServer
+    AdminControl.invoke('WebSphere:name=ApplicationManager,process=%s,platform=proxy,node=%s,version=8.0.0.7,type=ApplicationManager,mbeanIdentifier=ApplicationManager,cell=%s,spec=1.0' % (appServer, node, cell), 'stopApplication', '[%s]' % appName, '[java.lang.String]')
+    AdminControl.invoke('WebSphere:name=ApplicationManager,process=%s,platform=proxy,node=%s,version=8.0.0.7,type=ApplicationManager,mbeanIdentifier=ApplicationManager,cell=%s,spec=1.0' % (appServer, node, cell), 'startApplication', '[%s]' % appName, '[java.lang.String]')
+
 print '>>> Begin of deployment script'
 
 if isAppExists(appName):
 	print '>>> The application is exists, begin the update process'
 	
-	stopApp(appName, node, server)
+	#stopApp(appName, node, server)
 	updateApp(appName, artifact)
 	saveConfig()
 	syncNode(node)
-	startApp(appName, node, server)
+	time.sleep(10)
+
+	appServers = server.split(',')
+	for appServer in appServers:
+	    restartApp(appServer)
+
+	#startApp(appName, node, server)
 else:
 	print '>>> The application is not exists, begin the installation process'
 
 	installApp(artifact, node, cell, server, cluster)
 	saveConfig()
 	syncNode(node)
+	time.sleep(10)
 	startApp(appName, node, server)
 
 print '>>> End of deployment script'
