@@ -36,6 +36,7 @@ public class SubController {
         else{
             time += curSecs;
         }
+        
         return time;
     }
 
