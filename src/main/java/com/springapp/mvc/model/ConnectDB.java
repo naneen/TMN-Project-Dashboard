@@ -18,6 +18,5 @@ public class ConnectDB {
         String url = "jdbc:oracle:thin:@//10.224.102.10:2992/pdev";
         Class.forName("oracle.jdbc.driver.OracleDriver");
         this.connect = DriverManager.getConnection(url, username, pass);
-        
     }
 }
