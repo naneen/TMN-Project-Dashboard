@@ -2,7 +2,7 @@ import os
 import ConfigParser
 import subprocess
 
-configurationFile='/tmp/prepaid-card-service/install.ini'
+configurationFile='/tmp/dashboard/install.ini'
 
 config = ConfigParser.ConfigParser()
 print('Reading configuration from ' + configurationFile)
