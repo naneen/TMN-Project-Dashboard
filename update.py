@@ -12,7 +12,7 @@ import shutil
 import time
 import ConfigParser
 
-configurationFile='/tmp/prepaid-card-service/install.ini'
+configurationFile='/tmp/Dashboard/install.ini'
 
 config = ConfigParser.ConfigParser()
 print('Reading configuration from ' + configurationFile)
