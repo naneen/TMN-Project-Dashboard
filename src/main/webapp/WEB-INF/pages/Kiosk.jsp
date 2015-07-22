@@ -96,7 +96,8 @@
                         $("#bonusP_inbar").html(bonusPercent+"%");
                     }
                     else{
-                        $("#bonusP_inbar").html(bonusPercent+"%");
+                        bonusPercent = json.percent - 100;
+                        $("#bonusP_inbar").html(addCommas(bonusPercent)+"%");
                         bonusPercent = 100;
                     }
                     $("#actualHeader").html(addCommas(json.actual));
