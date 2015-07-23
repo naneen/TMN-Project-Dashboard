@@ -36,6 +36,7 @@ public class SubController {
         else{
             time += curSecs;
         }
+
         return time;
     }
 
@@ -53,4 +54,11 @@ public class SubController {
         return Day + " " + Month + " " + Year;
     }
 
+    @RequestMapping(value = "/year", method = RequestMethod.GET)
+    public @ResponseBody
+    int getYear(){
+        Calendar calendar = Calendar.getInstance();
+        int Year = calendar.get(Calendar.YEAR);
+        return Year;
+    }
 }

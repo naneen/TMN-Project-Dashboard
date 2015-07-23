@@ -22,6 +22,19 @@
         <script src='${pageContext.request.contextPath}/resources/js/infobubble.js'></script>
         <script src='${pageContext.request.contextPath}/resources/js/Map.js'></script>
 
+        <script>
+            function addCommas(nStr) {
+                nStr += '';
+                x = nStr.split('.');
+                x1 = x[0];
+                x2 = x.length > 1 ? '.' + x[1] : '';
+                var rgx = /(\d+)(\d{3})/;
+                while (rgx.test(x1)) {
+                    x1 = x1.replace(rgx, '$1' + ',' + '$2');
+                }
+                return x1 + x2;
+            }
+        </script>
         <%-- deploychart --%>
         <script type="text/javascript">
             var changeDeployPerc = true;
@@ -63,9 +76,11 @@
                     }
                 });
             }
-
+            var json_revenueBar_old = 0;
             function revenueBar() {
                 $.getJSON("${pageContext.request.contextPath}/revenueBar", function(json){
+                    if(json_revenueBar_old != json){
+                        json_revenueBar_old = json;
                     var actualPercent = 0;
                     var lessPercent = 0;
                     var bonusPercent = 0;
@@ -74,25 +89,28 @@
                         lessPercent = 100 - actualPercent;
                         $("#actualP_inbar").html(actualPercent+"%");
                         $("#triangleLogo-header").attr("src","${pageContext.request.contextPath}/resources/img/down.gif");
-                        $("#triangleLogo-revenue").attr("src","${pageContext.request.contextPath}/resources/img/triangle_down.gif");
+                        $("#triangleLogo-revenue").attr("src","${pageContext.request.contextPath}/resources/img/down.gif");
                     }
                     else if(json.percent <= 200){
                         actualPercent = 200 - json.percent;
                         bonusPercent = 100 - actualPercent;
                         $("#actualP_inbar").html("100%");
+                        $("#bonusP_inbar").html(bonusPercent+"%");
                     }
                     else{
+                        bonusPercent = json.percent - 100;
+                        $("#bonusP_inbar").html(addCommas(bonusPercent)+"%");
                         bonusPercent = 100;
                     }
-                    $("#actualHeader").html(json.actual);
-                    $("#actual").html(json.actual);
-                    $("#target").html(json.target);
+                    $("#actualHeader").html(addCommas(json.actual));
+                    $("#actual").html(addCommas(json.actual));
+                    $("#target").html(addCommas(json.target));
                     $("#percent").html(json.percent + " %");
                     $("#actualP").attr({"aria-valuenow":actualPercent,style:"width: "+actualPercent+"%;"});
                     $("#lessP").attr({"aria-valuenow":lessPercent,style:"width: "+lessPercent+"%;"});
                     $("#bonusP").attr({"aria-valuenow":bonusPercent,style:"width: "+bonusPercent+"%;"});
                     $("#lessP_inbar").html(lessPercent+"%");
-                    $("#bonusP_inbar").html(bonusPercent+"%");
+                }
                 });
             }
 
@@ -124,30 +142,6 @@
                     $("#yesterday").text(data);
                 });
             }
-
-            function getCorrectTime() {
-                $.ajax({
-                    url : "${pageContext.request.contextPath}/getCorrectTime" , success : function(data) {
-                        if(data == "00:00:00"){
-                            alert("AAA");
-                            top4();
-                            pieCHART();
-                            revenueBar();
-                            getBillTopup();
-                            dateYesterDay();
-                        }
-                        deployChartGetValue();
-                        if(changeDeployPerc) {
-                            drawDonutChart();
-                        }
-                        else if(!changeDeployDonut){
-                            drawDonutChart();
-                            changeDeployDonut = true;
-                        }
-                    }
-                });
-            }
-            setInterval(getCorrectTime,1000);
 
             function getBillTopup() {
                 $.getJSON("${pageContext.request.contextPath}/bill_topup_chart", function (rootJSON){
@@ -205,6 +199,29 @@
                 });
             }
 
+            function getCorrectTime() {
+                $.ajax({
+                    url : "${pageContext.request.contextPath}/getCorrectTime" , success : function(data) {
+                        if(data == "00:00:00"){
+                            top4();
+                            pieCHART();
+                            getBillTopup();
+                            dateYesterDay();
+                        }
+                        deployChartGetValue();
+                        if(changeDeployPerc) {
+                            drawDonutChart();
+                        }
+                        else if(!changeDeployDonut){
+                            drawDonutChart();
+                            changeDeployDonut = true;
+                        }
+                        revenueBar();
+                    }
+                });
+            }
+            setInterval(getCorrectTime,1000);
+
             window.onload = function () {
                 getBillTopup();
                 pieCHART();
@@ -246,7 +263,7 @@
             <div id="Q2-revenue">
                 <span class="task-item">
                     <div id="actualTx">Actual </div><span id="actual" class="actualAmount"></span>
-                     <img id="triangleLogo-revenue" src="${pageContext.request.contextPath}/resources/img/triangle_up2.gif" alt="Null" class="up-downArrow">
+                     <img id="triangleLogo-revenue" src="${pageContext.request.contextPath}/resources/img/up.gif" alt="Null" class="up-downArrow">
                     <div id="targetTx">Target </div><span id="target" class="targetAmount"></span>
 
 
