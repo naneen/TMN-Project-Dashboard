@@ -146,6 +146,7 @@ public class KioskController {
         int countBillTRM = queryPieChart.getCountBillTRM();
         int avgOffset = getPercent(countBillKisok, countBillKisok + countBillTRM);
         return Integer.toString(avgOffset);
+
     }
 
 
