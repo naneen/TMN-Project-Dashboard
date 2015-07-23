@@ -89,7 +89,7 @@
                         lessPercent = 100 - actualPercent;
                         $("#actualP_inbar").html(actualPercent+"%");
                         $("#triangleLogo-header").attr("src","${pageContext.request.contextPath}/resources/img/down.gif");
-                        $("#triangleLogo-revenue").attr("src","${pageContext.request.contextPath}/resources/img/triangle_down.gif");
+                        $("#triangleLogo-revenue").attr("src","${pageContext.request.contextPath}/resources/img/down.gif");
                     }
                     else if(json.percent <= 200){
                         actualPercent = 200 - json.percent;
@@ -263,7 +263,7 @@
             <div id="Q2-revenue">
                 <span class="task-item">
                     <div id="actualTx">Actual </div><span id="actual" class="actualAmount"></span>
-                     <img id="triangleLogo-revenue" src="${pageContext.request.contextPath}/resources/img/triangle_up2.gif" alt="Null" class="up-downArrow">
+                     <img id="triangleLogo-revenue" src="${pageContext.request.contextPath}/resources/img/up.gif" alt="Null" class="up-downArrow">
                     <div id="targetTx">Target </div><span id="target" class="targetAmount"></span>
 
 

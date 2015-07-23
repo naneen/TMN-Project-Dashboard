@@ -352,7 +352,7 @@
     /*margin-top: 15%;*/
     position: absolute;
     top:17%;
-    left: 20%;
+    left: 15%;
     color: #38b44a;
     font-size: 300%;
 }
@@ -369,7 +369,7 @@
 .targetAmount{
     position: absolute;
     top:55%;
-    left: 20%;
+    left: 15%;
     /*float: left;*/
     /*margin-top: 10%;*/
     color: red;
@@ -382,7 +382,7 @@
     position: absolute;
     left:82%;
     top:23%;
-    width: 12%;
+    width: 10%;
 }
 #revenueBar{
 position: absolute;

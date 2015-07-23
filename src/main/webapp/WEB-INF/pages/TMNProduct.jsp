@@ -9,6 +9,7 @@
     <link type="text/css" rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/bootstrap.min.css">
     <link href='${pageContext.request.contextPath}/resources/css/Bubble.css' rel="stylesheet">
     <link href='${pageContext.request.contextPath}/resources/css/ProductTable.css' rel="stylesheet">
+    <link href='${pageContext.request.contextPath}/resources/css/TempProduct.css' rel="stylesheet">
 
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
     <script type="text/javascript" src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
@@ -277,6 +278,13 @@
             });
         }
     </script>
+    <script>
+    function getYear() {
+        $.get("${pageContext.request.contextPath}/year", function(data){
+        $("#thisYear").text(data);
+        });
+    }
+    </script>
 
     <script>
         function barGraph() {
@@ -382,6 +390,7 @@
         }
     </script>
 
+
     <script>
         function getCorrectTime() {
             $.ajax({
@@ -403,11 +412,20 @@
             tranTMNProduct();
             barGraph();
             getCorrectTime();
+            getYear();
         };
     </script>
 </head>
 <body>
+<nav class="navbar navbar-default navbar-fixed-top">
+    <div id="headerContainer" class="container">
+        <img id="tmnLogo" src="${pageContext.request.contextPath}/resources/img/tmn_logo.png" alt="Null">
+        <a id="header">TMN Product Dashboard<text id="thisYear"></text></a>
+        <%--<img id="triangleLogo-header" src="${pageContext.request.contextPath}/resources/img/triangle_up.gif" alt="Null">--%>
+    </div>
+</nav>
 
+<div id="allContents">
 
 <div id="div1Pie">
 
@@ -590,6 +608,8 @@
 <div id="divBarAmount">
     <div id="divallBarAmount"><div id="textdivBarAmount"><b>Amount Bar Graph</b></div></div>
     <div id="containerBarAmount" style="width: 100%; height: 90%; margin: 0 auto"></div>
+</div>
+
 </div>
 
 </body>
