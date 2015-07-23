@@ -93,11 +93,8 @@
                         actualPercent = 200 - json.percent;
                         bonusPercent = 100 - actualPercent;
                         $("#actualP_inbar").html("100%");
-                        $("#bonusP_inbar").html(bonusPercent+"%");
                     }
                     else{
-                        bonusPercent = json.percent - 100;
-                        $("#bonusP_inbar").html(addCommas(bonusPercent)+"%");
                         bonusPercent = 100;
                     }
                     $("#actualHeader").html(addCommas(json.actual));
@@ -108,6 +105,7 @@
                     $("#lessP").attr({"aria-valuenow":lessPercent,style:"width: "+lessPercent+"%;"});
                     $("#bonusP").attr({"aria-valuenow":bonusPercent,style:"width: "+bonusPercent+"%;"});
                     $("#lessP_inbar").html(lessPercent+"%");
+                    $("#bonusP_inbar").html(bonusPercent+"%");
                 });
             }
 

@@ -140,7 +140,7 @@
                     }, {
                         data: json.PaymentGate,
                         name: 'Payment Gateway',
-                        color: '#FFFF00'
+                        color : '#008000'
 //                        color: '#00CCFF'
                     }, {
                         data: json.TopupMobile,

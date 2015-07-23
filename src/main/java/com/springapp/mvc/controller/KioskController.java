@@ -111,6 +111,8 @@ public class KioskController {
         rootJSON.put("bill", bill);
         rootJSON.put("topup", topup);
 
+
+
         return rootJSON.toString() ;
     }
 
@@ -146,7 +148,6 @@ public class KioskController {
         int countBillTRM = queryPieChart.getCountBillTRM();
         int avgOffset = getPercent(countBillKisok, countBillKisok + countBillTRM);
         return Integer.toString(avgOffset);
-
     }
 
 
