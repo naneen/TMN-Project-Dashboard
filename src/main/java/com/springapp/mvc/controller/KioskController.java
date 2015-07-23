@@ -111,8 +111,6 @@ public class KioskController {
         rootJSON.put("bill", bill);
         rootJSON.put("topup", topup);
 
-
-
         return rootJSON.toString() ;
     }
 
