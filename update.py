@@ -74,7 +74,6 @@ def installApp(artifact, node, cell, server, cluster):
         '-distributeApp',
         '-nouseMetaDataFromBinary',
         '-nodeployejb',
-        '-appname', 'appName',
         '-createMBeansForResources',
         '-noreloadEnabled',
         '-nodeployws',
