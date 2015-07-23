@@ -14,9 +14,9 @@ import java.util.Calendar;
 @Component
 public class QueryBarGraph {
     @Autowired
-    private QueryCountTransaction queryCountTransaction;
+    private QueryCountTransaction queryCountTransaction0;
     @Autowired
-    private  QueryAmount queryAmount;
+    private  QueryAmount queryAmount0;
 
     public void tranBar(ModelMap model) throws SQLException {
         String month_name = null;
@@ -34,26 +34,27 @@ public class QueryBarGraph {
             case 10: month_name = "November"; break;
             case 11: month_name = "December"; break;
         }
-
+        queryCountTransaction0.setDay_ago(0);
         model.addAttribute("month", month_name);
-        model.addAttribute("mobileAppTran", queryCountTransaction.getCountMobileApp());
-        model.addAttribute("kioskTran", queryCountTransaction.getCountKiosk());
-        model.addAttribute("tmxTran", queryCountTransaction.getCountTmx());
-        model.addAttribute("paymentGatewayTran", queryCountTransaction.getCountPaymentGate());
-        model.addAttribute("TopUpMobileTran", queryCountTransaction.getCountTopupMobile());
-        model.addAttribute("TopUpGameTran", queryCountTransaction.getCountTopupGame());
-        model.addAttribute("masterCardTran", queryCountTransaction.getCountMasterCard());
-        model.addAttribute("billPayTran", queryCountTransaction.getCountBillPay());
+        model.addAttribute("mobileAppTran", queryCountTransaction0.getCountMobileApp());
+        model.addAttribute("kioskTran", queryCountTransaction0.getCountKiosk());
+        model.addAttribute("tmxTran", queryCountTransaction0.getCountTmx());
+        model.addAttribute("paymentGatewayTran", queryCountTransaction0.getCountPaymentGate());
+        model.addAttribute("TopUpMobileTran", queryCountTransaction0.getCountTopupMobile());
+        model.addAttribute("TopUpGameTran", queryCountTransaction0.getCountTopupGame());
+        model.addAttribute("masterCardTran", queryCountTransaction0.getCountMasterCard());
+        model.addAttribute("billPayTran", queryCountTransaction0.getCountBillPay());
     }
 
     public void amountBar(ModelMap model) throws SQLException {
-        model.addAttribute("mobileAppAmount", queryAmount.getAmountMobileApp()/1000);
-        model.addAttribute("kioskAmount", queryAmount.getAmountKiosk()/1000);
-        model.addAttribute("tmxAmount", queryAmount.getAmountTmx()/1000);
-        model.addAttribute("paymentGatewayAmount", queryAmount.getAmountPaymentGate()/1000);
-        model.addAttribute("TopUpMobileAmount",  queryAmount.getAmountTopupMobile()/1000);
-        model.addAttribute("TopUpGameAmount", queryAmount.getAmountTopupGame()/1000);
-        model.addAttribute("masterCardAmount", queryAmount.getAmountMasterCard()/1000);
-        model.addAttribute("billPayAmount", queryAmount.getAmountBillPay()/1000);
+        queryAmount0.setDay_ago(0);
+        model.addAttribute("mobileAppAmount", queryAmount0.getAmountMobileApp()/1000);
+        model.addAttribute("kioskAmount", queryAmount0.getAmountKiosk()/1000);
+        model.addAttribute("tmxAmount", queryAmount0.getAmountTmx()/1000);
+        model.addAttribute("paymentGatewayAmount", queryAmount0.getAmountPaymentGate()/1000);
+        model.addAttribute("TopUpMobileAmount",  queryAmount0.getAmountTopupMobile()/1000);
+        model.addAttribute("TopUpGameAmount", queryAmount0.getAmountTopupGame()/1000);
+        model.addAttribute("masterCardAmount", queryAmount0.getAmountMasterCard()/1000);
+        model.addAttribute("billPayAmount", queryAmount0.getAmountBillPay()/1000);
     }
 }

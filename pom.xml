@@ -33,8 +33,8 @@
 
         <dependency>
             <groupId>javax.servlet</groupId>
-            <artifactId>servlet-api</artifactId>
-            <version>2.5</version>
+            <artifactId>javax.servlet-api</artifactId>
+            <version>3.1.0</version>
         </dependency>
 
         <dependency>
@@ -112,12 +112,11 @@
                 <configuration>
                     <connectors>
                         <connector implementation="org.mortbay.jetty.nio.SelectChannelConnector">
-                            <port>9000</port>
+                            <port>8000</port>
                         </connector>
                     </connectors>
                 </configuration>
             </plugin>
         </plugins>
     </build>
-
 </project>
