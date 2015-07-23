@@ -27,7 +27,17 @@ server = config.get('WebSphere', 'server')
 warFile = config.get('WebSphere', 'warFile')
 artifact = config.get('WebSphere', 'artifact')
 contextroot = config.get('WebSphere', 'contextroot')
-
+""""""""
+print('appName : ' + appName)
+print('moduleName : ' + moduleName)
+print('node : ' + node)
+print('cell : ' + cell)
+print('cluster : ' + cluster)
+print('server : ' + server)
+print('warFile : ' + warFile)
+print('artifact : ' + artifact)
+print('contextroot : ' + contextroot)
+""""""""
 """
 The application, TWS, need to use libraries.
 4 variables below will be used together to copy, create and map the shared library.
