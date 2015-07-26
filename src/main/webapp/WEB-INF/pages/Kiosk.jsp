@@ -84,24 +84,44 @@
                     var actualPercent = 0;
                     var lessPercent = 0;
                     var bonusPercent = 0;
-                    if(json.percent <= 100){
+                    if(json.actual < json.target){
                         actualPercent = json.percent;
                         lessPercent = 100 - actualPercent;
                         $("#actualP_inbar").html(actualPercent+"%");
                         $("#triangleLogo-header").attr("src","${pageContext.request.contextPath}/resources/img/down.gif");
                         $("#triangleLogo-revenue").attr("src","${pageContext.request.contextPath}/resources/img/down.gif");
+                        $("#actual").attr("style","color: #FF0000;");
+                        $("#actualHeader").attr("style","color: #ff2020;");
+
                     }
-                    else if(json.percent <= 200){
-                        actualPercent = 200 - json.percent;
-                        bonusPercent = 100 - actualPercent;
-                        $("#actualP_inbar").html("100%");
-                        $("#bonusP_inbar").html(bonusPercent+"%");
+                    else if(json.actual == json.target){
+                        actualPercent = json.percent;
+                        lessPercent = 100 - actualPercent;
+                        $("#actualP_inbar").html(actualPercent+"%");
+                        $("#triangleLogo-header").attr("src","${pageContext.request.contextPath}/resources/img/equal.gif");
+                        $("#triangleLogo-revenue").attr("src","${pageContext.request.contextPath}/resources/img/equal.gif");
+                        $("#actual").attr("style","color: #4edf41;");
+                        $("#actualHeader").attr("style","color: #00FA9A;");
+
                     }
-                    else{
-                        bonusPercent = json.percent - 100;
-                        $("#bonusP_inbar").html(addCommas(bonusPercent)+"%");
-                        bonusPercent = 100;
+                    else if(json.actual > json.target){
+                        if(json.percent <= 200){
+                            actualPercent = 200 - json.percent;
+                            bonusPercent = 100 - actualPercent;
+                            $("#actualP_inbar").html("100%");
+                            $("#bonusP_inbar").html(bonusPercent+"%");
+                        }
+                        else{
+                            bonusPercent = json.percent - 100;
+                            $("#bonusP_inbar").html(addCommas(bonusPercent)+"%");
+                            bonusPercent = 100;
+                        }
+                        $("#triangleLogo-header").attr("src","${pageContext.request.contextPath}/resources/img/up.gif");
+                        $("#triangleLogo-revenue").attr("src","${pageContext.request.contextPath}/resources/img/up.gif");
+                        $("#actual").attr("style","color: #25acf4;");
+                        $("#actualHeader").attr("style","color: #00ffff;");
                     }
+
                     $("#actualHeader").html(addCommas(json.actual));
                     $("#actual").html(addCommas(json.actual));
                     $("#target").html(addCommas(json.target));
@@ -249,11 +269,9 @@
         <nav class="navbar navbar-default navbar-fixed-top">
             <div id="headerContainer" class="container">
                 <img id="tmnLogo" src="${pageContext.request.contextPath}/resources/img/tmn_logo.png" alt="Null">
-                <%--<a id="header" href="/Dashboard/product">TMN Product Dashboard</a>--%>
                 <a id="header" href="javascript:history.back()">TMN Kiosk Dashboard</a>
                 <img id="triangleLogo-header" src="${pageContext.request.contextPath}/resources/img/up.gif" alt="Null">
                 <span id="headerActual">Actual : <span id="actualHeader" style="color: mediumspringgreen"></span></span>
-                <%--<img id="triangleLogo-header" src="${pageContext.request.contextPath}/resources/img/triangle_up.gif" alt="Null">--%>
             </div>
         </nav>
 
@@ -262,9 +280,11 @@
             <%-- top4 --%>
             <div id="Q2-revenue">
                 <span class="task-item">
-                    <div id="actualTx">Actual </div><span id="actual" class="actualAmount"></span>
+                    <div id="actualTx">Actual </div>
+                    <span id="actual" class="actualAmount"></span>
                      <img id="triangleLogo-revenue" src="${pageContext.request.contextPath}/resources/img/up.gif" alt="Null" class="up-downArrow">
-                    <div id="targetTx">Target </div><span id="target" class="targetAmount"></span>
+                    <div id="targetTx">Target </div>
+                    <span id="target" class="targetAmount"></span>
 
 
 
@@ -338,7 +358,7 @@
             <%-- OFFLOAD --%>
             <div id="Q1-left">
                 <div class="displayoffload">
-                    <p><text id = "result2" style="color: green; font-size: 30px;"></text> OffLoad <br>As of <text id="yesterday"></text></p>
+                    <p><text id = "result2" style="color: #00FA9A; font-size: 30px;"></text> OffLoad <br>As of <text id="yesterday"></text></p>
                 </div>
                 <canvas id="chart-area"></canvas>
             </div>

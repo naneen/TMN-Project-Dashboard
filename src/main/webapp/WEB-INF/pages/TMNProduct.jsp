@@ -162,7 +162,6 @@
                     exporting: {
                         buttons: [
                             {
-
                                 enabled:false,
 
                                 symbol: false
@@ -181,16 +180,6 @@
 
     <script src="${pageContext.request.contextPath}/resources/js/run_prettify.js"></script>
     <script src="${pageContext.request.contextPath}/resources/js/jchart.js"></script>
-
-
-    <%--<script>--%>
-    <%--$(document).ready(function () {--%>
-    <%--$("#transaction_chart").jChart({x_label: "Transaction"});--%>
-    <%--$("#transaction_chart2").jChart({x_label: "Amount"});--%>
-    <%--$("#colors_chart").jChart();--%>
-
-    <%--});--%>
-    <%--</script>--%>
 
     <script>
         function pieTransaction() {
@@ -278,6 +267,7 @@
             });
         }
     </script>
+
     <script>
     function getYear() {
         $.get("${pageContext.request.contextPath}/year", function(data){
@@ -321,6 +311,7 @@
                         data: json.countTran
                     }],
                     tooltip: {
+                        shared : true,
                         formatter: function () {
                             return 'Product : '+ this.x + '<br>Transaction : ' + addCommas(this.y);
                         }

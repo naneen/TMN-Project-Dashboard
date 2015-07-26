@@ -164,7 +164,7 @@
 #Q1-left{
     float: left;
     position: relative;
-    background: #C6C6C6;
+    background: rgb(244, 244, 244);
     width: 16.625%;
     /*width: 34.75%;*/
     height: 47.5%;
