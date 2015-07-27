@@ -23,6 +23,13 @@
         <script src='${pageContext.request.contextPath}/resources/js/Map.js'></script>
 
         <script>
+
+            function getYear(){
+                var date = new Date();
+                var year = date.getFullYear();
+                $("#year").html(year);
+            }
+
             function addCommas(nStr) {
                 nStr += '';
                 x = nStr.split('.');
@@ -227,6 +234,7 @@
                             pieCHART();
                             getBillTopup();
                             dateYesterDay();
+                            getYear();
                         }
                         deployChartGetValue();
                         if(changeDeployPerc) {
@@ -250,6 +258,7 @@
                 deployChartGetValue();
                 getCorrectTime();
                 dateYesterDay();
+                getYear();
             };
 
         </script>
@@ -269,7 +278,7 @@
         <nav class="navbar navbar-default navbar-fixed-top">
             <div id="headerContainer" class="container">
                 <img id="tmnLogo" src="${pageContext.request.contextPath}/resources/img/tmn_logo.png" alt="Null">
-                <a id="header" href="javascript:history.back()">TMN Kiosk Dashboard</a>
+                <a id="header" href="javascript:history.back()">TMN Kiosk Dashboard <span id="year"></span></a>
                 <img id="triangleLogo-header" src="${pageContext.request.contextPath}/resources/img/up.gif" alt="Null">
                 <span id="headerActual">Actual : <span id="actualHeader" style="color: mediumspringgreen"></span></span>
             </div>

@@ -18,6 +18,11 @@
     <script src="${pageContext.request.contextPath}/resources/js/bootstrap.min.js"></script>
 
     <script>
+        function getYear(){
+            var date = new Date();
+            var year = date.getFullYear();
+            $("#year").html(year);
+        }
         function addCommas(nStr) {
             nStr += '';
             x = nStr.split('.');
@@ -269,14 +274,6 @@
     </script>
 
     <script>
-    function getYear() {
-        $.get("${pageContext.request.contextPath}/year", function(data){
-        $("#thisYear").text(data);
-        });
-    }
-    </script>
-
-    <script>
         function barGraph() {
 
             $.getJSON("${pageContext.request.contextPath}/barGraph", function (json) {
@@ -411,7 +408,7 @@
 <nav class="navbar navbar-default navbar-fixed-top">
     <div id="headerContainer" class="container">
         <img id="tmnLogo" src="${pageContext.request.contextPath}/resources/img/tmn_logo.png" alt="Null">
-        <a id="header">TMN Product Dashboard<text id="thisYear"></text></a>
+        <a id="header">TMN Product Dashboard <span id="year"></span></a>
         <%--<img id="triangleLogo-header" src="${pageContext.request.contextPath}/resources/img/triangle_up.gif" alt="Null">--%>
     </div>
 </nav>
