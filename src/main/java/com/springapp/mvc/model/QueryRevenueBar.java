@@ -16,10 +16,13 @@ public class QueryRevenueBar {
         ResultSet resultSet;
         Statement state;
         state = connectKiosk.getConnect().createStatement();
-        resultSet = state.executeQuery("select sum(AMOUNT) as ACTUAL " +
-                "                from TR_PAY_MULTIBILL t1,TR_PAY_DETAIL_MULTIBILL t2 " +
-                "                where t1.TRANS_ID = t2.TRANS_ID " +
-                "                and t1.PAYMENT_DATETIME between to_date('01/01/2015 00:00:00', 'dd/MM/yyyy hh24:mi:ss') and SYSDATE");
+//        resultSet = state.executeQuery("select sum(AMOUNT) as ACTUAL " +
+//                "                from TR_PAY_MULTIBILL t1,TR_PAY_DETAIL_MULTIBILL t2 " +
+//                "                where t1.TRANS_ID = t2.TRANS_ID " +
+//                "                and t1.PAYMENT_DATETIME between to_date('01/01/2015 00:00:00', 'dd/MM/yyyy hh24:mi:ss') and SYSDATE");
+        resultSet = state.executeQuery("select sum(amount)as ACTUAL from(select DISTINCT(a.trans_id),b.amount " +
+                "from TR_PAY_MULTIBILL a,TR_PAY_DETAIL_MULTIBILL b where a.trans_id = b.trans_id and a.PAYMENT_DATETIME between to_date('01/01/2015', 'dd/MM/yyyy') " +
+                "and SYSDATE)");
         resultSet.next();
         int ans = resultSet.getInt("ACTUAL");
         resultSet.close();
